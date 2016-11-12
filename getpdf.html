@@ -11,19 +11,21 @@
         }
         div.icon img {
             height: 16px;
-            margin-bottom: 5px;
         }
-
+        div.label {
+            margin-top: 5px;
+        }
 
         /* loading */
         body.loading {
-            background-color:rgba(0, 0, 0, 0.2);
+            background-color:rgba(0, 0, 0, 0.1);
             cursor: default;
+            opacity: .8;
         }
         body.loading img.pdf {
             display: none;
         }
-        body.loading img.loading {
+        body.loading .loading-icon {
             display: inline-block;
         }
 
@@ -36,20 +38,13 @@
         body.success img.pdf {
             display: inline-block;
         }
-        body.success img.loading {
+        body.success .loading-icon {
             display: none;
         }
 
 
         /* failure :( */
         body.failure {
-            background-color:rgba(0, 0, 0, 0.2);
-            color: #ddd;
-        }
-        body.failure img.pdf {
-            display: inline-block;
-        }
-        body.failure img.loading {
             display: none;
         }
 
@@ -59,7 +54,10 @@
 </head>
 <body class="loading">
     <div class="icon">
-        <img class="loading" src="/img/hourglass.png" alt="">
+        <!--<img class="loading" src="/img/spinner.gif" alt="">-->
+        <span class="loading-icon">
+            <svg width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="40" stroke-dasharray="163.36281798666926 87.9645943005142" stroke="#ffffff" fill="none" stroke-width="20"><animateTransform attributeName="transform" type="rotate" values="0 50 50;180 50 50;360 50 50;" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite" begin="0s"></animateTransform></circle></svg>
+        </span>
         <img class="pdf" src="img/pdf.png" alt="">
     </div>
     <div class="label">

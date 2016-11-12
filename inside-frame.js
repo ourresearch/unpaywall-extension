@@ -4,23 +4,22 @@ var devLog = function(str, obj){
         console.log("getpdf: " + str, obj)
     }
 }
-devLog("i am running inside the frame!")
 
 window.addEventListener("message", receiveMessage, false);
 function receiveMessage(msg){
-    if (msg.data.getpdf == "finished"){
-        devLog("finished")
-        $("body").addClass("finished").removeClass("loading")
-    }
-    else if  (msg.data.getpdf == "success"){
+    if  (msg.data.getpdf == "success"){
         devLog("success")
-        $("body").addClass("success")
-
+        $("body")
+            .addClass("success")
+            .addClass("finished")
+            .removeClass("loading")
+            .click(function(){
+                devLog("click!", msg.data.getpdf.url)
+                parent.postMessage({
+                    getpdf: "go-to-pdf"
+                }, "*")
+            })
     }
-    else if (msg.data.getpdf == "failure"){
-        devLog("failure")
-        $("body").addClass("failure")
 
-    }
 
 }

@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8da66482-1a9f-4da4-9e3e-4740e2f81d2a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/hourglass.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/hourglass.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/pdf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/pdf.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getpdf.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getpdf.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/getpdf.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inside-frame.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery-3.1.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/getPDF.js" afterPath="$PROJECT_DIR$/getpdf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manifest.json" afterPath="$PROJECT_DIR$/manifest.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/spinner.gif" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/getPDF.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getpdf.html" afterPath="$PROJECT_DIR$/getpdf.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inside-frame.js" afterPath="$PROJECT_DIR$/inside-frame.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="getpdf.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +26,7 @@
     <favorites_list name="getpdf" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.45208845">
+    <splitter split-orientation="horizontal" split-proportion="0.4965181">
       <split-first>
         <leaf>
           <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
@@ -69,8 +58,8 @@
           <file leaf-file-name="getpdf.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/getpdf.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3836317">
-                  <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.5179028">
+                  <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -80,7 +69,7 @@
             <entry file="file://$PROJECT_DIR$/inside-frame.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+                  <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -90,20 +79,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="getpdf.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/getpdf.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5024814">
-                  <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="getpdf.css" pinned="false" current-in-tab="false">
+          <file leaf-file-name="getpdf.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/getpdf.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state vertical-scroll-proportion="0.20471464">
                   <caret line="11" column="26" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
                   <folding />
                 </state>
@@ -233,8 +212,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -449,7 +428,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1436" height="877" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297362" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -488,7 +467,8 @@
     <MESSAGE value="first commit." />
     <MESSAGE value="runs in Chrome yay" />
     <MESSAGE value="uses iframes." />
-    <option name="LAST_COMMIT_MESSAGE" value="uses iframes." />
+    <MESSAGE value="link works. no 'no-pdf' message." />
+    <option name="LAST_COMMIT_MESSAGE" value="link works. no 'no-pdf' message." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -523,7 +503,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/getpdf.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.20471464">
           <caret line="11" column="26" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
@@ -540,23 +520,15 @@
     <entry file="file://$PROJECT_DIR$/inside-frame.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getpdf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5024814">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getpdf.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3836317">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.5179028">
+          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
           <folding />
         </state>
       </provider>

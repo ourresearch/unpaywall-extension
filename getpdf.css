@@ -1,0 +1,22 @@
+#getpdf-button {
+    position: fixed;
+    top: 33%;
+    right: 0;
+    height: 100px;
+    width: 100px;
+    background: red;
+    z-index: 99999999999;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-family:  "Helvetica", "Arial", "sans-serif";
+    font-weight: normal;
+}
+
+/*#getpdf-button #getpdf-loading-img{*/
+    /*display: none;*/
+/*}*/
+
+#getpdf-button.getpdf-loading #getpdf-loading-img{
+    display: block;
+}

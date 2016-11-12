@@ -1,0 +1,72 @@
+<html>
+<head>
+    <style>
+        body {
+            background: #888;
+            color: #fff;
+            cursor:default;
+            font-size: 8px;
+            font-family:  "Helvetica", "Arial", "sans-serif";
+            text-align: center;
+        }
+        div.icon img {
+            height: 16px;
+            margin-bottom: 5px;
+        }
+
+
+        /* loading */
+        body.loading {
+            background-color:rgba(0, 0, 0, 0.2);
+            cursor: default;
+        }
+        body.loading img.pdf {
+            display: none;
+        }
+        body.loading img.loading {
+            display: inline-block;
+        }
+
+
+        /* success! */
+        body.success {
+            background: red;
+            cursor: pointer;
+        }
+        body.success img.pdf {
+            display: inline-block;
+        }
+        body.success img.loading {
+            display: none;
+        }
+
+
+        /* failure :( */
+        body.failure {
+            background-color:rgba(0, 0, 0, 0.2);
+            color: #ddd;
+        }
+        body.failure img.pdf {
+            display: inline-block;
+        }
+        body.failure img.loading {
+            display: none;
+        }
+
+
+
+    </style>
+</head>
+<body class="loading">
+    <div class="icon">
+        <img class="loading" src="/img/hourglass.png" alt="">
+        <img class="pdf" src="img/pdf.png" alt="">
+    </div>
+    <div class="label">
+        PDF
+    </div>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="inside-frame.js"></script>
+</body>
+</html>

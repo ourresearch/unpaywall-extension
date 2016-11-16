@@ -1,4 +1,4 @@
-#getpdf-button {
+#unpaywall-button {
     position: fixed;
     top: 33%;
     right: 0;
@@ -13,10 +13,10 @@
     font-weight: normal;
 }
 
-/*#getpdf-button #getpdf-loading-img{*/
+/*#unpaywall-button #unpaywall-loading-img{*/
     /*display: none;*/
 /*}*/
 
-#getpdf-button.getpdf-loading #getpdf-loading-img{
+#unpaywall-button.unpaywall-loading #unpaywall-loading-img {
     display: block;
 }

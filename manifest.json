@@ -1,7 +1,7 @@
 {
-  "name": "GetPDF",
+  "name": "UnPaywall",
   "version": "0.0.1",
-  "version_name": "GetPDF 0.0.1",
+  "version_name": "UnPaywall 1.0.1",
   "manifest_version": 2,
   "description": "Get a link to a free PDF when you view scholarly articles.",
   "icons": {
@@ -14,7 +14,7 @@
       ],
       "js": [
         "js/jquery-3.1.1.min.js",
-        "getpdf.js"
+        "unpaywall.js"
       ]
     }
   ],
@@ -24,7 +24,7 @@
   ],
   "web_accessible_resources": [
       "/img/",
-      "getpdf.html",
+      "unpaywall.html",
       "inside-frame.js"
   ]
 }

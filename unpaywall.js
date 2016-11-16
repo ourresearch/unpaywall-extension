@@ -1,4 +1,4 @@
-console.log("i am the getPDF main extension.")
+console.log("i am the unpaywall main extension.")
 
 var devMode = true;
 
@@ -14,14 +14,14 @@ var doiMetaNames = [
 
 var devLog = function(str, obj){
     if (devMode){
-        console.log("getpdf: " + str, obj)
+        console.log("unpaywall: " + str, obj)
     }
 }
 
 
 function createIframe(){
     var iframe = document.createElement('iframe');
-    iframe.src = chrome.extension.getURL('getpdf.html');
+    iframe.src = chrome.extension.getURL('unpaywall.html');
 
     // styles
     iframe.style.height = "45px";
@@ -33,7 +33,7 @@ function createIframe(){
     iframe.style.border = '0';
     iframe.style.zIndex = '9999999999';
     iframe.style.display = 'none;'
-    iframe.id = "getpdf";
+    iframe.id = "unpaywall";
 
     //bodyStyle = document.body.style;
     //cssTransform = 'transform' in bodyStyle ? 'transform' : 'webkitTransform';
@@ -100,20 +100,20 @@ var loadIframe = function(myIframe){
                 // we can't modify the iframe, so send the good news
                 // down as a message
                 myIframe.contentWindow.postMessage({
-                    getpdf: "success"
+                    unpaywall: "success"
                 }, "*")
 
                 // we can't tell when someone clicks on the iframe,
                 // so we have to listen to message sent from it.
                 window.addEventListener("message", function(msg){
-                    if (msg.data.getpdf == "go-to-pdf"){
+                    if (msg.data.unpaywall == "go-to-pdf"){
                         devLog("go to pdf", resp.free_fulltext_url)
                         window.location = resp.free_fulltext_url
                     }
                 }, false);
             }
             else {
-                $("#getpdf").fadeOut()
+                $("#unpaywall").fadeOut()
             }
         })
     }

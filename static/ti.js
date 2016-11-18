@@ -285,6 +285,9 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "    <div class=\"top-screen\" layout=\"row\" layout-align=\"center center\">\n" +
     "        <div class=\"content\">\n" +
     "            <img src=\"static/img/logo.png\" alt=\"\">\n" +
+    "            <div class=\"tagline\">\n" +
+    "                Get links to open-access fulltext when you view paywalled research.\n" +
+    "            </div>\n" +
     "\n" +
     "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
     "               class=\"main-button\">\n" +

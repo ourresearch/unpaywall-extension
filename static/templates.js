@@ -5,7 +5,13 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "<div class=\"page landing\">\n" +
     "    <div class=\"top-screen\" layout=\"row\" layout-align=\"center center\">\n" +
     "        <div class=\"content\">\n" +
-    "            <h1>Hello there, world!</h1>\n" +
+    "            <img src=\"static/img/logo.png\" alt=\"\">\n" +
+    "\n" +
+    "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
+    "               class=\"main-button\">\n" +
+    "                <i class=\"fa fa-chrome\"></i>\n" +
+    "                Install it free\n" +
+    "            </a>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "\n" +

@@ -1,13 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic');
 @import "animate.css";
 @mobile: ~"only screen and (max-width: 992px)";
 
 body {
+  a {
+    text-decoration: none;
+  }
 }
 
 div.page.landing {
+
   div.top-screen {
     height: 100vh;
-    background: red;
+    background-image: linear-gradient(
+      135deg,
+      #f44336, #e91e63
+    );
+    text-align: center;
+
+    a.main-button {
+      font-size: 25px;
+      padding: 15px 25px;
+      border-radius: 3px;
+      border: 3px solid #fff;
+      color: #fff;
+      display: block;
+      width: 200px;
+      margin: 0 auto;
+
+    }
   }
 }

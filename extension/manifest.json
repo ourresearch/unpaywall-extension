@@ -1,0 +1,31 @@
+{
+  "name": "UnPaywall",
+  "version": "1.0.1",
+  "version_name": "UnPaywall 1.0.1",
+  "manifest_version": 2,
+  "description": "Get a link to a free PDF when you view scholarly articles.",
+  "icons": {
+    "16": "img/favicon.png",
+    "128": "img/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/jquery-3.1.1.min.js",
+        "unpaywall.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "geolocation"
+  ],
+  "web_accessible_resources": [
+      "/img/",
+      "unpaywall.html",
+      "inside-frame.js"
+  ]
+}

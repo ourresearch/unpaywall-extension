@@ -1,0 +1,22 @@
+#unpaywall-button {
+    position: fixed;
+    top: 33%;
+    right: 0;
+    height: 100px;
+    width: 100px;
+    background: red;
+    z-index: 99999999999;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-family:  "Helvetica", "Arial", "sans-serif";
+    font-weight: normal;
+}
+
+/*#unpaywall-button #unpaywall-loading-img{*/
+    /*display: none;*/
+/*}*/
+
+#unpaywall-button.unpaywall-loading #unpaywall-loading-img {
+    display: block;
+}

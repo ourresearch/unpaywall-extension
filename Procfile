@@ -1,0 +1,1 @@
+web: gunicorn views:app -w 10 --timeout 60 --reload

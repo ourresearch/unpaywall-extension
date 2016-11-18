@@ -96,10 +96,11 @@ angular.module('app').controller('AppCtrl', function(
     $scope.global = {}
 
     $scope.pageTitle = function(){
-        if (!$scope.global.title){
-            $scope.global.title = "Discover the online impact of your research"
-        }
-        return "Impactstory: " + $scope.global.title
+        //if (!$scope.global.title){
+        //    $scope.global.title = "Discover the online impact of your research"
+        //}
+        //return "Impactstory: " + $scope.global.title
+        return "UnPaywall"
     }
 
 

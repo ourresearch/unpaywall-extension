@@ -7,7 +7,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"content\">\n" +
     "            <img src=\"static/img/logo.png\" alt=\"\">\n" +
     "            <div class=\"tagline\">\n" +
-    "                Get links to open-access fulltext when you view paywalled research.\n" +
+    "                Find open-access versions of paywalled research papers, instantly.\n" +
     "            </div>\n" +
     "\n" +
     "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +

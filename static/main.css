@@ -10,13 +10,15 @@ div.page.landing div.top-screen {
 }
 div.page.landing div.top-screen img {
   margin-top: -80px;
+  width: 350px;
 }
 div.page.landing div.top-screen div.tagline {
   font-weight: 300;
-  font-size: 30px;
+  font-size: 45px;
   color: #fff;
   margin: -55px auto 70px;
-  width: 600px;
+  margin: -5px auto 70px;
+  width: 850px;
   text-align: center;
 }
 div.page.landing div.top-screen a.main-button {

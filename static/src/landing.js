@@ -17,6 +17,13 @@ angular.module('landing', [
         })
     })
 
+    .config(function ($routeProvider) {
+        $routeProvider.when('/wood', {
+            templateUrl: "wood.tpl.html",
+            controller: "WoodPageCtrl"
+        })
+    })
+
 
 
 
@@ -33,6 +40,10 @@ angular.module('landing', [
 
     })
 
+    .controller("WoodPageCtrl", function($scope){
+        console.log("WoodPageCtrl controller is running!")
+
+    })
 
 
     .controller("LandingPageCtrl", function ($scope,

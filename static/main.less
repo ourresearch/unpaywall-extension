@@ -20,14 +20,23 @@ div.page.wood {
   // the admin table we're screenshotting for the wood foundation grant.
 
   font-size: 22px;
+  background: #fff;
+  padding-top: 100px;
+  padding-bottom: 400px;
+
+  .icon-for-copy {
+    font-size: 24px;
+    padding: 50px;
+    color: #2196F3;
+  }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 50px;
     th {
       padding-bottom: 10px;
       padding-top: 10px;
+      font-size: 120%;
       &.check {
         text-indent: -100000px;
       }
@@ -46,14 +55,16 @@ div.page.wood {
       }
       &.impact {
         .below {
+          margin-top: 10px;
           font-size: 75%;
           .now {
             display: inline-block;
-            margin-right: 20px;
+            margin-right: 15px;
+            font-weight: normal;
           }
           .oa {
             display: inline-block;
-            margin-left: 20px;
+            margin-left: 15px;
             i {
               font-size: 75%;
             }
@@ -82,12 +93,25 @@ div.page.wood {
           color: #33691E;
         }
       }
+      &.total {
+        border-top: 4px solid #333;
+        padding-top: 15px;
+        i.fa-square-o {
+          display: none;
+        }
+        td.name {
+          font-weight: bold;
+        }
+        td {
+          padding-top: 18px;
+        }
+      }
 
 
       td {
         text-align: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
         &.check {
           text-align: right;
           padding-right: 15px;
@@ -101,12 +125,31 @@ div.page.wood {
           text-align: right;
           padding-right: 2em;
           font-weight: 900;
-          font-size: 120%;
+          //font-size: 120%;
           width: 2em;
         }
         &.boost {
           text-align: left;
+          //font-size: 85%;
           //margin-right: -100px;
+          i {
+            vertical-align: 3px;  
+          }
+          &.high {
+            i {
+              vertical-align: top;
+            }
+          }
+          &.med {
+            i {
+              font-size: 80%
+            }
+          }
+          &.low {
+            i {
+              font-size: 60%;
+            }
+          }
         }
 
         span.now {
@@ -114,13 +157,15 @@ div.page.wood {
           margin-right: 0px;
           text-align: right;
           display: inline-block;
-          font-size: 75%;
           margin-left: -0.5em;
+          font-size: 85%;
         }
-        .boost {
+        span.boost {
           width: 3em;
           display: inline-block;
           text-align: right;
+          font-weight: bold;
+          font-size: 85%;
           .plus {
             font-size: 60%;
             vertical-align: middle;
@@ -147,7 +192,7 @@ div.page.landing {
     height: 100vh;
     background-image: linear-gradient(
       135deg,
-      #f44336, #e91e63
+      #cddc39, #00C853
     );
     text-align: center;
     img {

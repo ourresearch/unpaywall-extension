@@ -33,12 +33,20 @@ angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($t
 angular.module("wood.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("wood.tpl.html",
     "<div class=\"page wood\">\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"icon-for-copy\">\n" +
+    "        <i class=\"fa fa-envelope-o\"></i>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
     "    <table>\n" +
     "        <tr class=\"header\">\n" +
     "            <th class=\"check\">check</th>\n" +
     "            <th class=\"name\">Name</th>\n" +
     "            <th class=\"oa\">OA</th>\n" +
-    "            <th class=\"boost\">Potential boost</th>\n" +
+    "            <th class=\"boost\">Potential OA Boost</th>\n" +
     "            <th class=\"cites impact\">\n" +
     "                <div class=\"main\">Cites</div>\n" +
     "                <div class=\"below\">\n" +
@@ -67,7 +75,7 @@ angular.module("wood.tpl.html", []).run(["$templateCache", function($templateCac
     "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
     "            <td class=\"name\">Cindy Cortez</td>\n" +
     "            <td class=\"oa\">6<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost high\">High</td>\n" +
+    "            <td class=\"boost high\"><i class=\"fa fa-arrow-up\"></i> High</td>\n" +
     "            <td>\n" +
     "                <span class=\"now cites\">1021</span>\n" +
     "                <span class=\"boost\"><span class=\"plus\">+</span>51</span>\n" +
@@ -87,7 +95,7 @@ angular.module("wood.tpl.html", []).run(["$templateCache", function($templateCac
     "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
     "            <td class=\"name\">Doris Nguyen</td>\n" +
     "            <td class=\"oa\">31<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost high\">Medium</td>\n" +
+    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
     "            <td>\n" +
     "                <span class=\"now\">998</span>\n" +
     "                <span class=\"boost\"><span class=\"plus\">+</span>36</span>\n" +
@@ -107,14 +115,14 @@ angular.module("wood.tpl.html", []).run(["$templateCache", function($templateCac
     "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
     "            <td class=\"name\">Luther Peterson</td>\n" +
     "            <td class=\"oa\">27<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost high\">Medium</td>\n" +
+    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
     "            <td>\n" +
     "                <span class=\"now\">1013</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>32</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>35</span>\n" +
     "            </td>\n" +
     "            <td>\n" +
     "                <span class=\"now\">384k</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>185</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>185k</span>\n" +
     "            </td>\n" +
     "            <td>\n" +
     "                <span class=\"now\">68</span>\n" +
@@ -122,35 +130,37 @@ angular.module("wood.tpl.html", []).run(["$templateCache", function($templateCac
     "            </td>\n" +
     "        </tr>\n" +
     "\n" +
-    "        <!-- highly-cited person -->\n" +
+    "        <!-- more highly-cited person -->\n" +
+    "        <!--\n" +
     "        <tr class=\"med-oa\">\n" +
     "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
     "            <td class=\"name\">Marion Sherman</td>\n" +
     "            <td class=\"oa\">21<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost high\">Medium</td>\n" +
+    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
     "            <td>\n" +
-    "                <span class=\"now\">7739</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>121</span>\n" +
+    "                <span class=\"now\">2029</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>71</span>\n" +
     "            </td>\n" +
     "            <td>\n" +
-    "                <span class=\"now\">2.3M</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>1.8M</span>\n" +
+    "                <span class=\"now\">727k</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>379</span>\n" +
     "            </td>\n" +
     "            <td>\n" +
-    "                <span class=\"now\">386</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>295</span>\n" +
+    "                <span class=\"now\">133</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>74</span>\n" +
     "            </td>\n" +
     "        </tr>\n" +
+    "        -->\n" +
     "\n" +
     "        <!-- OA Fan -->\n" +
     "        <tr class=\"high-oa\">\n" +
     "            <td class=\"check\"><i class=\"fa fa-square-o\"></i></td>\n" +
     "            <td class=\"name\">Alex Lee</td>\n" +
     "            <td class=\"oa\">96<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost low\">Low</td>\n" +
+    "            <td class=\"boost low\"><i class=\"fa fa-arrow-up\"></i> Low</td>\n" +
     "            <td>\n" +
     "                <span class=\"now\">1584</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>68</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>3</span>\n" +
     "            </td>\n" +
     "            <td>\n" +
     "                <span class=\"now\">951k</span>\n" +
@@ -162,7 +172,29 @@ angular.module("wood.tpl.html", []).run(["$templateCache", function($templateCac
     "            </td>\n" +
     "        </tr>\n" +
     "\n" +
+    "\n" +
+    "        <!-- TOTAL -->\n" +
+    "        <tr class=\"total\">\n" +
+    "            <td class=\"check\"><i class=\"fa fa-square-o\"></i></td>\n" +
+    "            <td class=\"name\">All Selected</td>\n" +
+    "            <td class=\"oa\">32<span class=\"percent\">%</span></td>\n" +
+    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
+    "            <td>\n" +
+    "                <span class=\"now\">4616</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>125</span>\n" +
+    "            </td>\n" +
+    "            <td>\n" +
+    "                <span class=\"now\">2.1M</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>697k</span>\n" +
+    "            </td>\n" +
+    "            <td>\n" +
+    "                <span class=\"now\">336</span>\n" +
+    "                <span class=\"boost\"><span class=\"plus\">+</span>129</span>\n" +
+    "            </td>\n" +
+    "        </tr>\n" +
+    "\n" +
     "    </table>\n" +
+    "\n" +
     "\n" +
     "</div>\n" +
     "");

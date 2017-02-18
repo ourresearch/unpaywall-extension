@@ -3,7 +3,7 @@ angular.module('templates.app', ['landing.tpl.html', 'page-not-found.tpl.html', 
 angular.module("landing.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("landing.tpl.html",
     "<div class=\"page landing\">\n" +
-    "    <div class=\"top-screen\" layout=\"row\" layout-align=\"center center\">\n" +
+    "    <div class=\"top-screen screen\" layout=\"row\" layout-align=\"center center\">\n" +
     "        <div class=\"content\">\n" +
     "            <img src=\"static/img/logo-hex.png\" alt=\"\">\n" +
     "            <div class=\"tagline\">\n" +
@@ -17,6 +17,53 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            </a>\n" +
     "        </div>\n" +
     "    </div>\n" +
+    "    <div class=\"about-screen screen\">\n" +
+    "        <div class=\"content\">\n" +
+    "            <h2>About</h2>\n" +
+    "            <p>\n" +
+    "                Ever get stopped by a paywall from reading a scholarly article?\n" +
+    "                UnPaywall is here to help.\n" +
+    "                <!--\n" +
+    "                It’s easy to use: just install the browser extension\n" +
+    "                from the Chrome App store, and keep browsing like you normally do.\n" +
+    "                -->\n" +
+    "\n" +
+    "                Every time you view a paywalled article, we’ll automatically\n" +
+    "                look for a copy in our index\n" +
+    "                of over 20 million free, legal fulltext PDFs.\n" +
+    "                If we find one, we give you a link and you read. Open access has never been easier.\n" +
+    "            </p>\n" +
+    "        </div>\n" +
+    "        <div class=\"content\">\n" +
+    "            <h2>FAQ</h2>\n" +
+    "            <dl>\n" +
+    "                <dt>Where does your data come from?</dt>\n" +
+    "                <dt>\n" +
+    "\n" +
+    "                </dt>\n" +
+    "                <dt>Who are you, and why are you doing this?</dt>\n" +
+    "                <dt>\n" +
+    "\n" +
+    "                </dt>\n" +
+    "                <dt>How often does UnPaywall actually find a free PDF for a given article?</dt>\n" +
+    "                <dt>\n" +
+    "\n" +
+    "                </dt>\n" +
+    "                <dt>How is this different from Sci-Hub?</dt>\n" +
+    "                <dt>\n" +
+    "\n" +
+    "                </dt>\n" +
+    "                <dt>I found a bug</dt>\n" +
+    "                <dt>\n" +
+    "\n" +
+    "                </dt>\n" +
+    "\n" +
+    "            </dl>\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
     "\n" +
     "</div>\n" +
     "");

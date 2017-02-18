@@ -1,10 +1,11 @@
+
 #unpaywall-button {
     position: fixed;
-    top: 33%;
+    top: 20px;
     right: 0;
     height: 100px;
     width: 100px;
-    background: red;
+    background: #00C853;
     z-index: 99999999999;
     color: #fff;
     cursor: pointer;

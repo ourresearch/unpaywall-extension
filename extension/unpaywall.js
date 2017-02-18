@@ -24,11 +24,11 @@ function createIframe(){
     iframe.src = chrome.extension.getURL('unpaywall.html');
 
     // styles
-    iframe.style.height = "45px";
-    iframe.style.width = '45px';
+    iframe.style.height = "80px";
+    iframe.style.width = '80px';
     iframe.style.position = 'fixed';
     iframe.style.right = '0';
-    iframe.style.top = '33%';
+    iframe.style.top = '20px';
     iframe.scrolling = 'no';
     iframe.style.border = '0';
     iframe.style.zIndex = '9999999999';

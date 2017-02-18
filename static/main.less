@@ -5,224 +5,69 @@
 @contrast: #2196F3;
 
 
-@goodColor: #C5E1A5;
-@fairColor: #FFF176;
-@badColor: #FFCDD2;
-
 body {
   a {
     text-decoration: none;
   }
 }
 
-div.page.wood {
-  // this is not for production. it's just a handy place to layout
-  // the admin table we're screenshotting for the wood foundation grant.
-
-  font-size: 22px;
-  background: #fff;
-  padding-top: 100px;
-  padding-bottom: 400px;
-
-  .icon-for-copy {
-    font-size: 24px;
-    padding: 50px;
-    color: #2196F3;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    th {
-      padding-bottom: 10px;
-      padding-top: 10px;
-      font-size: 120%;
-      &.check {
-        text-indent: -100000px;
-      }
-      &.name {
-        text-align: left;
-        padding-left: 5px;
-      }
-      &.oa {
-        text-align: center;
-        padding-right: 2em;
-        width: 2em;
-      }
-      &.boost {
-        text-align: left;
-        width: 5em;
-      }
-      &.impact {
-        .below {
-          margin-top: 10px;
-          font-size: 75%;
-          .now {
-            display: inline-block;
-            margin-right: 15px;
-            font-weight: normal;
-          }
-          .oa {
-            display: inline-block;
-            margin-left: 15px;
-            i {
-              font-size: 75%;
-            }
-          }
-
-        }
-      }
-    }
-    tr {
-      border-bottom: 1px solid #333;
-      &.low-oa {
-        background: @badColor;
-        td.oa, td.boost {
-          color: #B71C1C;
-        }
-      }
-      &.med-oa {
-        background: @fairColor;
-        td.oa, td.boost {
-          color: #F57F17;
-        }
-      }
-      &.high-oa {
-        background: @goodColor;
-        td.oa, td.boost {
-          color: #33691E;
-        }
-      }
-      &.total {
-        border-top: 4px solid #333;
-        padding-top: 15px;
-        i.fa-square-o {
-          display: none;
-        }
-        td.name {
-          font-weight: bold;
-        }
-        td {
-          padding-top: 18px;
-        }
-      }
-
-
-      td {
-        text-align: center;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        &.check {
-          text-align: right;
-          padding-right: 15px;
-          font-size: 95%;
-        }
-        &.name {
-          text-align: left;
-          width: 10em;
-        }
-        &.oa {
-          text-align: right;
-          padding-right: 2em;
-          font-weight: 900;
-          //font-size: 120%;
-          width: 2em;
-        }
-        &.boost {
-          text-align: left;
-          //font-size: 85%;
-          //margin-right: -100px;
-          i {
-            vertical-align: 3px;  
-          }
-          &.high {
-            i {
-              vertical-align: top;
-            }
-          }
-          &.med {
-            i {
-              font-size: 80%
-            }
-          }
-          &.low {
-            i {
-              font-size: 60%;
-            }
-          }
-        }
-
-        span.now {
-          width: 2.5em;
-          margin-right: 0px;
-          text-align: right;
-          display: inline-block;
-          margin-left: -0.5em;
-          font-size: 85%;
-        }
-        span.boost {
-          width: 3em;
-          display: inline-block;
-          text-align: right;
-          font-weight: bold;
-          font-size: 85%;
-          .plus {
-            font-size: 60%;
-            vertical-align: middle;
-          }
-        }
-
-        .percent {
-          font-size: 75%;
-        }
-
-      }
-    }
-
-
-  }
-
-}
 
 
 
 div.page.landing {
 
-  div.top-screen {
-    height: 100vh;
-    background-image: linear-gradient(
-      135deg,
-      #cddc39, #00C853
-    );
-    text-align: center;
-    img {
-      margin-top: -80px;
-      width: 350px;
-    }
-
-    div.tagline {
-      font-weight: 300;
-      font-size: 45px;
-      color: #fff;
-      margin: -55px auto 70px;
-      margin: -5px auto 70px;
-
+  .screen {
+    backgound: #fff;
+    .content {
       width: 850px;
-      //width: 850px;
-      text-align: center;
-
+      margin: 0 auto;
+      font-size: 24px;
+      line-height: 1.4;
+      h2 {
+        font-weight: 300;
+        text-align: center;
+        font-size: 40px;
+      }
     }
 
-    a.main-button {
-      font-size: 25px;
-      padding: 15px 25px;
-      border-radius: 3px;
-      border: 3px solid #fff;
-      color: #fff;
-      display: block;
-      width: 200px;
-      margin: 0 auto;
+    &.top-screen {
+      height: 100vh;
+      background-image: linear-gradient(
+        135deg,
+        #cddc39, #00C853
+      );
+      text-align: center;
+      img {
+        margin-top: -80px;
+        width: 350px;
+      }
 
+      div.tagline {
+        font-weight: 300;
+        font-size: 45px;
+        color: #fff;
+        margin: -5px auto 70px;
+        width: 850px;
+        //width: 850px;
+        text-align: center;
+
+      }
+
+      a.main-button {
+        font-size: 25px;
+        padding: 15px 25px;
+        border-radius: 3px;
+        border: 3px solid #fff;
+        color: #fff;
+        display: block;
+        width: 200px;
+        margin: 0 auto;
+
+      }
     }
   }
+
+
+
+
 }

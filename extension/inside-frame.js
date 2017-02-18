@@ -9,10 +9,8 @@ window.addEventListener("message", receiveMessage, false);
 function receiveMessage(msg){
     if  (msg.data.unpaywall == "success"){
         devLog("success")
-        $("body")
-            .addClass("success")
-            .addClass("finished")
-            .removeClass("loading")
+        $(".button.success")
+            .fadeIn()
             .click(function(){
                 devLog("click!", msg.data.unpaywall.url)
                 parent.postMessage({
@@ -20,6 +18,17 @@ function receiveMessage(msg){
                 }, "*")
             })
     }
+
+    //if (msg.data.unpaywall == "failure") {
+    //    $(".button")
+    //        .addClass("failure")
+    //        .addClass("finished")
+    //        .removeClass("loading")
+    //        .click(function(){
+    //            devLog("click! on failure button", msg.data.unpaywall.url)
+    //        })
+    //}
+
 
 
 }

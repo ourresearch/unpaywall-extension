@@ -6,7 +6,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "    <div class=\"top-screen screen\" layout=\"row\" layout-align=\"center center\">\n" +
     "        <div class=\"navbar\">\n" +
     "            <img id=\"logo\" src=\"static/img/logo.png\" alt=\"\">\n" +
-    "            <a class=\"more\" href=\"\">\n" +
+    "            <a class=\"more\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
     "                <i class=\"fa fa-question-circle-o\"></i>\n" +
     "            </a>\n" +
     "        </div>\n" +
@@ -30,7 +30,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            </a>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"about-screen screen\">\n" +
+    "    <div class=\"about-screen screen\" id=\"about\">\n" +
     "        <div class=\"content\">\n" +
     "            <h2>About</h2>\n" +
     "            <p>\n" +

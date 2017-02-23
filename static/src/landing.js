@@ -47,9 +47,19 @@ angular.module('landing', [
 
 
     .controller("LandingPageCtrl", function ($scope,
+                                             $document,
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
+        var about = angular.element(document.getElementById('about'));
+
+        $scope.scrollToAbout = function(){
+            console.log("scroll to about!", about)
+            $document.scrollToElement(about, 0, 1000);
+        }
+
+
+
 
     })
 

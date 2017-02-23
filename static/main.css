@@ -57,7 +57,7 @@ div.page.landing .screen.top-screen a.main-button {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  line-height: 1;
+  line-height: .8;
   text-align: left;
   justify-content: center;
 }

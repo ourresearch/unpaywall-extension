@@ -8,6 +8,7 @@ angular.module('app', [
     'ngSanitize',
     'ngMaterial',
     'ngProgress',
+    'duScroll',
 
     // this is how it accesses the cached templates in ti.js
     'templates.app',
@@ -194,9 +195,19 @@ angular.module('landing', [
 
 
     .controller("LandingPageCtrl", function ($scope,
+                                             $document,
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
+        var about = angular.element(document.getElementById('about'));
+
+        $scope.scrollToAbout = function(){
+            console.log("scroll to about!", about)
+            $document.scrollToElement(about, 0, 1000);
+        }
+
+
+
 
     })
 
@@ -297,7 +308,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "    <div class=\"top-screen screen\" layout=\"row\" layout-align=\"center center\">\n" +
     "        <div class=\"navbar\">\n" +
     "            <img id=\"logo\" src=\"static/img/logo.png\" alt=\"\">\n" +
-    "            <a class=\"more\" href=\"\">\n" +
+    "            <a class=\"more\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
     "                <i class=\"fa fa-question-circle-o\"></i>\n" +
     "            </a>\n" +
     "        </div>\n" +
@@ -321,7 +332,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            </a>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"about-screen screen\">\n" +
+    "    <div class=\"about-screen screen\" id=\"about\">\n" +
     "        <div class=\"content\">\n" +
     "            <h2>About</h2>\n" +
     "            <p>\n" +

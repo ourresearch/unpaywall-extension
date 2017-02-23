@@ -31,16 +31,33 @@ div.page.landing {
     }
 
     &.top-screen {
+      .navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        color: #fff;
+        #logo {
+          width: 250px;
+          float: left;
+          margin-top: -35px;
+        }
+        a.more {
+          float: right;
+          color: #fff;
+          font-size: 24px;
+          padding: 15px 25px;
+        }
+
+      }
+
+
       height: 100vh;
       background-image: linear-gradient(
         135deg,
-        #cddc39, #00C853
+        #00e676, #62d717
       );
       text-align: center;
-      img {
-        margin-top: -80px;
-        width: 350px;
-      }
 
       div.tagline {
         font-weight: 300;
@@ -54,14 +71,30 @@ div.page.landing {
       }
 
       a.main-button {
-        font-size: 25px;
         padding: 15px 25px;
         border-radius: 3px;
         border: 3px solid #fff;
         color: #fff;
-        display: block;
-        width: 200px;
+        width: 240px;
         margin: 0 auto;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+        text-align: left;
+        justify-content: center;
+
+        i {
+          font-size: 50px;
+          margin-right: 15px;
+        }
+
+        span.big {
+          display: block;
+          font-size: 28px;
+        }
+        span.small {
+          font-size: 14px;
+        }
 
       }
     }

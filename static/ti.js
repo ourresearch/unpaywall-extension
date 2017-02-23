@@ -295,8 +295,14 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
   $templateCache.put("landing.tpl.html",
     "<div class=\"page landing\">\n" +
     "    <div class=\"top-screen screen\" layout=\"row\" layout-align=\"center center\">\n" +
+    "        <div class=\"navbar\">\n" +
+    "            <img id=\"logo\" src=\"static/img/logo.png\" alt=\"\">\n" +
+    "            <a class=\"more\" href=\"\">\n" +
+    "                <i class=\"fa fa-question-circle-o\"></i>\n" +
+    "            </a>\n" +
+    "        </div>\n" +
+    "\n" +
     "        <div class=\"content\">\n" +
-    "            <img src=\"static/img/logo-hex.png\" alt=\"\">\n" +
     "            <div class=\"tagline\">\n" +
     "                Find open-access versions of paywalled research papers, instantly.\n" +
     "            </div>\n" +
@@ -304,7 +310,14 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
     "               class=\"main-button\">\n" +
     "                <i class=\"fa fa-chrome\"></i>\n" +
-    "                Install it free\n" +
+    "                <span class=\"text\">\n" +
+    "                    <span class=\"big\">\n" +
+    "                        Install it free\n" +
+    "                    </span>\n" +
+    "                    <span class=\"small\">\n" +
+    "                        at the Chrome Web Store\n" +
+    "                    </span>\n" +
+    "                </span>\n" +
     "            </a>\n" +
     "        </div>\n" +
     "    </div>\n" +

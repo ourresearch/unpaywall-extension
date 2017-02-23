@@ -19,12 +19,26 @@ div.page.landing .screen .content h2 {
 }
 div.page.landing .screen.top-screen {
   height: 100vh;
-  background-image: linear-gradient(135deg, #cddc39, #00C853);
+  background-image: linear-gradient(135deg, #00e676, #62d717);
   text-align: center;
 }
-div.page.landing .screen.top-screen img {
-  margin-top: -80px;
-  width: 350px;
+div.page.landing .screen.top-screen .navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+div.page.landing .screen.top-screen .navbar #logo {
+  width: 250px;
+  float: left;
+  margin-top: -35px;
+}
+div.page.landing .screen.top-screen .navbar a.more {
+  float: right;
+  color: #fff;
+  font-size: 24px;
+  padding: 15px 25px;
 }
 div.page.landing .screen.top-screen div.tagline {
   font-weight: 300;
@@ -35,12 +49,26 @@ div.page.landing .screen.top-screen div.tagline {
   text-align: center;
 }
 div.page.landing .screen.top-screen a.main-button {
-  font-size: 25px;
   padding: 15px 25px;
   border-radius: 3px;
   border: 3px solid #fff;
   color: #fff;
-  display: block;
-  width: 200px;
+  width: 240px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  text-align: left;
+  justify-content: center;
+}
+div.page.landing .screen.top-screen a.main-button i {
+  font-size: 50px;
+  margin-right: 15px;
+}
+div.page.landing .screen.top-screen a.main-button span.big {
+  display: block;
+  font-size: 28px;
+}
+div.page.landing .screen.top-screen a.main-button span.small {
+  font-size: 14px;
 }

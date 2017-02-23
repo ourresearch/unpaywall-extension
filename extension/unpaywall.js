@@ -86,6 +86,23 @@ function findDoi(){
     return null
 }
 
+var showTab = function(apiResp) {
+    if (apiResp.oa_color != "green"){
+        devLog("this isn't Green OA. Quitting.")
+        return false
+    }
+
+    var currentUrl = new URL(window.location)
+    var redirectUrl = new URL(apiResp.free_fulltext_url)
+    if (currentUrl.hostname == redirectUrl.hostname){
+        devLog("Looks like we are already on the Green OA source for this article.")
+        return false
+    }
+
+    return true
+}
+
+
 
 var loadIframe = function(myIframe){
     var url = "https://api.oadoi.org/" + doi
@@ -95,7 +112,7 @@ var loadIframe = function(myIframe){
             var resp = data.results[0]
             devLog("got oaDOI info back", resp)
 
-            if (resp.free_fulltext_url) {
+            if (showTab(resp)) {
 
                 // we can't modify the iframe, so send the good news
                 // down as a message

@@ -326,7 +326,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                        Install it free\n" +
     "                    </span>\n" +
     "                    <span class=\"small\">\n" +
-    "                        at the Chrome Web Store\n" +
+    "                        on the Chrome Web Store\n" +
     "                    </span>\n" +
     "                </span>\n" +
     "            </a>\n" +

@@ -5,6 +5,8 @@
 @contrast: #2196F3;
 
 
+@baseColor: #20e168;
+
 body {
   a {
     text-decoration: none;
@@ -27,6 +29,7 @@ div.page.landing {
         font-weight: 300;
         text-align: center;
         font-size: 40px;
+        color: @baseColor;
       }
     }
 
@@ -40,31 +43,43 @@ div.page.landing {
         #logo {
           width: 250px;
           float: left;
-          margin-top: -35px;
+          margin-top: -25px;
         }
         a.more {
           float: right;
           color: #fff;
           font-size: 24px;
-          padding: 15px 25px;
+          padding: 25px 25px;
         }
 
       }
 
+      /*
+      darker:
+      #62d717, #00e69d
+
+      darker but full saturation
+      #53d500, #01d893
+
+      brighter:
+      #61eb08, #01f8aa
+
+
+      */
 
       height: 100vh;
       background-image: linear-gradient(
         135deg,
-        #00e676, #62d717
+        #61eb08, #00dc97
       );
       text-align: center;
 
       div.tagline {
         font-weight: 300;
-        font-size: 45px;
+        font-size: 55px;
         color: #fff;
         margin: -5px auto 70px;
-        width: 850px;
+        width: 900px;
         //width: 850px;
         text-align: center;
 
@@ -94,6 +109,7 @@ div.page.landing {
         }
         span.small {
           font-size: 14px;
+          font-weight: bold;
         }
 
       }

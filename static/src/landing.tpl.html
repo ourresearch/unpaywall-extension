@@ -30,41 +30,109 @@
         <div class="content">
             <h2>About</h2>
             <p>
-                Ever get stopped by a paywall from reading a scholarly article?
-                UnPaywall is here to help.
+                Ever find that perfect scholarly article, only to get stopped by a paywall?
+                We can help.
+            </p>
+            <p>
                 <!--
                 It’s easy to use: just install the browser extension
                 from the Chrome App store, and keep browsing like you normally do.
                 -->
 
-                Every time you view a paywalled article, we’ll automatically
-                look for a copy in our index
+                Every time you hit a paywalled article, Unpaywall automatically
+                looks for a copy in our index
                 of over 20 million free, legal fulltext PDFs.
-                If we find one, we give you a link and you read. Open access has never been easier.
+                If we find one, we give you a link to read. Open access has never been easier.
             </p>
         </div>
         <div class="content">
             <h2>FAQ</h2>
             <dl>
+                <dt>Who is behind Unpaywall?</dt>
+                <dd>
+                    Unpaywall is from <a href="http://impactstory.org">Impactstory,</a>
+                    a nonprofit working to supercharge science by making it
+                    more open, reusable, and web-native.
+                </dd>
+
+                <dt>Why did you make it?</dt>
+                <dd>
+                    We got tired of running into paywalled articles! The worst part was, we knew
+                    that millions of researchers are currently uploading their own fulltext PDFs
+                    to <a href="https://en.wikipedia.org/wiki/Preprint">preprint servers</a>
+                    and <a href="https://en.wikipedia.org/wiki/Institutional_repository">institutional repositories,</a>
+                    worldwide, making them free for anyone to read. There was just no easy 
+                    way to find them, especially not one that was integrated into our 
+                    reading workflows. So we made one! In the long term, we think tools like
+                    Unpaywall will nurture the transition to a fully
+                    <a href="https://en.wikipedia.org/wiki/Open_access">open access</a>
+                    scholarly publishing model, by closing the gap between readers and
+                    freely-available fulltext.
+
+                </dd>
+
+                <dt>How do I use this?</dt>
+                <dd>
+                    There's nothing to it. After you
+                    <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha">install the extension</a>
+
+                    we'll do the work in the background. When you view a paywalled article,
+                    we'll search for a free legal copy. If we find one, you'll see a bright green
+                    "free" tab on the right side of your browser window. Click on the tab, read the
+                    article. If you want to see an example of Unpaywall working,
+                    visit <a href="http://www.sciencedirect.com/science/article/pii/S0140673611617522">this article</a>
+                    after you've installed the extension.
+                </dd>
+
+                <dt>How often does Unpaywall actually find a free PDF for a given article?</dt>
+                <dd>
+                    Unfortunately not all authors upload their fulltext PDFs online&mdash;although
+                    the number is growing every day. So sometimes there's no fulltext available online,
+                    and Unpaywall comes up empty. The exact percentage depends on the age
+                    and field of the article, but we generally find around 40% success.
+                    There's actually been a bunch of research on this recently, and we're planning a blog
+                    post breaking it down&mdash;stay tuned.
+
+                </dd>
+
                 <dt>Where does your data come from?</dt>
-                <dt>
+                <dd>
+                    We gather information from thousands of different open-access repositories, with the
+                    help of a number of partners. In particular, we depend on data from
+                    <a href="https://doaj.org/">the DOAJ,</a>
+                    <a href="https://www.crossref.org/">Crossref,</a>
+                    <a href="https://www.datacite.org/">DataCite,</a>
+                    and (especially) <a href="https://www.base-search.net/">BASE.</a>
+                    All this data is available for free via the API of another Impactstory project,
+                    <a href="http://oadoi.org">oaDOI.</a>
 
-                </dt>
-                <dt>Who are you, and why are you doing this?</dt>
-                <dt>
+                    The oaDOI API is fully free,
+                    open, and scalable and lots of folks are building cool stuff on it already...check
+                    it out if you'd like to build something too!
+                </dd>
 
-                </dt>
-                <dt>How often does UnPaywall actually find a free PDF for a given article?</dt>
-                <dt>
-
-                </dt>
                 <dt>How is this different from Sci-Hub?</dt>
-                <dt>
+                <dd>
+                    Like Unpaywall, Sci-Hub finds fulltext PDFs for paywalled articles. The main difference
+                    is where those PDFs come from: Unpaywall finds PDFs legally uploaded
+                    by the authors themselves, while
+                    Sci-Hub uses PDFs that are obtained by other means including automated web scraping
+                    of publisher sites. Sci-Hub's method delivers more comprehensive results,
+                    but is probably not super legal.
+                    <a href="http://blog.impactstory.org/comparing-sci-hub-oadoi/">We're not against Sci-Hub.</a>
+                    But we  think Unpaywall offers a more sustainable approach, by working within copyright law
+                    and supporting the growing open access movement.
+                </dd>
 
-                </dt>
+
                 <dt>I found a bug</dt>
                 <dt>
-
+                    Sorry about that! Unfortunately this is not uncommon, mostly because
+                    scholarly publishing is still sort of a wild west of missing and ignored
+                    information standards, and this creates a number of problems for automatic systems like
+                    Unpaywall. The good news is that it's still early days for this project and
+                    it's under very active development. When you find an error,
+                    <a href="mailto:team@impactstory.org">drop us an email</a> and we'll get it fixed for you.
                 </dt>
 
             </dl>

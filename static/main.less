@@ -83,7 +83,7 @@ div.page.landing {
         font-size: 55px;
         color: #fff;
         margin: -5px auto 70px;
-        width: 900px;
+        max-width: 900px;
         //width: 850px;
         text-align: center;
 
@@ -140,14 +140,14 @@ div.footer {
       }
     }
     .links {
-      font-size: 16px;
+      font-size: 18px;
       text-align: right;
+      margin-bottom: 50px;
       a {
-        margin: 0 20px 0 0;
+        margin: 0 30px 0 0;
         display: block;
-        float: right;
+        float: left;
         padding-bottom: 10px;
-        font-weight: bold;
         @media @xs {
           float: left;
         }
@@ -163,9 +163,12 @@ div.footer {
       }
     }
     .credit {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.4;
-      margin-bottom: 50px;
+      text-align: right;
+      @media @xs {
+        text-align: left;
+      }
 
     }
 

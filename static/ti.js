@@ -456,25 +456,6 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "</div>\n" +
     "<div class=\"footer\">\n" +
     "    <div class=\"content\" layout=\"row\" layout-xs=\"column\">\n" +
-    "        <div class=\"credit\" flex=\"40\" flex-xs=\"100\">\n" +
-    "            <span class=\"built-by\">\n" +
-    "                Built with <i class=\"fa fa-heart\"></i> at\n" +
-    "                <a href=\"http://impactstory.org/about\">Impactstory</a>, with support from\n" +
-    "            </span>\n" +
-    "            <span class=\"funders\">\n" +
-    "                 the National Science Foundation and the Alfred P. Sloan Foundation\n" +
-    "            </span>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"logo\" flex=\"20\" hide-xs>\n" +
-    "            <a href=\"/\" ng-click=\"scrollToTop()\">\n" +
-    "                <img src=\"static/img/key.png\" alt=\"\">\n" +
-    "            </a>\n" +
-    "        </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
     "\n" +
     "        <div class=\"links\" flex=\"40\" flex-xs=\"100\">\n" +
     "            <a href=\"mailto:team@impactstory.org\">\n" +
@@ -490,6 +471,33 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                GitHub\n" +
     "            </a>\n" +
     "        </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"logo\" flex=\"20\" hide-xs>\n" +
+    "            <a href=\"/\" ng-click=\"scrollToTop()\">\n" +
+    "                <img src=\"static/img/key.png\" alt=\"\">\n" +
+    "            </a>\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"credit\" flex=\"40\" flex-xs=\"100\">\n" +
+    "            <span class=\"built-by\">\n" +
+    "                Built with <i class=\"fa fa-heart\"></i> at\n" +
+    "                <a href=\"http://impactstory.org/about\">Impactstory</a>, with support from\n" +
+    "            </span>\n" +
+    "            <span class=\"funders\">\n" +
+    "                 the National Science Foundation and the Alfred P. Sloan Foundation\n" +
+    "            </span>\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "    </div>\n" +
     "</div>");

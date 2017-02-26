@@ -58,7 +58,7 @@ div.page.landing .screen.top-screen div.tagline {
   font-size: 55px;
   color: #fff;
   margin: -5px auto 70px;
-  width: 900px;
+  max-width: 900px;
   text-align: center;
 }
 div.page.landing .screen.top-screen a.main-button {
@@ -103,15 +103,15 @@ div.footer .content a:hover {
   text-decoration: underline;
 }
 div.footer .content .links {
-  font-size: 16px;
+  font-size: 18px;
   text-align: right;
+  margin-bottom: 50px;
 }
 div.footer .content .links a {
-  margin: 0 20px 0 0;
+  margin: 0 30px 0 0;
   display: block;
-  float: right;
+  float: left;
   padding-bottom: 10px;
-  font-weight: bold;
 }
 @media only screen and (max-width: 600px) {
   div.footer .content .links a {
@@ -125,7 +125,12 @@ div.footer .content .logo img {
   width: 28px;
 }
 div.footer .content .credit {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.4;
-  margin-bottom: 50px;
+  text-align: right;
+}
+@media only screen and (max-width: 600px) {
+  div.footer .content .credit {
+    text-align: left;
+  }
 }

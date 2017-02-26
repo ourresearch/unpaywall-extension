@@ -15,6 +15,12 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"tagline\">\n" +
     "                Find open-access versions of paywalled research papers, instantly.\n" +
     "            </div>\n" +
+    "            <div class=\"about\">\n" +
+    "               Every time you hit a paywalled article, Unpaywall automatically\n" +
+    "                looks for a copy in our index\n" +
+    "                of over 20 million free, legal fulltext PDFs.\n" +
+    "                If we find one, we give you a link to read. Open access has never been easier.\n" +
+    "            </div>\n" +
     "\n" +
     "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
     "               class=\"main-button\">\n" +
@@ -31,24 +37,6 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"about-screen screen\" id=\"about\">\n" +
-    "        <div class=\"content\">\n" +
-    "            <h2>About</h2>\n" +
-    "            <p>\n" +
-    "                Ever find that perfect scholarly article, only to get stopped by a paywall?\n" +
-    "                We can help.\n" +
-    "            </p>\n" +
-    "            <p>\n" +
-    "                <!--\n" +
-    "                It’s easy to use: just install the browser extension\n" +
-    "                from the Chrome App store, and keep browsing like you normally do.\n" +
-    "                -->\n" +
-    "\n" +
-    "                Every time you hit a paywalled article, Unpaywall automatically\n" +
-    "                looks for a copy in our index\n" +
-    "                of over 20 million free, legal fulltext PDFs.\n" +
-    "                If we find one, we give you a link to read. Open access has never been easier.\n" +
-    "            </p>\n" +
-    "        </div>\n" +
     "        <div class=\"content\">\n" +
     "            <h2>FAQ</h2>\n" +
     "            <dl>\n" +

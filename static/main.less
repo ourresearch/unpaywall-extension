@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900,400italic');
 @import "animate.css";
 @mobile: ~"only screen and (max-width: 992px)";
+@xs: ~"only screen and (max-width: 600px)"; // from angular material
+
+
+
 
 @contrast: #2196F3;
 
@@ -21,7 +25,7 @@ div.page.landing {
   .screen {
     backgound: #fff;
     .content {
-      width: 850px;
+      max-width: 850px;
       margin: 0 auto;
       font-size: 24px;
       line-height: 1.4;
@@ -119,4 +123,51 @@ div.page.landing {
 
 
 
+}
+
+div.footer {
+  background: @baseColor;
+  padding: 50px 20px;
+  margin-top: 100px;
+  color: #fff;
+  .content {
+    max-width: 850px;
+    margin: 0 auto;
+    a {
+      color: #fff;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .links {
+      font-size: 16px;
+      text-align: right;
+      a {
+        margin: 0 20px 0 0;
+        display: block;
+        float: right;
+        padding-bottom: 10px;
+        font-weight: bold;
+        @media @xs {
+          float: left;
+        }
+        i {
+          //display: none;
+        }
+      }
+    }
+    .logo {
+      text-align: center;
+      img {
+        width: 28px;
+      }
+    }
+    .credit {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 50px;
+
+    }
+
+  }
 }

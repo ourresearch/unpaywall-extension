@@ -206,6 +206,11 @@ angular.module('landing', [
             $document.scrollToElement(about, 0, 1000);
         }
 
+        $scope.scrollToTop = function(){
+            console.log("scroll to top.")
+            $document.scrollTop(0, 1000)
+        }
+
 
 
 
@@ -369,8 +374,8 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories,</a>\n" +
     "                    worldwide, making them free for anyone to read. There was just no easy \n" +
     "                    way to find them, especially not one that was integrated into our \n" +
-    "                    reading workflows. So we made one! In the long term, we think tools like\n" +
-    "                    Unpaywall will nurture the transition to a fully\n" +
+    "                    reading workflows. So we made one! Our long-term goal with\n" +
+    "                    Unpaywall is to nurture the transition to a fully\n" +
     "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
     "                    scholarly publishing model, by closing the gap between readers and\n" +
     "                    freely-available fulltext.\n" +
@@ -379,7 +384,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "                <dt>How do I use this?</dt>\n" +
     "                <dd>\n" +
-    "                    There's nothing to it. After you\n" +
+    "                    After you\n" +
     "                    <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\">install the extension</a>\n" +
     "\n" +
     "                    we'll do the work in the background. When you view a paywalled article,\n" +
@@ -424,7 +429,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    by the authors themselves, while\n" +
     "                    Sci-Hub uses PDFs that are obtained by other means including automated web scraping\n" +
     "                    of publisher sites. Sci-Hub's method delivers more comprehensive results,\n" +
-    "                    but is probably not super legal.\n" +
+    "                    but is not super legal.\n" +
     "                    <a href=\"http://blog.impactstory.org/comparing-sci-hub-oadoi/\">We're not against Sci-Hub.</a>\n" +
     "                    But we  think Unpaywall offers a more sustainable approach, by working within copyright law\n" +
     "                    and supporting the growing open access movement.\n" +
@@ -432,14 +437,14 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "                <dt>I found a bug</dt>\n" +
-    "                <dt>\n" +
+    "                <dd>\n" +
     "                    Sorry about that! Unfortunately this is not uncommon, mostly because\n" +
     "                    scholarly publishing is still sort of a wild west of missing and ignored\n" +
     "                    information standards, and this creates a number of problems for automatic systems like\n" +
     "                    Unpaywall. The good news is that it's still early days for this project and\n" +
     "                    it's under very active development. When you find an error,\n" +
     "                    <a href=\"mailto:team@impactstory.org\">drop us an email</a> and we'll get it fixed for you.\n" +
-    "                </dt>\n" +
+    "                </dd>\n" +
     "\n" +
     "            </dl>\n" +
     "\n" +
@@ -449,7 +454,45 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "</div>\n" +
-    "");
+    "<div class=\"footer\">\n" +
+    "    <div class=\"content\" layout=\"row\" layout-xs=\"column\">\n" +
+    "        <div class=\"credit\" flex=\"40\" flex-xs=\"100\">\n" +
+    "            <span class=\"built-by\">\n" +
+    "                Built with <i class=\"fa fa-heart\"></i> at\n" +
+    "                <a href=\"http://impactstory.org/about\">Impactstory</a>, with support from\n" +
+    "            </span>\n" +
+    "            <span class=\"funders\">\n" +
+    "                 the National Science Foundation and the Alfred P. Sloan Foundation\n" +
+    "            </span>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"logo\" flex=\"20\" hide-xs>\n" +
+    "            <a href=\"/\" ng-click=\"scrollToTop()\">\n" +
+    "                <img src=\"static/img/key.png\" alt=\"\">\n" +
+    "            </a>\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"links\" flex=\"40\" flex-xs=\"100\">\n" +
+    "            <a href=\"mailto:team@impactstory.org\">\n" +
+    "                <i class=\"fa fa-envelope-o\"></i>\n" +
+    "                Email\n" +
+    "            </a>\n" +
+    "            <a href=\"http://twitter.com/impactstory\">\n" +
+    "                <i class=\"fa fa-twitter\"></i>\n" +
+    "                Twitter\n" +
+    "            </a>\n" +
+    "            <a href=\"http://github.org/Impactstory/unpawall\">\n" +
+    "                <i class=\"fa fa-github\"></i>\n" +
+    "                GitHub\n" +
+    "            </a>\n" +
+    "        </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "</div>");
 }]);
 
 angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($templateCache) {

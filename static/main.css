@@ -7,7 +7,7 @@ div.page.landing .screen {
   backgound: #fff;
 }
 div.page.landing .screen .content {
-  width: 850px;
+  max-width: 850px;
   margin: 0 auto;
   font-size: 24px;
   line-height: 1.4;
@@ -85,4 +85,47 @@ div.page.landing .screen.top-screen a.main-button span.big {
 div.page.landing .screen.top-screen a.main-button span.small {
   font-size: 14px;
   font-weight: bold;
+}
+div.footer {
+  background: #20e168;
+  padding: 50px 20px;
+  margin-top: 100px;
+  color: #fff;
+}
+div.footer .content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+div.footer .content a {
+  color: #fff;
+}
+div.footer .content a:hover {
+  text-decoration: underline;
+}
+div.footer .content .links {
+  font-size: 16px;
+  text-align: right;
+}
+div.footer .content .links a {
+  margin: 0 20px 0 0;
+  display: block;
+  float: right;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+  div.footer .content .links a {
+    float: left;
+  }
+}
+div.footer .content .logo {
+  text-align: center;
+}
+div.footer .content .logo img {
+  width: 28px;
+}
+div.footer .content .credit {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 50px;
 }

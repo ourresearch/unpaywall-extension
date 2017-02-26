@@ -58,6 +58,11 @@ angular.module('landing', [
             $document.scrollToElement(about, 0, 1000);
         }
 
+        $scope.scrollToTop = function(){
+            console.log("scroll to top.")
+            $document.scrollTop(0, 1000)
+        }
+
 
 
 

@@ -14,6 +14,10 @@
 body {
   a {
     text-decoration: none;
+    color: @contrast;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -25,9 +29,11 @@ div.page.landing {
   .screen {
     backgound: #fff;
     .content {
+      padding-left: 10px;
+      padding-right: 10px;
       max-width: 900px;
       margin: 0 auto;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1.4;
       h2 {
         font-weight: 300;
@@ -47,13 +53,13 @@ div.page.landing {
         #logo {
           width: 250px;
           float: left;
-          margin-top: -25px;
+          margin-top: -30px;
         }
         a.more {
           float: right;
           color: #fff;
           font-size: 24px;
-          padding: 25px 25px;
+          padding: 20px 25px;
         }
 
       }
@@ -131,16 +137,31 @@ div.page.landing {
       }
     }
   }
+}
 
 
-
-
+#faq {
+  padding-top: 50px;
+  h2 {
+    display: none;
+  }
+  dl {
+    dt {
+      color: @baseColor;
+      font-size: 24px;
+      margin: 40px 0 5px;
+      font-weight: bold;
+    }
+    dd {
+      margin: 0;
+    }
+  }
 }
 
 div.footer {
   background: @baseColor;
   padding: 50px 20px;
-  margin-top: 100px;
+  margin-top: 150px;
   color: #fff;
   .content {
     max-width: 900px;

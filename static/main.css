@@ -2,14 +2,20 @@
 @import "animate.css";
 body a {
   text-decoration: none;
+  color: #2196F3;
+}
+body a:hover {
+  text-decoration: underline;
 }
 div.page.landing .screen {
   backgound: #fff;
 }
 div.page.landing .screen .content {
+  padding-left: 10px;
+  padding-right: 10px;
   max-width: 900px;
   margin: 0 auto;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.4;
 }
 div.page.landing .screen .content h2 {
@@ -45,13 +51,13 @@ div.page.landing .screen.top-screen .navbar {
 div.page.landing .screen.top-screen .navbar #logo {
   width: 250px;
   float: left;
-  margin-top: -25px;
+  margin-top: -30px;
 }
 div.page.landing .screen.top-screen .navbar a.more {
   float: right;
   color: #fff;
   font-size: 24px;
-  padding: 25px 25px;
+  padding: 20px 25px;
 }
 div.page.landing .screen.top-screen div.tagline {
   font-weight: 300;
@@ -102,10 +108,25 @@ div.page.landing .screen.top-screen a.main-button span.small {
   font-size: 14px;
   font-weight: bold;
 }
+#faq {
+  padding-top: 50px;
+}
+#faq h2 {
+  display: none;
+}
+#faq dl dt {
+  color: #20e168;
+  font-size: 24px;
+  margin: 40px 0 5px;
+  font-weight: bold;
+}
+#faq dl dd {
+  margin: 0;
+}
 div.footer {
   background: #20e168;
   padding: 50px 20px;
-  margin-top: 100px;
+  margin-top: 150px;
   color: #fff;
 }
 div.footer .content {

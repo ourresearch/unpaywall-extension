@@ -199,7 +199,7 @@ angular.module('landing', [
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
-        var about = angular.element(document.getElementById('about'));
+        var about = angular.element(document.getElementById('faq'));
 
         $scope.scrollToAbout = function(){
             console.log("scroll to about!", about)
@@ -326,7 +326,9 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "               Every time you hit a paywalled article, Unpaywall automatically\n" +
     "                looks for a copy in our index\n" +
     "                of over 20 million free, legal fulltext PDFs.\n" +
-    "                If we find one, we give you a link to read. Open access has never been easier.\n" +
+    "                If we find one, we give you a link to read.\n" +
+    "                <br>\n" +
+    "                Open access has never been easier.\n" +
     "            </div>\n" +
     "\n" +
     "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
@@ -343,13 +345,15 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            </a>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"about-screen screen\" id=\"about\">\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"faq screen\" id=\"faq\">\n" +
     "        <div class=\"content\">\n" +
     "            <h2>FAQ</h2>\n" +
     "            <dl>\n" +
-    "                <dt>Who is behind Unpaywall?</dt>\n" +
+    "                <dt>Who's behind Unpaywall?</dt>\n" +
     "                <dd>\n" +
-    "                    Unpaywall is from <a href=\"http://impactstory.org\">Impactstory,</a>\n" +
+    "                    We're <a href=\"http://impactstory.org\">Impactstory,</a>\n" +
     "                    a nonprofit working to supercharge science by making it\n" +
     "                    more open, reusable, and web-native.\n" +
     "                </dd>\n" +
@@ -362,7 +366,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories,</a>\n" +
     "                    worldwide, making them free for anyone to read. There was just no easy \n" +
     "                    way to find them, especially not one that was integrated into our \n" +
-    "                    reading workflows. So we made one! Our long-term goal with\n" +
+    "                    reading workflows. So we made one! Over the longer term, our goal for\n" +
     "                    Unpaywall is to nurture the transition to a fully\n" +
     "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
     "                    scholarly publishing model, by closing the gap between readers and\n" +
@@ -394,35 +398,32 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>Where does your data come from?</dt>\n" +
-    "                <dd>\n" +
-    "                    We gather information from thousands of different open-access repositories, with the\n" +
-    "                    help of a number of partners. In particular, we depend on data from\n" +
-    "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
-    "                    <a href=\"https://www.crossref.org/\">Crossref,</a>\n" +
-    "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
-    "                    and (especially) <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
-    "                    All this data is available for free via the API of another Impactstory project,\n" +
-    "                    <a href=\"http://oadoi.org\">oaDOI.</a>\n" +
-    "\n" +
-    "                    The oaDOI API is fully free,\n" +
-    "                    open, and scalable and lots of folks are building cool stuff on it already...check\n" +
-    "                    it out if you'd like to build something too!\n" +
-    "                </dd>\n" +
-    "\n" +
-    "                <dt>How is this different from Sci-Hub?</dt>\n" +
+    "                <dt>How's this different from Sci-Hub?</dt>\n" +
     "                <dd>\n" +
     "                    Like Unpaywall, Sci-Hub finds fulltext PDFs for paywalled articles. The main difference\n" +
     "                    is where those PDFs come from: Unpaywall finds PDFs legally uploaded\n" +
     "                    by the authors themselves, while\n" +
-    "                    Sci-Hub uses PDFs that are obtained by other means including automated web scraping\n" +
+    "                    Sci-Hub uses PDFs that are obtained by other means, including automated web scraping\n" +
     "                    of publisher sites. Sci-Hub's method delivers more comprehensive results,\n" +
-    "                    but is not super legal.\n" +
-    "                    <a href=\"http://blog.impactstory.org/comparing-sci-hub-oadoi/\">We're not against Sci-Hub.</a>\n" +
-    "                    But we  think Unpaywall offers a more sustainable approach, by working within copyright law\n" +
+    "                    but is not super legal. So while\n" +
+    "                    <a href=\"http://blog.impactstory.org/comparing-sci-hub-oadoi/\">we're not against Sci-Hub,</a>\n" +
+    "                    we think Unpaywall offers a more sustainable approach by working within copyright law\n" +
     "                    and supporting the growing open access movement.\n" +
     "                </dd>\n" +
     "\n" +
+    "                <dt>How do you find your fulltext articles?</dt>\n" +
+    "                <dd>\n" +
+    "                    We gather information from thousands of different open-access repositories with the\n" +
+    "                    help many awesome open data sources, especially\n" +
+    "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
+    "                    <a href=\"https://www.crossref.org/\">Crossref,</a>\n" +
+    "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
+    "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
+    "\n" +
+    "                    We in turn make all this data open via the\n" +
+    "                     <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
+    "                    way to leverage our infrastructure to build your own projects.\n" +
+    "                </dd>\n" +
     "\n" +
     "                <dt>I found a bug</dt>\n" +
     "                <dd>\n" +

@@ -51,7 +51,7 @@ angular.module('landing', [
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
-        var about = angular.element(document.getElementById('about'));
+        var about = angular.element(document.getElementById('faq'));
 
         $scope.scrollToAbout = function(){
             console.log("scroll to about!", about)

@@ -8,7 +8,6 @@
 
         .button {
             color: #fff;
-            cursor:default;
             font-size: 12px;
             font-family:  "Helvetica", "Arial", "sans-serif";
             text-align: center;
@@ -20,6 +19,8 @@
             border-radius: 40px 0 0 40px;
             box-shadow: 0 1px 5px -1px #333;
             display: none;
+            cursor: pointer;
+            opacity: 1;
         }
 
         div.icon img {
@@ -29,16 +30,16 @@
         div.label {
             margin-top: 4px;
         }
-
-        /* success! */
-        .button.success {
-            background: #20e168;
-            cursor: pointer;
-            opacity: 1;
-        }
-        .button.success:hover {
+        .button:hover {
             padding-right: 7px;
             /*background: #21dc67;*/
+        }
+
+        .button.green {
+            background: #20e168;
+        }
+        .button.gold {
+            background: goldenrod;
         }
 
 

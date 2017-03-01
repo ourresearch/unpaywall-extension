@@ -84,7 +84,31 @@ function findDoi(){
 
 
 function findPdfUrl(){
-    return "http://jcb.rupress.org/content/jcb/191/1/2.2.full.pdf"
+
+    // todo massively improve PDF link detection.
+    // step one: bring in all the code from
+    // https://github.com/Impactstory/articlepage/blob/master/article_page.py
+    // as this is well tested and gets oodles of instances.
+    //
+    // step two is bring in code from zotero translators
+    //
+    // for now though this will get enough to be interesting, as the <meta>
+    // approach is the most common one from publishers.
+
+    var pdfUrl;
+
+    //  look in the <meta> tags
+    // same thing, but look in  <link> tags
+    $("meta").each(function(i, elem){
+        if (elem.name == "citation_pdf_url") {
+            pdfUrl = elem.content
+            return false; // stop iterating, we found what we need
+        }
+    })
+
+    // todo look in <link> tags as well
+
+    return pdfUrl
 }
 
 
@@ -93,7 +117,7 @@ function insertIframe(name){
         return false // already done, let's quit.
     }
     
-    devLog("inserting iframe")
+    devLog("inserting iframe, based on these results:", results)
     iframe.src = chrome.extension.getURL('unpaywall.html');
     iframe.style.height = "80px";
     iframe.style.width = '80px';
@@ -138,7 +162,7 @@ function doPdfScrape(){
         return false
     }
 
-    devLog("doing PDF scrape", pdfUrl)
+    devLog("doing PDF scrape on this URL", pdfUrl)
 
     // ok, we've got a PDF URL. Let's see if it's open.
 
@@ -153,7 +177,6 @@ function doPdfScrape(){
             xhr.abort()
 
             if (contentType.indexOf("pdf") > -1){
-                devLog("We found a free PDF. This is Gold OA, yay!")
                 results.pdfScrape.url = pdfUrl
                 results.pdfScrape.color = "gold"
             }
@@ -170,7 +193,6 @@ function doOadoi(){
     $.get(url, function(data){
         results.oadoi.isComplete = true
         var resp = data.results[0]
-        devLog("got oaDOI info back", resp)
         if (resp.oa_color){
             results.oadoi.color = resp.oa_color  // green or gold
             results.oadoi.url = resp.free_fulltext_url

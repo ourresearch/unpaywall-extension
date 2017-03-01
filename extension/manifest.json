@@ -26,6 +26,7 @@
   "web_accessible_resources": [
       "/img/",
       "unpaywall.html",
+      "font-awesome.min.css",
       "inside-frame.js"
   ]
 }

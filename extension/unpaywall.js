@@ -158,7 +158,7 @@ function followTabClick(){
 function doPdfScrape(){
     var pdfUrl = findPdfUrl()
     if (!pdfUrl){
-        result.pdfScrape.isComplete = true
+        results.pdfScrape.isComplete = true
         return false
     }
 

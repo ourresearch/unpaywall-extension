@@ -211,11 +211,15 @@ function goToFulltext(){
     // if we want to, we can keep the user on the same page here, depending
     // on the color of oa we are dealing with...no need to reload the page
     // if the url is just pointing to this same spot, for instance.
-    if (results.oadoi.url){
+    else if (results.oadoi.url){
         newLoc = results.oadoi.url
     }
+    else {
+        // shouldn't ever get here, since the button only appears
+        // when there's a fulltext url somewhere.
+    }
 
-    devLog("sending user to new fulltext URL: ", newLoc)
+    devLog("sending user to new fulltext URL: " + newLoc, results)
     window.location = newLoc
 }
 

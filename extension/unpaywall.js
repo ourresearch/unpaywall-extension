@@ -208,7 +208,7 @@ function resolvesToCurrentHost(url){
 
 
 function checkResults(){
-    devLog("checking results....", results)
+    //devLog("checking results....", results)
 
 
     // if all the results aren't in, we can't make decisions. quit.

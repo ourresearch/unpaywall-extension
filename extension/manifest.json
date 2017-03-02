@@ -1,9 +1,9 @@
 {
-  "name": "UnPaywall",
-  "version": "1.0.2",
-  "version_name": "UnPaywall 1.0.2",
+  "name": "Unpaywall",
+  "version": "1.1.0",
+  "version_name": "UnPaywall 1.1.0",
   "manifest_version": 2,
-  "description": "Get a link to a free PDF when you view scholarly articles.",
+  "description": "Find open-access versions of paywalled research papers, instantly.",
   "icons": {
     "16": "img/favicon.png",
     "128": "img/icon-128.png"

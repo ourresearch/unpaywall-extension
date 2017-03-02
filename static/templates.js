@@ -18,7 +18,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"about\">\n" +
     "               Every time you hit a paywalled article, Unpaywall automatically\n" +
     "                looks for a copy in our index\n" +
-    "                of over 20 million free, legal fulltext PDFs.\n" +
+    "                of over 13 million free, legal fulltext PDFs.\n" +
     "                If we find one, we give you a link to read.\n" +
     "                <br>\n" +
     "                Open access has never been easier.\n" +
@@ -85,7 +85,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    Unfortunately not all authors upload their fulltext PDFs online&mdash;although\n" +
     "                    the number is growing every day. So sometimes there's no fulltext available online,\n" +
     "                    and Unpaywall comes up empty. The exact percentage depends on the age\n" +
-    "                    and field of the article, but we generally find around 40% success.\n" +
+    "                    and field of the article, but we generally find around 25% success.\n" +
     "                    There's actually been a bunch of research on this recently, and we're planning a blog\n" +
     "                    post breaking it down&mdash;stay tuned.\n" +
     "\n" +

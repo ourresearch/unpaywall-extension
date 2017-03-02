@@ -101,7 +101,7 @@ angular.module('app').controller('AppCtrl', function(
         //    $scope.global.title = "Discover the online impact of your research"
         //}
         //return "Impactstory: " + $scope.global.title
-        return "UnPaywall"
+        return "Unpaywall"
     }
 
 

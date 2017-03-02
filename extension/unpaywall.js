@@ -174,6 +174,14 @@ function doPdfScrape(){
             }
         }
     }
+
+    // so it's important to mark this done even if something goes wrong,
+    // or we'll never make a decision to show the Green OA tab even if we find green. Eg:
+    // https://link.springer.com/article/10.1023%2FB%3AMACH.0000011805.60520.fe
+    // redirects to http download server, which throws error (needs to be https).
+    xhr.onerror = function(){
+        results.pdfScrape.isComplete = true
+    }
     xhr.send()
 }
 
@@ -200,7 +208,7 @@ function resolvesToCurrentHost(url){
 
 
 function checkResults(){
-    //devLog("checking results....", results)
+    devLog("checking results....", results)
 
 
     // if all the results aren't in, we can't make decisions. quit.

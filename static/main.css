@@ -96,6 +96,9 @@ div.page.landing .screen.top-screen a.main-button {
   text-align: left;
   justify-content: center;
 }
+div.page.landing .screen.top-screen a.main-button:hover {
+  text-decoration: none;
+}
 div.page.landing .screen.top-screen a.main-button i {
   font-size: 50px;
   margin-right: 15px;

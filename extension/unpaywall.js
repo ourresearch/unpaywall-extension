@@ -119,8 +119,8 @@ function insertIframe(name){
     
     devLog("inserting iframe, based on these results:", results)
     iframe.src = chrome.extension.getURL('unpaywall.html');
-    iframe.style.height = "80px";
-    iframe.style.width = '80px';
+    iframe.style.height = "50px";
+    iframe.style.width = '50px';
     iframe.style.position = 'fixed';
     iframe.style.right = '0';
     iframe.style.top = '33%';
@@ -143,16 +143,8 @@ function insertIframe(name){
 //    }, "*")
 //}
 
-function followTabClick(){
-    // we can't tell when someone clicks on the iframe,
-    // so we have to listen to message sent from it.
-    window.addEventListener("message", function(msg){
-        if (msg.data.unpaywall == "go-to-pdf"){
-            devLog("go to pdf", resp.free_fulltext_url)
-            window.location = resp.free_fulltext_url
-        }
-    }, false);
-}
+
+
 
 
 function doPdfScrape(){
@@ -200,23 +192,52 @@ function doOadoi(){
     })
 }
 
+function resolvesToCurrentHost(url){
+    var currentUrl = new URL(window.location)
+    var oadoiUrl = new URL(url)
+    return currentUrl.hostname == oadoiUrl.hostname
+}
+
+
 function checkResults(){
     //devLog("checking results....", results)
 
-    // once all the results are in, we can do stuff
-    if (results.pdfScrape.isComplete && results.oadoi.isComplete){
 
-        // locally scraped pdf gets priority
-        if (results.pdfScrape.color == 'gold'){
-            insertIframe("gold")
-            return true
-        }
+    // if all the results aren't in, we can't make decisions. quit.
+    if (!(results.pdfScrape.isComplete && results.oadoi.isComplete)){
+        return false
+    }
 
-        // if no scraped PDF, use the oaDOI response
-        if (results.oadoi.color) {
-            insertIframe(results.oadoi.color)
-            return true
-        }
+    // the decision on how to assign tab color is a bit complicated.
+    // it's layed out below as a set of steps, arranged in order of preference.
+    // if we get a hit on any step, we insert the iframe and quit.
+
+
+    // 1. if it's gold OA, we want to make sure we show that, so it's at the top
+    if (results.oadoi.color == "gold") {
+        insertIframe("gold")
+        return true
+    }
+
+
+    // 2. if we scraped a PDF from this page, it may be that the user is browsing
+    // from campus/VPN and they have lib-purchased access,
+    // or it may be a hybrid article that OA didn't realize was gold. either way
+    // it's more likely to please the user than the Green OA copy, so we send it.
+    if (results.pdfScrape.url){
+        insertIframe("blue"); // blue is our color for "PDF found on this page"
+        return true
+    }
+
+    // 3. green is the trickiest. sometimes (PMC most notably) the Green
+    // repository page has DOI metadata on it. unpaywall will pick that up,
+    // send it to oaDOI, and get a link to the green page it's
+    // already on. that's useless. so don't show the tab at all if we're already
+    // on the same page we're going to link to.
+    if (results.oadoi.color == "green" && !resolvesToCurrentHost(results.oadoi.url)) {
+        devLog("We're already on the Green OA source for this article.")
+        insertIframe("green")
+        return true
     }
 
     return false
@@ -229,10 +250,6 @@ function goToFulltext(){
     if (results.pdfScrape.url){
         newLoc = results.pdfScrape.url
     }
-
-    // if we want to, we can keep the user on the same page here, depending
-    // on the color of oa we are dealing with...no need to reload the page
-    // if the url is just pointing to this same spot, for instance.
     else if (results.oadoi.url){
         newLoc = results.oadoi.url
     }

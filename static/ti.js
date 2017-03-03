@@ -405,7 +405,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                            <div class=\"text\">\n" +
     "                                <span class=\"color blue\">Blue</span> articles are available on the current page, either because they're\n" +
     "                                open-access without a license, or you're browsing from behind the paywall.\n" +
-    "                                <a href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
+    "                                <a href=\"http://www.pnas.org/content/105/31/11014\">(example)</a>\n" +
     "\n" +
     "                            </div>\n" +
     "                        </li>\n" +
@@ -416,7 +416,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                            <div class=\"text\">\n" +
     "                                <span class=\"color green\">Green</span> articles are available via an open, legal preprint server or\n" +
     "                                institutional repository.\n" +
-    "                                <a href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
+    "                                <a href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">(example)</a>\n" +
     "\n" +
     "                            </div>\n" +
     "                        </li>\n" +

@@ -77,6 +77,7 @@ div.page.landing .screen.top-screen div.about {
   color: #fff;
   margin-top: 30px;
   margin-bottom: 70px;
+  font-size: 23px;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen div.about {

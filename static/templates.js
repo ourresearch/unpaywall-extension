@@ -6,7 +6,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "    <div class=\"top-screen screen\" layout=\"row\" layout-align=\"center center\">\n" +
     "        <div class=\"navbar\">\n" +
     "            <img id=\"logo\" src=\"static/img/logo.png\" alt=\"\">\n" +
-    "            <a class=\"more\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
+    "            <a class=\"questions\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
     "                <i class=\"fa fa-question-circle-o\"></i>\n" +
     "            </a>\n" +
     "        </div>\n" +
@@ -35,6 +35,10 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                </span>\n" +
     "            </a>\n" +
     "        </div>\n" +
+    "        <a class=\"more\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
+    "            <i class=\"fa fa-chevron-down\"></i>\n" +
+    "            more\n" +
+    "        </a>\n" +
     "    </div>\n" +
     "\n" +
     "\n" +
@@ -42,30 +46,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"content\">\n" +
     "            <h2>FAQ</h2>\n" +
     "            <dl>\n" +
-    "                <dt>Who's behind Unpaywall?</dt>\n" +
-    "                <dd>\n" +
-    "                    We're <a href=\"http://impactstory.org\">Impactstory,</a>\n" +
-    "                    a nonprofit working to supercharge science by making it\n" +
-    "                    more open, reusable, and web-native.\n" +
-    "                </dd>\n" +
-    "\n" +
-    "                <dt>Why did you make it?</dt>\n" +
-    "                <dd>\n" +
-    "                    We got tired of running into paywalled articles! The worst part was, we knew\n" +
-    "                    that millions of researchers are currently uploading their own fulltext PDFs\n" +
-    "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
-    "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories,</a>\n" +
-    "                    worldwide, making them free for anyone to read. There was just no easy \n" +
-    "                    way to find them, especially not one that was integrated into our \n" +
-    "                    reading workflows. So we made one! Over the longer term, our goal for\n" +
-    "                    Unpaywall is to nurture the transition to a fully\n" +
-    "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
-    "                    scholarly publishing model, by closing the gap between readers and\n" +
-    "                    freely-available fulltext.\n" +
-    "\n" +
-    "                </dd>\n" +
-    "\n" +
-    "                <dt>How do I use this?</dt>\n" +
+    "                <dt>How do I use Unpaywall?</dt>\n" +
     "                <dd>\n" +
     "                    After you\n" +
     "                    <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\">install the extension</a>\n" +
@@ -117,6 +98,32 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    </ul>\n" +
     "\n" +
     "                </dd>\n" +
+    "\n" +
+    "\n" +
+    "                <dt>Who's behind Unpaywall?</dt>\n" +
+    "                <dd>\n" +
+    "                    We're <a href=\"http://impactstory.org\">Impactstory,</a>\n" +
+    "                    a nonprofit working to supercharge science by making it\n" +
+    "                    more open, reusable, and web-native.\n" +
+    "                </dd>\n" +
+    "\n" +
+    "                <dt>Why did you make it?</dt>\n" +
+    "                <dd>\n" +
+    "                    We got tired of running into paywalled articles! The worst part was, we knew\n" +
+    "                    that millions of researchers are currently uploading their own fulltext PDFs\n" +
+    "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
+    "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories,</a>\n" +
+    "                    worldwide, making them free for anyone to read. There was just no easy \n" +
+    "                    way to find them, especially not one that was integrated into our \n" +
+    "                    reading workflows. So we made one! Over the longer term, our goal for\n" +
+    "                    Unpaywall is to nurture the transition to a fully\n" +
+    "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
+    "                    scholarly publishing model, by closing the gap between readers and\n" +
+    "                    freely-available fulltext.\n" +
+    "\n" +
+    "                </dd>\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "                <dt>How often does Unpaywall actually find a free PDF for a given article?</dt>\n" +
     "                <dd>\n" +

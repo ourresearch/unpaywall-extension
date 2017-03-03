@@ -154,6 +154,9 @@ div.page.landing .screen.top-screen a.main-button span.small {
 #faq dl dd ul li div.button.blue {
   background: dodgerblue;
 }
+#faq dl dd ul li div.button i {
+  margin-left: 3px;
+}
 #faq dl dd ul li div.text {
   flex-basis: 100%;
 }

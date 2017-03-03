@@ -151,7 +151,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
     "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
     "\n" +
-    "                    We in turn make all this data open for reuse\n" +
+    "                    In turn, we make all this data open for reuse via the\n" +
     "                     <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
     "                    way to leverage our infrastructure to build your own projects.\n" +
     "                </dd>\n" +
@@ -188,7 +188,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                <i class=\"fa fa-twitter\"></i>\n" +
     "                Twitter\n" +
     "            </a>\n" +
-    "            <a href=\"http://github.org/Impactstory/unpawall\">\n" +
+    "            <a href=\"https://github.com/Impactstory/unpaywall\">\n" +
     "                <i class=\"fa fa-github\"></i>\n" +
     "                GitHub\n" +
     "            </a>\n" +

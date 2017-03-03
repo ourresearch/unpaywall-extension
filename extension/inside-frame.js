@@ -1,4 +1,4 @@
-$(".button.success")
+$(".button")
     .fadeIn()
     .click(function(){
         parent.postMessage({

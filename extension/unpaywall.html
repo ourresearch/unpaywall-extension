@@ -27,6 +27,9 @@
             border-right: none;
             background: #fff;
         }
+        .button .fa-lock {
+            display: none;
+        }
 
         div.icon {
             font-size: 22px;
@@ -38,52 +41,32 @@
         }
         .button:hover {
             padding-right: 2px;
-            /*background: #21dc67;*/
         }
 
         .button.green {
             background: #20e168;
-            /*color: #20e168;*/
-            /*border: 1px solid #20e168;*/
         }
         .button.blue {
             background: dodgerblue;
-            /*color: dodgerblue;*/
-            /*border: 1px solid dodgerblue;*/
         }
         .button.gold {
             background: #f9bc01;
 
-            /*color: #f9bc01;*/
-            /*border: 1px solid #f9bc01;*/
-
         }
 
 
-        /* loading */
-        /*
-        .button.loading {
-            display: none;
-            background-color:rgba(0, 0, 0, 0.1);
-            cursor: default;
-            opacity: .8;
+        /*The button for we couldn't find OA*/
+
+        .button.black {
+            border-right: none;
+            background: #bbb;
         }
-        .button.loading img.pdf {
+        .button.black .fa-unlock-alt {
             display: none;
         }
-        .button.loading .loading-icon {
-            display: none
-            display: inline-block;
+        .button.black .fa-lock {
+            display: block;
         }
-        */
-
-        /* failure :( */
-        /*
-        .button.failure {
-            display: none;
-        }
-        */
-
 
 
     </style>
@@ -93,6 +76,7 @@
     <div class="button success">
         <div class="icon">
             <i class="fa fa-unlock-alt"></i>
+            <i class="fa fa-lock"></i>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 {
   "name": "Unpaywall",
   "version": "1.1.0",
-  "version_name": "UnPaywall 1.1.0",
+  "version_name": "UnPaywall 1.2.0",
   "manifest_version": 2,
   "description": "Find open-access versions of paywalled research papers, instantly.",
   "icons": {
@@ -15,6 +15,7 @@
       ],
       "js": [
         "js/jquery-3.1.1.min.js",
+        "js/alertify.min.js",
         "unpaywall.js"
       ]
     }

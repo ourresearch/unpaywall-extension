@@ -60,7 +60,9 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "                <dt>What do the different tab colors mean?</dt>\n" +
     "                <dd>\n" +
-    "                    When we find a free PDF, we use the color of the tab to show where we got it from:\n" +
+    "                    When you view a research article (which Unpaywall defines as one with a\n" +
+    "                    <a href=\"http://www.apastyle.org/learn/faqs/what-is-doi.aspx\">DOI</a>),\n" +
+    "                    you'll see a colored tab on the right of your browser window:\n" +
     "                    <ul>\n" +
     "                        <li>\n" +
     "                            <div class=\"button gold\">\n" +
@@ -91,9 +93,23 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                                <span class=\"color green\">Green</span> articles are available via an open, legal preprint server or\n" +
     "                                institutional repository.\n" +
     "                                <a href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">(example)</a>\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"button black\">\n" +
+    "                                <i class=\"fa fa-lock\"></i>\n" +
+    "                            </div>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color green\">Gray</span> articles don't have any legal open-access version\n" +
+    "                                we could find.\n" +
+    "                                <a href=\"https://link.springer.com/article/10.1007/BF02300480\">(example)</a>\n" +
     "\n" +
     "                            </div>\n" +
     "                        </li>\n" +
+    "\n" +
+    "                        <!-- example of a paywalled one:\n" +
+    "                        https://link.springer.com/article/10.1007/BF02300480\n" +
+    "                         -->\n" +
     "\n" +
     "                    </ul>\n" +
     "\n" +

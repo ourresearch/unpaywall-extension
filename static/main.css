@@ -165,6 +165,9 @@ div.page.landing .screen a.more {
 #faq dl dd ul li div.button.blue {
   background: dodgerblue;
 }
+#faq dl dd ul li div.button.black {
+  background: #bbb;
+}
 #faq dl dd ul li div.button i {
   margin-left: 3px;
 }

@@ -248,6 +248,12 @@ function checkResults(){
         return true
     }
 
+
+    // alas, we couldn't find any OA for this. but we want to show a tab anyway, because
+    // that way the user knows the extension is actually there and working.
+    // this could get annoying, but is requested by beta testers now.
+    // in future, we could control with a config.
+    insertIframe("black")
     return false
 
 }
@@ -262,12 +268,14 @@ function goToFulltext(){
         newLoc = results.oadoi.url
     }
     else {
-        // shouldn't ever get here, since the button only appears
-        // when there's a fulltext url somewhere.
+        alertify.alert("The Unpaywall extension " +
+            "couldn't find any legal open-access version of this article.");
     }
 
-    devLog("sending user to new fulltext URL: " + newLoc, results)
-    window.location = newLoc
+    if (newLoc){
+        devLog("sending user to new fulltext URL: " + newLoc, results)
+        window.location = newLoc
+    }
 }
 
 

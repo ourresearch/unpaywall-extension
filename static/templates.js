@@ -13,15 +13,13 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "        <div class=\"content\">\n" +
     "            <div class=\"tagline\">\n" +
-    "                Find open-access versions of paywalled research papers, instantly.\n" +
+    "                Get open-access versions of paywalled research papers, instantly.\n" +
     "            </div>\n" +
     "            <div class=\"about\">\n" +
-    "               Every time you hit a paywalled article, Unpaywall automatically\n" +
-    "                looks for a copy in our index\n" +
-    "                of over 13 million free, legal fulltext PDFs.\n" +
-    "                If we find one, we give you a link to read.\n" +
-    "                <br>\n" +
-    "                Open access has never been easier.\n" +
+    "                Unpaywall is a Chrome browser extension that automatically links you to free\n" +
+    "                fulltext when you hit paywalls, using our index of over ten\n" +
+    "                million legal, open-access articles.\n" +
+    "\n" +
     "            </div>\n" +
     "\n" +
     "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
@@ -73,11 +71,51 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\">install the extension</a>\n" +
     "\n" +
     "                    we'll do the work in the background. When you view a paywalled article,\n" +
-    "                    we'll search for a free legal copy. If we find one, you'll see a bright green\n" +
-    "                    \"free\" tab on the right side of your browser window. Click on the tab, read the\n" +
-    "                    article. If you want to see an example of Unpaywall working,\n" +
-    "                    visit <a href=\"http://www.sciencedirect.com/science/article/pii/S0140673611617522\">this article</a>\n" +
-    "                    after you've installed the extension.\n" +
+    "                    we'll search for a free legal copy. When we find one (about 25% of the time\n" +
+    "                    right now), you'll see an \"unlock\" tab on the right of your browser.\n" +
+    "                    Click the tab, read the article. Easy.\n" +
+    "                </dd>\n" +
+    "\n" +
+    "\n" +
+    "                <dt>What do the different tab colors mean?</dt>\n" +
+    "                <dd>\n" +
+    "                    When we find a free PDF, we use the color of the tab to show where we got it from:\n" +
+    "                    <ul>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"button gold\">\n" +
+    "                                <i class=\"fa fa-unlock-alt\"></i>\n" +
+    "                            </div>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color gold\">Gold</span> articles are available from the publisher\n" +
+    "                                under an open license.\n" +
+    "                                <a href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"button blue\">\n" +
+    "                                <i class=\"fa fa-unlock-alt\"></i>\n" +
+    "                            </div>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color blue\">Blue</span> articles are available on the current page, either because they're\n" +
+    "                                open-access without a license, or you're browsing from behind the paywall.\n" +
+    "                                <a href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
+    "\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"button green\">\n" +
+    "                                <i class=\"fa fa-unlock-alt\"></i>\n" +
+    "                            </div>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color green\">Green</span> articles are available via an open, legal preprint server or\n" +
+    "                                institutional repository.\n" +
+    "                                <a href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
+    "\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "\n" +
+    "                    </ul>\n" +
+    "\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt>How often does Unpaywall actually find a free PDF for a given article?</dt>\n" +
@@ -113,17 +151,19 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
     "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
     "\n" +
-    "                    We in turn make all this data open via the\n" +
+    "                    We in turn make all this data open for reuse\n" +
     "                     <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
     "                    way to leverage our infrastructure to build your own projects.\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt>I found a bug</dt>\n" +
     "                <dd>\n" +
-    "                    Sorry about that! Unfortunately this is not uncommon, mostly because\n" +
-    "                    scholarly publishing is still sort of a wild west of missing and ignored\n" +
-    "                    information standards, and this creates a number of problems for automatic systems like\n" +
-    "                    Unpaywall. The good news is that it's still early days for this project and\n" +
+    "                    Sorry about that! Unfortunately this is pretty common, especially where publishers\n" +
+    "                    don't follow standard practices for article display (as they often do not).\n" +
+    "                    For instance, we don't work for articles missing\n" +
+    "                    <a href=\"http://www.apastyle.org/learn/faqs/what-is-doi.aspx\">DOIs.</a>\n" +
+    "\n" +
+    "                    The good news is that it's still early days for this project and\n" +
     "                    it's under very active development. When you find an error,\n" +
     "                    <a href=\"mailto:team@impactstory.org\">drop us an email</a> and we'll get it fixed for you.\n" +
     "                </dd>\n" +

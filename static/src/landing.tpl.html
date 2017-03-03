@@ -9,15 +9,13 @@
 
         <div class="content">
             <div class="tagline">
-                Find open-access versions of paywalled research papers, instantly.
+                Get open-access versions of paywalled research papers, instantly.
             </div>
             <div class="about">
-               Every time you hit a paywalled article, Unpaywall automatically
-                looks for a copy in our index
-                of over 13 million free, legal fulltext PDFs.
-                If we find one, we give you a link to read.
-                <br>
-                Open access has never been easier.
+                Unpaywall is a Chrome browser extension that automatically links you to free
+                fulltext when you hit paywalls, using our index of over ten
+                million legal, open-access articles.
+
             </div>
 
             <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha"
@@ -69,11 +67,51 @@
                     <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha">install the extension</a>
 
                     we'll do the work in the background. When you view a paywalled article,
-                    we'll search for a free legal copy. If we find one, you'll see a bright green
-                    "free" tab on the right side of your browser window. Click on the tab, read the
-                    article. If you want to see an example of Unpaywall working,
-                    visit <a href="http://www.sciencedirect.com/science/article/pii/S0140673611617522">this article</a>
-                    after you've installed the extension.
+                    we'll search for a free legal copy. When we find one (about 25% of the time
+                    right now), you'll see an "unlock" tab on the right of your browser.
+                    Click the tab, read the article. Easy.
+                </dd>
+
+
+                <dt>What do the different tab colors mean?</dt>
+                <dd>
+                    When we find a free PDF, we use the color of the tab to show where we got it from:
+                    <ul>
+                        <li>
+                            <div class="button gold">
+                                <i class="fa fa-unlock-alt"></i>
+                            </div>
+                            <div class="text">
+                                <span class="color gold">Gold</span> articles are available from the publisher
+                                under an open license.
+                                <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308">(example)</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="button blue">
+                                <i class="fa fa-unlock-alt"></i>
+                            </div>
+                            <div class="text">
+                                <span class="color blue">Blue</span> articles are available on the current page, either because they're
+                                open-access without a license, or you're browsing from behind the paywall.
+                                <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308">(example)</a>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="button green">
+                                <i class="fa fa-unlock-alt"></i>
+                            </div>
+                            <div class="text">
+                                <span class="color green">Green</span> articles are available via an open, legal preprint server or
+                                institutional repository.
+                                <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308">(example)</a>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
                 </dd>
 
                 <dt>How often does Unpaywall actually find a free PDF for a given article?</dt>
@@ -109,17 +147,19 @@
                     <a href="https://www.datacite.org/">DataCite,</a>
                     and <a href="https://www.base-search.net/">BASE.</a>
 
-                    We in turn make all this data open via the
+                    We in turn make all this data open for reuse
                      <a href="http://oadoi.org/about">oaDOI</a> API: a free, fast, and very scalable
                     way to leverage our infrastructure to build your own projects.
                 </dd>
 
                 <dt>I found a bug</dt>
                 <dd>
-                    Sorry about that! Unfortunately this is not uncommon, mostly because
-                    scholarly publishing is still sort of a wild west of missing and ignored
-                    information standards, and this creates a number of problems for automatic systems like
-                    Unpaywall. The good news is that it's still early days for this project and
+                    Sorry about that! Unfortunately this is pretty common, especially where publishers
+                    don't follow standard practices for article display (as they often do not).
+                    For instance, we don't work for articles missing
+                    <a href="http://www.apastyle.org/learn/faqs/what-is-doi.aspx">DOIs.</a>
+
+                    The good news is that it's still early days for this project and
                     it's under very active development. When you find an error,
                     <a href="mailto:team@impactstory.org">drop us an email</a> and we'll get it fixed for you.
                 </dd>

@@ -126,6 +126,40 @@ div.page.landing .screen.top-screen a.main-button span.small {
 #faq dl dd {
   margin: 0;
 }
+#faq dl dd ul li {
+  list-style-type: none;
+  display: flex;
+  margin: 10px 0 0;
+  align-items: center;
+  line-height: 1.2;
+  max-width: 800px;
+}
+#faq dl dd ul li div.button {
+  color: #fff;
+  display: flex;
+  border-radius: 40px 0 0 40px;
+  flex-basis: auto;
+  width: 35px;
+  height: 40px;
+  margin: 2px 10px 0 0;
+  justify-content: center;
+  align-items: center;
+}
+#faq dl dd ul li div.button.gold {
+  background: #f9bc01;
+}
+#faq dl dd ul li div.button.green {
+  background: #20e168;
+}
+#faq dl dd ul li div.button.blue {
+  background: dodgerblue;
+}
+#faq dl dd ul li div.text {
+  flex-basis: 100%;
+}
+#faq dl dd ul li a {
+  font-size: 14px;
+}
 div.footer {
   background: #20e168;
   padding: 50px 20px;

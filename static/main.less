@@ -7,9 +7,11 @@
 
 
 @contrast: #2196F3;
-
-
 @baseColor: #20e168;
+
+@oaGold: #f9bc01;
+@oaGreen: #20e168;
+@oaBlue: dodgerblue;
 
 body {
   a {
@@ -157,6 +159,47 @@ div.page.landing {
     }
     dd {
       margin: 0;
+      span.color {
+        //font-weight: bold;
+        //color: #fff;
+        //padding: 5px;
+        //&.gold { background: @oaGold;}
+        //&.green { background: @oaGreen;}
+        //&.blue { background: @oaBlue;}
+      }
+      ul {
+        li {
+          list-style-type: none;
+          display: flex;
+          //justify-content: left;
+          margin: 10px 0 0;
+          align-items: center;
+          line-height: 1.2;
+          max-width: 800px;
+          div.button {
+            color: #fff;
+            display: flex;
+            border-radius: 40px 0 0 40px;
+            flex-basis: auto;
+            width: 35px;
+            height: 40px;
+            margin: 2px 10px 0 0;
+            justify-content: center;
+            align-items: center;
+            &.gold { background: @oaGold;}
+            &.green { background: @oaGreen;}
+            &.blue { background: @oaBlue;}
+          }
+          div.text {
+            flex-basis: 100%;
+          }
+          a {
+            font-size: 14px;
+          }
+
+        }
+      }
+
     }
   }
 }

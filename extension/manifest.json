@@ -21,8 +21,7 @@
     }
   ],
   "permissions": [
-    "activeTab",
-    "geolocation"
+    "activeTab"
   ],
   "web_accessible_resources": [
       "/img/",

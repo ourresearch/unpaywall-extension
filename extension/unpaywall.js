@@ -293,6 +293,8 @@ function goToFulltext(){
 
 // procedural code
 var doi = findDoi()
+
+// the meat of the extension does not run unless we find a DOI
 if (doi){
     devLog("we have a doi!", doi)
 
@@ -309,7 +311,7 @@ if (doi){
             insertIframe(tabColor)
             clearInterval(resultsChecker) // stop polling
         }
-    }, 500)
+    }, 250)
 
 
     // we can't tell when someone clicks on the iframe,

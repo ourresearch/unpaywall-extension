@@ -113,12 +113,24 @@ function findPdfUrl(){
 
 
 function insertIframe(name){
+
+    // make sure we are not inserting iframe again and again
     if (iframeIsInserted){
-        return false // already done, let's quit.
+        return false
     }
     
     devLog("inserting iframe, based on these results:", results)
-    iframe.src = chrome.extension.getURL('unpaywall.html');
+
+    try {
+        // for Firefox
+        iframe.src = browser.extension.getURL('unpaywall.html');
+    }
+    catch (e) {
+        // for Chrome
+        iframe.src = chrome.extension.getURL('unpaywall.html');
+    }
+
+
     iframe.style.height = "50px";
     iframe.style.width = '50px';
     iframe.style.position = 'fixed';
@@ -213,18 +225,18 @@ function checkResults(){
 
     // if all the results aren't in, we can't make decisions. quit.
     if (!(results.pdfScrape.isComplete && results.oadoi.isComplete)){
-        return false
+        return
     }
+
 
     // the decision on how to assign tab color is a bit complicated.
     // it's layed out below as a set of steps, arranged in order of preference.
-    // if we get a hit on any step, we insert the iframe and quit.
+    // if we get a hit on any step, we select a color and then quit.
 
 
     // 1. if it's gold OA, we want to make sure we show that, so it's at the top
     if (results.oadoi.color == "gold") {
-        insertIframe("gold")
-        return true
+        return "gold"
     }
 
 
@@ -234,7 +246,7 @@ function checkResults(){
     // it's more likely to please the user than the Green OA copy, so we send it.
     if (results.pdfScrape.url){
         insertIframe("blue"); // blue is our color for "PDF found on this page"
-        return true
+        return "blue"
     }
 
     // 3. green is the trickiest. sometimes (PMC most notably) the Green
@@ -243,9 +255,7 @@ function checkResults(){
     // already on. that's useless. so don't show the tab at all if we're already
     // on the same page we're going to link to.
     if (results.oadoi.color == "green" && !resolvesToCurrentHost(results.oadoi.url)) {
-        devLog("We're already on the Green OA source for this article.")
-        insertIframe("green")
-        return true
+        return "green"
     }
 
 
@@ -253,8 +263,7 @@ function checkResults(){
     // that way the user knows the extension is actually there and working.
     // this could get annoying, but is requested by beta testers now.
     // in future, we could control with a config.
-    insertIframe("black")
-    return false
+    return "black"
 
 }
 
@@ -291,8 +300,16 @@ if (doi){
     doOadoi()
     doPdfScrape()
 
-    // todo start polling
-    setInterval(checkResults, 500)
+    // poll, waiting for all our data to be collected. once it is,
+    // make a call and inject the iframe, then quit.
+    var resultsChecker = setInterval(function(){
+        devLog("checking results...")
+        var tabColor = checkResults()
+        if (tabColor){
+            insertIframe(tabColor)
+            clearInterval(resultsChecker) // stop polling
+        }
+    }, 500)
 
 
     // we can't tell when someone clicks on the iframe,

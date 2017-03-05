@@ -48,6 +48,8 @@ angular.module('landing', [
 
     .controller("LandingPageCtrl", function ($scope,
                                              $document,
+                                             $rootScope,
+                                             $mdDialog,
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
@@ -63,8 +65,24 @@ angular.module('landing', [
             $document.scrollTop(0, 1000)
         }
 
+        $scope.fxAddon = function($event){
+
+            $mdDialog.show({
+              controller: function($scope, $mdDialog){
+                  console.log("dialog ctrl!")
+                  $scope.cancel = function(){
+                      $mdDialog.cancel()
+                  }
+              },
+              templateUrl: 'firefox-coming-soon.tpl.html',
+              targetEvent: $event,
+              clickOutsideToClose:true
+            })
+
+            $event.preventDefault()
 
 
+        }
 
     })
 

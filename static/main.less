@@ -13,6 +13,30 @@
 @oaGreen: #20e168;
 @oaBlue: dodgerblue;
 
+
+
+/*
+darker:
+#62d717, #00e69d
+
+darker but full saturation
+#53d500, #01d893
+
+brighter:
+#61eb08, #01f8aa
+*/
+
+@gradientTop: @baseColor;
+@gradientBottom: #1bcddd;
+
+// from fb image https://i.imgur.com/C243SvN.png:
+@gradientBottom: #17ACFE;
+@gradientTop: #66F485;
+
+// like above, but greener blue
+@gradientTop: @baseColor;
+@gradientBottom: rgb(22, 183, 187);
+
 body {
   a {
     text-decoration: none;
@@ -67,23 +91,11 @@ div.page.landing {
 
       }
 
-      /*
-      darker:
-      #62d717, #00e69d
-
-      darker but full saturation
-      #53d500, #01d893
-
-      brighter:
-      #61eb08, #01f8aa
-
-
-      */
 
       height: 100vh;
       background-image: linear-gradient(
         135deg,
-        #61eb08, #00dc97
+        @gradientTop, @gradientBottom
       );
       text-align: center;
 
@@ -111,37 +123,45 @@ div.page.landing {
         }
       }
 
-      a.main-button {
-        padding: 15px 25px;
-        border-radius: 3px;
-        border: 3px solid #fff;
-        color: #fff;
-        width: 240px;
-        margin: 0 auto;
+      .call-to-action-buttons {
         display: flex;
-        align-items: center;
-        line-height: .8;
-        text-align: left;
         justify-content: center;
-        &:hover {
-          text-decoration: none;
-        }
 
-        i {
-          font-size: 50px;
-          margin-right: 15px;
-        }
+        a.main-button {
+          padding: 15px 25px;
+          border-radius: 3px;
+          border: 3px solid #fff;
+          color: #fff;
+          width: 240px;
+          margin: 0 10px;
+          display: flex;
+          align-items: center;
+          line-height: .8;
+          text-align: left;
+          justify-content: center;
+          &:hover {
+            text-decoration: none;
+          }
 
-        span.big {
-          display: block;
-          font-size: 28px;
-        }
-        span.small {
-          font-size: 14px;
-          font-weight: bold;
+          i, img {
+            font-size: 50px;
+            height: 50px;
+            margin-right: 15px;
+          }
+
+          span.big {
+            display: block;
+            font-size: 24px;
+          }
+          span.small {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
         }
 
       }
+
     }
 
     a.more {
@@ -223,7 +243,13 @@ div.page.landing {
 }
 
 div.footer {
-  background: @baseColor;
+  //background: @baseColor;
+  background-image: linear-gradient(
+        135deg,
+        @gradientTop, @gradientBottom
+      );
+
+
   padding: 50px 20px;
   margin-top: 150px;
   color: #fff;
@@ -268,6 +294,23 @@ div.footer {
       }
 
     }
+  }
+}
 
+a.dialog-button {
+  display: inline-block;
+  background: #ddd;
+  display: inline-block;
+  padding: 12px;
+  margin: 0 5px 20px;
+  border-radius: 3px;
+  color: #000;
+  &:hover {
+    text-decoration: none;
+  }
+  &.primary {
+    font-weight: bold;
+    background: @baseColor;
+    color: #fff;
   }
 }

@@ -196,6 +196,8 @@ angular.module('landing', [
 
     .controller("LandingPageCtrl", function ($scope,
                                              $document,
+                                             $rootScope,
+                                             $mdDialog,
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
@@ -211,8 +213,24 @@ angular.module('landing', [
             $document.scrollTop(0, 1000)
         }
 
+        $scope.fxAddon = function($event){
+
+            $mdDialog.show({
+              controller: function($scope, $mdDialog){
+                  console.log("dialog ctrl!")
+                  $scope.cancel = function(){
+                      $mdDialog.cancel()
+                  }
+              },
+              templateUrl: 'firefox-coming-soon.tpl.html',
+              targetEvent: $event,
+              clickOutsideToClose:true
+            })
+
+            $event.preventDefault()
 
 
+        }
 
     })
 
@@ -323,24 +341,43 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                Get open-access versions of paywalled research papers, instantly.\n" +
     "            </div>\n" +
     "            <div class=\"about\">\n" +
-    "                Unpaywall is a Chrome browser extension that automatically links you to free\n" +
+    "                Unpaywall is a free browser extension that automatically links you to free\n" +
     "                fulltext when you hit paywalls, using our index of over ten\n" +
     "                million legal, open-access articles.\n" +
     "\n" +
     "            </div>\n" +
+    "            <div class=\"call-to-action-buttons\">\n" +
+    "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
+    "                   class=\"main-button\">\n" +
+    "                    <i class=\"fa fa-chrome\"></i>\n" +
+    "                    <span class=\"text\">\n" +
+    "                        <span class=\"big\">\n" +
+    "                            Free for Chrome\n" +
+    "                        </span>\n" +
+    "                        <span class=\"small\">\n" +
+    "                            on the Chrome Web Store\n" +
+    "                        </span>\n" +
+    "                    </span>\n" +
+    "                </a>\n" +
     "\n" +
-    "            <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
-    "               class=\"main-button\">\n" +
-    "                <i class=\"fa fa-chrome\"></i>\n" +
-    "                <span class=\"text\">\n" +
-    "                    <span class=\"big\">\n" +
-    "                        Install it free\n" +
+    "                <a href=\"https://addons.mozilla.org/en-US/firefox/addon/unpaywall/\"\n" +
+    "                   ng-click=\"fxAddon($event)\"\n" +
+    "                   class=\"main-button\">\n" +
+    "                    <i class=\"fa fa-firefox\"></i>\n" +
+    "                    <!--\n" +
+    "                    <img src=\"static/img/fx-logo.png\" alt=\"\">\n" +
+    "                    -->\n" +
+    "                    <span class=\"text\">\n" +
+    "                        <span class=\"big\">\n" +
+    "                            Free for Firefox\n" +
+    "                        </span>\n" +
+    "                        <span class=\"small\">\n" +
+    "                            on the Firefox Add-On store\n" +
+    "                        </span>\n" +
     "                    </span>\n" +
-    "                    <span class=\"small\">\n" +
-    "                        on the Chrome Web Store\n" +
-    "                    </span>\n" +
-    "                </span>\n" +
-    "            </a>\n" +
+    "                </a>\n" +
+    "            </div>\n" +
+    "\n" +
     "        </div>\n" +
     "        <a class=\"more\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
     "            <i class=\"fa fa-chevron-down\"></i>\n" +
@@ -543,16 +580,40 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                 the National Science Foundation and the Alfred P. Sloan Foundation\n" +
     "            </span>\n" +
     "        </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
     "    </div>\n" +
-    "</div>");
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "<script type=\"text/ng-template\" id=\"firefox-coming-soon.tpl.html\">\n" +
+    "    <md-dialog>\n" +
+    "        <md-dialog-content>\n" +
+    "            <div class=\"md-dialog-content\">\n" +
+    "                <h2>Coming soon</h2>\n" +
+    "                <p>\n" +
+    "                    The Firefox extension is currently moving through <a\n" +
+    "                        href=\"https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews\">Mozilla's review process,</a><br>\n" +
+    "                    but we can notify you when it's ready to be installed.\n" +
+    "\n" +
+    "                </p>\n" +
+    "\n" +
+    "\n" +
+    "            </div>\n" +
+    "        </md-dialog-content>\n" +
+    "\n" +
+    "        <md-dialog-actions>\n" +
+    "            <a class=\"dialog-button\" href=\"\" ng-click=\"cancel()\">I'm good.</a>\n" +
+    "\n" +
+    "            <a class=\"primary dialog-button\"\n" +
+    "                       target=\"_blank\"\n" +
+    "                       href=\"https://goo.gl/forms/LanJmpUSn6vw4Ylp2\">\n" +
+    "                Yep, let me know!\n" +
+    "            </a>\n" +
+    "        </md-dialog-actions>\n" +
+    "    </md-dialog>\n" +
+    "\n" +
+    "\n" +
+    "</script>");
 }]);
 
 angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($templateCache) {

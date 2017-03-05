@@ -12,24 +12,43 @@
                 Get open-access versions of paywalled research papers, instantly.
             </div>
             <div class="about">
-                Unpaywall is a Chrome browser extension that automatically links you to free
+                Unpaywall is a free browser extension that automatically links you to free
                 fulltext when you hit paywalls, using our index of over ten
                 million legal, open-access articles.
 
             </div>
+            <div class="call-to-action-buttons">
+                <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha"
+                   class="main-button">
+                    <i class="fa fa-chrome"></i>
+                    <span class="text">
+                        <span class="big">
+                            Free for Chrome
+                        </span>
+                        <span class="small">
+                            on the Chrome Web Store
+                        </span>
+                    </span>
+                </a>
 
-            <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha"
-               class="main-button">
-                <i class="fa fa-chrome"></i>
-                <span class="text">
-                    <span class="big">
-                        Install it free
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/unpaywall/"
+                   ng-click="fxAddon($event)"
+                   class="main-button">
+                    <i class="fa fa-firefox"></i>
+                    <!--
+                    <img src="static/img/fx-logo.png" alt="">
+                    -->
+                    <span class="text">
+                        <span class="big">
+                            Free for Firefox
+                        </span>
+                        <span class="small">
+                            on the Firefox Add-On store
+                        </span>
                     </span>
-                    <span class="small">
-                        on the Chrome Web Store
-                    </span>
-                </span>
-            </a>
+                </a>
+            </div>
+
         </div>
         <a class="more" href="" ng-click="scrollToAbout()">
             <i class="fa fa-chevron-down"></i>
@@ -232,13 +251,37 @@
                  the National Science Foundation and the Alfred P. Sloan Foundation
             </span>
         </div>
-
-
-
-
-
-
-
-
     </div>
 </div>
+
+
+
+<script type="text/ng-template" id="firefox-coming-soon.tpl.html">
+    <md-dialog>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h2>Coming soon</h2>
+                <p>
+                    The Firefox extension is currently moving through <a
+                        href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">Mozilla's review process,</a><br>
+                    but we can notify you when it's ready to be installed.
+
+                </p>
+
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions>
+            <a class="dialog-button" href="" ng-click="cancel()">I'm good.</a>
+
+            <a class="primary dialog-button"
+                       target="_blank"
+                       href="https://goo.gl/forms/LanJmpUSn6vw4Ylp2">
+                Yep, let me know!
+            </a>
+        </md-dialog-actions>
+    </md-dialog>
+
+
+</script>

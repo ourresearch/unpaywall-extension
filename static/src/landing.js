@@ -48,6 +48,7 @@ angular.module('landing', [
 
     .controller("LandingPageCtrl", function ($scope,
                                              $document,
+                                             $location,
                                              $rootScope,
                                              $mdDialog,
                                              $timeout) {
@@ -55,9 +56,18 @@ angular.module('landing', [
         console.log("i am the landing page ctrl")
         var about = angular.element(document.getElementById('faq'));
 
-        $scope.scrollToAbout = function(){
+
+        var scrollToFaq =  function(){
             console.log("scroll to about!", about)
             $document.scrollToElement(about, 0, 1000);
+        }
+
+
+        $scope.scrollToAbout = scrollToFaq
+
+        console.log("location.search", $location.search())
+        if ($location.search().faq){
+            $timeout(scrollToFaq, 500)
         }
 
         $scope.scrollToTop = function(){

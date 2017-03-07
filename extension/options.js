@@ -1,11 +1,7 @@
-// Saves options to chrome.storage.sync.
-
 if (chrome){
     browser = chrome
 }
 
-
-console.log("loaded options.js")
 function save_options() {
     console.log("click")
 

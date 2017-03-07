@@ -12,7 +12,14 @@
     "128": "img/icon-128.png"
   },
   "browser_action": {
-    "default_icon": "img/icon-16.png"
+    "default_icon": "img/icon-16.png",
+    "default_title": "Unpaywall preferences"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
   },
   "content_scripts": [
     {
@@ -22,7 +29,6 @@
       "js": [
         "js/jquery-3.1.1.min.js",
         "js/alertify.min.js",
-        "options.js",
         "unpaywall.js"
       ]
     }

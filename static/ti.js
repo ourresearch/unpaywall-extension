@@ -336,16 +336,33 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            </a>\n" +
     "        </div>\n" +
     "\n" +
-    "        <div class=\"content\">\n" +
+    "\n" +
+    "        <div class=\"main-img\">\n" +
+    "            <img src=\"static/img/screenshot.png\" alt=\"\">\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"main-copy\">\n" +
     "            <div class=\"tagline\">\n" +
-    "                Get open-access versions of paywalled research papers, instantly.\n" +
+    "\n" +
+    "                Click the\n" +
+    "                <span class=\"tab-word\">tab.</span>\n" +
+    "                <span class=\"tab\"> <i class=\"fa fa-unlock-alt\"></i> </span>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "                <br>\n" +
+    "                Skip the paywall.\n" +
     "            </div>\n" +
+    "            <img class=\"arrow\" src=\"static/img/arrow.png\" alt=\"\">\n" +
     "            <div class=\"about\">\n" +
     "                Unpaywall is a free browser extension that automatically links you to free\n" +
     "                fulltext when you hit paywalls, using our index of over ten\n" +
     "                million legal, open-access articles.\n" +
     "\n" +
     "            </div>\n" +
+    "\n" +
+    "            <!--\n" +
     "            <div class=\"call-to-action-buttons\">\n" +
     "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
     "                   class=\"main-button\">\n" +
@@ -364,9 +381,6 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                   ng-click=\"fxAddon($event)\"\n" +
     "                   class=\"main-button\">\n" +
     "                    <i class=\"fa fa-firefox\"></i>\n" +
-    "                    <!--\n" +
-    "                    <img src=\"static/img/fx-logo.png\" alt=\"\">\n" +
-    "                    -->\n" +
     "                    <span class=\"text\">\n" +
     "                        <span class=\"big\">\n" +
     "                            Free for Firefox\n" +
@@ -377,8 +391,14 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    </span>\n" +
     "                </a>\n" +
     "            </div>\n" +
+    "            -->\n" +
     "\n" +
     "        </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "        <a class=\"more\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
     "            <i class=\"fa fa-chevron-down\"></i>\n" +
     "            more\n" +
@@ -613,7 +633,9 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "    </md-dialog>\n" +
     "\n" +
     "\n" +
-    "</script>");
+    "</script>\n" +
+    "\n" +
+    "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4183852/");
 }]);
 
 angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($templateCache) {

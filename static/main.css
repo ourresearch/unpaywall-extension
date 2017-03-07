@@ -36,8 +36,7 @@ div.page.landing .screen .content h2 {
 }
 div.page.landing .screen.top-screen {
   height: 100vh;
-  background-image: linear-gradient(135deg, #20e168, #16b7bb);
-  text-align: center;
+  background-image: linear-gradient(135deg, #20e168, #2196F3);
 }
 div.page.landing .screen.top-screen .navbar {
   position: absolute;
@@ -47,9 +46,9 @@ div.page.landing .screen.top-screen .navbar {
   color: #fff;
 }
 div.page.landing .screen.top-screen .navbar #logo {
-  width: 250px;
+  width: 200px;
   float: left;
-  margin-top: -30px;
+  margin-top: 0px;
 }
 div.page.landing .screen.top-screen .navbar a.questions {
   float: right;
@@ -57,36 +56,62 @@ div.page.landing .screen.top-screen .navbar a.questions {
   font-size: 24px;
   padding: 20px 25px;
 }
-div.page.landing .screen.top-screen div.tagline {
+div.page.landing .screen.top-screen .main-copy {
+  max-width: 400px;
+  padding-top: 30px;
+  margin-left: 50px;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline {
   font-weight: 300;
-  font-size: 55px;
+  font-size: 45px;
   color: #fff;
-  margin: -5px auto 0;
-  text-align: center;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline .period {
+  font-weight: 900;
+  display: none;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline .tab {
+  background: dodgerblue;
+  background: #20e168;
+  display: inline-block;
+  border-radius: 40px 0 0 40px;
+  padding: .2em .4em .2em .5em;
+  border: 3px solid #fff;
+  font-size: 55%;
+  vertical-align: 4px;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline .tab-word {
+  display: inline;
+  display: none;
 }
 @media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen div.tagline {
+  div.page.landing .screen.top-screen .main-copy div.tagline {
     font-size: 35px;
     line-height: 1.3;
     margin-top: 10px;
   }
 }
-div.page.landing .screen.top-screen div.about {
+div.page.landing .screen.top-screen .main-copy img.arrow {
+  height: 50px;
+  margin: 0 0 -20px -64px;
+  display: none;
+}
+div.page.landing .screen.top-screen .main-copy div.about {
   color: #fff;
   margin-top: 30px;
   margin-bottom: 70px;
   font-size: 23px;
 }
 @media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen div.about {
+  div.page.landing .screen.top-screen .main-copy div.about {
     font-size: 16px;
   }
 }
-div.page.landing .screen.top-screen .call-to-action-buttons {
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
   display: flex;
   justify-content: center;
 }
-div.page.landing .screen.top-screen .call-to-action-buttons a.main-button {
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
   padding: 15px 25px;
   border-radius: 3px;
   border: 3px solid #fff;
@@ -99,20 +124,20 @@ div.page.landing .screen.top-screen .call-to-action-buttons a.main-button {
   text-align: left;
   justify-content: center;
 }
-div.page.landing .screen.top-screen .call-to-action-buttons a.main-button:hover {
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button:hover {
   text-decoration: none;
 }
-div.page.landing .screen.top-screen .call-to-action-buttons a.main-button i,
-div.page.landing .screen.top-screen .call-to-action-buttons a.main-button img {
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button i,
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button img {
   font-size: 50px;
   height: 50px;
   margin-right: 15px;
 }
-div.page.landing .screen.top-screen .call-to-action-buttons a.main-button span.big {
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big {
   display: block;
   font-size: 24px;
 }
-div.page.landing .screen.top-screen .call-to-action-buttons a.main-button span.small {
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.small {
   font-size: 14px;
   font-weight: bold;
 }
@@ -182,7 +207,7 @@ div.page.landing .screen a.more {
   font-size: 14px;
 }
 div.footer {
-  background-image: linear-gradient(135deg, #20e168, #16b7bb);
+  background-image: linear-gradient(135deg, #20e168, #2196F3);
   padding: 50px 20px;
   margin-top: 150px;
   color: #fff;

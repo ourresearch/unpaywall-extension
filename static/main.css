@@ -10,6 +10,15 @@ darker but full saturation
 brighter:
 #61eb08, #01f8aa
 */
+html {
+  width: 100%;
+  height: auto;
+}
+body {
+  margin: 0;
+  width: auto;
+  height: auto;
+}
 body a {
   text-decoration: none;
   color: #2196F3;
@@ -37,6 +46,10 @@ div.page.landing .screen .content h2 {
 div.page.landing .screen.top-screen {
   height: 100vh;
   background-image: linear-gradient(135deg, #20e168, #2196F3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 div.page.landing .screen.top-screen .navbar {
   position: absolute;
@@ -56,90 +69,130 @@ div.page.landing .screen.top-screen .navbar a.questions {
   font-size: 24px;
   padding: 20px 25px;
 }
+div.page.landing .screen.top-screen .main-img {
+  margin-right: 50px;
+}
+@media only screen and (max-width: 600px) {
+  div.page.landing .screen.top-screen .main-img {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 959px) {
+  div.page.landing .screen.top-screen .main-img {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 959px) {
+  div.page.landing .screen.top-screen .main-img img {
+    width: 400px;
+  }
+}
 div.page.landing .screen.top-screen .main-copy {
   max-width: 400px;
-  padding-top: 30px;
-  margin-left: 50px;
+  padding: 10px;
+  margin-top: -20px;
 }
 div.page.landing .screen.top-screen .main-copy div.tagline {
   font-weight: 300;
-  font-size: 45px;
+  font-size: 55px;
   color: #fff;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .period {
-  font-weight: 900;
-  display: none;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .tab {
-  background: dodgerblue;
-  background: #20e168;
-  display: inline-block;
-  border-radius: 40px 0 0 40px;
-  padding: .2em .4em .2em .5em;
-  border: 3px solid #fff;
-  font-size: 55%;
-  vertical-align: 4px;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .tab-word {
-  display: inline;
-  display: none;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen .main-copy div.tagline {
-    font-size: 35px;
+    font-size: 40px;
     line-height: 1.3;
     margin-top: 10px;
   }
 }
-div.page.landing .screen.top-screen .main-copy img.arrow {
-  height: 50px;
-  margin: 0 0 -20px -64px;
+div.page.landing .screen.top-screen .main-copy div.tagline .above .tab {
+  background: #20e168;
+  display: inline-block;
+  border-radius: 40px 0 0 40px;
+  padding: .2em .4em .2em .5em;
+  border: 0px solid #fff;
+  font-size: 65%;
+  vertical-align: 10px;
+  box-shadow: 1px 1px 5px #777;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline .above .and {
+  display: none;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline .above .the {
+  display: inline;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline .under {
+  white-space: nowrap;
+}
+div.page.landing .screen.top-screen .main-copy div.tagline .under .first {
+  text-transform: capitalize;
+}
+div.page.landing .screen.top-screen .main-copy .arrow {
   display: none;
 }
 div.page.landing .screen.top-screen .main-copy div.about {
   color: #fff;
   margin-top: 30px;
-  margin-bottom: 70px;
+  margin-bottom: 100px;
   font-size: 23px;
 }
 @media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen .main-copy div.about {
-    font-size: 16px;
-  }
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 600px) {
+  div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 959px) {
+  div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
+    display: none;
+  }
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
-  padding: 15px 25px;
-  border-radius: 3px;
-  border: 3px solid #fff;
+  padding: 15px 30px;
+  border-radius: 80px ;
+  border: 2px solid #fff;
   color: #fff;
-  width: 240px;
-  margin: 0 10px;
   display: flex;
   align-items: center;
-  line-height: .8;
+  line-height: 1;
   text-align: left;
   justify-content: center;
+  transition: all 0.15s ease;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button:hover {
   text-decoration: none;
+  transform: scale(1.03125);
+  transform: scale(1.0625);
 }
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button i,
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button img {
-  font-size: 50px;
-  height: 50px;
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button .icon {
+  height: 40px;
   margin-right: 15px;
+  display: block;
+}
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button .icon i {
+  font-size: 40px !important;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big {
   display: block;
-  font-size: 24px;
+  font-size: 20px;
+}
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big .action {
+  font-size: 16px;
+  font-weight: 300;
+  display: block;
+}
+div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big .browser {
+  display: block;
+  font-weight: bold;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.small {
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: normal;
+  display: none;
 }
 div.page.landing .screen a.more {
   position: absolute;
@@ -159,9 +212,9 @@ div.page.landing .screen a.more {
 }
 #faq dl dt {
   color: #20e168;
-  font-size: 24px;
+  font-size: 28px;
   margin: 40px 0 5px;
-  font-weight: bold;
+  font-weight: normal;
 }
 #faq dl dd {
   margin: 0;
@@ -171,8 +224,19 @@ div.page.landing .screen a.more {
   display: flex;
   margin: 10px 0 0;
   align-items: center;
-  line-height: 1.2;
   max-width: 800px;
+}
+#faq dl dd ul li span.color {
+  font-weight: bold;
+}
+#faq dl dd ul li span.color.gold {
+  color: #f9bc01;
+}
+#faq dl dd ul li span.color.green {
+  color: #20e168;
+}
+#faq dl dd ul li span.color.blue {
+  color: dodgerblue;
 }
 #faq dl dd ul li div.button {
   color: #fff;
@@ -185,25 +249,13 @@ div.page.landing .screen a.more {
   justify-content: center;
   align-items: center;
 }
-#faq dl dd ul li div.button.gold {
-  background: #f9bc01;
-}
-#faq dl dd ul li div.button.green {
-  background: #20e168;
-}
-#faq dl dd ul li div.button.blue {
-  background: dodgerblue;
-}
-#faq dl dd ul li div.button.black {
-  background: #bbb;
-}
 #faq dl dd ul li div.button i {
   margin-left: 3px;
 }
 #faq dl dd ul li div.text {
   flex-basis: 100%;
 }
-#faq dl dd ul li a {
+#faq dl dd ul li a.eg {
   font-size: 14px;
 }
 div.footer {

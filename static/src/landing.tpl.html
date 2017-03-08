@@ -1,5 +1,5 @@
 <div class="page landing">
-    <div class="top-screen screen" layout="row" layout-align="center center">
+    <div class="top-screen screen">
         <div class="navbar">
             <img id="logo" src="static/img/logo.png" alt="">
             <a class="questions" href="" ng-click="scrollToAbout()">
@@ -14,36 +14,38 @@
 
         <div class="main-copy">
             <div class="tagline">
+                <div class="above">
+                    Click
+                    <span class="the">the</span>
+                    <span class="tab"> <i class="fa fa-unlock-alt"></i> </span>
+                    <span class="and">and</span>
+                    <span class="period">.</span>
+                </div>
 
-                Click the
-                <span class="tab-word">tab.</span>
-                <span class="tab"> <i class="fa fa-unlock-alt"></i> </span>
 
 
-
-
-                <br>
-                Skip the paywall.
+                <div class="under">
+                    <span class="first">skip</span> the paywall.
+                </div>
             </div>
             <img class="arrow" src="static/img/arrow.png" alt="">
             <div class="about">
-                Unpaywall is a free browser extension that automatically links you to free
-                fulltext when you hit paywalls, using our index of over ten
-                million legal, open-access articles.
+                Get full-text
+                of research papers as you browse, using Unpaywall's index of ten million
+                legal, open-access articles.
 
             </div>
 
-            <!--
             <div class="call-to-action-buttons">
                 <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha"
                    class="main-button">
-                    <i class="fa fa-chrome"></i>
+                    <div class="icon">
+                        <i class="fa fa-chrome"></i>
+                    </div>
                     <span class="text">
                         <span class="big">
-                            Free for Chrome
-                        </span>
-                        <span class="small">
-                            on the Chrome Web Store
+                            <span class="action">Free for</span>
+                            <span class="browser">Chrome</span>
                         </span>
                     </span>
                 </a>
@@ -51,18 +53,17 @@
                 <a href="https://addons.mozilla.org/en-US/firefox/addon/unpaywall/"
                    ng-click="fxAddon($event)"
                    class="main-button">
-                    <i class="fa fa-firefox"></i>
+                    <div class="icon">
+                        <i class="fa fa-firefox"></i>
+                    </div>
                     <span class="text">
                         <span class="big">
-                            Free for Firefox
-                        </span>
-                        <span class="small">
-                            on the Firefox Add-On store
+                            <span class="action">Free for</span>
+                            <span class="browser">Firefox</span>
                         </span>
                     </span>
                 </a>
             </div>
-            -->
 
         </div>
 
@@ -81,6 +82,8 @@
         <div class="content">
             <h2>FAQ</h2>
             <dl>
+
+                <!--
                 <dt>How do I use Unpaywall?</dt>
                 <dd>
                     After you
@@ -91,8 +94,9 @@
                     right now), you'll see an "unlock" tab on the right of your browser.
                     Click the tab, read the article. Easy.
                 </dd>
+                -->
 
-
+                <!--
                 <dt>What do the different tab colors mean?</dt>
                 <dd>
                     When you view a research article (which Unpaywall defines as one with a
@@ -142,14 +146,18 @@
                             </div>
                         </li>
 
-                        <!-- example of a paywalled one:
-                        https://link.springer.com/article/10.1007/BF02300480
-                         -->
 
                     </ul>
 
                 </dd>
+                -->
 
+
+                <dt>When do you officially release?</dt>
+                <dd>
+                    April 4th. Till then be aware we're
+                    still fixing small bugs and may add new features.
+                </dd>
 
                 <dt>Who's behind Unpaywall?</dt>
                 <dd>
@@ -160,28 +168,60 @@
 
                 <dt>Why did you make it?</dt>
                 <dd>
-                    We got tired of running into paywalled articles! The worst part was, we knew
-                    that millions of researchers are currently uploading their own fulltext PDFs
+                    Millions of researchers are currently uploading their own fulltext PDFs
                     to <a href="https://en.wikipedia.org/wiki/Preprint">preprint servers</a>
-                    and <a href="https://en.wikipedia.org/wiki/Institutional_repository">institutional repositories,</a>
-                    worldwide, making them free for anyone to read. There was just no easy 
-                    way to find them, especially not one that was integrated into our 
-                    reading workflows. So we made one! Over the longer term, our goal for
-                    Unpaywall is to nurture the transition to a fully
+                    and <a href="https://en.wikipedia.org/wiki/Institutional_repository">institutional repositories</a>
+                    worldwide, making them free for anyone to read. But there was no easy
+                    way to find them, especially not one integrated into our
+                    reading workflows. So we made one! Eventually, we hope tools like
+                    Unpaywall will nurture the transition to fully
                     <a href="https://en.wikipedia.org/wiki/Open_access">open access</a>
-                    scholarly publishing model, by closing the gap between readers and
+                    scholarly publishing, by closing the gap between readers and
                     freely-available fulltext.
 
                 </dd>
 
+                <dt>Can Unpaywall tell me whether an article is "Green" or "Gold" OA?</dt>
+                <dd>Indeed we can. Click the green Unpaywall extension icon in
+                    your browser toolbar and choose "options." Once there, tick "Color-code tab for Green and Gold OA."
+                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:
+                    <ul>
+                        <li>
+                            <div class="text">
+                                <span class="color gold">Gold tab</span> for <a
+                                    href="https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access">Gold OA</a> a
+                                rticles available from the publisher
+                                under an open license.
+                                <a class="eg" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308">(example)</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text">
+                                <span class="color green">Green tab</span> for articles <a
+                                    href="https://en.wikipedia.org/wiki/Self-archiving">self-archived</a> on a preprint server or
+                                institutional repository.
+                                <a class="eg" href="http://rspa.royalsocietypublishing.org/content/454/1969/277">(example)</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text">
+                                <span class="color blue">Blue tab</span> for articles available on the current page, but lacking
+                                license information (often that's because you're browsing from behind the paywall).
+                                <a class="eg" href="http://www.pnas.org/content/105/31/11014">(example)</a>
+
+                            </div>
+                        </li>
+                    </ul>
+                </dd>
 
 
-                <dt>How often does Unpaywall actually find a free PDF for a given article?</dt>
+
+                <dt>How often does Unpaywall find full text?</dt>
                 <dd>
-                    Unfortunately not all authors upload their fulltext PDFs online&mdash;although
-                    the number is growing every day. So sometimes there's no fulltext available online,
-                    and Unpaywall comes up empty. The exact percentage depends on the age
-                    and field of the article, but we generally find around 25% success.
+                    About 25% of the time, although it varies a lot based on the age
+                    and field of the article. The reason it's not 100% is
+                    because unfortunately not all authors upload their fulltext PDFs online&mdash;although
+                    the number is growing every day.
                     There's actually been a bunch of research on this recently, and we're planning a blog
                     post breaking it down&mdash;stay tuned.
 
@@ -255,9 +295,11 @@
 
 
         <div class="logo" flex="20" hide-xs>
+            <!--
             <a href="/" ng-click="scrollToTop()">
-                <img src="static/img/key.png" alt="">
+                <img src="static/img/icon-white.png" alt="">
             </a>
+            -->
         </div>
 
 
@@ -305,5 +347,3 @@
 
 
 </script>
-
-http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4183852/

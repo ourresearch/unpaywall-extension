@@ -3,7 +3,7 @@ angular.module('templates.app', ['landing.tpl.html', 'page-not-found.tpl.html', 
 angular.module("landing.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("landing.tpl.html",
     "<div class=\"page landing\">\n" +
-    "    <div class=\"top-screen screen\" layout=\"row\" layout-align=\"center center\">\n" +
+    "    <div class=\"top-screen screen\">\n" +
     "        <div class=\"navbar\">\n" +
     "            <img id=\"logo\" src=\"static/img/logo.png\" alt=\"\">\n" +
     "            <a class=\"questions\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
@@ -18,36 +18,38 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "        <div class=\"main-copy\">\n" +
     "            <div class=\"tagline\">\n" +
+    "                <div class=\"above\">\n" +
+    "                    Click\n" +
+    "                    <span class=\"the\">the</span>\n" +
+    "                    <span class=\"tab\"> <i class=\"fa fa-unlock-alt\"></i> </span>\n" +
+    "                    <span class=\"and\">and</span>\n" +
+    "                    <span class=\"period\">.</span>\n" +
+    "                </div>\n" +
     "\n" +
-    "                Click the\n" +
-    "                <span class=\"tab-word\">tab.</span>\n" +
-    "                <span class=\"tab\"> <i class=\"fa fa-unlock-alt\"></i> </span>\n" +
     "\n" +
     "\n" +
-    "\n" +
-    "\n" +
-    "                <br>\n" +
-    "                Skip the paywall.\n" +
+    "                <div class=\"under\">\n" +
+    "                    <span class=\"first\">skip</span> the paywall.\n" +
+    "                </div>\n" +
     "            </div>\n" +
     "            <img class=\"arrow\" src=\"static/img/arrow.png\" alt=\"\">\n" +
     "            <div class=\"about\">\n" +
-    "                Unpaywall is a free browser extension that automatically links you to free\n" +
-    "                fulltext when you hit paywalls, using our index of over ten\n" +
-    "                million legal, open-access articles.\n" +
+    "                Get full-text\n" +
+    "                of research papers as you browse, using Unpaywall's index of ten million\n" +
+    "                legal, open-access articles.\n" +
     "\n" +
     "            </div>\n" +
     "\n" +
-    "            <!--\n" +
     "            <div class=\"call-to-action-buttons\">\n" +
     "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
     "                   class=\"main-button\">\n" +
-    "                    <i class=\"fa fa-chrome\"></i>\n" +
+    "                    <div class=\"icon\">\n" +
+    "                        <i class=\"fa fa-chrome\"></i>\n" +
+    "                    </div>\n" +
     "                    <span class=\"text\">\n" +
     "                        <span class=\"big\">\n" +
-    "                            Free for Chrome\n" +
-    "                        </span>\n" +
-    "                        <span class=\"small\">\n" +
-    "                            on the Chrome Web Store\n" +
+    "                            <span class=\"action\">Free for</span>\n" +
+    "                            <span class=\"browser\">Chrome</span>\n" +
     "                        </span>\n" +
     "                    </span>\n" +
     "                </a>\n" +
@@ -55,18 +57,17 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                <a href=\"https://addons.mozilla.org/en-US/firefox/addon/unpaywall/\"\n" +
     "                   ng-click=\"fxAddon($event)\"\n" +
     "                   class=\"main-button\">\n" +
-    "                    <i class=\"fa fa-firefox\"></i>\n" +
+    "                    <div class=\"icon\">\n" +
+    "                        <i class=\"fa fa-firefox\"></i>\n" +
+    "                    </div>\n" +
     "                    <span class=\"text\">\n" +
     "                        <span class=\"big\">\n" +
-    "                            Free for Firefox\n" +
-    "                        </span>\n" +
-    "                        <span class=\"small\">\n" +
-    "                            on the Firefox Add-On store\n" +
+    "                            <span class=\"action\">Free for</span>\n" +
+    "                            <span class=\"browser\">Firefox</span>\n" +
     "                        </span>\n" +
     "                    </span>\n" +
     "                </a>\n" +
     "            </div>\n" +
-    "            -->\n" +
     "\n" +
     "        </div>\n" +
     "\n" +
@@ -85,6 +86,8 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"content\">\n" +
     "            <h2>FAQ</h2>\n" +
     "            <dl>\n" +
+    "\n" +
+    "                <!--\n" +
     "                <dt>How do I use Unpaywall?</dt>\n" +
     "                <dd>\n" +
     "                    After you\n" +
@@ -95,8 +98,9 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    right now), you'll see an \"unlock\" tab on the right of your browser.\n" +
     "                    Click the tab, read the article. Easy.\n" +
     "                </dd>\n" +
+    "                -->\n" +
     "\n" +
-    "\n" +
+    "                <!--\n" +
     "                <dt>What do the different tab colors mean?</dt>\n" +
     "                <dd>\n" +
     "                    When you view a research article (which Unpaywall defines as one with a\n" +
@@ -146,14 +150,18 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                            </div>\n" +
     "                        </li>\n" +
     "\n" +
-    "                        <!-- example of a paywalled one:\n" +
-    "                        https://link.springer.com/article/10.1007/BF02300480\n" +
-    "                         -->\n" +
     "\n" +
     "                    </ul>\n" +
     "\n" +
     "                </dd>\n" +
+    "                -->\n" +
     "\n" +
+    "\n" +
+    "                <dt>When do you officially release?</dt>\n" +
+    "                <dd>\n" +
+    "                    April 4th. Till then be aware we're\n" +
+    "                    still fixing small bugs and may add new features.\n" +
+    "                </dd>\n" +
     "\n" +
     "                <dt>Who's behind Unpaywall?</dt>\n" +
     "                <dd>\n" +
@@ -164,28 +172,60 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "                <dt>Why did you make it?</dt>\n" +
     "                <dd>\n" +
-    "                    We got tired of running into paywalled articles! The worst part was, we knew\n" +
-    "                    that millions of researchers are currently uploading their own fulltext PDFs\n" +
+    "                    Millions of researchers are currently uploading their own fulltext PDFs\n" +
     "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
-    "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories,</a>\n" +
-    "                    worldwide, making them free for anyone to read. There was just no easy \n" +
-    "                    way to find them, especially not one that was integrated into our \n" +
-    "                    reading workflows. So we made one! Over the longer term, our goal for\n" +
-    "                    Unpaywall is to nurture the transition to a fully\n" +
+    "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories</a>\n" +
+    "                    worldwide, making them free for anyone to read. But there was no easy\n" +
+    "                    way to find them, especially not one integrated into our\n" +
+    "                    reading workflows. So we made one! Eventually, we hope tools like\n" +
+    "                    Unpaywall will nurture the transition to fully\n" +
     "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
-    "                    scholarly publishing model, by closing the gap between readers and\n" +
+    "                    scholarly publishing, by closing the gap between readers and\n" +
     "                    freely-available fulltext.\n" +
     "\n" +
     "                </dd>\n" +
     "\n" +
+    "                <dt>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
+    "                <dd>Indeed we can. Click the green Unpaywall extension icon in\n" +
+    "                    your browser toolbar and choose \"options.\" Once there, tick \"Color-code tab for Green and Gold OA.\"\n" +
+    "                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:\n" +
+    "                    <ul>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color gold\">Gold tab</span> for <a\n" +
+    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA</a> a\n" +
+    "                                rticles available from the publisher\n" +
+    "                                under an open license.\n" +
+    "                                <a class=\"eg\" href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color green\">Green tab</span> for articles <a\n" +
+    "                                    href=\"https://en.wikipedia.org/wiki/Self-archiving\">self-archived</a> on a preprint server or\n" +
+    "                                institutional repository.\n" +
+    "                                <a class=\"eg\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">(example)</a>\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color blue\">Blue tab</span> for articles available on the current page, but lacking\n" +
+    "                                license information (often that's because you're browsing from behind the paywall).\n" +
+    "                                <a class=\"eg\" href=\"http://www.pnas.org/content/105/31/11014\">(example)</a>\n" +
+    "\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                    </ul>\n" +
+    "                </dd>\n" +
     "\n" +
     "\n" +
-    "                <dt>How often does Unpaywall actually find a free PDF for a given article?</dt>\n" +
+    "\n" +
+    "                <dt>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
-    "                    Unfortunately not all authors upload their fulltext PDFs online&mdash;although\n" +
-    "                    the number is growing every day. So sometimes there's no fulltext available online,\n" +
-    "                    and Unpaywall comes up empty. The exact percentage depends on the age\n" +
-    "                    and field of the article, but we generally find around 25% success.\n" +
+    "                    About 25% of the time, although it varies a lot based on the age\n" +
+    "                    and field of the article. The reason it's not 100% is\n" +
+    "                    because unfortunately not all authors upload their fulltext PDFs online&mdash;although\n" +
+    "                    the number is growing every day.\n" +
     "                    There's actually been a bunch of research on this recently, and we're planning a blog\n" +
     "                    post breaking it down&mdash;stay tuned.\n" +
     "\n" +
@@ -259,9 +299,11 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "        <div class=\"logo\" flex=\"20\" hide-xs>\n" +
+    "            <!--\n" +
     "            <a href=\"/\" ng-click=\"scrollToTop()\">\n" +
-    "                <img src=\"static/img/key.png\" alt=\"\">\n" +
+    "                <img src=\"static/img/icon-white.png\" alt=\"\">\n" +
     "            </a>\n" +
+    "            -->\n" +
     "        </div>\n" +
     "\n" +
     "\n" +
@@ -309,8 +351,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "</script>\n" +
-    "\n" +
-    "http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4183852/");
+    "");
 }]);
 
 angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($templateCache) {

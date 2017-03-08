@@ -2,6 +2,7 @@
 @import "animate.css";
 @mobile: ~"only screen and (max-width: 992px)";
 @xs: ~"only screen and (max-width: 600px)"; // from angular material
+@sm: ~"only screen and (min-width: 600px) and (max-width: 959px)"; // from angular material
 
 
 
@@ -39,8 +40,15 @@ brighter:
 
 @gradientBottom: @contrast;
 
+html {
+  width: 100%;
+  height: auto;
+}
 
 body {
+  margin: 0;
+  width: auto;
+  height: auto;
   a {
     text-decoration: none;
     color: @contrast;
@@ -79,6 +87,13 @@ div.page.landing {
         135deg,
         @gradientTop, @gradientBottom
       );
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      //@media @sm {
+      //  flex-direction: column;
+      //}
+      position: relative;
 
 
       .navbar {
@@ -102,95 +117,133 @@ div.page.landing {
       }
 
       .main-img {
+        margin-right: 50px;
+        @media @xs {
+          display: none;
+        }
+        @media @sm {
+          display:none;
+        }
+
         img {
+          @media @sm {
+            width: 400px;
+          }
         }
       }
 
 
       .main-copy {
         max-width: 400px;
-        padding-top: 30px;
-        margin-left: 50px;
+        padding: 10px;
+        margin-top: -20px;
         div.tagline {
           font-weight: 300;
-          font-size: 45px;
+          font-size: 55px;
           color: #fff;
-          .period {
-            font-weight: 900;
-            display: none;
-          }
-          .tab {
-            background: dodgerblue;
-            background: @baseColor;
-            
-            
-            display: inline-block;
-            border-radius: 40px 0 0 40px;
-            padding: .2em .4em .2em .5em;
-            border: 3px solid #fff;
-            font-size: 55%;
-            vertical-align: 4px;
-          }
-          .tab-word {
-            display: inline;
-            display: none;
-          }
           @media @xs {
-            font-size: 35px;
+            font-size: 40px;
             line-height: 1.3;
             margin-top: 10px;
           }
+          .above {
+            .tab {
+              background: @baseColor;
+              display: inline-block;
+              border-radius: 40px 0 0 40px;
+              padding: .2em .4em .2em .5em;
+              border: 0px solid #fff;
+              font-size: 65%;
+              vertical-align: 10px;
+              box-shadow: 1px 1px 5px #777;
+            }
+            .and {
+              display: none;
+            }
+            .the {
+              display: inline;
+            }
 
+          }
+          .under {
+            white-space: nowrap;
+            .first {
+              text-transform: capitalize;
+            }
+          }
         }
-        img.arrow {
-          height: 50px;
-          margin: 0 0 -20px -64px;
-          display: none;
+        .arrow {
+          display:none;
         }
 
         div.about {
           color: #fff;
           margin-top: 30px;
-          margin-bottom: 70px;
+          margin-bottom: 100px;
           font-size: 23px;
           @media @xs {
-            font-size: 16px;
+            //font-size: 16px;
           }
         }
 
         .call-to-action-buttons {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
+          @media @xs {
+            display: none;
+          }
+          @media @sm {
+            display: none;
+          }
 
           a.main-button {
-            padding: 15px 25px;
-            border-radius: 3px;
-            border: 3px solid #fff;
+            padding: 15px 30px;
+            border-radius: 80px ;
+
+            border: 2px solid #fff;
             color: #fff;
-            width: 240px;
-            margin: 0 10px;
             display: flex;
             align-items: center;
-            line-height: .8;
+            line-height: 1;
             text-align: left;
             justify-content: center;
+            transition: all 0.15s ease;
+
+            //background: #fff;
+            //color: @contrast;
+
             &:hover {
               text-decoration: none;
+              transform: scale(1.03125);
+              transform: scale(1.0625);
             }
 
-            i, img {
-              font-size: 50px;
-              height: 50px;
+            .icon {
+              height: 40px;
               margin-right: 15px;
+              display:block;
+              i {
+                font-size: 40px !important;
+              }
             }
 
             span.big {
               display: block;
-              font-size: 24px;
+              font-size: 20px;
+              .action {
+                font-size: 16px;
+                font-weight: 300;
+                display:block;
+              }
+              .browser {
+                display:block;
+                font-weight: bold;
+              }
             }
             span.small {
-              font-size: 14px;
-              font-weight: bold;
+              font-size: 12px;
+              font-weight: normal;
+              display: none;
             }
 
           }
@@ -227,9 +280,9 @@ div.page.landing {
   dl {
     dt {
       color: @baseColor;
-      font-size: 24px;
+      font-size: 28px;
       margin: 40px 0 5px;
-      font-weight: bold;
+      font-weight: normal;
     }
     dd {
       margin: 0;
@@ -248,8 +301,14 @@ div.page.landing {
           //justify-content: left;
           margin: 10px 0 0;
           align-items: center;
-          line-height: 1.2;
           max-width: 800px;
+          span.color {
+            font-weight: bold;
+            &.gold { color: @oaGold;}
+            &.green { color: @oaGreen;}
+            &.blue { color: @oaBlue;}
+
+          }
           div.button {
             color: #fff;
             display: flex;
@@ -260,10 +319,6 @@ div.page.landing {
             margin: 2px 10px 0 0;
             justify-content: center;
             align-items: center;
-            &.gold { background: @oaGold;}
-            &.green { background: @oaGreen;}
-            &.blue { background: @oaBlue;}
-            &.black { background: #bbb;}
             i {
               margin-left: 3px;
             }
@@ -271,7 +326,7 @@ div.page.landing {
           div.text {
             flex-basis: 100%;
           }
-          a {
+          a.eg {
             font-size: 14px;
           }
 

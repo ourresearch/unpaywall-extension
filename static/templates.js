@@ -158,10 +158,9 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                -->\n" +
     "\n" +
     "\n" +
-    "                <dt>When do you officially release?</dt>\n" +
+    "                <dt>When is the official release?</dt>\n" +
     "                <dd>\n" +
-    "                    April 4th. Till then be aware we're\n" +
-    "                    still fixing small bugs and may add new features.\n" +
+    "                    April 4th. The extension mostly works right now, but we're still tweaking things.\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt>Who's behind Unpaywall?</dt>\n" +
@@ -176,7 +175,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    Millions of researchers are currently uploading their own fulltext PDFs\n" +
     "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
     "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories</a>\n" +
-    "                    worldwide, making them free for anyone to read. But there was no easy\n" +
+    "                    worldwide, making them free for anyone to read. But we hated that there was no easy\n" +
     "                    way to find them, especially not one integrated into our\n" +
     "                    reading workflows. So we made one! Eventually, we hope tools like\n" +
     "                    Unpaywall will nurture the transition to fully\n" +

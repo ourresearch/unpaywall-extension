@@ -86,7 +86,8 @@ angular.module('landing', [
               },
               templateUrl: 'firefox-coming-soon.tpl.html',
               targetEvent: $event,
-              clickOutsideToClose:true
+              clickOutsideToClose:true,
+                parent: angular.element(document.body)
             })
 
             $event.preventDefault()

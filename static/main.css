@@ -10,14 +10,8 @@ darker but full saturation
 brighter:
 #61eb08, #01f8aa
 */
-html {
-  width: 100%;
-  height: auto;
-}
 body {
   margin: 0;
-  width: auto;
-  height: auto;
 }
 body a {
   text-decoration: none;
@@ -90,7 +84,12 @@ div.page.landing .screen.top-screen .main-img {
 div.page.landing .screen.top-screen .main-copy {
   max-width: 400px;
   padding: 10px;
-  margin-top: -20px;
+  margin-top: -30px;
+}
+@media only screen and (max-width: 600px) {
+  div.page.landing .screen.top-screen .main-copy {
+    margin-top: 10px;
+  }
 }
 div.page.landing .screen.top-screen .main-copy div.tagline {
   font-weight: 300;

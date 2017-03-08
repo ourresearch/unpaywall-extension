@@ -41,14 +41,10 @@ brighter:
 @gradientBottom: @contrast;
 
 html {
-  width: 100%;
-  height: auto;
 }
 
 body {
   margin: 0;
-  width: auto;
-  height: auto;
   a {
     text-decoration: none;
     color: @contrast;
@@ -136,7 +132,10 @@ div.page.landing {
       .main-copy {
         max-width: 400px;
         padding: 10px;
-        margin-top: -20px;
+        margin-top: -30px;
+        @media @xs {
+          margin-top: 10px;
+        }
         div.tagline {
           font-weight: 300;
           font-size: 55px;

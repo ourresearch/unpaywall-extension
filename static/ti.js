@@ -379,6 +379,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "            <div class=\"call-to-action-buttons\">\n" +
     "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
+    "                   target=\"_blank\"\n" +
     "                   class=\"main-button\">\n" +
     "                    <div class=\"icon\">\n" +
     "                        <i class=\"fa fa-chrome\"></i>\n" +
@@ -392,6 +393,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                </a>\n" +
     "\n" +
     "                <a href=\"https://addons.mozilla.org/en-US/firefox/addon/unpaywall/\"\n" +
+    "                   target=\"_blank\"\n" +
     "                   ng-click=\"fxAddon($event)\"\n" +
     "                   class=\"main-button\">\n" +
     "                    <div class=\"icon\">\n" +
@@ -592,6 +594,20 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    In turn, we make all this data open for reuse via the\n" +
     "                     <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
     "                    way to leverage our infrastructure to build your own projects.\n" +
+    "                </dd>\n" +
+    "\n" +
+    "                <dt>What's your privacy policy?</dt>\n" +
+    "                <dd>\n" +
+    "                    The extension doesn't store or ask for any personal information from you, so when you use Unpaywall\n" +
+    "                    we don't know who you are. The extension doesn't track your browsing history, and it\n" +
+    "                     doesn't send any content from any page you visit to our servers, with one exception:\n" +
+    "                    when a page has a DOI (a short identifier used by scholarly articles), we send that DOI\n" +
+    "                    to our server (using an encrypted HTTPS connection) to find any free versions.\n" +
+    "                    We will log requests to our servers\n" +
+    "                    (which include the DOI and the IP address the request came from) in order to\n" +
+    "                    monitor and improve service. But those logs can't be\n" +
+    "                    connected to your identity. Furthermore, the extension won't send or use\n" +
+    "                    any kind of browser fingerprinting technology to identify your computer.\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt>I found a bug</dt>\n" +

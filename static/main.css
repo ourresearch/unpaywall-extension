@@ -53,7 +53,7 @@ div.page.landing .screen.top-screen .navbar {
   color: #fff;
 }
 div.page.landing .screen.top-screen .navbar #logo {
-  width: 200px;
+  width: 250px;
   float: left;
   margin-top: 0px;
 }
@@ -148,12 +148,13 @@ div.page.landing .screen.top-screen .main-copy .arrow {
 div.page.landing .screen.top-screen .main-copy div.about {
   color: #fff;
   margin-top: 30px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   font-size: 23px;
 }
 @media only screen and (max-width: 600px) {
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
+  margin-left: -10px;
   display: flex;
   justify-content: space-between;
 }
@@ -169,7 +170,7 @@ div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
   padding: 15px 30px;
-  border-radius: 80px ;
+  border-radius: 50px ;
   border: 2px solid #fff;
   color: #fff;
   display: flex;
@@ -197,8 +198,8 @@ div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-bu
   font-size: 20px;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big .action {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 2px;
   display: block;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big .browser {
@@ -228,7 +229,7 @@ div.page.landing .screen a.more {
 }
 #faq dl dt {
   color: #20e168;
-  font-size: 28px;
+  font-size: 24px;
   margin: 40px 0 5px;
   font-weight: normal;
 }

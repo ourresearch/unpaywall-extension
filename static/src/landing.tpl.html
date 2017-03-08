@@ -39,6 +39,7 @@
 
             <div class="call-to-action-buttons">
                 <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha"
+                   target="_blank"
                    class="main-button">
                     <div class="icon">
                         <i class="fa fa-chrome"></i>
@@ -52,6 +53,7 @@
                 </a>
 
                 <a href="https://addons.mozilla.org/en-US/firefox/addon/unpaywall/"
+                   target="_blank"
                    ng-click="fxAddon($event)"
                    class="main-button">
                     <div class="icon">
@@ -252,6 +254,20 @@
                     In turn, we make all this data open for reuse via the
                      <a href="http://oadoi.org/about">oaDOI</a> API: a free, fast, and very scalable
                     way to leverage our infrastructure to build your own projects.
+                </dd>
+
+                <dt>What's your privacy policy?</dt>
+                <dd>
+                    The extension doesn't store or ask for any personal information from you, so when you use Unpaywall
+                    we don't know who you are. The extension doesn't track your browsing history, and it
+                     doesn't send any content from any page you visit to our servers, with one exception:
+                    when a page has a DOI (a short identifier used by scholarly articles), we send that DOI
+                    to our server (using an encrypted HTTPS connection) to find any free versions.
+                    We will log requests to our servers
+                    (which include the DOI and the IP address the request came from) in order to
+                    monitor and improve service. But those logs can't be
+                    connected to your identity. Furthermore, the extension won't send or use
+                    any kind of browser fingerprinting technology to identify your computer.
                 </dd>
 
                 <dt>I found a bug</dt>

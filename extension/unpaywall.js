@@ -194,7 +194,7 @@ function doPdfScrape(){
 
 function doOadoi(){
     var doi = findDoi()
-    var url = "https://api.oadoi.org/" + doi + "?email=team@unpaywall.org"
+    var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
     devLog("doing oaDOI check", url)
 
     $.get(url, function(data){

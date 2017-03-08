@@ -358,6 +358,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    Click\n" +
     "                    <span class=\"the\">the</span>\n" +
     "                    <span class=\"tab\"> <i class=\"fa fa-unlock-alt\"></i> </span>\n" +
+    "                    <span class=\"tab-word\">tab.</span>\n" +
     "                    <span class=\"and\">and</span>\n" +
     "                    <span class=\"period\">.</span>\n" +
     "                </div>\n" +

@@ -580,9 +580,9 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    and supporting the growing open access movement.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>How do you find your fulltext articles?</dt>\n" +
+    "                <dt>How do you find all these fulltext articles?</dt>\n" +
     "                <dd>\n" +
-    "                    We gather information from thousands of different open-access repositories with the\n" +
+    "                    We gather information from thousands of different legal, open-access repositories with the\n" +
     "                    help many awesome open data sources, especially\n" +
     "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
     "                    <a href=\"https://www.crossref.org/\">Crossref,</a>\n" +

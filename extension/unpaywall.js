@@ -1,7 +1,9 @@
 console.log("i am the unpaywall main extension.")
 
 var devMode = true;
-
+if (chrome){
+    browser = chrome
+}
 
 // global variables:
 var iframe = document.createElement('iframe');
@@ -18,6 +20,8 @@ var results = {
     }
 }
 var iframeIsInserted = false
+var settings = {}
+
 
 
 
@@ -120,16 +124,7 @@ function insertIframe(name){
     }
     
     devLog("inserting iframe, based on these results:", results)
-
-    try {
-        // for Firefox
-        iframe.src = browser.extension.getURL('unpaywall.html');
-    }
-    catch (e) {
-        // for Chrome
-        iframe.src = chrome.extension.getURL('unpaywall.html');
-    }
-
+    iframe.src = browser.extension.getURL('unpaywall.html');
 
     iframe.style.height = "50px";
     iframe.style.width = '50px';
@@ -219,7 +214,7 @@ function resolvesToCurrentHost(url){
 }
 
 
-function checkResults(){
+function decideTabColor(){
     //devLog("checking results....", results)
 
 
@@ -228,15 +223,20 @@ function checkResults(){
         return
     }
 
+    // if the settings aren't loaded, quit
+    if (typeof settings.showOaColor == "undefined") {
+        return
+    }
+
 
     // the decision on how to assign tab color is a bit complicated.
     // it's layed out below as a set of steps, arranged in order of preference.
     // if we get a hit on any step, we select a color and then quit.
-
+    var color
 
     // 1. if it's gold OA, we want to make sure we show that, so it's at the top
     if (results.oadoi.color == "gold") {
-        return "gold"
+        color = "gold"
     }
 
 
@@ -244,9 +244,8 @@ function checkResults(){
     // from campus/VPN and they have lib-purchased access,
     // or it may be a hybrid article that OA didn't realize was gold. either way
     // it's more likely to please the user than the Green OA copy, so we send it.
-    if (results.pdfScrape.url){
-        insertIframe("blue"); // blue is our color for "PDF found on this page"
-        return "blue"
+    else if (results.pdfScrape.url){
+        color = "blue"
     }
 
     // 3. green is the trickiest. sometimes (PMC most notably) the Green
@@ -254,16 +253,38 @@ function checkResults(){
     // send it to oaDOI, and get a link to the green page it's
     // already on. that's useless. so don't show the tab at all if we're already
     // on the same page we're going to link to.
-    if (results.oadoi.color == "green" && !resolvesToCurrentHost(results.oadoi.url)) {
-        return "green"
+    else if (results.oadoi.color == "green" && !resolvesToCurrentHost(results.oadoi.url)) {
+        color = "green"
     }
-
 
     // alas, we couldn't find any OA for this. but we want to show a tab anyway, because
     // that way the user knows the extension is actually there and working.
     // this could get annoying, but is requested by beta testers now.
     // in future, we could control with a config.
-    return "black"
+    else {
+        color = "black"
+    }
+
+
+    // ok now we need to decide what color to return, based on
+    // the users-selected showOaColor setting
+
+    // if the user likes to dive into the nerdy details of what kind of OA is what,
+    // great, let's show em what we found.
+    if (settings.showOaColor){
+        return color
+    }
+
+    // but for most users, they just want to know if they can read it. for them,
+    // Green Means Go.
+    else {
+        if (color != "black") {
+            return "green"
+        }
+        else {
+            return "black"
+        }
+    }
 
 }
 
@@ -287,6 +308,15 @@ function goToFulltext(){
     }
 }
 
+function loadSettings(){
+    browser.storage.local.get({
+        showOaColor: false
+    }, function(items) {
+        console.log("got back stuff from showOaColor", items)
+        settings.showOaColor = items.showOaColor;
+    });
+}
+
 
 
 
@@ -299,6 +329,7 @@ if (doi){
     devLog("we have a doi!", doi)
 
     // these run in parallel:
+    loadSettings()
     doOadoi()
     doPdfScrape()
 
@@ -306,7 +337,7 @@ if (doi){
     // make a call and inject the iframe, then quit.
     var resultsChecker = setInterval(function(){
         devLog("checking results...")
-        var tabColor = checkResults()
+        var tabColor = decideTabColor()
         if (tabColor){
             insertIframe(tabColor)
             clearInterval(resultsChecker) // stop polling

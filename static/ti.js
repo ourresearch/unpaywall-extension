@@ -427,7 +427,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <dl>\n" +
     "\n" +
     "                <!--\n" +
-    "                <dt>How do I use Unpaywall?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>How do I use Unpaywall?</dt>\n" +
     "                <dd>\n" +
     "                    After you\n" +
     "                    <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\">install the extension</a>\n" +
@@ -440,7 +440,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                -->\n" +
     "\n" +
     "                <!--\n" +
-    "                <dt>What do the different tab colors mean?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>What do the different tab colors mean?</dt>\n" +
     "                <dd>\n" +
     "                    When you view a research article (which Unpaywall defines as one with a\n" +
     "                    <a href=\"http://www.apastyle.org/learn/faqs/what-is-doi.aspx\">DOI</a>),\n" +
@@ -496,19 +496,19 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                -->\n" +
     "\n" +
     "\n" +
-    "                <dt>When is the official release?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>When is the official release?</dt>\n" +
     "                <dd>\n" +
     "                    April 4th. The extension mostly works right now, but we're still tweaking things.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>Who's behind Unpaywall?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>Who's behind Unpaywall?</dt>\n" +
     "                <dd>\n" +
     "                    We're <a href=\"http://impactstory.org\">Impactstory,</a>\n" +
     "                    a nonprofit working to supercharge science by making it\n" +
     "                    more open, reusable, and web-native.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>Why did you make it?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>Why did you make it?</dt>\n" +
     "                <dd>\n" +
     "                    Millions of researchers are currently uploading their own fulltext PDFs\n" +
     "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
@@ -523,7 +523,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
     "                <dd>Indeed we can. Click the green Unpaywall extension icon in\n" +
     "                    your browser toolbar and choose \"options.\" Once there, tick \"Color-code tab for Green and Gold OA.\"\n" +
     "                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:\n" +
@@ -558,7 +558,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "\n" +
-    "                <dt>How often does Unpaywall find full text?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
     "                    About 25% of the time, although it varies a lot based on the age\n" +
     "                    and field of the article. The reason it's not 100% is\n" +
@@ -569,7 +569,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>How's this different from Sci-Hub?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>How's this different from Sci-Hub?</dt>\n" +
     "                <dd>\n" +
     "                    Like Unpaywall, Sci-Hub finds fulltext PDFs for paywalled articles. The main difference\n" +
     "                    is where those PDFs come from: Unpaywall finds PDFs legally uploaded\n" +
@@ -582,7 +582,22 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    and supporting the growing open access movement.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>How do you find all these fulltext articles?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>How's this different from the Open Access Button?</dt>\n" +
+    "                <dd>\n" +
+    "                    The <a href=\"https://openaccessbutton.org/\">OA Button</a> and Unpaywall are similar. But the\n" +
+    "                    OA Button is a more mature project\n" +
+    "                    (it's been working since 2013) with great features Unpaywall lacks.\n" +
+    "                    The OA Button works on\n" +
+    "                    articles without DOIs, and it helps you email a request for fulltext to the author if\n" +
+    "                    none is available. It'll also help you find open datasets.\n" +
+    "                    Unpaywall is more of a one-trick pony, and largely built because folks wanted a demo for the\n" +
+    "                    open <a href=\"https://oadoi.org\">oaDOI</a> API. The great thing is, both are open-source\n" +
+    "                    and free, so you can install both, or\n" +
+    "                    <a href=\"https://guides.github.com/activities/forking/\">fork 'em</a>\n" +
+    "                    and make your own better extension!\n" +
+    "                </dd>\n" +
+    "\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
     "                <dd>\n" +
     "                    We gather information from thousands of different legal, open-access repositories with the\n" +
     "                    help many awesome open data sources, especially\n" +
@@ -596,7 +611,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    way to leverage our infrastructure to build your own projects.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>What's your privacy policy?</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>What's your privacy policy?</dt>\n" +
     "                <dd>\n" +
     "                    The extension doesn't store or ask for any personal information from you, so when you use Unpaywall\n" +
     "                    we don't know who you are. The extension doesn't track your browsing history, and it\n" +
@@ -605,12 +620,12 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    to our server (using an encrypted HTTPS connection) to find any free versions.\n" +
     "                    We will log requests to our servers\n" +
     "                    (which include the DOI and the IP address the request came from) in order to\n" +
-    "                    monitor and improve service. But those logs can't be\n" +
+    "                    monitor and improve service. But those logs aren't\n" +
     "                    connected to your identity. Furthermore, the extension won't send or use\n" +
     "                    any kind of browser fingerprinting technology to identify your computer.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt>I found a bug</dt>\n" +
+    "                <dt><i class=\"fa fa-chevron-right\"></i>I found a bug</dt>\n" +
     "                <dd>\n" +
     "                    Sorry about that! Unfortunately this is pretty common, especially where publishers\n" +
     "                    don't follow standard practices for article display (as they often do not).\n" +

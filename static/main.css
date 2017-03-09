@@ -228,10 +228,15 @@ div.page.landing .screen a.more {
   display: none;
 }
 #faq dl dt {
-  color: #20e168;
-  font-size: 24px;
-  margin: 40px 0 5px;
-  font-weight: normal;
+  font-size: 20px;
+  margin: 45px 0 5px;
+  font-weight: bold;
+}
+#faq dl dt i {
+  font-size: 70%;
+  margin-right: 3px;
+  vertical-align: 2px;
+  display: none;
 }
 #faq dl dd {
   margin: 0;

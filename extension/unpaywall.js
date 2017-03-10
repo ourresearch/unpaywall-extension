@@ -298,7 +298,7 @@ function goToFulltext(){
         newLoc = results.oadoi.url
     }
     else {
-        alertify.alert("The Unpaywall extension " +
+        alert("The Unpaywall extension " +
             "couldn't find any legal open-access version of this article.");
     }
 

@@ -29,7 +29,6 @@
       ],
       "js": [
         "js/jquery-3.1.1.min.js",
-        "js/alertify.min.js",
         "unpaywall.js"
       ]
     }

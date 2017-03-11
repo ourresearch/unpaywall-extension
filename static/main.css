@@ -55,6 +55,13 @@ body a:hover {
   padding-top: 100px;
   line-height: 1.4;
   font-size: 20px;
+  min-height: 100vm;
+}
+.page.welcome a.eg {
+  font-size: 130%;
+}
+.page.welcome .ps {
+  margin-top: 50px;
 }
 div.page.landing .screen {
   backgound: #fff;
@@ -129,18 +136,18 @@ div.page.landing .screen.top-screen .main-copy div.tagline .above .tab {
   border: 3px solid #fff;
   font-size: 65%;
   vertical-align: 10px;
+  display: none;
 }
 div.page.landing .screen.top-screen .main-copy div.tagline .above .tab i {
   vertical-align: -2px;
 }
 div.page.landing .screen.top-screen .main-copy div.tagline .above .tab-word {
   display: inline-block;
-  display: none;
   background: #20e168;
   border-radius: 40px 0 0 40px;
   padding: 0 0 0 .35em;
   font-size: 90%;
-  border: 0px solid #fff;
+  border: 2px solid #fff;
   font-size: 95%;
   vertical-align: 2px;
 }

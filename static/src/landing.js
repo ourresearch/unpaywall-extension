@@ -46,7 +46,7 @@ angular.module('landing', [
         console.log("PageNotFound controller is running!")
 
     })
-    .controller("FaqPageCtrl", function($scope){
+    .controller("FaqPageCtrl", function($scope, $anchorScroll){
         console.log("FaqPageCtrl controller is running!")
 
     })

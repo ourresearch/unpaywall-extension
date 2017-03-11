@@ -80,19 +80,19 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                -->\n" +
     "\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>When is the official release?</dt>\n" +
+    "                <dt id=\"release-date\"><i class=\"fa fa-chevron-right\"></i>When is the official release?</dt>\n" +
     "                <dd>\n" +
     "                    April 4th. The extension mostly works right now, but we're still tweaking things.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>Who's behind Unpaywall?</dt>\n" +
+    "                <dt id=\"who-is-behind-this\"><i class=\"fa fa-chevron-right\"></i>Who's behind Unpaywall?</dt>\n" +
     "                <dd>\n" +
     "                    We're <a href=\"http://impactstory.org\">Impactstory,</a>\n" +
     "                    a nonprofit working to supercharge science by making it\n" +
     "                    more open, reusable, and web-native.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>Why did you make it?</dt>\n" +
+    "                <dt id=\"why-did-you-make-it\"><i class=\"fa fa-chevron-right\"></i>Why did you make it?</dt>\n" +
     "                <dd>\n" +
     "                    Millions of researchers are currently uploading their own fulltext PDFs\n" +
     "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
@@ -107,7 +107,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
+    "                <dt id=\"identify-green-or-gold\"><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
     "                <dd>Indeed we can. Click the green Unpaywall extension icon in\n" +
     "                    your browser toolbar and choose \"options.\" Once there, tick \"Color-code tab for Green and Gold OA.\"\n" +
     "                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:\n" +
@@ -142,7 +142,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
+    "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
     "                    About 25% of the time, although it varies a lot based on the age\n" +
     "                    and field of the article. The reason it's not 100% is\n" +
@@ -153,7 +153,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>How's this different from Sci-Hub?</dt>\n" +
+    "                <dt id=\"different-from-sci-hub\"><i class=\"fa fa-chevron-right\"></i>How's this different from Sci-Hub?</dt>\n" +
     "                <dd>\n" +
     "                    Like Unpaywall, Sci-Hub finds fulltext PDFs for paywalled articles. The main difference\n" +
     "                    is where those PDFs come from: Unpaywall finds PDFs legally uploaded\n" +
@@ -166,7 +166,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    and supporting the growing open access movement.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>How's this different from the Open Access Button?</dt>\n" +
+    "                <dt id=\"different-from-oa-button\"><i class=\"fa fa-chevron-right\"></i>How's this different from the Open Access Button?</dt>\n" +
     "                <dd>\n" +
     "                    The <a href=\"https://openaccessbutton.org/\">OA Button</a> and Unpaywall are similar. But the\n" +
     "                    OA Button is a more mature project\n" +
@@ -181,7 +181,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    and make your own better extension!\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
+    "                <dt id=\"how-do-you-find-articles\"><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
     "                <dd>\n" +
     "                    We gather information from thousands of different legal, open-access repositories with the\n" +
     "                    help many awesome open data sources, especially\n" +
@@ -195,7 +195,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    way to leverage our infrastructure to build your own projects.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>What's your privacy policy?</dt>\n" +
+    "                <dt id=\"privacy-policy\"><i class=\"fa fa-chevron-right\"></i>What's your privacy policy?</dt>\n" +
     "                <dd>\n" +
     "                    The extension doesn't store or ask for any personal information from you, so when you use Unpaywall\n" +
     "                    we don't know who you are. The extension doesn't track your browsing history, and it\n" +
@@ -209,7 +209,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    any kind of browser fingerprinting technology to identify your computer.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>I found a bug</dt>\n" +
+    "                <dt id=\"report-bugs\"><i class=\"fa fa-chevron-right\"></i>I found a bug</dt>\n" +
     "                <dd>\n" +
     "                    Sorry about that! Unfortunately this is pretty common, especially where publishers\n" +
     "                    don't follow standard practices for article display (as they often do not).\n" +
@@ -459,27 +459,26 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "        </p>\n" +
     "        <p>To get started, try this example article:</p>\n" +
     "        <p>\n" +
-    "            <a href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">\n" +
-    "                Information-Theoretic Approach to Quantum Error Correction and Reversible Measurement\n" +
+    "            <a class=\"eg\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">\n" +
+    "                Information-Theoretic Approach to Quantum Error Correction and Reversible Measurement.\n" +
     "            </a>\n" +
-    "            is paywalled in the <em>Proceedings of the Royal Society A,</em> but\n" +
+    "        </p>\n" +
+    "        <p>\n" +
+    "            It's paywalled in the <em>Proceedings of the Royal Society A,</em> but\n" +
     "            Unpaywall finds a free copy uploaded by the authors to the\n" +
     "            <a href=\"http://cds.cern.ch/\">CERN document server.</a>\n" +
     "        </p>\n" +
-    "        <p>Happy reading!</p>\n" +
+    "        <p></p>\n" +
     "\n" +
     "\n" +
-    "        <p>\n" +
+    "        <p class=\"ps\">\n" +
     "            PS for the Open Access nerds: if you want to really dive into articles' OA status, the Unpaywall tab\n" +
-    "            can change colors to indicate Green or Gold OA; enable it in settings.\n" +
+    "            can change colors to indicate Green or Gold OA, too; enable it in settings.\n" +
     "        </p>\n" +
     "\n" +
     "\n" +
     "    </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
     "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>\n" +
     "");
 }]);

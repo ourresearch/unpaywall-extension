@@ -62,7 +62,6 @@ angular.module('landing', [
                                              $location,
                                              $rootScope,
                                              $mdDialog,
-                                             $location,
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
@@ -72,7 +71,12 @@ angular.module('landing', [
             $location.url("/faq")
         }
 
+        $scope.ctaClick = function(browser){
+            ga("send", "event", "Clicked Install", browser)
+        }
+
         $scope.fxAddon = function($event){
+            ga("send", "event", "Clicked Install", "firefox")
 
             $mdDialog.show({
               controller: function($scope, $mdDialog){

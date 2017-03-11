@@ -342,6 +342,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"call-to-action-buttons\">\n" +
     "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
     "                   target=\"_blank\"\n" +
+    "                   ng-click=\"ctaClick('chrome')\"\n" +
     "                   class=\"main-button\">\n" +
     "                    <div class=\"icon\">\n" +
     "                        <i class=\"fa fa-chrome\"></i>\n" +

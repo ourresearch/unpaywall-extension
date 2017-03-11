@@ -178,16 +178,6 @@ div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
   align-items: center;
   flex-direction: column;
 }
-@media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
-    display: none;
-  }
-}
-@media only screen and (min-width: 600px) and (max-width: 959px) {
-  div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
-    display: none;
-  }
-}
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
   padding: 15px 30px;
   border-radius: 50px ;
@@ -201,6 +191,12 @@ div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-bu
   justify-content: center;
   transition: all 0.15s ease;
   font-size: 32px;
+}
+@media only screen and (max-width: 600px) {
+  div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
+    font-size: 24px;
+    padding: 10px 15px;
+  }
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button:hover {
   text-decoration: none;

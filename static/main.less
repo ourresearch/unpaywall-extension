@@ -235,14 +235,12 @@ div.page.landing {
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          @media @xs {
-            display: none;
-          }
-          @media @sm {
-            display: none;
-          }
 
           a.main-button {
+            @media @xs {
+              font-size: 24px;
+              padding: 10px 15px;
+            }
             padding: 15px 30px;
             border-radius: 50px ;
             font-weight: 300;

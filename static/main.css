@@ -245,9 +245,19 @@ div.page.landing .screen div.more {
   padding: 0px 0 10px;
   font-size: 14px;
 }
-div.page.landing .screen div.more a {
+div.page.landing .screen div.more .links a {
   color: #fff;
   padding: 10px;
+}
+div.page.landing .screen div.more .spacer {
+  width: 50px;
+}
+div.page.landing .screen div.more div.by {
+  color: #fff;
+  padding: 10px;
+}
+div.page.landing .screen div.more div.by a {
+  color: #fff;
 }
 #faq {
   padding-top: 50px;

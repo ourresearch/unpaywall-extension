@@ -420,9 +420,11 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"who-is-behind-this\"><i class=\"fa fa-chevron-right\"></i>Who's behind Unpaywall?</dt>\n" +
     "                <dd>\n" +
-    "                    We're <a href=\"http://impactstory.org\">Impactstory,</a>\n" +
+    "                    We're <a href=\"http://impactstory.org/about\">Impactstory,</a>\n" +
     "                    a nonprofit working to supercharge science by making it\n" +
-    "                    more open, reusable, and web-native.\n" +
+    "                    more open, reusable, and web-native. We're supported by grants from <span class=\"funders\">\n" +
+    "                    the National Science Foundation and the Alfred P. Sloan Foundation\n" +
+    "            </span>\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt id=\"why-did-you-make-it\"><i class=\"fa fa-chevron-right\"></i>Why did you make it?</dt>\n" +
@@ -623,8 +625,8 @@ angular.module("header.tpl.html", []).run(["$templateCache", function($templateC
     "\n" +
     "    <div class=\"links\">\n" +
     "        <a href=\"/faq\">\n" +
-    "            <i class=\"fa fa-question-circle-o\"></i>\n" +
-    "            faq\n" +
+    "            <i class=\"fa fa-question-circle\"></i>\n" +
+    "            FAQ\n" +
     "        </a>\n" +
     "        <a href=\"/\" class=\"home\">\n" +
     "            <i class=\"fa fa-home\"></i>\n" +
@@ -709,23 +711,28 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "        <div class=\"more\">\n" +
     "            <div class=\"links\">\n" +
-    "            <a href=\"mailto:team@impactstory.org\">\n" +
-    "                <i class=\"fa fa-envelope-o\"></i>\n" +
-    "                Email\n" +
-    "            </a>\n" +
-    "            <a href=\"http://twitter.com/impactstory\">\n" +
-    "                <i class=\"fa fa-twitter\"></i>\n" +
-    "                Twitter\n" +
-    "            </a>\n" +
-    "            <a href=\"https://github.com/Impactstory/unpaywall\">\n" +
-    "                <i class=\"fa fa-github\"></i>\n" +
-    "                GitHub\n" +
-    "            </a>\n" +
+    "                <a href=\"mailto:team@impactstory.org\">\n" +
+    "                    <i class=\"fa fa-envelope-o\"></i>\n" +
+    "                    Email\n" +
+    "                </a>\n" +
+    "                <a href=\"http://twitter.com/impactstory\">\n" +
+    "                    <i class=\"fa fa-twitter\"></i>\n" +
+    "                    Twitter\n" +
+    "                </a>\n" +
+    "                <a href=\"https://github.com/Impactstory/unpaywall\">\n" +
+    "                    <i class=\"fa fa-github\"></i>\n" +
+    "                    GitHub\n" +
+    "                </a>\n" +
     "                <a href=\"/faq\">\n" +
     "                    <i class=\"fa fa-question-circle\"></i>\n" +
     "                    FAQ\n" +
     "                </a>\n" +
-    "        </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"spacer\"></div>\n" +
+    "            <div class=\"by\">\n" +
+    "                Made with <i class=\"fa fa-heart\"></i> by\n" +
+    "                <a href=\"/faq#who-is-behind-this\">Impactstory.</a>\n" +
+    "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "\n" +
@@ -758,8 +765,8 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <a class=\"dialog-button\" href=\"\" ng-click=\"cancel()\">I'm good.</a>\n" +
     "\n" +
     "            <a class=\"primary dialog-button\"\n" +
-    "                       target=\"_blank\"\n" +
-    "                       href=\"https://goo.gl/forms/LanJmpUSn6vw4Ylp2\">\n" +
+    "               target=\"_blank\"\n" +
+    "               href=\"https://goo.gl/forms/LanJmpUSn6vw4Ylp2\">\n" +
     "                Yep, let me know!\n" +
     "            </a>\n" +
     "        </md-dialog-actions>\n" +
@@ -798,15 +805,14 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "        </p>\n" +
     "        <p>\n" +
     "            It's paywalled in the <em>Proceedings of the Royal Society A,</em> but\n" +
-    "            Unpaywall finds a free copy uploaded by the authors to the\n" +
-    "            <a href=\"http://cds.cern.ch/\">CERN document server.</a>\n" +
+    "            Unpaywall finds a free copy uploaded by the authors to the CERN website.\n" +
     "        </p>\n" +
     "        <p></p>\n" +
     "\n" +
     "\n" +
     "        <p class=\"ps\">\n" +
     "            PS for the Open Access nerds: if you want to really dive into articles' OA status, the Unpaywall tab\n" +
-    "            can change colors to indicate Green or Gold OA, too; enable it in settings.\n" +
+    "            can change colors to indicate Green or Gold OA, too. Enable it in settings.\n" +
     "        </p>\n" +
     "\n" +
     "\n" +

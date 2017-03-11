@@ -1,15 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900,400italic');
 @import "animate.css";
-/*
-darker:
-#62d717, #00e69d
-
-darker but full saturation
-#53d500, #01d893
-
-brighter:
-#61eb08, #01f8aa
-*/
 body {
   margin: 0;
 }
@@ -19,6 +9,52 @@ body a {
 }
 body a:hover {
   text-decoration: underline;
+}
+.ti-page-header {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+  background-image: linear-gradient(135deg, #20e168, #2196F3);
+}
+.ti-page-header.landing-page {
+  background: none;
+  background-image: none;
+}
+.ti-page-header.landing-page a.home {
+  display: none;
+}
+.ti-page-header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.ti-page-header .navbar a {
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+.page h1 {
+  font-weight: 300;
+}
+.page .content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.page.faq {
+  padding-top: 100px;
+  line-height: 1.4;
+  font-size: 20px;
+}
+.page.welcome {
+  padding-top: 100px;
+  line-height: 1.4;
+  font-size: 20px;
 }
 div.page.landing .screen {
   backgound: #fff;
@@ -45,23 +81,6 @@ div.page.landing .screen.top-screen {
   align-items: center;
   position: relative;
 }
-div.page.landing .screen.top-screen .navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  color: #fff;
-}
-div.page.landing .screen.top-screen .navbar #logo {
-  float: left;
-  margin-top: 0px;
-}
-div.page.landing .screen.top-screen .navbar a.questions {
-  float: right;
-  color: #fff;
-  font-size: 24px;
-  padding: 20px 25px;
-}
 div.page.landing .screen.top-screen .main-img {
   margin-right: 50px;
 }
@@ -83,7 +102,7 @@ div.page.landing .screen.top-screen .main-img {
 div.page.landing .screen.top-screen .main-copy {
   max-width: 400px;
   padding: 10px;
-  margin-top: -30px;
+  margin-top: 10px;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen .main-copy {
@@ -155,7 +174,9 @@ div.page.landing .screen.top-screen .main-copy div.about {
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
   margin-left: -10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
@@ -170,55 +191,60 @@ div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
   padding: 15px 30px;
   border-radius: 50px ;
-  border: 2px solid #fff;
+  font-weight: 300;
+  border: 3px solid #fff;
   color: #fff;
   display: flex;
   align-items: center;
-  line-height: 1;
+  line-height: 0.8;
   text-align: left;
   justify-content: center;
   transition: all 0.15s ease;
+  font-size: 32px;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button:hover {
   text-decoration: none;
   transform: scale(1.03125);
-  transform: scale(1.0625);
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button .icon {
-  height: 40px;
   margin-right: 15px;
   display: block;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button .icon i {
-  font-size: 40px !important;
+  font-size: 55px;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big {
   display: block;
-  font-size: 20px;
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big .action {
-  font-size: 14px;
-  margin-bottom: 2px;
-  display: block;
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big .browser {
-  display: block;
-  font-weight: bold;
 }
 div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.small {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
-  display: none;
 }
-div.page.landing .screen a.more {
+div.page.landing .screen.top-screen .main-copy a.small-button {
+  color: #fff;
+  display: inline;
+  margin-top: 15px;
+}
+div.page.landing .screen.top-screen .main-copy a.small-button:hover {
+  text-decoration: none;
+}
+div.page.landing .screen.top-screen .main-copy a.small-button i {
+  margin-right: 3px;
+}
+div.page.landing .screen div.more {
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0 10px;
+  font-size: 14px;
+}
+div.page.landing .screen div.more a {
   color: #fff;
-  display: block;
-  padding: 10px 0;
-  width: 100px;
-  margin-left: -50px;
+  padding: 10px;
 }
 #faq {
   padding-top: 50px;
@@ -227,7 +253,7 @@ div.page.landing .screen a.more {
   display: none;
 }
 #faq dl dt {
-  font-size: 20px;
+  font-size: 105%;
   margin: 45px 0 5px;
   font-weight: bold;
 }

@@ -16,29 +16,12 @@
 
 
 
-/*
-darker:
-#62d717, #00e69d
-
-darker but full saturation
-#53d500, #01d893
-
-brighter:
-#61eb08, #01f8aa
-*/
-
-@gradientTop: @baseColor;
-@gradientBottom: #1bcddd;
-
-// from fb image https://i.imgur.com/C243SvN.png:
-@gradientBottom: #17ACFE;
-@gradientTop: #66F485;
-
 // like above, but greener blue
 @gradientTop: @baseColor;
-@gradientBottom: rgb(22, 183, 187);
-
 @gradientBottom: @contrast;
+
+
+@navbarHeight: 120px;
 
 html {
 }
@@ -54,10 +37,68 @@ body {
   }
 }
 
+.ti-page-header {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  z-index: 9;
+
+  background-image: linear-gradient(
+    135deg,
+    @gradientTop, @gradientBottom
+  );
+  &.landing-page {
+    background: none;
+    background-image: none;
+    a.home {
+      display: none;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    a {
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  }
+}
+
+
+.page {
+  h1 {
+    font-weight: 300;
+  }
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+.page.faq {  // there is more faq stuff below. fix later.
+  padding-top: 100px;
+  line-height: 1.4;
+  font-size: 20px;
+}
+
+.page.welcome {
+  padding-top: 100px;
+  line-height: 1.4;
+  font-size: 20px;
+}
 
 
 
 div.page.landing {
+  //margin-top: -@navbarHeight;
 
   .screen {
     backgound: #fff;
@@ -92,25 +133,7 @@ div.page.landing {
       position: relative;
 
 
-      .navbar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        color: #fff;
-        #logo {
-          //width: 250px;
-          float: left;
-          margin-top: 0px;
-        }
-        a.questions {
-          float: right;
-          color: #fff;
-          font-size: 24px;
-          padding: 20px 25px;
-        }
 
-      }
 
       .main-img {
         margin-right: 50px;
@@ -132,7 +155,7 @@ div.page.landing {
       .main-copy {
         max-width: 400px;
         padding: 10px;
-        margin-top: -30px;
+        margin-top: 10px;
         @media @xs {
           margin-top: 10px;
         }
@@ -209,7 +232,9 @@ div.page.landing {
         .call-to-action-buttons {
           margin-left: -10px;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
           @media @xs {
             display: none;
           }
@@ -220,56 +245,56 @@ div.page.landing {
           a.main-button {
             padding: 15px 30px;
             border-radius: 50px ;
+            font-weight: 300;
 
-            border: 2px solid #fff;
+            border: 3px solid #fff;
             color: #fff;
             display: flex;
             align-items: center;
-            line-height: 1;
+            line-height: 0.8;
             text-align: left;
             justify-content: center;
             transition: all 0.15s ease;
+            font-size: 32px;
 
             //background: navy;
 
             &:hover {
               text-decoration: none;
               transform: scale(1.03125);
-              transform: scale(1.0625);
             }
 
             .icon {
-              height: 40px;
               margin-right: 15px;
               display:block;
               i {
-                font-size: 40px !important;
+                font-size: 55px;
               }
             }
-
             span.big {
               display: block;
-              font-size: 20px;
-              .action {
-                font-size: 14px;
-                margin-bottom: 2px;
-                //font-weight: 300;
-                display:block;
-              }
-              .browser {
-                display:block;
-                font-weight: bold;
-              }
             }
             span.small {
-              font-size: 12px;
+              font-size: 14px;
               font-weight: normal;
-              display: none;
             }
 
           }
+        }
+        a.small-button {
+          color: #fff;
+          display:inline;
+          margin-top: 15px;
+          &:hover {
+            text-decoration: none;
+          }
+          i {
+            margin-right: 3px;
+          }
 
         }
+
+
 
       }
 
@@ -278,15 +303,21 @@ div.page.landing {
 
     }
 
-    a.more {
+    div.more {
       position: absolute;
       bottom: 0;
-      left: 50%;
-      color: #fff;
-      display: block;
-      padding: 10px 0;
-      width: 100px;
-      margin-left: -50px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 0 10px;
+      font-size: 14px;
+      a {
+        color: #fff;
+        padding: 10px;
+      }
+
     }
 
   }
@@ -300,7 +331,7 @@ div.page.landing {
   }
   dl {
     dt {
-      font-size: 20px;
+      font-size: 105%;
       margin: 45px 0 5px;
       font-weight: bold;
       i {

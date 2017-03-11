@@ -1,16 +1,7 @@
 <div class="page landing">
+    <div class="ti-page-header landing-page" ng-include="'header.tpl.html'"></div>
     <div class="top-screen screen">
-        <div class="navbar">
-            <img id="logo" src="static/img/logo.png" alt="">
-            <a class="questions" href="" ng-click="scrollToAbout()">
-                <i class="fa fa-question-circle-o"></i>
-            </a>
-        </div>
 
-
-        <div class="main-img">
-            <img src="static/img/screenshot.png" alt="">
-        </div>
 
         <div class="main-copy">
             <div class="tagline">
@@ -49,266 +40,33 @@
                             <span class="action">Free for</span>
                             <span class="browser">Chrome</span>
                         </span>
+                        <span class="small">
+                            on the Chrome Web Store
+                        </span>
                     </span>
                 </a>
 
                 <a href="https://addons.mozilla.org/en-US/firefox/addon/unpaywall/"
                    target="_blank"
                    ng-click="fxAddon($event)"
-                   class="main-button">
-                    <div class="icon">
-                        <i class="fa fa-firefox"></i>
-                    </div>
-                    <span class="text">
-                        <span class="big">
-                            <span class="action">Free for</span>
-                            <span class="browser">Firefox</span>
-                        </span>
-                    </span>
+                   class="small-button">
+                    <i class="fa fa-firefox"></i>
+                    or install it for <span class="browser"> Firefox</span>
+
                 </a>
             </div>
 
         </div>
 
-
-
-
-
-        <a class="more" href="" ng-click="scrollToAbout()">
-            <i class="fa fa-chevron-down"></i>
-            more
-        </a>
-    </div>
-
-
-    <div class="faq screen" id="faq">
-        <div class="content">
-            <h2>FAQ</h2>
-            <dl>
-
-                <!--
-                <dt><i class="fa fa-chevron-right"></i>How do I use Unpaywall?</dt>
-                <dd>
-                    After you
-                    <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha">install the extension</a>
-
-                    we'll do the work in the background. When you view a paywalled article,
-                    we'll search for a free legal copy. When we find one (about 25% of the time
-                    right now), you'll see an "unlock" tab on the right of your browser.
-                    Click the tab, read the article. Easy.
-                </dd>
-                -->
-
-                <!--
-                <dt><i class="fa fa-chevron-right"></i>What do the different tab colors mean?</dt>
-                <dd>
-                    When you view a research article (which Unpaywall defines as one with a
-                    <a href="http://www.apastyle.org/learn/faqs/what-is-doi.aspx">DOI</a>),
-                    you'll see a colored tab on the right of your browser window:
-                    <ul>
-                        <li>
-                            <div class="button gold">
-                                <i class="fa fa-unlock-alt"></i>
-                            </div>
-                            <div class="text">
-                                <span class="color gold">Gold</span> articles are available from the publisher
-                                under an open license.
-                                <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308">(example)</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="button blue">
-                                <i class="fa fa-unlock-alt"></i>
-                            </div>
-                            <div class="text">
-                                <span class="color blue">Blue</span> articles are available on the current page, either because they're
-                                open-access without a license, or you're browsing from behind the paywall.
-                                <a href="http://www.pnas.org/content/105/31/11014">(example)</a>
-
-                            </div>
-                        </li>
-                        <li>
-                            <div class="button green">
-                                <i class="fa fa-unlock-alt"></i>
-                            </div>
-                            <div class="text">
-                                <span class="color green">Green</span> articles are available via an open, legal preprint server or
-                                institutional repository.
-                                <a href="http://rspa.royalsocietypublishing.org/content/454/1969/277">(example)</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="button black">
-                                <i class="fa fa-lock"></i>
-                            </div>
-                            <div class="text">
-                                <span class="color green">Gray</span> articles don't have any legal open-access version
-                                we could find.
-                                <a href="https://link.springer.com/article/10.1007/BF02300480">(example)</a>
-
-                            </div>
-                        </li>
-
-
-                    </ul>
-
-                </dd>
-                -->
-
-
-                <dt><i class="fa fa-chevron-right"></i>When is the official release?</dt>
-                <dd>
-                    April 4th. The extension mostly works right now, but we're still tweaking things.
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>Who's behind Unpaywall?</dt>
-                <dd>
-                    We're <a href="http://impactstory.org">Impactstory,</a>
-                    a nonprofit working to supercharge science by making it
-                    more open, reusable, and web-native.
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>Why did you make it?</dt>
-                <dd>
-                    Millions of researchers are currently uploading their own fulltext PDFs
-                    to <a href="https://en.wikipedia.org/wiki/Preprint">preprint servers</a>
-                    and <a href="https://en.wikipedia.org/wiki/Institutional_repository">institutional repositories</a>
-                    worldwide, making them free for anyone to read. But we hated that there was no easy
-                    way to find them, especially not one integrated into our
-                    reading workflows. So we made one! Eventually, we hope tools like
-                    Unpaywall will nurture the transition to fully
-                    <a href="https://en.wikipedia.org/wiki/Open_access">open access</a>
-                    scholarly publishing, by closing the gap between readers and
-                    freely-available fulltext.
-
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>Can Unpaywall tell me whether an article is "Green" or "Gold" OA?</dt>
-                <dd>Indeed we can. Click the green Unpaywall extension icon in
-                    your browser toolbar and choose "options." Once there, tick "Color-code tab for Green and Gold OA."
-                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:
-                    <ul>
-                        <li>
-                            <div class="text">
-                                <span class="color gold">Gold tab</span> for <a
-                                    href="https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access">Gold OA</a> a
-                                rticles available from the publisher
-                                under an open license.
-                                <a class="eg" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308">(example)</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="text">
-                                <span class="color green">Green tab</span> for articles <a
-                                    href="https://en.wikipedia.org/wiki/Self-archiving">self-archived</a> on a preprint server or
-                                institutional repository.
-                                <a class="eg" href="http://rspa.royalsocietypublishing.org/content/454/1969/277">(example)</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="text">
-                                <span class="color blue">Blue tab</span> for articles available on the current page, but lacking
-                                license information (often that's because you're browsing from behind the paywall).
-                                <a class="eg" href="http://www.pnas.org/content/105/31/11014">(example)</a>
-
-                            </div>
-                        </li>
-                    </ul>
-                </dd>
-
-
-
-                <dt><i class="fa fa-chevron-right"></i>How often does Unpaywall find full text?</dt>
-                <dd>
-                    About 25% of the time, although it varies a lot based on the age
-                    and field of the article. The reason it's not 100% is
-                    because unfortunately not all authors upload their fulltext PDFs online&mdash;although
-                    the number is growing every day.
-                    There's actually been a bunch of research on this recently, and we're planning a blog
-                    post breaking it down&mdash;stay tuned.
-
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>How's this different from Sci-Hub?</dt>
-                <dd>
-                    Like Unpaywall, Sci-Hub finds fulltext PDFs for paywalled articles. The main difference
-                    is where those PDFs come from: Unpaywall finds PDFs legally uploaded
-                    by the authors themselves, while
-                    Sci-Hub uses PDFs that are obtained by other means, including automated web scraping
-                    of publisher sites. Sci-Hub's method delivers more comprehensive results,
-                    but is not super legal. So while
-                    <a href="http://blog.impactstory.org/comparing-sci-hub-oadoi/">we're not against Sci-Hub,</a>
-                    we think Unpaywall offers a more sustainable approach by working within copyright law
-                    and supporting the growing open access movement.
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>How's this different from the Open Access Button?</dt>
-                <dd>
-                    The <a href="https://openaccessbutton.org/">OA Button</a> and Unpaywall are similar. But the
-                    OA Button is a more mature project
-                    (it's been working since 2013) with great features Unpaywall lacks.
-                    The OA Button works on
-                    articles without DOIs, and it helps you email a request for fulltext to the author if
-                    none is available. It'll also help you find open datasets.
-                    Unpaywall is more of a one-trick pony, and largely built because folks wanted a demo for the
-                    open <a href="https://oadoi.org">oaDOI</a> API. The great thing is, both are open-source
-                    and free, so you can install both, or
-                    <a href="https://guides.github.com/activities/forking/">fork 'em</a>
-                    and make your own better extension!
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>How do you find all these fulltext articles?</dt>
-                <dd>
-                    We gather information from thousands of different legal, open-access repositories with the
-                    help many awesome open data sources, especially
-                    <a href="https://doaj.org/">the DOAJ,</a>
-                    <a href="https://www.crossref.org/">Crossref,</a>
-                    <a href="https://www.datacite.org/">DataCite,</a>
-                    and <a href="https://www.base-search.net/">BASE.</a>
-
-                    In turn, we make all this data open for reuse via the
-                     <a href="http://oadoi.org/about">oaDOI</a> API: a free, fast, and very scalable
-                    way to leverage our infrastructure to build your own projects.
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>What's your privacy policy?</dt>
-                <dd>
-                    The extension doesn't store or ask for any personal information from you, so when you use Unpaywall
-                    we don't know who you are. The extension doesn't track your browsing history, and it
-                     doesn't send any content from any page you visit to our servers, with one exception:
-                    when a page has a DOI (a short identifier used by scholarly articles), we send that DOI
-                    to our server (using an encrypted HTTPS connection) to find any free versions.
-                    We will log requests to our servers
-                    (which include the DOI and the IP address the request came from) in order to
-                    monitor and improve service. But those logs aren't
-                    connected to your identity. Furthermore, the extension won't send or use
-                    any kind of browser fingerprinting technology to identify your computer.
-                </dd>
-
-                <dt><i class="fa fa-chevron-right"></i>I found a bug</dt>
-                <dd>
-                    Sorry about that! Unfortunately this is pretty common, especially where publishers
-                    don't follow standard practices for article display (as they often do not).
-                    For instance, we don't work for articles missing
-                    <a href="http://www.apastyle.org/learn/faqs/what-is-doi.aspx">DOIs.</a>
-
-                    The good news is that it's still early days for this project and
-                    it's under very active development. When you find an error,
-                    <a href="mailto:team@impactstory.org">drop us an email</a> and we'll get it fixed for you.
-                </dd>
-
-            </dl>
-
+        <div class="main-img">
+            <img src="static/img/screenshot.png" alt="">
         </div>
 
-    </div>
 
 
-</div>
-<div class="footer">
-    <div class="content" layout="row" layout-xs="column">
 
-        <div class="links" flex="40" flex-xs="100">
+        <div class="more">
+            <div class="links">
             <a href="mailto:team@impactstory.org">
                 <i class="fa fa-envelope-o"></i>
                 Email
@@ -321,31 +79,20 @@
                 <i class="fa fa-github"></i>
                 GitHub
             </a>
+                <a href="/faq">
+                    <i class="fa fa-question-circle"></i>
+                    FAQ
+                </a>
         </div>
-
-
-
-        <div class="logo" flex="20" hide-xs>
-            <!--
-            <a href="/" ng-click="scrollToTop()">
-                <img src="static/img/icon-white.png" alt="">
-            </a>
-            -->
-        </div>
-
-
-
-        <div class="credit" flex="40" flex-xs="100">
-            <span class="built-by">
-                Built with <i class="fa fa-heart"></i> at
-                <a href="http://impactstory.org/about">Impactstory</a>, with support from
-            </span>
-            <span class="funders">
-                 the National Science Foundation and the Alfred P. Sloan Foundation
-            </span>
         </div>
     </div>
+
+
+
+
+
 </div>
+
 
 
 

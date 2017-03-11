@@ -166,9 +166,16 @@ angular.module('landing', [
     })
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/wood', {
-            templateUrl: "wood.tpl.html",
-            controller: "WoodPageCtrl"
+        $routeProvider.when('/welcome', {
+            templateUrl: "welcome.tpl.html",
+            controller: "WelcomePageCtrl"
+        })
+    })
+
+    .config(function ($routeProvider) {
+        $routeProvider.when('/faq', {
+            templateUrl: "faq.tpl.html",
+            controller: "FaqPageCtrl"
         })
     })
 
@@ -187,9 +194,13 @@ angular.module('landing', [
         console.log("PageNotFound controller is running!")
 
     })
+    .controller("FaqPageCtrl", function($scope){
+        console.log("FaqPageCtrl controller is running!")
 
-    .controller("WoodPageCtrl", function($scope){
-        console.log("WoodPageCtrl controller is running!")
+    })
+
+    .controller("WelcomePageCtrl", function($scope){
+        console.log("WelcomePageCtrl controller is running!")
 
     })
 
@@ -199,28 +210,14 @@ angular.module('landing', [
                                              $location,
                                              $rootScope,
                                              $mdDialog,
+                                             $location,
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
-        var about = angular.element(document.getElementById('faq'));
-
-
-        var scrollToFaq =  function(){
-            console.log("scroll to about!", about)
-            $document.scrollToElement(about, 0, 1000);
-        }
-
-
-        $scope.scrollToAbout = scrollToFaq
 
         console.log("location.search", $location.search())
         if ($location.search().faq){
-            $timeout(scrollToFaq, 500)
-        }
-
-        $scope.scrollToTop = function(){
-            console.log("scroll to top.")
-            $document.scrollTop(0, 1000)
+            $location.url("/faq")
         }
 
         $scope.fxAddon = function($event){
@@ -334,96 +331,16 @@ angular.module("numFormat", [])
 
         }
     });
-angular.module('templates.app', ['landing.tpl.html', 'page-not-found.tpl.html', 'wood.tpl.html']);
+angular.module('templates.app', ['faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'welcome.tpl.html']);
 
-angular.module("landing.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("landing.tpl.html",
-    "<div class=\"page landing\">\n" +
-    "    <div class=\"top-screen screen\">\n" +
-    "        <div class=\"navbar\">\n" +
-    "            <img id=\"logo\" src=\"static/img/logo.png\" alt=\"\">\n" +
-    "            <a class=\"questions\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
-    "                <i class=\"fa fa-question-circle-o\"></i>\n" +
-    "            </a>\n" +
-    "        </div>\n" +
+angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("faq.tpl.html",
+    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
     "\n" +
-    "\n" +
-    "        <div class=\"main-img\">\n" +
-    "            <img src=\"static/img/screenshot.png\" alt=\"\">\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div class=\"main-copy\">\n" +
-    "            <div class=\"tagline\">\n" +
-    "                <div class=\"above\">\n" +
-    "                    Click\n" +
-    "                    <span class=\"the\">the</span>\n" +
-    "                    <span class=\"tab\"> <i class=\"fa fa-unlock-alt\"></i> </span>\n" +
-    "                    <span class=\"tab-word\">tab.</span>\n" +
-    "                    <span class=\"and\">and</span>\n" +
-    "                    <span class=\"period\">.</span>\n" +
-    "                </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "                <div class=\"under\">\n" +
-    "                    <span class=\"first\">skip</span> the paywall.\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <img class=\"arrow\" src=\"static/img/arrow.png\" alt=\"\">\n" +
-    "            <div class=\"about\">\n" +
-    "                Get full-text\n" +
-    "                of research papers as you browse, using Unpaywall's index of ten million\n" +
-    "                legal, open-access articles.\n" +
-    "\n" +
-    "            </div>\n" +
-    "\n" +
-    "            <div class=\"call-to-action-buttons\">\n" +
-    "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
-    "                   target=\"_blank\"\n" +
-    "                   class=\"main-button\">\n" +
-    "                    <div class=\"icon\">\n" +
-    "                        <i class=\"fa fa-chrome\"></i>\n" +
-    "                    </div>\n" +
-    "                    <span class=\"text\">\n" +
-    "                        <span class=\"big\">\n" +
-    "                            <span class=\"action\">Free for</span>\n" +
-    "                            <span class=\"browser\">Chrome</span>\n" +
-    "                        </span>\n" +
-    "                    </span>\n" +
-    "                </a>\n" +
-    "\n" +
-    "                <a href=\"https://addons.mozilla.org/en-US/firefox/addon/unpaywall/\"\n" +
-    "                   target=\"_blank\"\n" +
-    "                   ng-click=\"fxAddon($event)\"\n" +
-    "                   class=\"main-button\">\n" +
-    "                    <div class=\"icon\">\n" +
-    "                        <i class=\"fa fa-firefox\"></i>\n" +
-    "                    </div>\n" +
-    "                    <span class=\"text\">\n" +
-    "                        <span class=\"big\">\n" +
-    "                            <span class=\"action\">Free for</span>\n" +
-    "                            <span class=\"browser\">Firefox</span>\n" +
-    "                        </span>\n" +
-    "                    </span>\n" +
-    "                </a>\n" +
-    "            </div>\n" +
-    "\n" +
-    "        </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "        <a class=\"more\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
-    "            <i class=\"fa fa-chevron-down\"></i>\n" +
-    "            more\n" +
-    "        </a>\n" +
-    "    </div>\n" +
-    "\n" +
-    "\n" +
+    "<div class=\"page faq\">\n" +
     "    <div class=\"faq screen\" id=\"faq\">\n" +
     "        <div class=\"content\">\n" +
-    "            <h2>FAQ</h2>\n" +
+    "            <h1>Frequently asked questions</h1>\n" +
     "            <dl>\n" +
     "\n" +
     "                <!--\n" +
@@ -607,7 +524,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
     "\n" +
     "                    In turn, we make all this data open for reuse via the\n" +
-    "                     <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
+    "                    <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
     "                    way to leverage our infrastructure to build your own projects.\n" +
     "                </dd>\n" +
     "\n" +
@@ -615,7 +532,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                <dd>\n" +
     "                    The extension doesn't store or ask for any personal information from you, so when you use Unpaywall\n" +
     "                    we don't know who you are. The extension doesn't track your browsing history, and it\n" +
-    "                     doesn't send any content from any page you visit to our servers, with one exception:\n" +
+    "                    doesn't send any content from any page you visit to our servers, with one exception:\n" +
     "                    when a page has a DOI (a short identifier used by scholarly articles), we send that DOI\n" +
     "                    to our server (using an encrypted HTTPS connection) to find any free versions.\n" +
     "                    We will log requests to our servers\n" +
@@ -642,9 +559,12 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        </div>\n" +
     "\n" +
     "    </div>\n" +
-    "\n" +
-    "\n" +
     "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
+}]);
+
+angular.module("footer.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("footer.tpl.html",
     "<div class=\"footer\">\n" +
     "    <div class=\"content\" layout=\"row\" layout-xs=\"column\">\n" +
     "\n" +
@@ -685,7 +605,136 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            </span>\n" +
     "        </div>\n" +
     "    </div>\n" +
+    "</div>");
+}]);
+
+angular.module("header.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("header.tpl.html",
+    "<div class=\"navbar\">\n" +
+    "    <a href=\"/\">\n" +
+    "        <img id=\"logo\" src=\"static/img/logo.png\" alt=\"\">\n" +
+    "    </a>\n" +
+    "    <div class=\"spacer\"></div>\n" +
+    "\n" +
+    "    <!--\n" +
+    "    <a class=\"questions\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
+    "    </a>\n" +
+    "    -->\n" +
+    "\n" +
+    "    <div class=\"links\">\n" +
+    "        <a href=\"/faq\">\n" +
+    "            <i class=\"fa fa-question-circle-o\"></i>\n" +
+    "            faq\n" +
+    "        </a>\n" +
+    "        <a href=\"/\" class=\"home\">\n" +
+    "            <i class=\"fa fa-home\"></i>\n" +
+    "            home\n" +
+    "        </a>\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "</div>");
+}]);
+
+angular.module("landing.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("landing.tpl.html",
+    "<div class=\"page landing\">\n" +
+    "    <div class=\"ti-page-header landing-page\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "    <div class=\"top-screen screen\">\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"main-copy\">\n" +
+    "            <div class=\"tagline\">\n" +
+    "                <div class=\"above\">\n" +
+    "                    Click\n" +
+    "                    <span class=\"the\">the</span>\n" +
+    "                    <span class=\"tab\"> <i class=\"fa fa-unlock-alt\"></i> </span>\n" +
+    "                    <span class=\"tab-word\">tab.</span>\n" +
+    "                    <span class=\"and\">and</span>\n" +
+    "                    <span class=\"period\">.</span>\n" +
+    "                </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "                <div class=\"under\">\n" +
+    "                    <span class=\"first\">skip</span> the paywall.\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <img class=\"arrow\" src=\"static/img/arrow.png\" alt=\"\">\n" +
+    "            <div class=\"about\">\n" +
+    "                Get full-text\n" +
+    "                of research papers as you browse, using Unpaywall's index of ten million\n" +
+    "                legal, open-access articles.\n" +
+    "\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <div class=\"call-to-action-buttons\">\n" +
+    "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
+    "                   target=\"_blank\"\n" +
+    "                   class=\"main-button\">\n" +
+    "                    <div class=\"icon\">\n" +
+    "                        <i class=\"fa fa-chrome\"></i>\n" +
+    "                    </div>\n" +
+    "                    <span class=\"text\">\n" +
+    "                        <span class=\"big\">\n" +
+    "                            <span class=\"action\">Free for</span>\n" +
+    "                            <span class=\"browser\">Chrome</span>\n" +
+    "                        </span>\n" +
+    "                        <span class=\"small\">\n" +
+    "                            on the Chrome Web Store\n" +
+    "                        </span>\n" +
+    "                    </span>\n" +
+    "                </a>\n" +
+    "\n" +
+    "                <a href=\"https://addons.mozilla.org/en-US/firefox/addon/unpaywall/\"\n" +
+    "                   target=\"_blank\"\n" +
+    "                   ng-click=\"fxAddon($event)\"\n" +
+    "                   class=\"small-button\">\n" +
+    "                    <i class=\"fa fa-firefox\"></i>\n" +
+    "                    or install it for <span class=\"browser\"> Firefox</span>\n" +
+    "\n" +
+    "                </a>\n" +
+    "            </div>\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"main-img\">\n" +
+    "            <img src=\"static/img/screenshot.png\" alt=\"\">\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"more\">\n" +
+    "            <div class=\"links\">\n" +
+    "            <a href=\"mailto:team@impactstory.org\">\n" +
+    "                <i class=\"fa fa-envelope-o\"></i>\n" +
+    "                Email\n" +
+    "            </a>\n" +
+    "            <a href=\"http://twitter.com/impactstory\">\n" +
+    "                <i class=\"fa fa-twitter\"></i>\n" +
+    "                Twitter\n" +
+    "            </a>\n" +
+    "            <a href=\"https://github.com/Impactstory/unpaywall\">\n" +
+    "                <i class=\"fa fa-github\"></i>\n" +
+    "                GitHub\n" +
+    "            </a>\n" +
+    "                <a href=\"/faq\">\n" +
+    "                    <i class=\"fa fa-question-circle\"></i>\n" +
+    "                    FAQ\n" +
+    "                </a>\n" +
+    "        </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "</div>\n" +
+    "\n" +
     "\n" +
     "\n" +
     "\n" +
@@ -729,170 +778,39 @@ angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($t
     "</div>");
 }]);
 
-angular.module("wood.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("wood.tpl.html",
-    "<div class=\"page wood\">\n" +
+angular.module("welcome.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("welcome.tpl.html",
+    "<div class=\"page welcome\">\n" +
+    "    <div class=\"ti-page-header welcome\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "    <div class=\"content\">\n" +
+    "        <h1>You've installed Unpaywall!</h1>\n" +
+    "\n" +
+    "        <p>\n" +
+    "            We'll work in the background when you view research articles. If you see\n" +
+    "            the <span class=\"green\">green tab,</span> click it to skip the paywall.\n" +
+    "            if you see a <span class=\"gray\">gray tab</span> it means we came up empty.\n" +
+    "        </p>\n" +
+    "        <p>To get started, try this example article:</p>\n" +
+    "        <p>\n" +
+    "            <a href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">\n" +
+    "                Information-Theoretic Approach to Quantum Error Correction and Reversible Measurement\n" +
+    "            </a>\n" +
+    "            is paywalled in the <em>Proceedings of the Royal Society A,</em> but\n" +
+    "            Unpaywall finds a free copy uploaded by the authors to the\n" +
+    "            <a href=\"http://cds.cern.ch/\">CERN document server.</a>\n" +
+    "        </p>\n" +
+    "        <p>Happy reading!</p>\n" +
     "\n" +
     "\n" +
+    "        <p>\n" +
+    "            PS for the Open Access nerds: if you want to really dive into articles' OA status, the Unpaywall tab\n" +
+    "            can change colors to indicate Green or Gold OA; enable it in settings.\n" +
+    "        </p>\n" +
     "\n" +
-    "    <div class=\"icon-for-copy\">\n" +
-    "        <i class=\"fa fa-envelope-o\"></i>\n" +
+    "\n" +
     "    </div>\n" +
     "\n" +
     "\n" +
-    "    <table>\n" +
-    "        <tr class=\"header\">\n" +
-    "            <th class=\"check\">check</th>\n" +
-    "            <th class=\"name\">Name</th>\n" +
-    "            <th class=\"oa\">OA</th>\n" +
-    "            <th class=\"boost\">Potential OA Boost</th>\n" +
-    "            <th class=\"cites impact\">\n" +
-    "                <div class=\"main\">Cites</div>\n" +
-    "                <div class=\"below\">\n" +
-    "                    <span class=\"now\">now</span>\n" +
-    "                    <span class=\"oa\"><i class=\"fa fa-arrow-up\"></i> oa</span>\n" +
-    "                </div>\n" +
-    "            </th>\n" +
-    "            <th class=\"downloads impact\">\n" +
-    "                <div class=\"main\">Downloads</div>\n" +
-    "                <div class=\"below\">\n" +
-    "                    <span class=\"now\">now</span>\n" +
-    "                    <span class=\"oa\"><i class=\"fa fa-arrow-up\"></i> oa</span>\n" +
-    "                </div>\n" +
-    "            </th>\n" +
-    "            <th class=\"altmetrics impact\">\n" +
-    "                <div class=\"main\">Altmetrics</div>\n" +
-    "                <div class=\"below\">\n" +
-    "                    <span class=\"now\">now</span>\n" +
-    "                    <span class=\"oa\"><i class=\"fa fa-arrow-up\"></i> oa</span>\n" +
-    "                </div>\n" +
-    "            </th>\n" +
-    "        </tr>\n" +
-    "\n" +
-    "        <!-- reprobate -->\n" +
-    "        <tr class=\"low-oa\">\n" +
-    "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
-    "            <td class=\"name\">Cindy Cortez</td>\n" +
-    "            <td class=\"oa\">6<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost high\"><i class=\"fa fa-arrow-up\"></i> High</td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now cites\">1021</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>51</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">306k</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>294k</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">51</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>48</span>\n" +
-    "            </td>\n" +
-    "        </tr>\n" +
-    "\n" +
-    "        <!-- Joe Average -->\n" +
-    "        <tr class=\"med-oa\">\n" +
-    "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
-    "            <td class=\"name\">Doris Nguyen</td>\n" +
-    "            <td class=\"oa\">31<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">998</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>36</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">399k</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>199k</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">63</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>38</span>\n" +
-    "            </td>\n" +
-    "        </tr>\n" +
-    "\n" +
-    "        <!-- Joe Average Again -->\n" +
-    "        <tr class=\"med-oa\">\n" +
-    "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
-    "            <td class=\"name\">Luther Peterson</td>\n" +
-    "            <td class=\"oa\">27<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">1013</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>35</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">384k</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>185k</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">68</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>37</span>\n" +
-    "            </td>\n" +
-    "        </tr>\n" +
-    "\n" +
-    "        <!-- more highly-cited person -->\n" +
-    "        <!--\n" +
-    "        <tr class=\"med-oa\">\n" +
-    "            <td class=\"check\"><i class=\"fa fa-check-square-o\"></i></td>\n" +
-    "            <td class=\"name\">Marion Sherman</td>\n" +
-    "            <td class=\"oa\">21<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">2029</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>71</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">727k</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>379</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">133</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>74</span>\n" +
-    "            </td>\n" +
-    "        </tr>\n" +
-    "        -->\n" +
-    "\n" +
-    "        <!-- OA Fan -->\n" +
-    "        <tr class=\"high-oa\">\n" +
-    "            <td class=\"check\"><i class=\"fa fa-square-o\"></i></td>\n" +
-    "            <td class=\"name\">Alex Lee</td>\n" +
-    "            <td class=\"oa\">96<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost low\"><i class=\"fa fa-arrow-up\"></i> Low</td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">1584</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>3</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">951k</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>19k</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">154</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>6</span>\n" +
-    "            </td>\n" +
-    "        </tr>\n" +
-    "\n" +
-    "\n" +
-    "        <!-- TOTAL -->\n" +
-    "        <tr class=\"total\">\n" +
-    "            <td class=\"check\"><i class=\"fa fa-square-o\"></i></td>\n" +
-    "            <td class=\"name\">All Selected</td>\n" +
-    "            <td class=\"oa\">32<span class=\"percent\">%</span></td>\n" +
-    "            <td class=\"boost med\"><i class=\"fa fa-arrow-up\"></i> Medium</td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">4616</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>125</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">2.1M</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>697k</span>\n" +
-    "            </td>\n" +
-    "            <td>\n" +
-    "                <span class=\"now\">336</span>\n" +
-    "                <span class=\"boost\"><span class=\"plus\">+</span>129</span>\n" +
-    "            </td>\n" +
-    "        </tr>\n" +
-    "\n" +
-    "    </table>\n" +
     "\n" +
     "\n" +
     "</div>\n" +

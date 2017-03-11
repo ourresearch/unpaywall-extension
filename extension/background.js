@@ -4,7 +4,8 @@ if (chrome){
     browser = chrome
 }
 
-// Called when the user clicks on the browser action.
-//browser.browserAction.onClicked.addListener(function(tab) {
-//  browser.runtime.openOptionsPage()
-//});
+browser.runtime.onInstalled.addListener(function (object) {
+    browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {
+        console.log("New tab launched with http://yoursite.com/");
+    });
+});

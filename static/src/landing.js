@@ -18,9 +18,16 @@ angular.module('landing', [
     })
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/wood', {
-            templateUrl: "wood.tpl.html",
-            controller: "WoodPageCtrl"
+        $routeProvider.when('/welcome', {
+            templateUrl: "welcome.tpl.html",
+            controller: "WelcomePageCtrl"
+        })
+    })
+
+    .config(function ($routeProvider) {
+        $routeProvider.when('/faq', {
+            templateUrl: "faq.tpl.html",
+            controller: "FaqPageCtrl"
         })
     })
 
@@ -39,9 +46,13 @@ angular.module('landing', [
         console.log("PageNotFound controller is running!")
 
     })
+    .controller("FaqPageCtrl", function($scope){
+        console.log("FaqPageCtrl controller is running!")
 
-    .controller("WoodPageCtrl", function($scope){
-        console.log("WoodPageCtrl controller is running!")
+    })
+
+    .controller("WelcomePageCtrl", function($scope){
+        console.log("WelcomePageCtrl controller is running!")
 
     })
 
@@ -51,28 +62,14 @@ angular.module('landing', [
                                              $location,
                                              $rootScope,
                                              $mdDialog,
+                                             $location,
                                              $timeout) {
 
         console.log("i am the landing page ctrl")
-        var about = angular.element(document.getElementById('faq'));
-
-
-        var scrollToFaq =  function(){
-            console.log("scroll to about!", about)
-            $document.scrollToElement(about, 0, 1000);
-        }
-
-
-        $scope.scrollToAbout = scrollToFaq
 
         console.log("location.search", $location.search())
         if ($location.search().faq){
-            $timeout(scrollToFaq, 500)
-        }
-
-        $scope.scrollToTop = function(){
-            console.log("scroll to top.")
-            $document.scrollTop(0, 1000)
+            $location.url("/faq")
         }
 
         $scope.fxAddon = function($event){

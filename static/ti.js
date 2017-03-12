@@ -708,33 +708,29 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"main-copy\">\n" +
     "            <div class=\"tagline\">\n" +
     "                <div class=\"above\">\n" +
-    "                    Click\n" +
-    "                    <span class=\"the\">the</span>\n" +
-    "                    <span class=\"tab\"> <i class=\"fa fa-unlock-alt\"></i> </span>\n" +
+    "                    Click the\n" +
     "                    <span class=\"tab-word\">tab.</span>\n" +
-    "                    <span class=\"and\">and</span>\n" +
-    "                    <span class=\"period\">.</span>\n" +
     "                </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
     "                <div class=\"under\">\n" +
-    "                    <span class=\"first\">skip</span> the paywall.\n" +
+    "                    Skip the paywall.\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "            <img class=\"arrow\" src=\"static/img/arrow.png\" alt=\"\">\n" +
     "            <div class=\"about\">\n" +
     "                Get full-text\n" +
     "                of research papers as you browse, using Unpaywall's index of ten million\n" +
-    "                legal, open-access articles. It's free for Chrome and Firefox:\n" +
+    "                legal, open-access articles.\n" +
     "\n" +
     "            </div>\n" +
     "\n" +
     "\n" +
     "            <div class=\"cta\">\n" +
     "\n" +
-    "                <div class=\"cannot-install\" ng-show=\"browser=='unsupported'\">\n" +
-    "                    Unpaywall works on Firefox or Chrome for desktop.\n" +
+    "                <div class=\"button-info\" ng-show=\"browser=='unsupported'\">\n" +
+    "                    Requires desktop Firefox or Chrome.\n" +
+    "                </div>\n" +
+    "\n" +
+    "                <div class=\"button-info\" ng-show=\"browser != 'unsupported'\">\n" +
+    "                    Free for Chrome and Firefox\n" +
     "                </div>\n" +
     "\n" +
     "                <div class=\"install\" ng-click=\"ctaClick()\">\n" +

@@ -6,33 +6,29 @@
         <div class="main-copy">
             <div class="tagline">
                 <div class="above">
-                    Click
-                    <span class="the">the</span>
-                    <span class="tab"> <i class="fa fa-unlock-alt"></i> </span>
+                    Click the
                     <span class="tab-word">tab.</span>
-                    <span class="and">and</span>
-                    <span class="period">.</span>
                 </div>
-
-
-
                 <div class="under">
-                    <span class="first">skip</span> the paywall.
+                    Skip the paywall.
                 </div>
             </div>
-            <img class="arrow" src="static/img/arrow.png" alt="">
             <div class="about">
                 Get full-text
                 of research papers as you browse, using Unpaywall's index of ten million
-                legal, open-access articles. It's free for Chrome and Firefox:
+                legal, open-access articles.
 
             </div>
 
 
             <div class="cta">
 
-                <div class="cannot-install" ng-show="browser=='unsupported'">
-                    Unpaywall works on Firefox or Chrome for desktop.
+                <div class="button-info" ng-show="browser=='unsupported'">
+                    Requires desktop Firefox or Chrome.
+                </div>
+
+                <div class="button-info" ng-show="browser != 'unsupported'">
+                    Free for Chrome and Firefox
                 </div>
 
                 <div class="install" ng-click="ctaClick()">

@@ -162,77 +162,42 @@ div.page.landing {
       .main-copy {
         max-width: 400px;
         padding: 10px;
-        margin-top: 10px;
+        margin-top: -10px;
+        font-size: 24px;
         @media @xs {
-          margin-top: 10px;
+          margin-top: 20px;
+          font-size: 18px;
         }
         div.tagline {
           font-weight: 300;
-          font-size: 55px;
+          font-size: 200%;
           color: #fff;
           @media @xs {
-            font-size: 40px;
+            font-size: 30px;
             line-height: 1.3;
-            margin-top: 10px;
           }
           .above {
-            .tab {
-              background: @baseColor;
-              display: inline-block;
-              border-radius: 40px 0 0 40px;
-              padding: .15em .35em .15em .55em;
-              border: 3px solid #fff;
-              font-size: 65%;
-              vertical-align: 10px;
-              display:none;
-              i {
-                vertical-align: -2px;
-              }
-            }
             .tab-word {
               display: inline-block;
-              background: @baseColor;
+              //background: @baseColor;
+              
               border-radius: 40px 0 0 40px;
               padding: 0 0 0 .35em;
-              font-size: 90%;
-              border: 2px solid #fff;
               font-size: 95%;
               vertical-align: 2px;
-
-              //background: none;
-              //border: 2px solid #fff;
-            }
-            .and {
-              display: none;
-            }
-            .the {
-              display: inline;
-            }
-            .period {
-              display: inline;
-              display: none;
+              border: 2px solid #fff;
             }
 
           }
           .under {
             white-space: nowrap;
-            .first {
-              text-transform: capitalize;
-            }
           }
-        }
-        .arrow {
-          display:none;
         }
 
         div.about {
           color: #fff;
           margin-top: 30px;
           margin-bottom: 80px;
-          font-size: 23px;
-          @media @xs {
-            //font-size: 16px;
-          }
         }
 
         .cta {
@@ -241,6 +206,40 @@ div.page.landing {
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          
+          .button-info {
+            color: #FFEE58;
+            color: #FFF59D;
+            text-align: center;
+            padding-bottom: 10px;
+            font-size: 18px;
+
+          }
+          
+          .install {
+            cursor: pointer;
+            font-size: 20px;
+            padding: 24px 40px;
+            border-radius: 50px;
+
+            background: #FFEE58;
+            color: #333;
+
+            //background: none;
+            //border: 3px solid #fff;
+            //color: #fff;
+
+            transition: all 0.15s ease;
+            &:hover {
+              transform: scale(1.03125);
+            }
+
+            @media @xs {
+              padding: 14px 20px;
+              font-size: 16px;
+            }
+
+          }
         }
 
 

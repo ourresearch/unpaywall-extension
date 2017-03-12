@@ -109,74 +109,41 @@ div.page.landing .screen.top-screen .main-img {
 div.page.landing .screen.top-screen .main-copy {
   max-width: 400px;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: -10px;
+  font-size: 24px;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen .main-copy {
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 18px;
   }
 }
 div.page.landing .screen.top-screen .main-copy div.tagline {
   font-weight: 300;
-  font-size: 55px;
+  font-size: 200%;
   color: #fff;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen .main-copy div.tagline {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 1.3;
-    margin-top: 10px;
   }
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .above .tab {
-  background: #20e168;
-  display: inline-block;
-  border-radius: 40px 0 0 40px;
-  padding: .15em .35em .15em .55em;
-  border: 3px solid #fff;
-  font-size: 65%;
-  vertical-align: 10px;
-  display: none;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .above .tab i {
-  vertical-align: -2px;
 }
 div.page.landing .screen.top-screen .main-copy div.tagline .above .tab-word {
   display: inline-block;
-  background: #20e168;
   border-radius: 40px 0 0 40px;
   padding: 0 0 0 .35em;
-  font-size: 90%;
-  border: 2px solid #fff;
   font-size: 95%;
   vertical-align: 2px;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .above .and {
-  display: none;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .above .the {
-  display: inline;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .above .period {
-  display: inline;
-  display: none;
+  border: 2px solid #fff;
 }
 div.page.landing .screen.top-screen .main-copy div.tagline .under {
   white-space: nowrap;
-}
-div.page.landing .screen.top-screen .main-copy div.tagline .under .first {
-  text-transform: capitalize;
-}
-div.page.landing .screen.top-screen .main-copy .arrow {
-  display: none;
 }
 div.page.landing .screen.top-screen .main-copy div.about {
   color: #fff;
   margin-top: 30px;
   margin-bottom: 80px;
-  font-size: 23px;
-}
-@media only screen and (max-width: 600px) {
 }
 div.page.landing .screen.top-screen .main-copy .cta {
   margin-left: -10px;
@@ -184,6 +151,31 @@ div.page.landing .screen.top-screen .main-copy .cta {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+div.page.landing .screen.top-screen .main-copy .cta .button-info {
+  color: #FFEE58;
+  color: #FFF59D;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+div.page.landing .screen.top-screen .main-copy .cta .install {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 24px 40px;
+  border-radius: 50px;
+  background: #FFEE58;
+  color: #333;
+  transition: all 0.15s ease;
+}
+div.page.landing .screen.top-screen .main-copy .cta .install:hover {
+  transform: scale(1.03125);
+}
+@media only screen and (max-width: 600px) {
+  div.page.landing .screen.top-screen .main-copy .cta .install {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
 }
 div.page.landing .screen div.more {
   position: absolute;

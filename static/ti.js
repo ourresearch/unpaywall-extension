@@ -288,7 +288,10 @@ angular.module('landing', [
                     },
                     function(msg) {
                         console.log("inline install failure. redirecting to webstore. ", msg)
-                        window.location = webstoreUrl
+                        setTimeout(function(){
+                            window.location = webstoreUrl
+
+                        }, 1000)
                     }
                 )
 
@@ -299,6 +302,9 @@ angular.module('landing', [
         }
 
     })
+
+
+
 
 
 
@@ -721,7 +727,6 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                legal, open-access articles.\n" +
     "\n" +
     "            </div>\n" +
-    "\n" +
     "\n" +
     "            <div class=\"cta\">\n" +
     "\n" +

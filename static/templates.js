@@ -331,7 +331,6 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "            </div>\n" +
     "\n" +
-    "\n" +
     "            <div class=\"cta\">\n" +
     "\n" +
     "                <div class=\"button-info\" ng-show=\"browser=='unsupported'\">\n" +

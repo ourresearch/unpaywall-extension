@@ -139,7 +139,10 @@ angular.module('landing', [
                     },
                     function(msg) {
                         console.log("inline install failure. redirecting to webstore. ", msg)
-                        window.location = webstoreUrl
+                        setTimeout(function(){
+                            window.location = webstoreUrl
+
+                        }, 1000)
                     }
                 )
 
@@ -150,6 +153,9 @@ angular.module('landing', [
         }
 
     })
+
+
+
 
 
 

@@ -178,61 +178,12 @@ div.page.landing .screen.top-screen .main-copy div.about {
 }
 @media only screen and (max-width: 600px) {
 }
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons {
+div.page.landing .screen.top-screen .main-copy .cta {
   margin-left: -10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
-  padding: 15px 30px;
-  border-radius: 50px ;
-  font-weight: 300;
-  border: 3px solid #fff;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  line-height: 0.8;
-  text-align: left;
-  justify-content: center;
-  transition: all 0.15s ease;
-  font-size: 32px;
-}
-@media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button {
-    font-size: 24px;
-    padding: 10px 15px;
-  }
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button:hover {
-  text-decoration: none;
-  transform: scale(1.03125);
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button .icon {
-  margin-right: 15px;
-  display: block;
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button .icon i {
-  font-size: 55px;
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.big {
-  display: block;
-}
-div.page.landing .screen.top-screen .main-copy .call-to-action-buttons a.main-button span.small {
-  font-size: 14px;
-  font-weight: normal;
-}
-div.page.landing .screen.top-screen .main-copy a.small-button {
-  color: #fff;
-  display: inline;
-  margin-top: 15px;
-}
-div.page.landing .screen.top-screen .main-copy a.small-button:hover {
-  text-decoration: none;
-}
-div.page.landing .screen.top-screen .main-copy a.small-button i {
-  margin-right: 3px;
 }
 div.page.landing .screen div.more {
   position: absolute;

@@ -213,36 +213,89 @@ angular.module('landing', [
                                              $mdDialog,
                                              $timeout) {
 
-        console.log("i am the landing page ctrl")
 
-        console.log("location.search", $location.search())
+        // support legacy faq hack
         if ($location.search().faq){
             $location.url("/faq")
         }
 
-        $scope.ctaClick = function(browser){
-            ga("send", "event", "Clicked Install", browser)
+
+        // set the browser
+        var browser
+        var ua = navigator.userAgent
+
+        // we don't support anything mobile
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
+            browser = "unsupported"
         }
-
-        $scope.fxAddon = function($event){
-            ga("send", "event", "Clicked Install", "firefox")
-
-            $mdDialog.show({
-              controller: function($scope, $mdDialog){
-                  console.log("dialog ctrl!")
-                  $scope.cancel = function(){
-                      $mdDialog.cancel()
-                  }
-              },
-              templateUrl: 'firefox-coming-soon.tpl.html',
-              targetEvent: $event,
-              clickOutsideToClose:true,
-                parent: angular.element(document.body)
-            })
-
-            $event.preventDefault()
+        else if (navigator.userAgent.indexOf("Chrome") > -1) {
+            browser = "chrome"
+        }
+        else if (navigator.userAgent.indexOf("Firefox") > -1) {
+            browser = "firefox"
+        }
+        // we don't support anything else but chrome and fx
+        else {
+            browser = "unsupported"
+        }
+        $scope.browser = browser
 
 
+
+        $scope.ctaClick = function(){
+            console.log("clicked to install the extension")
+
+
+            // can't install it, so let's tweet it.
+            if (browser == 'unsupported') {
+                var tweetUrl = "https://twitter.com/intent/tweet?url=http://unpaywall.org&text=The beta Unpaywall browser extension finds %23openaccess versions of paywalled articles as you browse."
+                window.location = tweetUrl
+            }
+
+
+            // install for firefox. for now that just means just tell them it's coming soon.
+            else if (browser == 'firefox') {
+                ga("send", "event", "Clicked Install", "firefox")
+                $mdDialog.show({
+                  controller: function($scope, $mdDialog){
+                      console.log("dialog ctrl!")
+                      $scope.cancel = function(){
+                          $mdDialog.cancel()
+                      }
+                  },
+                  templateUrl: 'firefox-coming-soon.tpl.html',
+                  clickOutsideToClose:true,
+                    parent: angular.element(document.body)
+                })
+            }
+
+            // install for chrome
+            else if (browser == 'chrome') {
+                console.log("Install for Chrome")
+                ga("send", "event", "Clicked Install", "chrome")
+                var webstoreUrl = "https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha"
+
+                // inline install does not work in fullscreen mode.
+                if( window.outerHeight == screen.height) {
+                    console.log("full screen! opening web store")
+                    window.location = webstoreUrl
+                }
+
+                chrome.webstore.install(
+                    undefined,
+                    function(msg){
+                        console.log("inline install success: ")
+                    },
+                    function(msg) {
+                        console.log("inline install failure. redirecting to webstore. ", msg)
+                        window.location = webstoreUrl
+                    }
+                )
+
+            }
+            else {
+                console.log("um not sure how we got here...")
+            }
         }
 
     })
@@ -673,38 +726,38 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"about\">\n" +
     "                Get full-text\n" +
     "                of research papers as you browse, using Unpaywall's index of ten million\n" +
-    "                legal, open-access articles.\n" +
+    "                legal, open-access articles. It's free for Chrome and Firefox:\n" +
     "\n" +
     "            </div>\n" +
     "\n" +
-    "            <div class=\"call-to-action-buttons\">\n" +
-    "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
-    "                   target=\"_blank\"\n" +
-    "                   ng-click=\"ctaClick('chrome')\"\n" +
-    "                   class=\"main-button\">\n" +
-    "                    <div class=\"icon\">\n" +
-    "                        <i class=\"fa fa-chrome\"></i>\n" +
-    "                    </div>\n" +
-    "                    <span class=\"text\">\n" +
-    "                        <span class=\"big\">\n" +
-    "                            <span class=\"action\">Free for</span>\n" +
-    "                            <span class=\"browser\">Chrome</span>\n" +
-    "                        </span>\n" +
-    "                        <span class=\"small\">\n" +
-    "                            on the Chrome Web Store\n" +
-    "                        </span>\n" +
+    "\n" +
+    "            <div class=\"cta\">\n" +
+    "\n" +
+    "                <div class=\"cannot-install\" ng-show=\"browser=='unsupported'\">\n" +
+    "                    Unpaywall works on Firefox or Chrome for desktop.\n" +
+    "                </div>\n" +
+    "\n" +
+    "                <div class=\"install\" ng-click=\"ctaClick()\">\n" +
+    "                    <span class=\"chrome\" ng-show=\"browser=='chrome'\">\n" +
+    "                        <i class=\"fa fa-plus\"></i>\n" +
+    "                        Add Unpaywall to Chrome\n" +
     "                    </span>\n" +
-    "                </a>\n" +
+    "                    <span class=\"firefox\" ng-show=\"browser=='firefox'\">\n" +
+    "                        <i class=\"fa fa-plus\"></i>\n" +
+    "                        Add Unpaywall to Firefox\n" +
+    "                    </span>\n" +
+    "                    <span class=\"fallback\" ng-show=\"browser=='unsupported'\">\n" +
+    "                        <i class=\"fa fa-twitter\"></i>\n" +
+    "                        Tweet it now\n" +
+    "                    </span>\n" +
+    "                </div>\n" +
     "\n" +
-    "                <a href=\"https://addons.mozilla.org/en-US/firefox/addon/unpaywall/\"\n" +
-    "                   target=\"_blank\"\n" +
-    "                   ng-click=\"fxAddon($event)\"\n" +
-    "                   class=\"small-button\">\n" +
-    "                    <i class=\"fa fa-firefox\"></i>\n" +
-    "                    or install it for <span class=\"browser\"> Firefox</span>\n" +
     "\n" +
-    "                </a>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "            </div>\n" +
+    "\n" +
     "\n" +
     "        </div>\n" +
     "\n" +

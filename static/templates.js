@@ -335,38 +335,38 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"about\">\n" +
     "                Get full-text\n" +
     "                of research papers as you browse, using Unpaywall's index of ten million\n" +
-    "                legal, open-access articles.\n" +
+    "                legal, open-access articles. It's free for Chrome and Firefox:\n" +
     "\n" +
     "            </div>\n" +
     "\n" +
-    "            <div class=\"call-to-action-buttons\">\n" +
-    "                <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\"\n" +
-    "                   target=\"_blank\"\n" +
-    "                   ng-click=\"ctaClick('chrome')\"\n" +
-    "                   class=\"main-button\">\n" +
-    "                    <div class=\"icon\">\n" +
-    "                        <i class=\"fa fa-chrome\"></i>\n" +
-    "                    </div>\n" +
-    "                    <span class=\"text\">\n" +
-    "                        <span class=\"big\">\n" +
-    "                            <span class=\"action\">Free for</span>\n" +
-    "                            <span class=\"browser\">Chrome</span>\n" +
-    "                        </span>\n" +
-    "                        <span class=\"small\">\n" +
-    "                            on the Chrome Web Store\n" +
-    "                        </span>\n" +
+    "\n" +
+    "            <div class=\"cta\">\n" +
+    "\n" +
+    "                <div class=\"cannot-install\" ng-show=\"browser=='unsupported'\">\n" +
+    "                    Unpaywall works on Firefox or Chrome for desktop.\n" +
+    "                </div>\n" +
+    "\n" +
+    "                <div class=\"install\" ng-click=\"ctaClick()\">\n" +
+    "                    <span class=\"chrome\" ng-show=\"browser=='chrome'\">\n" +
+    "                        <i class=\"fa fa-plus\"></i>\n" +
+    "                        Add Unpaywall to Chrome\n" +
     "                    </span>\n" +
-    "                </a>\n" +
+    "                    <span class=\"firefox\" ng-show=\"browser=='firefox'\">\n" +
+    "                        <i class=\"fa fa-plus\"></i>\n" +
+    "                        Add Unpaywall to Firefox\n" +
+    "                    </span>\n" +
+    "                    <span class=\"fallback\" ng-show=\"browser=='unsupported'\">\n" +
+    "                        <i class=\"fa fa-twitter\"></i>\n" +
+    "                        Tweet it now\n" +
+    "                    </span>\n" +
+    "                </div>\n" +
     "\n" +
-    "                <a href=\"https://addons.mozilla.org/en-US/firefox/addon/unpaywall/\"\n" +
-    "                   target=\"_blank\"\n" +
-    "                   ng-click=\"fxAddon($event)\"\n" +
-    "                   class=\"small-button\">\n" +
-    "                    <i class=\"fa fa-firefox\"></i>\n" +
-    "                    or install it for <span class=\"browser\"> Firefox</span>\n" +
     "\n" +
-    "                </a>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "            </div>\n" +
+    "\n" +
     "\n" +
     "        </div>\n" +
     "\n" +

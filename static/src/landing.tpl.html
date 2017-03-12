@@ -24,38 +24,38 @@
             <div class="about">
                 Get full-text
                 of research papers as you browse, using Unpaywall's index of ten million
-                legal, open-access articles.
+                legal, open-access articles. It's free for Chrome and Firefox:
 
             </div>
 
-            <div class="call-to-action-buttons">
-                <a href="https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha"
-                   target="_blank"
-                   ng-click="ctaClick('chrome')"
-                   class="main-button">
-                    <div class="icon">
-                        <i class="fa fa-chrome"></i>
-                    </div>
-                    <span class="text">
-                        <span class="big">
-                            <span class="action">Free for</span>
-                            <span class="browser">Chrome</span>
-                        </span>
-                        <span class="small">
-                            on the Chrome Web Store
-                        </span>
+
+            <div class="cta">
+
+                <div class="cannot-install" ng-show="browser=='unsupported'">
+                    Unpaywall works on Firefox or Chrome for desktop.
+                </div>
+
+                <div class="install" ng-click="ctaClick()">
+                    <span class="chrome" ng-show="browser=='chrome'">
+                        <i class="fa fa-plus"></i>
+                        Add Unpaywall to Chrome
                     </span>
-                </a>
+                    <span class="firefox" ng-show="browser=='firefox'">
+                        <i class="fa fa-plus"></i>
+                        Add Unpaywall to Firefox
+                    </span>
+                    <span class="fallback" ng-show="browser=='unsupported'">
+                        <i class="fa fa-twitter"></i>
+                        Tweet it now
+                    </span>
+                </div>
 
-                <a href="https://addons.mozilla.org/en-US/firefox/addon/unpaywall/"
-                   target="_blank"
-                   ng-click="fxAddon($event)"
-                   class="small-button">
-                    <i class="fa fa-firefox"></i>
-                    or install it for <span class="browser"> Firefox</span>
 
-                </a>
+
+
+
             </div>
+
 
         </div>
 

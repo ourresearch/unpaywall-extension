@@ -456,25 +456,35 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "        <h1>You've installed Unpaywall!</h1>\n" +
     "\n" +
     "        <p>\n" +
-    "            We'll work in the background when you view research articles. If you see\n" +
-    "            the <span class=\"green\">green tab,</span> click it to skip the paywall.\n" +
-    "            if you see a <span class=\"gray\">gray tab</span> it means we came up empty.\n" +
+    "            When you view a research article, check the tab on the right of your screen:\n" +
     "        </p>\n" +
-    "        <p>To get started, try this example article:</p>\n" +
-    "        <p>\n" +
+    "            <ul>\n" +
+    "                <li class=\"green\">\n" +
+    "                    <span class=\"tab green\"><i class=\"fa fa-unlock-alt\"></i></span>\n" +
+    "                    <span class=\"text green\">green tab:</span>\n" +
+    "                    we found free, legal full text. Click it to read!\n" +
+    "                </li>\n" +
+    "                <li class=\"gray\">\n" +
+    "                    <span class=\"tab gray\"><i class=\"fa fa-lock\"></i></span>\n" +
+    "                    <span class=\"text gray\">gray tab:</span>\n" +
+    "                    we came up empty.\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
+    "        <p>Try this example article to get started:</p>\n" +
+    "        <p class=\"eg\">\n" +
     "            <a class=\"eg\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">\n" +
+    "                <i class=\"fa fa-file-text-o\"></i>\n" +
     "                Information-Theoretic Approach to Quantum Error Correction and Reversible Measurement.\n" +
     "            </a>\n" +
     "        </p>\n" +
     "        <p>\n" +
-    "            It's paywalled in the <em>Proceedings of the Royal Society A,</em> but\n" +
+    "            It's $15 to read from the publisher, but\n" +
     "            Unpaywall finds a free copy uploaded by the authors to the CERN website.\n" +
     "        </p>\n" +
-    "        <p></p>\n" +
     "\n" +
     "\n" +
     "        <p class=\"ps\">\n" +
-    "            PS for the Open Access nerds: if you want to really dive into articles' OA status, the Unpaywall tab\n" +
+    "            PS for the Open Access nerds: the Unpaywall tab\n" +
     "            can change colors to indicate Green or Gold OA, too. Enable it in settings.\n" +
     "        </p>\n" +
     "\n" +

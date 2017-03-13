@@ -57,11 +57,51 @@ body a:hover {
   font-size: 20px;
   min-height: 100vm;
 }
-.page.welcome a.eg {
-  font-size: 130%;
+.page.welcome p {
+  margin: 0;
+}
+.page.welcome p.eg {
+  margin: 0 0 10px 45px;
+  line-height: 1.3;
+}
+.page.welcome p.eg a {
+  font-size: 125%;
+  display: flex;
+}
+.page.welcome p.eg a i {
+  margin-right: 8px;
+  margin-top: 4px;
 }
 .page.welcome .ps {
   margin-top: 50px;
+}
+.page.welcome ul {
+  margin: 0 0 30px;
+}
+.page.welcome ul li {
+  list-style-type: none;
+  line-height: 1.8;
+}
+.page.welcome ul li .tab {
+  border-radius: 20px 0 0 20px;
+  color: #fff;
+  padding: 3px 6px 3px 9px;
+  font-size: 16px;
+}
+.page.welcome ul li .tab.green {
+  background: #20e168;
+}
+.page.welcome ul li .tab.gray {
+  background: #888;
+}
+.page.welcome ul li .text {
+  font-weight: bold;
+}
+.page.welcome ul li .text.green {
+  color: #20e168;
+}
+.page.welcome ul li .text.gray {
+  color: #888;
 }
 div.page.landing .screen {
   backgound: #fff;

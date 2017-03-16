@@ -99,9 +99,8 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    Millions of researchers are currently uploading their own fulltext PDFs\n" +
     "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
     "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories</a>\n" +
-    "                    worldwide, making them free for anyone to read. But we hated that there was no easy\n" +
-    "                    way to find them, especially not one integrated into our\n" +
-    "                    reading workflows. So we made one! Eventually, we hope tools like\n" +
+    "                    worldwide, making them free for anyone to read. But there was no easy\n" +
+    "                    way to find them as we browsed. So we made one! Eventually, we hope tools like\n" +
     "                    Unpaywall will nurture the transition to fully\n" +
     "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
     "                    scholarly publishing, by closing the gap between readers and\n" +
@@ -146,12 +145,12 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
-    "                    About 25% of the time, although it varies a lot based on the age\n" +
-    "                    and field of the article. The reason it's not 100% is\n" +
-    "                    because unfortunately not all authors upload their fulltext PDFs online&mdash;although\n" +
-    "                    the number is growing every day.\n" +
-    "                    There's actually been a bunch of research on this recently, and we're planning a blog\n" +
-    "                    post breaking it down&mdash;stay tuned.\n" +
+    "                    In a sample of 2016 cancer papers, Unpaywall users were able to read for free nearly 50% of the\n" +
+    "                    time–-with no subscription, and despite paywalls.  That percentage\n" +
+    "                    will vary by field and year of publication. But it is generally improving\n" +
+    "                    across the board,\n" +
+    "                    as as recent US open-access mandates come in to effect and\n" +
+    "                    as we improve our discovery techniques.\n" +
     "\n" +
     "                </dd>\n" +
     "\n" +
@@ -176,8 +175,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    The OA Button works on\n" +
     "                    articles without DOIs, and it helps you email a request for fulltext to the author if\n" +
     "                    none is available. It'll also help you find open datasets.\n" +
-    "                    Unpaywall is more of a one-trick pony, and largely built because folks wanted a demo for the\n" +
-    "                    open <a href=\"https://oadoi.org\">oaDOI</a> API. The great thing is, both are open-source\n" +
+    "                    Unpaywall is more of a one-trick pony. The great thing is, both are open-source\n" +
     "                    and free, so you can install both, or\n" +
     "                    <a href=\"https://guides.github.com/activities/forking/\">fork 'em</a>\n" +
     "                    and make your own better extension!\n" +
@@ -185,16 +183,17 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"how-do-you-find-articles\"><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
     "                <dd>\n" +
-    "                    We gather information from thousands of different legal, open-access repositories with the\n" +
-    "                    help many awesome open data sources, especially\n" +
+    "                    We gather content from thousands of open-access repositories worldwide.\n" +
+    "                    To help us, we rely on some fantastic open data services, especially\n" +
+    "                    <a href=\"https://www.ncbi.nlm.nih.gov/pmc/\">PubMed Central</a>,\n" +
     "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
-    "                    <a href=\"https://www.crossref.org/\">Crossref,</a>\n" +
+    "                    <a href=\"https://www.crossref.org/\">Crossref</a> (particulary their license info),\n" +
     "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
     "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
     "\n" +
-    "                    In turn, we make all this data open for reuse via the\n" +
+    "                    After we put all this data together, we in turn make it open for reuse via the\n" +
     "                    <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
-    "                    way to leverage our infrastructure to build your own projects.\n" +
+    "                    way to leverage our data and infrastructure to support your own projects.\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt id=\"privacy-policy\"><i class=\"fa fa-chevron-right\"></i>What's your privacy policy?</dt>\n" +

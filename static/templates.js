@@ -145,8 +145,13 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
-    "                    In a sample of 2016 cancer papers, Unpaywall users were able to read for free nearly 50% of the\n" +
-    "                    time–-with no subscription, and despite paywalls.  That percentage\n" +
+    "                    About half the time. For example, in \n" +
+    "                    <a href=\"https://medium.com/@lauren.maggio01/can-your-doctor-see-the-cancer-research-reported-in-the-news-can-you-beb9270c301f#.g1t5smm6s\">\n" +
+    "                         arecent study\n" +
+    "                    </a>\n" +
+    "                    examining the availability of 2016 cancer papers,\n" +
+    "                    Unpaywall users were able to read 40% of them for free–-with no subscription,\n" +
+    "                    and despite paywalls.  That percentage\n" +
     "                    will vary by field and year of publication. But it is generally improving\n" +
     "                    across the board,\n" +
     "                    as as recent US open-access mandates come in to effect and\n" +

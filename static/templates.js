@@ -241,7 +241,7 @@ angular.module("footer.tpl.html", []).run(["$templateCache", function($templateC
     "                <i class=\"fa fa-envelope-o\"></i>\n" +
     "                Email\n" +
     "            </a>\n" +
-    "            <a href=\"http://twitter.com/impactstory\">\n" +
+    "            <a href=\"http://twitter.com/unpaywall\">\n" +
     "                <i class=\"fa fa-twitter\"></i>\n" +
     "                Twitter\n" +
     "            </a>\n" +
@@ -266,7 +266,7 @@ angular.module("footer.tpl.html", []).run(["$templateCache", function($templateC
     "        <div class=\"credit\" flex=\"40\" flex-xs=\"100\">\n" +
     "            <span class=\"built-by\">\n" +
     "                Built with <i class=\"fa fa-heart\"></i> at\n" +
-    "                <a href=\"http://impactstory.org/about\">Impactstory</a>, with support from\n" +
+    "                <a href=\"faq#who-is-behind-this\">Impactstory</a>, with support from\n" +
     "            </span>\n" +
     "            <span class=\"funders\">\n" +
     "                 the National Science Foundation and the Alfred P. Sloan Foundation\n" +
@@ -371,13 +371,14 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "\n" +
+    "        <!-- use this special landing-page-only footer -->\n" +
     "        <div class=\"more\">\n" +
     "            <div class=\"links\">\n" +
     "                <a href=\"mailto:team@impactstory.org\">\n" +
     "                    <i class=\"fa fa-envelope-o\"></i>\n" +
     "                    Email\n" +
     "                </a>\n" +
-    "                <a href=\"http://twitter.com/impactstory\">\n" +
+    "                <a href=\"http://twitter.com/unpaywall\">\n" +
     "                    <i class=\"fa fa-twitter\"></i>\n" +
     "                    Twitter\n" +
     "                </a>\n" +

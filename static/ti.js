@@ -490,66 +490,29 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"why-did-you-make-it\"><i class=\"fa fa-chevron-right\"></i>Why did you make it?</dt>\n" +
     "                <dd>\n" +
-    "                    Millions of researchers are currently uploading their own fulltext PDFs\n" +
-    "                    to <a href=\"https://en.wikipedia.org/wiki/Preprint\">preprint servers</a>\n" +
-    "                    and <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories</a>\n" +
-    "                    worldwide, making them free for anyone to read. But there was no easy\n" +
-    "                    way to find them as we browsed. So we made one! Eventually, we hope tools like\n" +
-    "                    Unpaywall will nurture the transition to fully\n" +
+    "                    We loathe paywalls. Now more than ever, humanity needs to <i>access</i> our collective knowledge,\n" +
+    "                    not hoard it. Lots of scholars feel the same; that's why they\n" +
+    "                    upload their papers to free, legal servers online. We realized that the missing link is in getting\n" +
+    "                    these free resources to the people who want them, at the right time. By using a browser extension,\n" +
+    "                    we can do that, leveraging the toll-access distribution system to bring\n" +
     "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
-    "                    scholarly publishing, by closing the gap between readers and\n" +
-    "                    freely-available fulltext.\n" +
+    "                    to the masses.\n" +
     "\n" +
     "                </dd>\n" +
-    "\n" +
-    "                <dt id=\"identify-green-or-gold\"><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
-    "                <dd>Indeed we can. Click the green Unpaywall extension icon in\n" +
-    "                    your browser toolbar and choose \"options.\" Once there, tick \"Color-code tab for Green and Gold OA.\"\n" +
-    "                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:\n" +
-    "                    <ul>\n" +
-    "                        <li>\n" +
-    "                            <div class=\"text\">\n" +
-    "                                <span class=\"color gold\">Gold tab</span> for <a\n" +
-    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA</a> a\n" +
-    "                                rticles available from the publisher\n" +
-    "                                under an open license.\n" +
-    "                                <a class=\"eg\" href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "                        <li>\n" +
-    "                            <div class=\"text\">\n" +
-    "                                <span class=\"color green\">Green tab</span> for articles <a\n" +
-    "                                    href=\"https://en.wikipedia.org/wiki/Self-archiving\">self-archived</a> on a preprint server or\n" +
-    "                                institutional repository.\n" +
-    "                                <a class=\"eg\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">(example)</a>\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "                        <li>\n" +
-    "                            <div class=\"text\">\n" +
-    "                                <span class=\"color blue\">Blue tab</span> for articles available on the current page, but lacking\n" +
-    "                                license information (often that's because you're browsing from behind the paywall).\n" +
-    "                                <a class=\"eg\" href=\"http://www.pnas.org/content/105/31/11014\">(example)</a>\n" +
-    "\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "                    </ul>\n" +
-    "                </dd>\n" +
-    "\n" +
     "\n" +
     "\n" +
     "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
-    "                    About half the time. For example, in \n" +
-    "                    <a href=\"https://medium.com/@lauren.maggio01/can-your-doctor-see-the-cancer-research-reported-in-the-news-can-you-beb9270c301f#.g1t5smm6s\">\n" +
-    "                         arecent study\n" +
-    "                    </a>\n" +
-    "                    examining the availability of 2016 cancer papers,\n" +
-    "                    Unpaywall users were able to read 40% of them for free–-with no subscription,\n" +
-    "                    and despite paywalls.  That percentage\n" +
-    "                    will vary by field and year of publication. But it is generally improving\n" +
-    "                    across the board,\n" +
-    "                    as as recent US open-access mandates come in to effect and\n" +
-    "                    as we improve our discovery techniques.\n" +
+    "                    In absolute terms? We've shown users ten thousand free articles this week alone, and that number\n" +
+    "                    is growing fast (we're adding 500 new users a day). In relative terms?  Unpaywall users\n" +
+    "                    get articles free about half the time, based on our usage data so far. This is improving regularly, as\n" +
+    "                    we improve our discovery techniques. But the real improvement will come over the longer term, as\n" +
+    "                    mandadory open access requirements begin to take effect in the\n" +
+    "                    <a href=\"http://scholcomm.columbia.edu/open-access/public-access-mandates-for-federally-funded-research/\">US,</a>\n" +
+    "                    <a href=\"http://www.rcuk.ac.uk/research/openaccess//\">UK,</a>\n" +
+    "                    <a href=\"http://www.sciencemag.org/news/2016/05/dramatic-statement-european-leaders-call-immediate-open-access-all-scientific-papers/\">Europe,</a>\n" +
+    "                    and elsewhere. Soon Unpaywall users will essentially have a free subscription to all new research.\n" +
+    "                    We think that's a game-changer for open access, and for scholarship as a whole.\n" +
     "\n" +
     "                </dd>\n" +
     "\n" +
@@ -570,11 +533,10 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                <dd>\n" +
     "                    The <a href=\"https://openaccessbutton.org/\">OA Button</a> and Unpaywall are similar. But the\n" +
     "                    OA Button is a more mature project\n" +
-    "                    (it's been working since 2013) with great features Unpaywall lacks.\n" +
-    "                    The OA Button works on\n" +
-    "                    articles without DOIs, and it helps you email a request for fulltext to the author if\n" +
-    "                    none is available. It'll also help you find open datasets.\n" +
-    "                    Unpaywall is more of a one-trick pony. The great thing is, both are open-source\n" +
+    "                    (it's been working since 2013), and has a different user interface as well as\n" +
+    "                    extra features including author emailing and\n" +
+    "                    finding open datasets.\n" +
+    "                    Unpaywall is more focused on seamlessly finding free content. The great thing is, both are open-source\n" +
     "                    and free, so you can install both, or\n" +
     "                    <a href=\"https://guides.github.com/activities/forking/\">fork 'em</a>\n" +
     "                    and make your own better extension!\n" +
@@ -608,6 +570,43 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    connected to your identity. Furthermore, the extension won't send or use\n" +
     "                    any kind of browser fingerprinting technology to identify your computer.\n" +
     "                </dd>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "                <dt id=\"identify-green-or-gold\"><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
+    "                <dd>Indeed we can. Click the green Unpaywall extension icon in\n" +
+    "                    your browser toolbar and choose \"options.\" Once there, tick \"Color-code tab for Green and Gold OA.\"\n" +
+    "                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:\n" +
+    "                    <ul>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color gold\">Gold tab</span> for <a\n" +
+    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA,</a> a\n" +
+    "                                rticles available from the publisher\n" +
+    "                                under an open license.\n" +
+    "                                <a class=\"eg\" href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color green\">Green tab</span> for <a\n" +
+    "                                    href=\"https://en.wikipedia.org/wiki/Self-archiving\">Green OA</a> articles on a preprint server or\n" +
+    "                                institutional repository.\n" +
+    "                                <a class=\"eg\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">(example)</a>\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                        <li>\n" +
+    "                            <div class=\"text\">\n" +
+    "                                <span class=\"color blue\">Blue tab</span> for articles available on the current page, but lacking\n" +
+    "                                license information (often that's because you're browsing from behind the paywall).\n" +
+    "                                <a class=\"eg\" href=\"http://www.pnas.org/content/105/31/11014\">(example)</a>\n" +
+    "\n" +
+    "                            </div>\n" +
+    "                        </li>\n" +
+    "                    </ul>\n" +
+    "                </dd>\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "                <dt id=\"report-bugs\"><i class=\"fa fa-chevron-right\"></i>I found a bug</dt>\n" +
     "                <dd>\n" +

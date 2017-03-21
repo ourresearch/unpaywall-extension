@@ -312,7 +312,7 @@ function reportInstallation(){
     // this is so the unpaywall.org/welcome page knows that this user
     // has actually installed the extension.
     var loc = window.location.host
-    if (loc.indexOf("localhost") === 0){
+    if (loc.indexOf("unpaywall.org") === 0){
         devLog("installed. adding reporting div.")
         $("<div style='display:none' id='unpaywall-is-installed'></div>")
             .appendTo("body")

@@ -5,7 +5,9 @@ if (chrome){
 }
 
 browser.runtime.onInstalled.addListener(function (object) {
-    browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {
-        console.log("New tab launched with http://yoursite.com/");
-    });
+    if(object.reason === 'install') {
+        browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {
+        });
+    }
+
 });

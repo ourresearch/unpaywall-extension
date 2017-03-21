@@ -71,16 +71,18 @@ function findDoi(){
 
     // ScienceDirect pages
     // http://www.sciencedirect.com/science/article/pii/S1751157709000881
-    var scienceDirectRegex = /SDM.doi\s*=\s*'([^']+)'/;
-    var m = scienceDirectRegex.exec(docAsStr)
+    // IEEE Xplore pages
+    // http://ieeexplore.ieee.org/document/6628705/
+    var regex = /doi\s*=\s*['"]([^'"]+)['"]|['"]doi['"]:['"]([^'"]+)['"]/i;
+    var m = regex.exec(docAsStr)
     if (m && m.length > 1){
-        devLog("found a ScienceDirect DOI", m)
+        devLog("found a DOI with regex", m)
         return m[1]
     }
 
     // sniff doi from the altmetric.com widget.
     // not done yet...improve regex
-    var altmetricWidgetDoi = /data-doi\s*=\s*'([^']+)'/;
+    var altmetricWidgetDoi = /data-doi\s*=\s*['"]([^'"]+)['"][^>]*class\s*=\s*['"]altmetric-embed['"]/;
 
     return null
 }

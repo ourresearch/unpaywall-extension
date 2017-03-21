@@ -308,6 +308,17 @@ function goToFulltext(){
     }
 }
 
+function reportInstallation(){
+    // this is so the unpaywall.org/welcome page knows that this user
+    // has actually installed the extension.
+    var loc = window.location.host
+    if (loc.indexOf("unpaywall.org") === 0){
+        devLog("installed. adding reporting div.")
+        $("<div style='display:none' id='unpaywall-is-installed'></div>")
+            .appendTo("body")
+    }
+}
+
 function loadSettings(){
     browser.storage.local.get({
         showOaColor: false
@@ -321,7 +332,9 @@ function loadSettings(){
 
 
 
+
 // procedural code
+reportInstallation()
 var doi = findDoi()
 
 // the meat of the extension does not run unless we find a DOI
@@ -352,8 +365,6 @@ if (doi){
             goToFulltext()
         }
     }, false);
-
-
 }
 
 

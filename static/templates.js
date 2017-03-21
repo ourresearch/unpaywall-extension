@@ -88,8 +88,8 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                <dt id=\"who-is-behind-this\"><i class=\"fa fa-chevron-right\"></i>Who's behind Unpaywall?</dt>\n" +
     "                <dd>\n" +
     "                    We're <a href=\"http://impactstory.org/about\">Impactstory,</a>\n" +
-    "                    a nonprofit working to supercharge science by making it\n" +
-    "                    more open, reusable, and web-native. We're supported by grants from <span class=\"funders\">\n" +
+    "                    a nonprofit working to make science more open and reusable online.\n" +
+    "                    We're supported by grants from <span class=\"funders\">\n" +
     "                    the National Science Foundation and the Alfred P. Sloan Foundation\n" +
     "            </span>\n" +
     "                </dd>\n" +
@@ -115,7 +115,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    we improve our discovery techniques. But the real improvement will come over the longer term, as\n" +
     "                    mandadory open access requirements begin to take effect in the\n" +
     "                    <a href=\"http://scholcomm.columbia.edu/open-access/public-access-mandates-for-federally-funded-research/\">US,</a>\n" +
-    "                    <a href=\"http://www.rcuk.ac.uk/research/openaccess//\">UK,</a>\n" +
+    "                    <a href=\"http://www.rcuk.ac.uk/research/openaccess/\">UK,</a>\n" +
     "                    <a href=\"http://www.sciencemag.org/news/2016/05/dramatic-statement-european-leaders-call-immediate-open-access-all-scientific-papers/\">Europe,</a>\n" +
     "                    and elsewhere. Soon Unpaywall users will essentially have a free subscription to all new research.\n" +
     "                    We think that's a game-changer for open access, and for scholarship as a whole.\n" +

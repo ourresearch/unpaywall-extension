@@ -54,10 +54,12 @@ angular.module('landing', [
 
     .controller("WelcomePageCtrl", function($scope, $timeout){
         console.log("WelcomePageCtrl controller is running!")
-        if (document.getElementById("unpaywall-is-installed")){
-            console.log("unpaywall is installed!")
-            ga("send", "event", "viewed_welcome")
-        }
+        $timeout(function(){
+            if (document.getElementById("unpaywall-is-installed")){
+                console.log("unpaywall is installed!")
+                ga("send", "event", "viewed_welcome")
+            }
+        }, 1500)
 
     })
 

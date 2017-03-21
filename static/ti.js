@@ -198,6 +198,7 @@ angular.module('landing', [
     .controller("FaqPageCtrl", function($scope, $anchorScroll){
         console.log("FaqPageCtrl controller is running!")
 
+
     })
 
 
@@ -206,7 +207,7 @@ angular.module('landing', [
         $timeout(function(){
             if (document.getElementById("unpaywall-is-installed")){
                 console.log("unpaywall is installed!")
-                //ga("send", "event", "welcome after install")
+                ga("send", "event", "welcome after install")
             }
         }, 1500)
 
@@ -225,8 +226,6 @@ angular.module('landing', [
         if ($location.search().faq){
             $location.url("/faq")
         }
-
-
 
 
         // set the browser

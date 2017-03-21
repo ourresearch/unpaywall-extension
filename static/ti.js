@@ -206,7 +206,7 @@ angular.module('landing', [
         $timeout(function(){
             if (document.getElementById("unpaywall-is-installed")){
                 console.log("unpaywall is installed!")
-                ga("send", "event", "welcome after install")
+                //ga("send", "event", "welcome after install")
             }
         }, 1500)
 
@@ -228,7 +228,7 @@ angular.module('landing', [
 
 
 
-        
+
         // set the browser
         var browser
         var ua = navigator.userAgent

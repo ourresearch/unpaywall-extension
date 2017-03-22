@@ -1,4 +1,6 @@
-var devMode = true;
+var devMode = false;
+
+
 if (chrome){
     browser = chrome
 }

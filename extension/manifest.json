@@ -39,11 +39,7 @@
     "storage"
   ],
   "web_accessible_resources": [
-      "/img/",
-      "unpaywall.html",
-      "/css/",
-      "/fonts/",
-      "inside-frame.js"
+      "unpaywall.html"
   ],
   "options_ui": {
     "page": "options.html",

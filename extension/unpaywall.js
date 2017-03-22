@@ -214,7 +214,7 @@ function doOadoi(){
 function resolvesToCurrentHost(url){
     var currentUrl = new URL(window.location)
     var oadoiUrl = new URL(url)
-    return currentUrl.hostname == oadoiUrl.hostname
+    return currentUrl.hostname === oadoiUrl.hostname
 }
 
 
@@ -252,12 +252,8 @@ function decideTabColor(){
         color = "blue"
     }
 
-    // 3. green is the trickiest. sometimes (PMC most notably) the Green
-    // repository page has DOI metadata on it. unpaywall will pick that up,
-    // send it to oaDOI, and get a link to the green page it's
-    // already on. that's useless. so don't show the tab at all if we're already
-    // on the same page we're going to link to.
-    else if (results.oadoi.color == "green" && !resolvesToCurrentHost(results.oadoi.url)) {
+    // 3. green
+    else if (results.oadoi.color == "green") {
         color = "green"
     }
 
@@ -268,6 +264,16 @@ function decideTabColor(){
     else {
         color = "black"
     }
+
+
+
+
+
+    // @todo
+    // we need to hide the tab if it's on the green oa page already.
+    // use  resolvesToCurrentHost(results.oadoi.url)
+
+
 
 
     // ok now we need to decide what color to return, based on

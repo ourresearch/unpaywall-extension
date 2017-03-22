@@ -8,5 +8,4 @@ browser.runtime.onInstalled.addListener(function (object) {
         browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {
         });
     }
-
 });

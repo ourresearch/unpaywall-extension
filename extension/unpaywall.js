@@ -1,5 +1,3 @@
-console.log("i am the unpaywall main extension.")
-
 var devMode = true;
 if (chrome){
     browser = chrome
@@ -40,6 +38,7 @@ var devLog = function(str, obj){
         console.log("unpaywall: " + str, obj)
     }
 }
+devLog("unpaywall is running")
 
 
 
@@ -122,7 +121,7 @@ function insertIframe(name){
     if (iframeIsInserted){
         return false
     }
-    
+
     devLog("inserting iframe, based on these results:", results)
     iframe.src = browser.extension.getURL('unpaywall.html');
 
@@ -197,14 +196,17 @@ function doOadoi(){
     var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
     devLog("doing oaDOI check", url)
 
-    $.get(url, function(data){
+
+    $.getJSON(url, function(data){
         results.oadoi.isComplete = true
+        devLog("oaDOI returned", data)
         var resp = data.results[0]
         if (resp.oa_color){
             results.oadoi.color = resp.oa_color  // green or gold
             results.oadoi.url = resp.free_fulltext_url
         }
     })
+
 }
 
 function resolvesToCurrentHost(url){
@@ -323,7 +325,7 @@ function loadSettings(){
     browser.storage.local.get({
         showOaColor: false
     }, function(items) {
-        console.log("got back stuff from showOaColor", items)
+        devLog("retrieved settings", items)
         settings.showOaColor = items.showOaColor;
     });
 }
@@ -332,13 +334,15 @@ function loadSettings(){
 
 
 
+function run() {
+    reportInstallation()
+    var doi = findDoi()
 
-// procedural code
-reportInstallation()
-var doi = findDoi()
+    // the meat of the extension does not run unless we find a DOI
+    if (!doi){
+        return
+    }
 
-// the meat of the extension does not run unless we find a DOI
-if (doi){
     devLog("we have a doi!", doi)
 
     // these run in parallel:
@@ -365,7 +369,20 @@ if (doi){
             goToFulltext()
         }
     }, false);
+
 }
+
+
+// on firefox, jquery sometimes loads after this script. give it
+// some time to load before we run anything on this page.
+setTimeout(run, 200)
+
+
+
+
+
+
+
 
 
 

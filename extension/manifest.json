@@ -34,6 +34,7 @@
     }
   ],
   "permissions": [
+    "*://*.oadoi.org/*",
     "activeTab",
     "storage"
   ],

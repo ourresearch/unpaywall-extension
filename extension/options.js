@@ -1,4 +1,4 @@
-if (chrome){
+if (typeof(chrome) !== "undefined"){
     browser = chrome
 }
 

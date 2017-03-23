@@ -229,23 +229,28 @@ angular.module('landing', [
 
 
         // set the browser
-        var browser
         var ua = navigator.userAgent
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)
+        var browser
 
-        // we don't support anything mobile
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
-            browser = "unsupported"
-        }
-        else if (navigator.userAgent.indexOf("Chrome") > -1) {
-            browser = "chrome"
-        }
-        else if (navigator.userAgent.indexOf("Firefox") > -1) {
+
+        // firefox works on desktop and android. but don't handle that
+        // for now. fix this later.
+        if (ua.indexOf("Firefox") > -1 && !isMobile) {
             browser = "firefox"
         }
-        // we don't support anything else but chrome and fx
+
+        // chrome works on desktop only
+        else if (ua.indexOf("Chrome") > -1 && !isMobile) {
+            browser = "chrome"
+        }
+
         else {
             browser = "unsupported"
         }
+
+
+
         $scope.browser = browser
 
 
@@ -264,17 +269,21 @@ angular.module('landing', [
             // install for firefox. for now that just means just tell them it's coming soon.
             else if (browser == 'firefox') {
                 ga("send", "event", "Clicked Install", "firefox")
-                $mdDialog.show({
-                  controller: function($scope, $mdDialog){
-                      console.log("dialog ctrl!")
-                      $scope.cancel = function(){
-                          $mdDialog.cancel()
-                      }
-                  },
-                  templateUrl: 'firefox-coming-soon.tpl.html',
-                  clickOutsideToClose:true,
-                    parent: angular.element(document.body)
-                })
+                var webstoreUrl = "https://addons.mozilla.org/en-US/firefox/addon/unpaywall/"
+                window.location = webstoreUrl
+
+
+                //$mdDialog.show({
+                //  controller: function($scope, $mdDialog){
+                //      console.log("dialog ctrl!")
+                //      $scope.cancel = function(){
+                //          $mdDialog.cancel()
+                //      }
+                //  },
+                //  templateUrl: 'firefox-coming-soon.tpl.html',
+                //  clickOutsideToClose:true,
+                //    parent: angular.element(document.body)
+                //})
             }
 
             // install for chrome
@@ -739,7 +748,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"cta\">\n" +
     "\n" +
     "                <div class=\"button-info\" ng-show=\"browser=='unsupported'\">\n" +
-    "                    Requires desktop Firefox or Chrome.\n" +
+    "                    Requires Firefox or Chrome for desktop.\n" +
     "                </div>\n" +
     "\n" +
     "                <div class=\"button-info\" ng-show=\"browser != 'unsupported'\">\n" +
@@ -754,6 +763,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    <span class=\"firefox\" ng-show=\"browser=='firefox'\">\n" +
     "                        <i class=\"fa fa-plus\"></i>\n" +
     "                        Add Unpaywall to Firefox\n" +
+    "                        <span class=\"small\">on the Firefox web store</span>\n" +
     "                    </span>\n" +
     "                    <span class=\"fallback\" ng-show=\"browser=='unsupported'\">\n" +
     "                        <i class=\"fa fa-twitter\"></i>\n" +

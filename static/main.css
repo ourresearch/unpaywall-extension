@@ -197,7 +197,7 @@ div.page.landing .screen.top-screen .main-copy .cta .button-info {
   color: #FFF59D;
   text-align: center;
   padding-bottom: 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 div.page.landing .screen.top-screen .main-copy .cta .install {
   cursor: pointer;
@@ -210,6 +210,12 @@ div.page.landing .screen.top-screen .main-copy .cta .install {
 }
 div.page.landing .screen.top-screen .main-copy .cta .install:hover {
   transform: scale(1.03125);
+}
+div.page.landing .screen.top-screen .main-copy .cta .install .small {
+  font-size: 66%;
+  margin-top: 3px;
+  display: block;
+  text-align: center;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen .main-copy .cta .install {

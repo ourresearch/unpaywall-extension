@@ -80,23 +80,28 @@ angular.module('landing', [
 
 
         // set the browser
-        var browser
         var ua = navigator.userAgent
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)
+        var browser
 
-        // we don't support anything mobile
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)) {
-            browser = "unsupported"
-        }
-        else if (navigator.userAgent.indexOf("Chrome") > -1) {
-            browser = "chrome"
-        }
-        else if (navigator.userAgent.indexOf("Firefox") > -1) {
+
+        // firefox works on desktop and android. but don't handle that
+        // for now. fix this later.
+        if (ua.indexOf("Firefox") > -1 && !isMobile) {
             browser = "firefox"
         }
-        // we don't support anything else but chrome and fx
+
+        // chrome works on desktop only
+        else if (ua.indexOf("Chrome") > -1 && !isMobile) {
+            browser = "chrome"
+        }
+
         else {
             browser = "unsupported"
         }
+
+
+
         $scope.browser = browser
 
 
@@ -115,17 +120,21 @@ angular.module('landing', [
             // install for firefox. for now that just means just tell them it's coming soon.
             else if (browser == 'firefox') {
                 ga("send", "event", "Clicked Install", "firefox")
-                $mdDialog.show({
-                  controller: function($scope, $mdDialog){
-                      console.log("dialog ctrl!")
-                      $scope.cancel = function(){
-                          $mdDialog.cancel()
-                      }
-                  },
-                  templateUrl: 'firefox-coming-soon.tpl.html',
-                  clickOutsideToClose:true,
-                    parent: angular.element(document.body)
-                })
+                var webstoreUrl = "https://addons.mozilla.org/en-US/firefox/addon/unpaywall/"
+                window.location = webstoreUrl
+
+
+                //$mdDialog.show({
+                //  controller: function($scope, $mdDialog){
+                //      console.log("dialog ctrl!")
+                //      $scope.cancel = function(){
+                //          $mdDialog.cancel()
+                //      }
+                //  },
+                //  templateUrl: 'firefox-coming-soon.tpl.html',
+                //  clickOutsideToClose:true,
+                //    parent: angular.element(document.body)
+                //})
             }
 
             // install for chrome

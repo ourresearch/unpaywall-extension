@@ -461,7 +461,7 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "        <h1>You've installed Unpaywall!</h1>\n" +
     "\n" +
     "        <p>\n" +
-    "            When you view a research article, check the tab on the right of your screen:\n" +
+    "            When you view a research article, check the tab on the right of your screen.\n" +
     "        </p>\n" +
     "            <ul>\n" +
     "                <li class=\"green\">\n" +
@@ -475,16 +475,18 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "                    we came up empty.\n" +
     "                </li>\n" +
     "            </ul>\n" +
-    "        <p>Try this example article to get started:</p>\n" +
-    "        <p class=\"eg\">\n" +
-    "            <a class=\"eg\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">\n" +
-    "                <i class=\"fa fa-file-text-o\"></i>\n" +
-    "                Information-Theoretic Approach to Quantum Error Correction and Reversible Measurement.\n" +
-    "            </a>\n" +
-    "        </p>\n" +
     "        <p>\n" +
-    "            It's $15 to read from the publisher, but\n" +
-    "            Unpaywall finds a free copy uploaded by the authors to the CERN website.\n" +
+    "            Try this recent Nature article to get started. It describes a newly-discovered solar system, and\n" +
+    "            it'll cost you $32 to read on Nature.com...except now that you've got Unpaywall, it's free!\n" +
+    "\n" +
+    "        </p>\n" +
+    "\n" +
+    "\n" +
+    "        <p class=\"eg\">\n" +
+    "            <a class=\"eg\" target=\"_blank\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">\n" +
+    "                <i class=\"fa fa-file-text-o\"></i>\n" +
+    "                See the example\n" +
+    "            </a>\n" +
     "        </p>\n" +
     "\n" +
     "\n" +

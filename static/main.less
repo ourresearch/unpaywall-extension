@@ -97,11 +97,23 @@ body {
   p {
     margin: 0;
     &.eg {
-      margin: 0 0 10px 45px;
+      margin: 15px 0 36px 35px;
       line-height: 1.3;
       a {
-        font-size: 125%;
-        display: flex;
+        display: inline-block;
+        cursor: pointer;
+        padding: 20px 30px;
+        border-radius: 3px;
+        background: @baseColor;
+        color: #fff;
+
+        //border: 3px solid #333;
+
+        transition: all 0.15s ease;
+        &:hover {
+          transform: scale(1.03125);
+          text-decoration: none;
+        }
         i {
           margin-right: 8px;
           margin-top: 4px;
@@ -112,6 +124,7 @@ body {
   }
   .ps {
     margin-top: 50px;
+    font-size: 80%;
   }
   ul {
     margin: 0 0 30px;
@@ -122,12 +135,12 @@ body {
         border-radius: 20px 0 0 20px;
         color: #fff;
         padding: 3px 6px 3px 9px;
-        font-size: 16px;
+        font-size: 14px;
         &.green {background: @oaGreen;}
         &.gray {background: #888;}
       }
       .text {
-        font-weight: bold;
+        //font-weight: bold;
         &.green {color: @oaGreen;}
         &.gray {color: #888;}
       }

@@ -261,7 +261,7 @@ angular.module('landing', [
 
             // can't install it, so let's tweet it.
             if (browser == 'unsupported') {
-                var tweetUrl = "https://twitter.com/intent/tweet?url=http://unpaywall.org&text=The beta Unpaywall browser extension finds %23openaccess versions of paywalled articles as you browse."
+                var tweetUrl = "https://twitter.com/intent/tweet?url=http://unpaywall.org&text=Check out the free Unpaywall browser extension%3A it instantly unlocks free, legal versions of paywalled research papers. %23openaccess"
                 window.location = tweetUrl
             }
 
@@ -869,7 +869,22 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "<div class=\"page welcome\">\n" +
     "    <div class=\"ti-page-header welcome\" ng-include=\"'header.tpl.html'\"></div>\n" +
     "    <div class=\"content\">\n" +
-    "        <h1>You've installed Unpaywall!</h1>\n" +
+    "        <div class=\"top-row\">\n" +
+    "            <h1>You've installed Unpaywall!</h1>\n" +
+    "            <div class=\"spacer\"></div>\n" +
+    "            <div class=\"share\">\n" +
+    "                <span class=\"ti-label\">share:</span>\n" +
+    "                <span class=\"share-icons\">\n" +
+    "                    <a target=\"_blank\" class=\"share-icon\" href=\"mailto:?subject=Neat way to bypasses paywalls on research articles, legally.&amp;body=The Unpaywall browser extension finds free, legal versions of paywalled articles as you browse. http%3A%2F%2Funpaywall.org\">\n" +
+    "                        <i class=\"fa fa-envelope-o\"></i>\n" +
+    "                    </a>\n" +
+    "                    <a target=\"_blank\" href=\"https://twitter.com/intent/tweet?url=http://unpaywall.org&text=The%20new%20%40unpaywall%20extension%20unlocks%20free%2C%20legal%20versions%20of%20paywalled%20research%20papers%20as%20you%20browse.%20%23openaccess\">\n" +
+    "                        <i class=\"fa fa-twitter\"></i>\n" +
+    "                    </a>\n" +
+    "                </span>\n" +
+    "            </div>\n" +
+    "            \n" +
+    "        </div>\n" +
     "\n" +
     "        <p>\n" +
     "            When you view a research article, check the tab on the right of your screen.\n" +

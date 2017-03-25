@@ -102,6 +102,26 @@ body {
   padding-top: 150px;
   line-height: 1.4;
   font-size: 20px;
+  .top-row {
+    display: flex;
+    align-items: baseline;
+    h1 {
+      margin: 0 0 10px;
+    }
+    .spacer {flex: 1;}
+    .share {
+      //font-weight: 300;
+      font-size: 16px;
+      margin-right: 50px;
+      a {
+        text-decoration: none;
+        padding: 5px 3px;
+        font-size: 30px;
+        color: @baseColor;
+      }
+    }
+  }
+
   h2 {
     font-weight: 300;
     font-size: 130%;
@@ -110,7 +130,7 @@ body {
   p {
     margin: 0;
     &.eg {
-      margin: 25px 0 36px 35px;
+      margin: 15px 0 36px 3px;
       line-height: 1.3;
       a {
         display: inline-block;
@@ -141,6 +161,7 @@ body {
   }
   ul {
     margin: 0 0 50px;
+    padding-left: 5px;
     li {
       list-style-type: none;
       line-height: 1.8;

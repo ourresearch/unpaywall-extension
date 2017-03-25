@@ -874,20 +874,21 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "        <p>\n" +
     "            When you view a research article, check the tab on the right of your screen.\n" +
     "        </p>\n" +
-    "            <ul>\n" +
-    "                <li class=\"green\">\n" +
-    "                    <span class=\"tab green\"><i class=\"fa fa-unlock-alt\"></i></span>\n" +
-    "                    <span class=\"text green\">green tab:</span>\n" +
-    "                    we found free, legal full text. Click it to read!\n" +
-    "                </li>\n" +
-    "                <li class=\"gray\">\n" +
-    "                    <span class=\"tab gray\"><i class=\"fa fa-lock\"></i></span>\n" +
-    "                    <span class=\"text gray\">gray tab:</span>\n" +
-    "                    we came up empty.\n" +
-    "                </li>\n" +
-    "            </ul>\n" +
+    "        <ul>\n" +
+    "            <li class=\"green\">\n" +
+    "                <span class=\"tab green\"><i class=\"fa fa-unlock-alt\"></i></span>\n" +
+    "                <span class=\"text green\">green tab:</span>\n" +
+    "                we found free, legal full text. Click it to read!\n" +
+    "            </li>\n" +
+    "            <li class=\"gray\">\n" +
+    "                <span class=\"tab gray\"><i class=\"fa fa-lock\"></i></span>\n" +
+    "                <span class=\"text gray\">gray tab:</span>\n" +
+    "                we came up empty.\n" +
+    "            </li>\n" +
+    "        </ul>\n" +
+    "        <h2>Let's try an example!</h2>\n" +
     "        <p>\n" +
-    "            Try this recent Nature article to get started. It describes a newly-discovered solar system, and\n" +
+    "             This article describes a newly-discovered solar system, and\n" +
     "            it'll cost you $32 to read on Nature.com...except now that you've got Unpaywall, it's free!\n" +
     "\n" +
     "        </p>\n" +

@@ -35,6 +35,13 @@ body {
       text-decoration: underline;
     }
   }
+  .main-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+
 }
 
 .ti-page-header {
@@ -76,11 +83,13 @@ body {
 .page {
   h1 {
     font-weight: 300;
+    margin-bottom: 10px;
   }
   .content {
     max-width: 900px;
     margin: 0 auto;
   }
+  flex: 1; // push footer down to bottom of page.
 }
 
 .page.faq {  // there is more faq stuff below. fix later.
@@ -90,14 +99,18 @@ body {
 }
 
 .page.welcome {
-  padding-top: 100px;
+  padding-top: 150px;
   line-height: 1.4;
   font-size: 20px;
-  min-height: 100vm;
+  h2 {
+    font-weight: 300;
+    font-size: 130%;
+    margin-bottom: 10px;
+  }
   p {
     margin: 0;
     &.eg {
-      margin: 15px 0 36px 35px;
+      margin: 25px 0 36px 35px;
       line-height: 1.3;
       a {
         display: inline-block;
@@ -127,7 +140,7 @@ body {
     font-size: 80%;
   }
   ul {
-    margin: 0 0 30px;
+    margin: 0 0 50px;
     li {
       list-style-type: none;
       line-height: 1.8;

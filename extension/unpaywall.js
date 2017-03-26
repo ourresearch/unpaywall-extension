@@ -1,4 +1,4 @@
-var devMode = false;
+var devMode = true;
 
 
 if (chrome){
@@ -21,6 +21,8 @@ var results = {
 }
 var iframeIsInserted = false
 var settings = {}
+var myHost = window.location.hostname
+
 
 
 
@@ -32,7 +34,8 @@ var doiMetaNames = [
     "dc.identifier",
     "dc.identifier.doi",
     "bepress_citation_doi",
-    "rft_id"
+    "rft_id",
+    "dcsext.wt_doi"
 ]
 
 var devLog = function(str, obj){
@@ -51,9 +54,14 @@ function findDoi(){
     // look in the meta tags
     $("meta").each(function(i, myMeta){
 
+
+        if (!myMeta.name){
+            return true // keep iterating
+        }
+
         // has to be a meta name likely to contain a DOI
         if (doiMetaNames.indexOf(myMeta.name.toLowerCase()) < 0) {
-            return // continue iterating
+            return true // continue iterating
         }
         // content has to look like a  DOI.
         // much room for improvement here.
@@ -80,8 +88,12 @@ function findDoi(){
     }
 
     // sniff doi from the altmetric.com widget.
-    // not done yet...improve regex
-    var altmetricWidgetDoi = /data-doi\s*=\s*'([^']+)'/;
+    var altmetricWidgetDoi =  $("div[data-doi]").first().attr("data-doi");
+    if (altmetricWidgetDoi){
+        return altmetricWidgetDoi
+    }
+
+
 
     return null
 }
@@ -102,6 +114,7 @@ function findPdfUrl(){
 
     var pdfUrl;
 
+
     //  look in the <meta> tags
     // same thing, but look in  <link> tags
     $("meta").each(function(i, elem){
@@ -112,6 +125,67 @@ function findPdfUrl(){
     })
 
     // todo look in <link> tags as well
+
+
+    // look in the markup itself. most of these will be pretty narrowly scoped
+    // to a particular publisher.
+
+    var $links = $("a")
+    $links.each(function(i, link){
+        var $link = $(link)
+
+        // http://www.nature.com/nature/journal/v536/n7617/full/nature19106.html
+        if (/\/nature\/journal(.+?)\.pdf$/.test(link.href)) {
+            pdfUrl = link.href
+            return false
+        }
+
+        // http://www.nature.com/articles/nmicrobiol201648
+        if (/\/articles\/nmicrobiol\d+\.pdf$/.test(link.href)) {
+            pdfUrl = link.href
+            return false
+        }
+
+        // NEJM
+        // open: http://www.nejm.org/doi/10.1056/NEJMc1514294
+        // closed: http://www.nejm.org/doi/full/10.1056/NEJMoa1608368
+        if (link.getAttribute("data-download-content") == "Article") {
+            pdfUrl = link.href
+            return false
+        }
+
+        // Taylor & Francis Online
+        if (myHost == "www.tandfonline.com") {
+            // open: http://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108
+            // closed: http://www.tandfonline.com/doi/abs/10.1198/tas.2011.11160
+            if (/\/doi\/pdf\/10(.+?)needAccess=true$/i.test(link.href)){
+                pdfUrl = link.href
+                return false
+            }
+        }
+
+        //  The Journal of Clinical Endocrinology & Metabolism
+        if (myHost == "http://press.endocrine.org/") {
+            // not sure if we should handle this one or not. it's on an old version of
+            // their website
+
+        }
+
+        // Centers for Disease Control
+        if (myHost == "www.cdc.gov") {
+            // open https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm
+            if (link.classList[0] == "noDecoration" && /\.pdf$/.test(link.href)){
+                pdfUrl = link.href
+                return false
+            }
+
+        }
+
+
+
+    })
+
+
 
     return pdfUrl
 }

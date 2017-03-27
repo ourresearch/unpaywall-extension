@@ -216,6 +216,7 @@ angular.module('landing', [
 
     .controller("LandingPageCtrl", function ($scope,
                                              $document,
+                                             $http,
                                              $location,
                                              $rootScope,
                                              $mdDialog,
@@ -302,9 +303,12 @@ angular.module('landing', [
                     undefined,
                     function(msg){
                         console.log("inline install success: ")
+                        ga("send", "event", "Installed", "chrome")
+                        $http.post("/log/installed", {})
                     },
                     function(msg) {
                         window.location = webstoreUrl
+                        ga("send", "event", "Install cancelled", "chrome")
                         console.log("inline install failure. redirecting to webstore. ", msg)
                     }
                 )

@@ -155,7 +155,7 @@ angular.module('landing', [
                     function(msg){
                         console.log("inline install success.")
                         ga("send", "event", "Installed", "chrome")
-                        //$http.post("/log/installed", {})
+                        $http.post("/log/install", {})
                     },
                     function(msg) {
                         window.location = webstoreUrl

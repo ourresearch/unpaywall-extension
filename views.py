@@ -52,6 +52,11 @@ def index_endpoint(path="index", page=""):
     )
 
 
+@app.route("/log/install", methods=["POST"])
+def log_install():
+    return jsonify({"installed": True})
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5010))
     app.run(host='0.0.0.0', port=port, debug=True, threaded=True)

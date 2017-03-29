@@ -27,16 +27,7 @@ var myHost = window.location.hostname
 
 
 
-var doiMetaNames = [
-    "citation_doi",
-    "doi",
-    "dc.doi",
-    "dc.identifier",
-    "dc.identifier.doi",
-    "bepress_citation_doi",
-    "rft_id",
-    "dcsext.wt_doi"
-]
+
 
 var devLog = function(str, obj){
     if (devMode){
@@ -46,15 +37,25 @@ var devLog = function(str, obj){
 devLog("unpaywall is running")
 
 
-
-
-function findDoi(){
+// most scholarly articles have some kind of DOI meta
+// tag in the head of the document. Check these.
+function findDoiFromMetaTags(){
     var doi
 
-    // look in the meta tags
+    // collection of the various ways different publishers may
+    // indicate a given meta tag has the DOI.
+    var doiMetaNames = [
+        "citation_doi",
+        "doi",
+        "dc.doi",
+        "dc.identifier",
+        "dc.identifier.doi",
+        "bepress_citation_doi",
+        "rft_id",
+        "dcsext.wt_doi"
+    ];
+
     $("meta").each(function(i, myMeta){
-
-
         if (!myMeta.name){
             return true // keep iterating
         }
@@ -63,6 +64,7 @@ function findDoi(){
         if (doiMetaNames.indexOf(myMeta.name.toLowerCase()) < 0) {
             return true // continue iterating
         }
+
         // content has to look like a  DOI.
         // much room for improvement here.
         var doiCandidate = myMeta.content.replace("doi:", "").trim()
@@ -72,30 +74,59 @@ function findDoi(){
     })
 
     if (doi){
+        devLog("found a DOI from a meta tag")
         return doi
     }
+}
 
-    // look in the document string
+// sniff DOIs from the altmetric.com widget and CrossMark widget.
+function findDoiFromDataDoiAttributes(){
+
+    var dataDoiValues =  $("*[data-doi]").map(function(){
+        return this.getAttribute("data-doi")
+    }).get()
+
+
+    // if there are multiple unique DOIs, we're on some kind of TOC page,
+    // we don't want none of that noise.
+    var numUniqueDois = new Set(dataDoiValues).size
+    if (numUniqueDois === 1){
+        devLog("found a DOI from a [data-doi] attribute")
+        return dataDoiValues[0]
+    }
+}
+
+// ScienceDirect has their own wacky format where the DOI is only
+// defined in a JS variable. There are lots of ScienceDirect articles,
+// so handle these specially.
+// eg: http://www.sciencedirect.com/science/article/pii/S1751157709000881
+function findDoiFromScienceDirect() {
     var docAsStr = document.documentElement.innerHTML;
 
-    // ScienceDirect pages
-    // http://www.sciencedirect.com/science/article/pii/S1751157709000881
     var scienceDirectRegex = /SDM.doi\s*=\s*'([^']+)'/;
     var m = scienceDirectRegex.exec(docAsStr)
     if (m && m.length > 1){
-        devLog("found a ScienceDirect DOI", m)
+        devLog("found a DOI from ScienceDirect JS variable", m[1])
         return m[1]
     }
+}
 
-    // sniff doi from the altmetric.com widget.
-    var altmetricWidgetDoi =  $("div[data-doi]").first().attr("data-doi");
-    if (altmetricWidgetDoi){
-        return altmetricWidgetDoi
+
+function findDoi(){
+    // we try each of these functions, in order, to get a DOI from the page.
+    var doiFinderFunctions = [
+        findDoiFromMetaTags,
+        findDoiFromScienceDirect,
+        findDoiFromDataDoiAttributes
+    ]
+
+    for (var i=0; i < doiFinderFunctions.length; i++){
+        var myDoi = doiFinderFunctions[i]()
+        if (myDoi){
+            // if we find a good DOI, stop looking
+            return myDoi
+        }
     }
-
-
-
-    return null
 }
 
 

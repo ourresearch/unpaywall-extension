@@ -166,7 +166,7 @@ function findPdfUrl(){
         var $link = $(link)
 
         // http://www.nature.com/nature/journal/v536/n7617/full/nature19106.html
-        if (/\/nature\/journal(.+?)\.pdf$/.test(link.href)) {
+        if (/\/nature\/journal(.+?)\/pdf\/(.+?)\.pdf$/.test(link.href)) {
             pdfUrl = link.href
             return false
         }

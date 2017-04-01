@@ -157,12 +157,13 @@ function runGoogleScholar(resultObj){
 
     $.getJSON(gsUrl, {}).done(function(resp){
         devLog("got data back from GS:", resp)
-        if (!resp.r.length) {
+        if (!resp.r || !resp.r.length) {
             resultObj.isComplete = true
             return false
         }
 
         var fulltextLink = resp.r[0].l.g
+
         if (!fulltextLink){
             resultObj.isComplete = true
             return false
@@ -173,12 +174,14 @@ function runGoogleScholar(resultObj){
             var plainUrlRegex = /url=(.+?)&hl=/
             var m = plainUrlRegex.exec(fulltextLink.u)
 
-            resultObj.url = m[1]
+            resultObj.url = decodeURI(m[1])
             resultObj.color = "green"
         }
 
         resultObj.isComplete = true
 
+    }).fail(function(){
+        resultObj.isComplete = true
     })
 
 }

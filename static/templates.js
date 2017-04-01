@@ -181,7 +181,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"identify-green-or-gold\"><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
     "                <dd>Indeed we can. Click the green Unpaywall extension icon in\n" +
-    "                    your browser toolbar and choose \"options.\" Once there, tick \"Color-code tab for Green and Gold OA.\"\n" +
+    "                    your browser toolbar and choose \"Settings.\" Once there, tick \"Color-code tab for Green and Gold OA.\"\n" +
     "                    Thenceforth, you'll enjoy a veritable rainbow of OA colorfully goodness as you browse different articles:\n" +
     "                    <ul>\n" +
     "                        <li>\n" +

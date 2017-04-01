@@ -914,7 +914,7 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "        <p class=\"eg\">\n" +
-    "            <a class=\"eg\" target=\"_blank\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">\n" +
+    "            <a class=\"eg\" target=\"_blank\" href=\"http://www.nature.com/nature/journal/v542/n7642/full/nature21360.html\">\n" +
     "                <i class=\"fa fa-file-text-o\"></i>\n" +
     "                See the example\n" +
     "            </a>\n" +

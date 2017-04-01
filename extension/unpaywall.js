@@ -174,9 +174,11 @@ function runGoogleScholar(resultObj){
             var m = plainUrlRegex.exec(fulltextLink.u)
 
             resultObj.url = m[1]
-            resultObj.isComplete = true
             resultObj.color = "green"
         }
+
+        resultObj.isComplete = true
+
     })
 
 }
@@ -248,7 +250,7 @@ function getGreenUrl(){
 
 
 function decideTabColor(){
-    //devLog("checking results....", results)
+    devLog("checking results....", allSources)
 
     if (!sourcesAreAllComplete()) {
         return
@@ -364,11 +366,19 @@ function findDoiFromMetaTags(){
         }
     })
 
-    if (doi){
-        devLog("found a DOI from a meta tag")
-        return doi
+    if (!doi){
+        return null
     }
+    devLog("found a DOI from a meta tag")
+
+    // some sage DOIs have an underscore where there should be a slash.
+    // eg: http://journals.sagepub.com/doi/10.1207/s15327957pspr0203_4
+    doi = doi.replace("10.1207_", "10.1207/")
+
+    // all done.
+    return doi
 }
+
 
 // sniff DOIs from the altmetric.com widget and CrossMark widget.
 function findDoiFromDataDoiAttributes(){

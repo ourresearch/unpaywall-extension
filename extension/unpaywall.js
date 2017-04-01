@@ -1,33 +1,7 @@
 var devMode = true;
-
-
 if (chrome){
     browser = chrome
 }
-
-// global variables:
-var iframe = document.createElement('iframe');
-var results = {
-    pdfScrape: {
-        url: undefined,
-        isComplete: false,
-        color: undefined
-    },
-    oadoi: {
-        url: undefined,
-        isComplete: false,
-        color: undefined
-    }
-}
-var iframeIsInserted = false
-var settings = {}
-var myHost = window.location.hostname
-
-
-
-
-
-
 
 var devLog = function(str, obj){
     if (devMode){
@@ -35,6 +9,323 @@ var devLog = function(str, obj){
     }
 }
 devLog("unpaywall is running")
+
+// global variables:
+var iframeIsInserted = false
+var settings = {}
+var myHost = window.location.hostname
+var allSources = []
+
+
+
+
+
+
+
+
+
+
+
+
+/***********************************************************************************
+ *
+ * Sources
+ *
+ ************************************************************************************/
+
+
+function makeSourceObj(descr) {
+    var results = {
+        url: undefined,
+        isComplete: false,
+        color: undefined
+    }
+
+    return {
+        results: results,
+        name: descr[0],
+        run: function(){
+            var myFn = descr[1]
+            myFn(results)
+        }
+    }
+}
+
+
+fulltextSourceFns = [
+    ["pdfLink", runPdfLink],
+    ["oadoi", runOadoi],
+    ["googleScholar", runGoogleScholar]
+]
+
+function makeAllSources(){
+    fulltextSourceFns.forEach(function(sourceDescription){
+        var mySourceObj = makeSourceObj(sourceDescription)
+        allSources.push(mySourceObj)
+    })
+}
+
+function sourcesAreAllComplete(){
+    var numSources = allSources.length
+    if (!numSources){
+        return false
+    }
+
+    var numCompleteSources = 0
+    allSources.forEach(function(source){
+        if (source.results.isComplete){
+            numCompleteSources += 1
+        }
+    })
+    return numCompleteSources === numSources
+}
+
+// used by sources that need to check to make sure a link to a PDF
+// really gets you a legit pdf.
+
+function checkForPdf(pdfUrl){
+
+    var promise = new Promise(function(resolve, reject){
+
+        // ResearchGate PDFs always work. don't check.
+        var rgRegex = /researchgate\.net(.+?)\.pdf$/
+        if (rgRegex.test(pdfUrl)){
+            resolve()
+        }
+        else {
+            var xhr = new XMLHttpRequest()
+            xhr.open("GET", pdfUrl, true)
+            xhr.onprogress = function () {
+                var contentType = xhr.getResponseHeader("Content-Type")
+                //devLog("HEADERS:", xhr.getAllResponseHeaders())
+
+                if (contentType){
+                    xhr.abort()
+                    if (contentType.indexOf("pdf") > -1){
+                        resolve()  // it's a PDF
+                    }
+                    else {
+                        reject()  // not a PDF
+                    }
+                }
+            }
+            // so it's important to mark this done even if something goes wrong,
+            // or we'll never make a decision to show the Green OA tab even if we find green. Eg:
+            // https://link.springer.com/article/10.1023%2FB%3AMACH.0000011805.60520.fe
+            // redirects to http download server, which throws error (needs to be https).
+            xhr.onerror = function(){
+                reject()  // it's not a pdf
+            }
+            xhr.send()
+        }
+    })
+    return promise
+}
+
+
+
+
+function runPdfLink(resultObj){
+    var pdfUrl = findPdfUrl()
+    if (!pdfUrl){
+        resultObj.isComplete = true
+        return false
+    }
+
+    devLog("doing PDF scrape on this URL", pdfUrl)
+    checkForPdf(pdfUrl).then(function(){
+        resultObj.isComplete = true
+        resultObj.url = pdfUrl
+        resultObj.color = "blue"
+        devLog("found a PDF after checking", pdfUrl)
+
+    }, function(err){
+        resultObj.isComplete = true
+    });
+}
+
+
+function runGoogleScholar(resultObj){
+    if (settings.bestPracticeReposOnly){
+        resultObj.isComplete = true
+        return
+    }
+
+    var myUrl = window.location
+    var gsUrl = "https://scholar.google.com/scholar?oi=gsb95&q=" + myUrl +  "&output=gsb&hl=en"
+    devLog("Calling GS:", gsUrl)
+
+    $.getJSON(gsUrl, {}).done(function(resp){
+        devLog("got data back from GS:", resp)
+        if (!resp.r.length) {
+            resultObj.isComplete = true
+            return false
+        }
+
+        var fulltextLink = resp.r[0].l.g
+        if (!fulltextLink){
+            resultObj.isComplete = true
+            return false
+        }
+
+        if (fulltextLink.l.indexOf("[PDF]") > -1) {
+
+            var plainUrlRegex = /url=(.+?)&hl=/
+            var m = plainUrlRegex.exec(fulltextLink.u)
+
+            resultObj.url = m[1]
+            resultObj.isComplete = true
+            resultObj.color = "green"
+        }
+    })
+
+}
+
+
+function runOadoi(resultObj){
+    var doi = findDoi()
+    var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
+    devLog("doing oaDOI check", url)
+
+
+    $.getJSON(url, function(data){
+        resultObj.isComplete = true
+        devLog("oaDOI returned", data)
+        var resp = data.results[0]
+        if (resp.oa_color){
+            resultObj.color = resp.oa_color  // green or gold
+            resultObj.url = resp.free_fulltext_url
+        }
+    })
+
+}
+
+
+function resolvesToCurrentHost(url){
+    var currentUrl = new URL(window.location)
+    var oadoiUrl = new URL(url)
+    return currentUrl.hostname === oadoiUrl.hostname
+}
+
+function getSource(sourceName){
+    var ret
+    allSources.forEach(function(source){
+        if (source.name == sourceName) {
+            ret = source
+        }
+    })
+    return ret
+}
+
+function getGoldUrl(){
+    var oaDoiSource = getSource("oadoi")
+    if (oaDoiSource.results.color == "gold") {
+        return oaDoiSource.results.url
+    }
+}
+
+function getBlueUrl(){
+    var source = getSource("pdfLink")
+    if (source.results.color == "blue") {
+        return source.results.url
+    }
+}
+
+function getGreenUrl(){
+    // we prefer oaDOI results, so use that instead of GS if we have 'em.
+    var oadoiSource = getSource("oadoi")
+    if (oadoiSource.results.color == "green") {
+        return oadoiSource.results.url
+    }
+
+    var googleScholarSource = getSource("googleScholar")
+    if (googleScholarSource.results.color == "green") {
+        return googleScholarSource.results.url
+    }
+}
+
+
+
+
+function decideTabColor(){
+    //devLog("checking results....", results)
+
+    if (!sourcesAreAllComplete()) {
+        return
+    }
+
+    var color
+    if (getGoldUrl()){
+        color = "gold"
+    }
+    else if (getBlueUrl()){
+        color = "blue"
+    }
+    else if (getGreenUrl()){
+        color = "green"
+    }
+    else {
+        color = "black"
+    }
+
+
+    // if the user likes to dive into the nerdy details of what kind of OA is what,
+    // great, let's show em what we found.
+    if (settings.showOaColor){
+        return color
+    }
+
+    // but for most users, they just want to know if they can read it. for them,
+    // Green Means Go.
+    else {
+        if (color != "black") {
+            return "green"
+        }
+        else {
+            return "black"
+        }
+    }
+
+}
+
+function getFulltextUrl(){
+    var newLoc
+
+    // this is in a different order than decideTabColor(). that's on
+    // purpose. the blue link on a gold oa article is always the best one.
+    if (getBlueUrl()){
+        newLoc = getBlueUrl()
+    }
+    else if (getGoldUrl()){
+        newLoc = getGoldUrl()
+    }
+    else if (getGreenUrl()){
+        newLoc = getGreenUrl()
+    }
+
+    return newLoc
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***********************************************************************************
+ *
+ *  Page scraping functions, for DOIs and PDF links
+ *
+ ************************************************************************************/
 
 
 // most scholarly articles have some kind of DOI meta
@@ -130,7 +421,6 @@ function findDoi(){
 }
 
 
-
 function findPdfUrl(){
 
     // todo massively improve PDF link detection.
@@ -211,25 +501,39 @@ function findPdfUrl(){
             }
 
         }
-
-
-
     })
-
-
 
     return pdfUrl
 }
 
 
-function insertIframe(name){
+
+
+
+
+
+
+
+
+
+
+
+
+/***********************************************************************************
+ *
+ *  utility and UX functions
+ *
+ ************************************************************************************/
+
+
+function insertIframe(name, url){
+    var iframe = document.createElement('iframe');
 
     // make sure we are not inserting iframe again and again
     if (iframeIsInserted){
         return false
     }
 
-    devLog("inserting iframe, based on these results:", results)
     iframe.src = browser.extension.getURL('unpaywall.html');
 
     iframe.style.height = "50px";
@@ -243,185 +547,13 @@ function insertIframe(name){
     iframe.style.display = 'none;'
     iframe.id = "unpaywall";
 
-    // set a custom name
-    iframe.name = name
+    // set a custom name and URL
+    iframe.name = name + "#" + encodeURI(url)
 
     document.documentElement.appendChild(iframe);
     iframeIsInserted = true
 }
 
-//function postSuccessMsg(msg){
-//    iframe.contentWindow.postMessage({
-//        unpaywall: "success"
-//    }, "*")
-//}
-
-
-
-
-
-function doPdfScrape(){
-    var pdfUrl = findPdfUrl()
-    if (!pdfUrl){
-        results.pdfScrape.isComplete = true
-        return false
-    }
-
-    devLog("doing PDF scrape on this URL", pdfUrl)
-
-    // ok, we've got a PDF URL. Let's see if it's open.
-
-    var xhr = new XMLHttpRequest()
-    xhr.open("GET", pdfUrl, true)
-    xhr.onprogress = function () {
-        //devLog("HEADERS:", xhr.getAllResponseHeaders())
-        var contentType = xhr.getResponseHeader("Content-Type")
-
-        if (contentType){
-            results.pdfScrape.isComplete = true
-            xhr.abort()
-
-            if (contentType.indexOf("pdf") > -1){
-                results.pdfScrape.url = pdfUrl
-                results.pdfScrape.color = "gold"
-            }
-        }
-    }
-
-    // so it's important to mark this done even if something goes wrong,
-    // or we'll never make a decision to show the Green OA tab even if we find green. Eg:
-    // https://link.springer.com/article/10.1023%2FB%3AMACH.0000011805.60520.fe
-    // redirects to http download server, which throws error (needs to be https).
-    xhr.onerror = function(){
-        results.pdfScrape.isComplete = true
-    }
-    xhr.send()
-}
-
-function doOadoi(){
-    var doi = findDoi()
-    var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
-    devLog("doing oaDOI check", url)
-
-
-    $.getJSON(url, function(data){
-        results.oadoi.isComplete = true
-        devLog("oaDOI returned", data)
-        var resp = data.results[0]
-        if (resp.oa_color){
-            results.oadoi.color = resp.oa_color  // green or gold
-            results.oadoi.url = resp.free_fulltext_url
-        }
-    })
-
-}
-
-function resolvesToCurrentHost(url){
-    var currentUrl = new URL(window.location)
-    var oadoiUrl = new URL(url)
-    return currentUrl.hostname === oadoiUrl.hostname
-}
-
-
-function decideTabColor(){
-    //devLog("checking results....", results)
-
-
-    // if all the results aren't in, we can't make decisions. quit.
-    if (!(results.pdfScrape.isComplete && results.oadoi.isComplete)){
-        return
-    }
-
-    // if the settings aren't loaded, quit
-    if (typeof settings.showOaColor == "undefined") {
-        return
-    }
-
-
-    // the decision on how to assign tab color is a bit complicated.
-    // it's layed out below as a set of steps, arranged in order of preference.
-    // if we get a hit on any step, we select a color and then quit.
-    var color
-
-    // 1. if it's gold OA, we want to make sure we show that, so it's at the top
-    if (results.oadoi.color == "gold") {
-        color = "gold"
-    }
-
-
-    // 2. if we scraped a PDF from this page, it may be that the user is browsing
-    // from campus/VPN and they have lib-purchased access,
-    // or it may be a hybrid article that OA didn't realize was gold. either way
-    // it's more likely to please the user than the Green OA copy, so we send it.
-    else if (results.pdfScrape.url){
-        color = "blue"
-    }
-
-    // 3. green
-    else if (results.oadoi.color == "green") {
-        color = "green"
-    }
-
-    // alas, we couldn't find any OA for this. but we want to show a tab anyway, because
-    // that way the user knows the extension is actually there and working.
-    // this could get annoying, but is requested by beta testers now.
-    // in future, we could control with a config.
-    else {
-        color = "black"
-    }
-
-
-
-
-
-    // @todo
-    // we need to hide the tab if it's on the green oa page already.
-    // use  resolvesToCurrentHost(results.oadoi.url)
-
-
-
-
-    // ok now we need to decide what color to return, based on
-    // the users-selected showOaColor setting
-
-    // if the user likes to dive into the nerdy details of what kind of OA is what,
-    // great, let's show em what we found.
-    if (settings.showOaColor){
-        return color
-    }
-
-    // but for most users, they just want to know if they can read it. for them,
-    // Green Means Go.
-    else {
-        if (color != "black") {
-            return "green"
-        }
-        else {
-            return "black"
-        }
-    }
-
-}
-
-function goToFulltext(){
-    var newLoc
-
-    if (results.pdfScrape.url){
-        newLoc = results.pdfScrape.url
-    }
-    else if (results.oadoi.url){
-        newLoc = results.oadoi.url
-    }
-    else {
-        alert("The Unpaywall extension " +
-            "couldn't find any legal open-access version of this article.");
-    }
-
-    if (newLoc){
-        devLog("sending user to new fulltext URL: " + newLoc, results)
-        window.location = newLoc
-    }
-}
 
 function reportInstallation(){
     // this is so the unpaywall.org/welcome page knows that this user
@@ -447,6 +579,23 @@ function loadSettings(){
 
 
 
+
+
+
+
+
+
+
+
+
+/***********************************************************************************
+ *
+ *  main method
+ *
+ ************************************************************************************/
+
+
+
 function run() {
     reportInstallation()
     var doi = findDoi()
@@ -457,31 +606,24 @@ function run() {
     }
 
     devLog("we have a doi!", doi)
+    makeAllSources()
 
     // these run in parallel:
-    loadSettings()
-    doOadoi()
-    doPdfScrape()
+    loadSettings();
+    allSources.forEach(function(source){
+        source.run()
+    })
 
     // poll, waiting for all our data to be collected. once it is,
     // make a call and inject the iframe, then quit.
     var resultsChecker = setInterval(function(){
-        devLog("checking results...")
         var tabColor = decideTabColor()
         if (tabColor){
-            insertIframe(tabColor)
+            insertIframe(tabColor, getFulltextUrl())
             clearInterval(resultsChecker) // stop polling
         }
     }, 250)
 
-
-    // we can't tell when someone clicks on the iframe,
-    // so we have to listen to message sent from it.
-    window.addEventListener("message", function(msg){
-        if (msg.data.unpaywall == "go-to-pdf"){
-            goToFulltext()
-        }
-    }, false);
 
 }
 

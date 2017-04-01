@@ -579,14 +579,15 @@ function reportInstallation(){
     }
 }
 
-function loadSettings(){
-    browser.storage.local.get({
-        showOaColor: false
-    }, function(items) {
-        devLog("retrieved settings", items)
-        settings.showOaColor = items.showOaColor;
-    });
-}
+//function loadSettings(){
+//    browser.storage.local.get({
+//        showOaColor: false
+//    }, function(items) {
+//        devLog("retrieved settings", items)
+//        settings.showOaColor = items.showOaColor;
+//        settings.bestPracticeReposOnly = items.bestPracticeReposOnly
+//    });
+//}
 
 
 
@@ -622,7 +623,6 @@ function run() {
     makeAllSources()
 
     // these run in parallel:
-    loadSettings();
     allSources.forEach(function(source){
         source.run()
     })
@@ -636,14 +636,20 @@ function run() {
             clearInterval(resultsChecker) // stop polling
         }
     }, 250)
+}
 
-
+function runWithSettings(){
+    browser.storage.local.get(null, function(items){
+        settings = items
+        devLog("got settings", settings)
+        run()
+    });
 }
 
 
 // on firefox, jquery sometimes loads after this script. give it
 // some time to load before we run anything on this page.
-setTimeout(run, 200)
+setTimeout(runWithSettings, 200)
 
 
 

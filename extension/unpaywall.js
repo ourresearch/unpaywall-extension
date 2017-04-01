@@ -37,6 +37,7 @@ var allSources = []
 function makeSourceObj(descr) {
     var results = {
         url: undefined,
+        isStarted: false,
         isComplete: false,
         color: undefined
     }
@@ -44,7 +45,14 @@ function makeSourceObj(descr) {
     return {
         results: results,
         name: descr[0],
+        isComplete: function(){
+          return results.isComplete
+        },
+        isStarted: function(){
+          return results.isStarted
+        },
         run: function(){
+            results.isStarted = true
             var myFn = descr[1]
             myFn(results)
         }
@@ -70,15 +78,69 @@ function sourcesAreAllComplete(){
     if (!numSources){
         return false
     }
+    return numSourcesComplete() === numSources
+}
 
+function numSourcesComplete(){
     var numCompleteSources = 0
     allSources.forEach(function(source){
         if (source.results.isComplete){
             numCompleteSources += 1
         }
     })
-    return numCompleteSources === numSources
+    return numCompleteSources
 }
+
+function numSourcesStarted(){
+    var ret = 0
+    allSources.forEach(function(source){
+        if (source.isStarted()){
+            ret += 1
+        }
+    })
+    return ret
+}
+
+
+
+
+function getSearchResults(){
+
+    // start search step one
+    if (numSourcesStarted() === 0){
+        makeAllSources()
+
+        getSource("pdfLink").run()
+        getSource("oadoi").run()
+    }
+
+    // search step one is done
+    if (getSource("pdfLink").isComplete() && getSource("oadoi").isComplete()){
+        if (getFulltextUrl()){
+            return {
+                color: decideTabColor(),
+                url: getFulltextUrl()
+            }
+        }
+
+        // start search step two
+        if (!getSource("googleScholar").isStarted()) {
+            getSource("googleScholar").run()
+        }
+    }
+
+    // search step two is done
+    if (getSource("googleScholar").isComplete()){
+        return {
+            color: decideTabColor(),
+            url: getFulltextUrl()
+        }
+    }
+
+}
+
+
+
 
 // used by sources that need to check to make sure a link to a PDF
 // really gets you a legit pdf.
@@ -255,10 +317,6 @@ function getGreenUrl(){
 
 function decideTabColor(){
     //devLog("checking results....", allSources)
-
-    if (!sourcesAreAllComplete()) {
-        return
-    }
 
     var color
     if (getGoldUrl()){
@@ -602,7 +660,6 @@ function reportInstallation(){
 
 
 
-
 /***********************************************************************************
  *
  *  main method
@@ -619,21 +676,15 @@ function run() {
     if (!doi){
         return
     }
-
     devLog("we have a doi!", doi)
-    makeAllSources()
 
-    // these run in parallel:
-    allSources.forEach(function(source){
-        source.run()
-    })
 
     // poll, waiting for all our data to be collected. once it is,
     // make a call and inject the iframe, then quit.
     var resultsChecker = setInterval(function(){
-        var tabColor = decideTabColor()
-        if (tabColor){
-            insertIframe(tabColor, getFulltextUrl())
+        var searchResults = getSearchResults()
+        if (searchResults){
+            insertIframe(searchResults.color, searchResults.url)
             clearInterval(resultsChecker) // stop polling
         }
     }, 250)

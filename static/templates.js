@@ -10,75 +10,6 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "            <h1>Frequently asked questions</h1>\n" +
     "            <dl>\n" +
     "\n" +
-    "                <!--\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>How do I use Unpaywall?</dt>\n" +
-    "                <dd>\n" +
-    "                    After you\n" +
-    "                    <a href=\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\">install the extension</a>\n" +
-    "\n" +
-    "                    we'll do the work in the background. When you view a paywalled article,\n" +
-    "                    we'll search for a free legal copy. When we find one (about 25% of the time\n" +
-    "                    right now), you'll see an \"unlock\" tab on the right of your browser.\n" +
-    "                    Click the tab, read the article. Easy.\n" +
-    "                </dd>\n" +
-    "                -->\n" +
-    "\n" +
-    "                <!--\n" +
-    "                <dt><i class=\"fa fa-chevron-right\"></i>What do the different tab colors mean?</dt>\n" +
-    "                <dd>\n" +
-    "                    When you view a research article (which Unpaywall defines as one with a\n" +
-    "                    <a href=\"http://www.apastyle.org/learn/faqs/what-is-doi.aspx\">DOI</a>),\n" +
-    "                    you'll see a colored tab on the right of your browser window:\n" +
-    "                    <ul>\n" +
-    "                        <li>\n" +
-    "                            <div class=\"button gold\">\n" +
-    "                                <i class=\"fa fa-unlock-alt\"></i>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"text\">\n" +
-    "                                <span class=\"color gold\">Gold</span> articles are available from the publisher\n" +
-    "                                under an open license.\n" +
-    "                                <a href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "                        <li>\n" +
-    "                            <div class=\"button blue\">\n" +
-    "                                <i class=\"fa fa-unlock-alt\"></i>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"text\">\n" +
-    "                                <span class=\"color blue\">Blue</span> articles are available on the current page, either because they're\n" +
-    "                                open-access without a license, or you're browsing from behind the paywall.\n" +
-    "                                <a href=\"http://www.pnas.org/content/105/31/11014\">(example)</a>\n" +
-    "\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "                        <li>\n" +
-    "                            <div class=\"button green\">\n" +
-    "                                <i class=\"fa fa-unlock-alt\"></i>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"text\">\n" +
-    "                                <span class=\"color green\">Green</span> articles are available via an open, legal preprint server or\n" +
-    "                                institutional repository.\n" +
-    "                                <a href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">(example)</a>\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "                        <li>\n" +
-    "                            <div class=\"button black\">\n" +
-    "                                <i class=\"fa fa-lock\"></i>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"text\">\n" +
-    "                                <span class=\"color green\">Gray</span> articles don't have any legal open-access version\n" +
-    "                                we could find.\n" +
-    "                                <a href=\"https://link.springer.com/article/10.1007/BF02300480\">(example)</a>\n" +
-    "\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "\n" +
-    "\n" +
-    "                    </ul>\n" +
-    "\n" +
-    "                </dd>\n" +
-    "                -->\n" +
-    "\n" +
     "\n" +
     "                <dt id=\"release-date\"><i class=\"fa fa-chevron-right\"></i>When is the official release?</dt>\n" +
     "                <dd>\n" +
@@ -109,17 +40,18 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
-    "                    In absolute terms? We've shown users ten thousand free articles this week alone, and that number\n" +
-    "                    is growing fast (we're adding 500 new users a day). In relative terms?  Unpaywall users\n" +
-    "                    get articles free about half the time, based on our usage data so far. This is improving regularly, as\n" +
-    "                    we improve our discovery techniques. But the real improvement will come over the longer term, as\n" +
-    "                    mandadory open access requirements begin to take effect in the\n" +
+    "                    We find fulltext for 84% of articles in <a href=\"https://www.altmetric.com/top100/2016/\">a sample</a> of 2016 research papers that were highly\n" +
+    "                    discussed in the media and online.\n" +
+    "                    This percentage will vary, depending on the kinds of articles your're looking at.\n" +
+    "                    But we generally get fulltext more than half the time. This is improving\n" +
+    "                    quickly as we tweak our algorithm and discovery techniques. And over the longer term, we'll keep\n" +
+    "                    get even better as\n" +
+    "                    mandatory open access requirements begin to take effect in the\n" +
     "                    <a href=\"http://scholcomm.columbia.edu/open-access/public-access-mandates-for-federally-funded-research/\">US,</a>\n" +
     "                    <a href=\"http://www.rcuk.ac.uk/research/openaccess/\">UK,</a>\n" +
     "                    <a href=\"http://www.sciencemag.org/news/2016/05/dramatic-statement-european-leaders-call-immediate-open-access-all-scientific-papers/\">Europe,</a>\n" +
     "                    and elsewhere. Soon Unpaywall users will essentially have a free subscription to all new research.\n" +
     "                    We think that's a game-changer for open access, and for scholarship as a whole.\n" +
-    "\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt id=\"different-from-sci-hub\"><i class=\"fa fa-chevron-right\"></i>How's this different from Sci-Hub?</dt>\n" +
@@ -151,11 +83,12 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                <dt id=\"how-do-you-find-articles\"><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
     "                <dd>\n" +
     "                    We gather content from thousands of open-access repositories worldwide.\n" +
-    "                    To help us, we rely on some fantastic open data services, especially\n" +
+    "                    To help us, we rely on a number of data sources, including\n" +
     "                    <a href=\"https://www.ncbi.nlm.nih.gov/pmc/\">PubMed Central</a>,\n" +
     "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
     "                    <a href=\"https://www.crossref.org/\">Crossref</a> (particulary their license info),\n" +
     "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
+    "                    <a href=\"http://scholar.google.com\">Google Scholar,</a>\n" +
     "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
     "\n" +
     "                    After we put all this data together, we in turn make it open for reuse via the\n" +
@@ -187,8 +120,8 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                        <li>\n" +
     "                            <div class=\"text\">\n" +
     "                                <span class=\"color gold\">Gold tab</span> for <a\n" +
-    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA,</a> a\n" +
-    "                                rticles available from the publisher\n" +
+    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA,</a>\n" +
+    "                                articles available from the publisher\n" +
     "                                under an open license.\n" +
     "                                <a class=\"eg\" href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
     "                            </div>\n" +

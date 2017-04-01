@@ -158,6 +158,7 @@ function runGoogleScholar(resultObj){
     $.getJSON(gsUrl, {}).done(function(resp){
         devLog("got data back from GS:", resp)
         if (!resp.r || !resp.r.length) {
+            devLog("ratelimited GS.")
             resultObj.isComplete = true
             return false
         }
@@ -253,7 +254,7 @@ function getGreenUrl(){
 
 
 function decideTabColor(){
-    devLog("checking results....", allSources)
+    //devLog("checking results....", allSources)
 
     if (!sourcesAreAllComplete()) {
         return
@@ -372,7 +373,7 @@ function findDoiFromMetaTags(){
     if (!doi){
         return null
     }
-    devLog("found a DOI from a meta tag")
+    devLog("found a DOI from a meta tag", doi)
 
     // some sage DOIs have an underscore where there should be a slash.
     // eg: http://journals.sagepub.com/doi/10.1207/s15327957pspr0203_4

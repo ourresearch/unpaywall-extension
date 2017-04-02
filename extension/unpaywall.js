@@ -129,6 +129,7 @@ function getSearchResults(){
 
     // search step one is done
     if (getSource("pdfLink").isComplete() && getSource("oadoi").isComplete()){
+
         if (getFulltextUrl()){
             return {
                 color: decideTabColor(),
@@ -167,6 +168,7 @@ function checkForPdf(pdfUrl){
         if (rgRegex.test(pdfUrl)){
             resolve()
         }
+
         else {
             var xhr = new XMLHttpRequest()
             xhr.open("GET", pdfUrl, true)
@@ -215,6 +217,7 @@ function runPdfLink(resultObj){
         devLog("found a PDF after checking", pdfUrl)
 
     }, function(err){
+        devLog("decided PDF link is bogus: ", pdfUrl)
         resultObj.isComplete = true
     });
 }
@@ -326,7 +329,6 @@ function runGoogleScholar(resultObj){
 
 
 function runOadoi(resultObj){
-    var doi = findDoi()
     var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
     devLog("doing oaDOI check", url)
 

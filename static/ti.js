@@ -546,7 +546,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                                <span class=\"color green\">Green tab</span> for <a\n" +
     "                                    href=\"https://en.wikipedia.org/wiki/Self-archiving\">Green OA</a> articles on a preprint server or\n" +
     "                                institutional repository.\n" +
-    "                                <a class=\"eg\" href=\"http://rspa.royalsocietypublishing.org/content/454/1969/277\">(example)</a>\n" +
+    "                                <a class=\"eg\" href=\"http://jamanetwork.com/journals/jamainternalmedicine/article-abstract/2528290\">(example)</a>\n" +
     "                            </div>\n" +
     "                        </li>\n" +
     "                        <li>\n" +

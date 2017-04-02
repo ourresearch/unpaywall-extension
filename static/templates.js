@@ -253,18 +253,13 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"main-copy\">\n" +
     "            <div class=\"tagline\">\n" +
     "                <div class=\"above\">\n" +
-    "                    Click the\n" +
-    "                    <span class=\"tab-word\">tab.</span>\n" +
-    "                </div>\n" +
-    "                <div class=\"under\">\n" +
-    "                    Skip the paywall.\n" +
+    "                    Access paywalled research papers, free.\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"about\">\n" +
-    "                Get full-text\n" +
-    "                of research papers as you browse, using Unpaywall's index of ten million\n" +
-    "                legal, open-access articles.\n" +
-    "\n" +
+    "                Just click the green tab and skip paywalls on millions of\n" +
+    "                articles. It's fast, free, and legal, powered by\n" +
+    "                our database of author-uploaded PDFs.\n" +
     "            </div>\n" +
     "\n" +
     "            <div class=\"cta\">\n" +

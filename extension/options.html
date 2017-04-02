@@ -1,47 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Unpaywall Extension Options</title>
-  <style>
-    body {
-        padding: 10px;
-        font-family: sans-serif;
-        line-height: 1.5;
-    }
-    #status {
-        min-height: 30px;
-        padding: 0;
-    }
-    p span {
-        /*font-weight: bold;*/
-    }
-    .green {color: #20e168; }
-    .gold {color: #f9bc01;}
-    .blue {color: dodgerblue;}
-      label {
-          font-size: 120%;
-      }
-  </style>
+    <title>Unpaywall Extension Options</title>
+    <style>
+        body {
+            padding: 10px;
+            font-family: sans-serif;
+            line-height: 1.5;
+        }
+        #status {
+            min-height: 30px;
+            padding: 0;
+        }
+
+        div.option {
+            margin-bottom: 40px;
+        }
+
+        p {
+            margin-top: 5px;
+        }
+        p span {
+            /*font-weight: bold;*/
+        }
+        .green {color: #20e168; }
+        .gold {color: #f9bc01;}
+        .blue {color: dodgerblue;}
+        label {
+            font-size: 120%;
+        }
+    </style>
 </head>
 
 <body>
-  <label>
-    <input type="checkbox" id="show-oa-color">
-    Color-code tab for Green and Gold OA
-  </label>
-  <p>
-      See a <span class="green">green tab</span> when we find fulltext from an institutional repository or preprint
-      server, and a <span class="gold">gold tab</span> when we find journal-hosted content with an
-      Open license. When we find journal-hosted fulltext with no license you'll get
-      a <span class="blue">blue tab</span>.
-  </p>
-  <div id="status"></div>
 
-  <hr>
-  <p>
-      For FAQ and contact info, check out <a href="http://unpaywall.org">unpaywall.org.</a>
-  </p>
+<div class="option">
+    <label>
+        <input type="checkbox" id="show-oa-color">
+        Color-code tab for Green and Gold OA
+    </label>
+    <p>
+        See a <span class="green">green tab</span> when we find fulltext from an institutional repository or preprint
+        server, and a <span class="gold">gold tab</span> when we find journal-hosted content with an
+        Open license. When we find journal-hosted fulltext with no license you'll get
+        a <span class="blue">blue tab</span>.
+    </p>
+</div>
+<div class="option">
+    <label>
+        <input type="checkbox" id="best-practice-repos-only">
+        Hide content from less trusted sources
+    </label>
+    <p>
+        You won't see fulltext from ResearchGate, Academia.edu,
+        researcher homepages, and some IRs. This option decreases coverage by about 20%.
+    </p>
+</div>
 
-  <script src="options.js"></script>
+
+
+<div id="status"></div>
+
+<hr>
+<p>
+    For FAQ and contact info, check out <a href="http://unpaywall.org">unpaywall.org.</a>
+</p>
+
+<script src="options.js"></script>
 </body>
 </html>

@@ -1,4 +1,8 @@
 var devMode = true;
+var ignoreCache = false;
+//ignoreCache = true
+
+
 if (chrome){
     browser = chrome
 }
@@ -15,6 +19,7 @@ var iframeIsInserted = false
 var settings = {}
 var myHost = window.location.hostname
 var allSources = []
+var doi
 
 
 
@@ -99,6 +104,14 @@ function numSourcesStarted(){
         }
     })
     return ret
+}
+
+
+function extendResultObj(resultObj, url, color){
+    resultObj.isComplete = true
+    resultObj.url = url
+    resultObj.color = color
+    return resultObj
 }
 
 
@@ -207,28 +220,25 @@ function runPdfLink(resultObj){
 }
 
 
-function runGoogleScholar(resultObj){
-    if (settings.bestPracticeReposOnly){
-        resultObj.isComplete = true
-        return
-    }
 
-    var myUrl = window.location
+function checkGsApi(myUrl){
     var gsUrl = "https://scholar.google.com/scholar?oi=gsb95&q=" + myUrl +  "&output=gsb&hl=en"
     devLog("Calling GS:", gsUrl)
 
-    $.getJSON(gsUrl, {}).done(function(resp){
+    return new Promise(function(resolve, reject){
+        //reject("rate-limit")
+
+        $.getJSON(gsUrl, {}).done(function(resp){
         devLog("got data back from GS:", resp)
         if (!resp.r || !resp.r.length) {
-            devLog("ratelimited GS.")
-            resultObj.isComplete = true
+            devLog("rate-limited GS.")
+            reject("rate-limit")
             return false
         }
 
         var fulltextLink = resp.r[0].l.g
-
         if (!fulltextLink){
-            resultObj.isComplete = true
+            reject()
             return false
         }
 
@@ -237,16 +247,81 @@ function runGoogleScholar(resultObj){
             var plainUrlRegex = /url=(.+?)&hl=/
             var m = plainUrlRegex.exec(fulltextLink.u)
 
-            resultObj.url = decodeURI(m[1])
-            resultObj.color = "green"
+            resolve(decodeURI(m[1]))
         }
 
+        }).fail(function(){
+            reject()
+        })
+    })
+}
+
+
+
+function runGoogleScholar(resultObj){
+    if (settings.bestPracticeReposOnly){
         resultObj.isComplete = true
+        return
+    }
+
+    var cacheUrlBase = "https://api.oadoi.org/gs/cache"
+    var addToCache = function(landingPageUrl, fulltextUrl){
+        var data = {
+            doi: doi,
+            landing_page_url: landingPageUrl,
+            fulltext_url:fulltextUrl
+        }
+        devLog("posting this to cache", data)
+        $.ajax({
+          url:cacheUrlBase,
+          type:"POST",
+          data: JSON.stringify(data),
+          contentType:"application/json; charset=utf-8",
+          dataType:"json",
+          success: function(){
+              devLog("posted to the cache", data)
+          }
+        })
+    }
+
+    var cacheGetUrl = cacheUrlBase + "/" + doi
+    if (ignoreCache){
+        cacheGetUrl += "thiswillmakethecachecall404"
+    }
+
+    // first we try to get a cached GS result.
+    $.getJSON(cacheGetUrl, {}).done(function(resp){
+        devLog("found a cached GS result!", resp.fulltext_url)
+        if (ignoreCache){ // useful for development.
+            return false
+        }
+        if (resp.fulltext_url){
+            extendResultObj(resultObj, resp.fulltext_url, "green")
+        }
+        else {
+            extendResultObj(resultObj)
+        }
 
     }).fail(function(){
-        resultObj.isComplete = true
-    })
+        // the cache call returned a 404, so this DOI isn't cached yet.
+        // so, now let's the GS API.
 
+        checkGsApi(window.location.href).then(function(gsFulltextUrl){
+            // success from GS
+
+            extendResultObj(resultObj, gsFulltextUrl, "green")
+            addToCache(window.location.href, gsFulltextUrl)
+
+        }, function(err){
+            // no luck on GS
+
+            extendResultObj(resultObj, null, null)
+            if (err != "rate-limit"){
+                addToCache(window.location.href, null)
+            }
+        })
+
+    })
 }
 
 
@@ -670,7 +745,7 @@ function reportInstallation(){
 
 function run() {
     reportInstallation()
-    var doi = findDoi()
+    doi = findDoi() // setting this globally.
 
     // the meat of the extension does not run unless we find a DOI
     if (!doi){

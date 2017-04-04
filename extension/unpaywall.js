@@ -656,8 +656,8 @@ function findPdfUrl(){
 
 function checkForPdf(pdfUrl){
     return new Promise(function(resolve, reject){
-        if (pageIsGoldOA()){
-            devLog("page is gold oa. calling this PDF good")
+        if (pageSaysPdfIsFree()){
+            devLog("page says the PDF is free. good enough for us.")
             resolve()
         }
         else {
@@ -672,7 +672,7 @@ function checkForPdf(pdfUrl){
 }
 
 
-function pageIsGoldOA(){
+function pageSaysPdfIsFree(){
     // check the page markup to see if this PDF looks free to download.
     // add more checks later...for now just IEEE
     // gold: http://ieeexplore.ieee.org/document/7169508/

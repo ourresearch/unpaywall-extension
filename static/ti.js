@@ -662,13 +662,13 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"main-copy\">\n" +
     "            <div class=\"tagline\">\n" +
     "                <div class=\"above\">\n" +
-    "                    Access paywalled research papers, free.\n" +
+    "                    Read paywalled research papers for free.\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"about\">\n" +
-    "                Just click the green tab and skip paywalls on millions of\n" +
-    "                articles. It's fast, free, and legal, powered by\n" +
-    "                our database of author-uploaded PDFs.\n" +
+    "                Click the green tab and skip the paywall.\n" +
+    "                It's fast, free, and legal, powered by\n" +
+    "                our database of millions of author-uploaded PDFs.\n" +
     "            </div>\n" +
     "\n" +
     "            <div class=\"cta\">\n" +

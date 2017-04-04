@@ -31,7 +31,6 @@ var doi
 
 
 
-
 /***********************************************************************************
  *
  * Sources
@@ -551,12 +550,30 @@ function findDoiFromScienceDirect() {
     }
 }
 
+function findDoiFromIeee(){
+    // open:   http://ieeexplore.ieee.org/document/6512846/
+    // closed: http://ieeexplore.ieee.org/document/7414384/
+
+    // thanks to @zuphilip for a PR to get this started.
+
+    if (window.location.href.indexOf("ieeexplore.ieee.org") < 0){
+        return false
+    }
+    var docAsStr = document.documentElement.innerHTML;
+    var re = /"doi":"([^"]+)"/
+    var m = re.exec(docAsStr)
+    if (m && m.length > 1){
+        return m[1]
+    }
+}
+
 
 function findDoi(){
     // we try each of these functions, in order, to get a DOI from the page.
     var doiFinderFunctions = [
         findDoiFromMetaTags,
         findDoiFromScienceDirect,
+        findDoiFromIeee,
         findDoiFromDataDoiAttributes
     ]
 

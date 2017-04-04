@@ -1,0 +1,213 @@
+{
+  "userInfo": {
+    "institute": false,
+    "member": false,
+    "individual": false,
+    "guest": false,
+    "subscribedContent": false,
+    "fileCabinetContent": false,
+    "fileCabinetUser": false,
+    "showPatentCitations": true,
+    "showGet802Link": false,
+    "showOpenUrlLink": false
+  },
+  "authors": [
+    {
+      "name": "Thomas M. Breuel",
+      "affiliation": "Tech. Univ. of Kaiserslautern, Kaiserslautern, Germany",
+      "affiliation": "Tech. Univ. of Kaiserslautern, Kaiserslautern, Germany"
+    },
+    {
+      "name": "Adnan Ul-Hasan",
+      "affiliation": "Tech. Univ. of Kaiserslautern, Kaiserslautern, Germany",
+      "affiliation": "Tech. Univ. of Kaiserslautern, Kaiserslautern, Germany"
+    },
+    {
+      "name": "Mayce Ali Al-Azawi",
+      "affiliation": "Tech. Univ. of Kaiserslautern, Kaiserslautern, Germany",
+      "affiliation": "Tech. Univ. of Kaiserslautern, Kaiserslautern, Germany"
+    },
+    {
+      "name": "Faisal Shafait",
+      "affiliation": "Univ. of Western Australia, Perth, WA, Australia",
+      "affiliation": "Univ. of Western Australia, Perth, WA, Australia"
+    }
+  ],
+  "isbn": [
+    {
+      "format": "Electronic ISBN",
+      "value": "978-0-7695-4999-6"
+    },
+    {
+      "format": "Print on Demand(PoD) ISBN",
+      "value": "978-1-4799-0193-7"
+    }
+  ],
+  "issn": [
+    {
+      "format": "Print ISSN",
+      "value": "1520-5363"
+    }
+  ],
+  "articleNumber": "6628705",
+  "dbTime": "23 ms",
+  "metrics": {
+    "citationCountPaper": 23,
+    "citationCountPatent": 0,
+    "totalDownloads": 644
+  },
+  "pdfUrl": "/stamp/stamp.jsp?tp=&arnumber=6628705",
+  "purchaseOptions": {
+    "showOtherFormatPricingTab": false,
+    "showPdfFormatPricingTab": true,
+    "pdfPricingInfoAvailable": true,
+    "otherPricingInfoAvailable": false,
+    "mandatoryBundle": false,
+    "optionalBundle": false,
+    "pdfPricingInfo": [
+      {
+        "memberPrice": "$13",
+        "nonMemberPrice": "$33",
+        "partNumber": "6628705",
+        "type": "PDF/HTML"
+      }
+    ]
+  },
+  "formulaStrippedArticleTitle": "High-Performance OCR for Printed English and Fraktur Using LSTM Networks",
+  "title": "High-Performance OCR for Printed English and Fraktur Using LSTM Networks",
+  "abstract": "Long Short-Term Memory (LSTM) networks have yielded excellent results on handwriting recognition. This paper describes an application of bidirectional LSTM networks to the problem of machine-printed Latin and Fraktur recognition. Latin and Fraktur recognition differs significantly from handwriting recognition in both the statistical properties of the data, as well as in the required, much higher levels of accuracy. Applications of LSTM networks to handwriting recognition use two-dimensional recurrent networks, since the exact position and baseline of handwritten characters is variable. In contrast, for printed OCR, we used a one-dimensional recurrent network combined with a novel algorithm for baseline and x-height normalization. A number of databases were used for training and testing, including the UW3 database, artificially generated and degraded Fraktur text and scanned pages from a book digitization project. The LSTM architecture achieved 0.6% character-level test-set error on English text. When the artificially degraded Fraktur data set is divided into training and test sets, the system achieves an error rate of 1.64%. On specific books printed in Fraktur (not part of the training set), the system achieves error rates of 0.15% (Fontane) and 1.47% (Ersch-Gruber). These recognition accuracies were found without using any language modelling or any other post-processing techniques.",
+  "publicationTitle": "Document Analysis and Recognition (ICDAR), 2013 12th International Conference on",
+  "endPage": "687",
+  "startPage": "683",
+  "doi": "10.1109/ICDAR.2013.140",
+  "rightsLink": "http://s100.copyright.com/AppDispatchServlet?publisherName=ieee&publication=proceedings&title=High-Performance+OCR+for+Printed+English+and+Fraktur+Using+LSTM+Networks&isbn=978-0-7695-4999-6&publicationDate=Aug.+2013&author=Thomas+M.+Breuel&ContentID=10.1109/ICDAR.2013.140&orderBeanReset=true&startPage=683&endPage=687&proceedingName=Document+Analysis+and+Recognition+%28ICDAR%29%2C+2013+12th+International+Conference+on",
+  "displayPublicationTitle": "Document Analysis and Recognition (ICDAR), 2013 12th International Conference on",
+  "pdfPath": "/iel7/6627713/6628563/06628705.pdf",
+  "keywords": [
+    {
+      "type": "IEEE Keywords",
+      "kwd": [
+        "Optical character recognition software",
+        "Hidden Markov models",
+        "Training",
+        "Error analysis",
+        "Handwriting recognition",
+        "Recurrent neural networks"
+      ]
+    },
+    {
+      "type": "INSPEC: Controlled Indexing",
+      "kwd": [
+        "text analysis",
+        "handwriting recognition",
+        "natural language processing",
+        "optical character recognition",
+        "statistical analysis"
+      ]
+    },
+    {
+      "type": "INSPEC: Non-Controlled Indexing",
+      "kwd": [
+        "English text",
+        "high-performance OCR",
+        "printed English",
+        "Fraktur",
+        "LSTM networks",
+        "long short term memory networks",
+        "handwriting recognition",
+        "machine printed Latin recognition",
+        "machine printed Fraktur recognition",
+        "statistical properties",
+        "recurrent networks",
+        "handwritten characters",
+        "printed OCR",
+        "UW3 database",
+        "scanned pages",
+        "book digitization project",
+        "Fraktur text"
+      ]
+    },
+    {
+      "type": "Author Keywords ",
+      "kwd": [
+        "OCR",
+        "RNN",
+        "LSTM Networks"
+      ]
+    }
+  ],
+  "allowComments": false,
+  "pubLink": "/xpl/mostRecentIssue.jsp?punumber=6627713",
+  "issueLink": "/xpl/tocresult.jsp?isnumber=6628563",
+  "standardTitle": "High-Performance OCR for Printed English and Fraktur Using LSTM Networks",
+  "isJournal": false,
+  "isConference": true,
+  "dateOfInsertion": "15 October 2013",
+  "isStandard": false,
+  "publisher": "IEEE",
+  "publicationDate": "Aug. 2013",
+  "conferenceDate": "25-28 Aug. 2013",
+  "isACM": false,
+  "isOpenAccess": false,
+  "isEphemera": false,
+  "accessionNumber": "13844603",
+  "htmlLink": "/xpls/icp.jsp?arnumber=6628705",
+  "isEarlyAccess": false,
+  "isBook": false,
+  "isDynamicHtml": false,
+  "isFreeDocument": false,
+  "isSMPTE": false,
+  "isCustomDenial": false,
+  "persistentLink": "http://ieeexplore.ieee.org/servlet/opac?punumber=6627713",
+  "isStaticHtml": true,
+  "isNotDynamicOrStatic": false,
+  "staticHtmlLink": "/xpls/icp.jsp?arnumber=6628705",
+  "htmlAbstractLink": "/document/6628705/",
+  "isPromo": false,
+  "journalDisplayDateOfPublication": "15 October 2013",
+  "chronOrPublicationDate": "25-28 Aug. 2013",
+  "copyrightYear": "2013",
+  "conferenceDate": "25-28 Aug. 2013",
+  "citationCount": "23",
+  "copyrightOwner": "IEEE",
+  "issue": "",
+  "endPage": "687",
+  "contentType": "conferences",
+  "startPage": "683",
+  "articleId": "6628705",
+  "isNumber": "6628563",
+  "publisher": "IEEE",
+  "lastupdate": "2014-09-26T19:01:20",
+  "title": "High-Performance OCR for Printed English and Fraktur Using LSTM Networks",
+  "sections": {
+    "abstract": "true",
+    "authors": "true",
+    "figures": "false",
+    "multimedia": "false",
+    "references": "false",
+    "citedby": "true",
+    "keywords": "true",
+    "algorithm": "false",
+    "supplements": "false",
+    "footnotes": "false",
+    "disclaimer": "false"
+  },
+  "ml_html_flag": "false",
+  "publicationNumber": "6627713",
+  "ephemeraFlag": "false",
+  "chronDate": "25-28 Aug. 2013",
+  "mlTime": "PT0.086293S",
+  "content_type": "Conference Publications",
+  "publicationDate": "Aug. 2013",
+  "mediaPath": "/ielx7/6627713/6628563/6628705/html/img",
+  "onlineDate": "",
+  "openAccessFlag": "no",
+  "dateOfInsertion": "15 October 2013",
+  "publicationTitle": "Document Analysis and Recognition (ICDAR), 2013 12th International Conference on",
+  "html_flag": "true",
+  "pdfPath": "/iel7/6627713/6628563/06628705.pdf",
+  "subType": "IEEE IEEE Conference",
+  "accessionNumber": "13844603",
+  "publicationYear": "2013",
+  "doi": "10.1109/ICDAR.2013.140"
+}

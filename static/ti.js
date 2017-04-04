@@ -425,12 +425,6 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "            <h1>Frequently asked questions</h1>\n" +
     "            <dl>\n" +
     "\n" +
-    "\n" +
-    "                <dt id=\"release-date\"><i class=\"fa fa-chevron-right\"></i>When is the official release?</dt>\n" +
-    "                <dd>\n" +
-    "                    April 4th. The extension mostly works right now, but we're still tweaking things.\n" +
-    "                </dd>\n" +
-    "\n" +
     "                <dt id=\"who-is-behind-this\"><i class=\"fa fa-chevron-right\"></i>Who's behind Unpaywall?</dt>\n" +
     "                <dd>\n" +
     "                    We're <a href=\"http://impactstory.org/about\">Impactstory,</a>\n" +

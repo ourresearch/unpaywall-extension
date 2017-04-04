@@ -20,6 +20,7 @@ var settings = {}
 var myHost = window.location.hostname
 var allSources = []
 var doi
+var docAsStr = document.documentElement.innerHTML;
 
 
 
@@ -155,48 +156,6 @@ function getSearchResults(){
 
 
 
-// used by sources that need to check to make sure a link to a PDF
-// really gets you a legit pdf.
-
-function checkForPdf(pdfUrl){
-
-    var promise = new Promise(function(resolve, reject){
-
-        // ResearchGate PDFs always work. don't check.
-        var rgRegex = /researchgate\.net(.+?)\.pdf$/
-        if (rgRegex.test(pdfUrl)){
-            resolve()
-        }
-
-        else {
-            var xhr = new XMLHttpRequest()
-            xhr.open("GET", pdfUrl, true)
-            xhr.onprogress = function () {
-                var contentType = xhr.getResponseHeader("Content-Type")
-                //devLog("HEADERS:", xhr.getAllResponseHeaders())
-
-                if (contentType){
-                    xhr.abort()
-                    if (contentType.indexOf("pdf") > -1){
-                        resolve()  // it's a PDF
-                    }
-                    else {
-                        reject()  // not a PDF
-                    }
-                }
-            }
-            // so it's important to mark this done even if something goes wrong,
-            // or we'll never make a decision to show the Green OA tab even if we find green. Eg:
-            // https://link.springer.com/article/10.1023%2FB%3AMACH.0000011805.60520.fe
-            // redirects to http download server, which throws error (needs to be https).
-            xhr.onerror = function(){
-                reject()  // it's not a pdf
-            }
-            xhr.send()
-        }
-    })
-    return promise
-}
 
 
 
@@ -208,15 +167,15 @@ function runPdfLink(resultObj){
         return false
     }
 
-    devLog("doing PDF scrape on this URL", pdfUrl)
+    devLog("checking PDF link: ", pdfUrl)
     checkForPdf(pdfUrl).then(function(){
         resultObj.isComplete = true
         resultObj.url = pdfUrl
         resultObj.color = "blue"
-        devLog("found a PDF after checking", pdfUrl)
+        devLog("PDF check done. success! PDF link:", pdfUrl)
 
     }, function(err){
-        devLog("decided PDF link is bogus: ", pdfUrl)
+        devLog("PDF check done. failure. useless link: ", pdfUrl)
         resultObj.isComplete = true
     });
 }
@@ -468,6 +427,20 @@ function getFulltextUrl(){
  ************************************************************************************/
 
 
+function runRegexOnDoc(re, host){
+    // @re regex that has a submatch in it that we're searching for, like /foo(.+?)bar/
+    // @host optional. only work on this host.
+
+    if (!host || host == myHost){
+        var m = re.exec(docAsStr)
+        if (m && m.length > 1){
+            return m[1]
+        }
+    }
+    return false
+}
+
+
 // most scholarly articles have some kind of DOI meta
 // tag in the head of the document. Check these.
 function findDoiFromMetaTags(){
@@ -540,31 +513,26 @@ function findDoiFromDataDoiAttributes(){
 // so handle these specially.
 // eg: http://www.sciencedirect.com/science/article/pii/S1751157709000881
 function findDoiFromScienceDirect() {
-    var docAsStr = document.documentElement.innerHTML;
-
-    var scienceDirectRegex = /SDM.doi\s*=\s*'([^']+)'/;
-    var m = scienceDirectRegex.exec(docAsStr)
-    if (m && m.length > 1){
-        devLog("found a DOI from ScienceDirect JS variable", m[1])
-        return m[1]
-    }
+    // run on all pages, since there are several sciencedirect hosts, and
+    // the regex is safe against firing other places.
+    return runRegexOnDoc(/SDM.doi\s*=\s*'([^']+)'/)
 }
 
 function findDoiFromIeee(){
-    // open:   http://ieeexplore.ieee.org/document/6512846/
-    // closed: http://ieeexplore.ieee.org/document/7414384/
-
+    // green:   http://ieeexplore.ieee.org/document/6512846/
     // thanks to @zuphilip for a PR to get this started.
+    return runRegexOnDoc(/"doi":"([^"]+)"/, "ieeexplore.ieee.org")
+}
 
-    if (window.location.href.indexOf("ieeexplore.ieee.org") < 0){
-        return false
+function findDoiFromPsycnet(){
+    if (myHost == "psycnet.apa.org") {
+        var re = /&doi=(.+)/
+        var m = re.exec(window.location.href)
+        if (m && m.length > 1){
+            return m[1]
+        }
     }
-    var docAsStr = document.documentElement.innerHTML;
-    var re = /"doi":"([^"]+)"/
-    var m = re.exec(docAsStr)
-    if (m && m.length > 1){
-        return m[1]
-    }
+    return false
 }
 
 
@@ -572,9 +540,10 @@ function findDoi(){
     // we try each of these functions, in order, to get a DOI from the page.
     var doiFinderFunctions = [
         findDoiFromMetaTags,
+        findDoiFromDataDoiAttributes,
         findDoiFromScienceDirect,
         findDoiFromIeee,
-        findDoiFromDataDoiAttributes
+        findDoiFromPsycnet
     ]
 
     for (var i=0; i < doiFinderFunctions.length; i++){
@@ -665,14 +634,85 @@ function findPdfUrl(){
                 pdfUrl = link.href
                 return false
             }
-
         }
+
+
+
     })
+
+
+    // look in the actual text of the page. has to be done when publishers
+    // hide metadata in JS vars
+    // IEEE Explore. always has a pdf link, whether closed or not.
+    // finds a pdf: http://ieeexplore.ieee.org/document/7169508/
+    var ieeePdf = runRegexOnDoc(/"pdfPath":"(.+?)\.pdf",/, "ieeexplore.ieee.org")
+    if (ieeePdf){
+        pdfUrl = "http://ieeexplore.ieee.org" + ieeePdf + ".pdf"
+    }
 
     return pdfUrl
 }
 
 
+function checkForPdf(pdfUrl){
+    return new Promise(function(resolve, reject){
+        if (pageIsGoldOA()){
+            devLog("page is gold oa. calling this PDF good")
+            resolve()
+        }
+        else {
+            downloadPdf(pdfUrl).then(function(resp){
+                resolve(resp)
+            }, function(err){
+                reject(err)
+            })
+        }
+
+    })
+}
+
+
+function pageIsGoldOA(){
+    // check the page markup to see if this PDF looks free to download.
+    // add more checks later...for now just IEEE
+    // gold: http://ieeexplore.ieee.org/document/7169508/
+    // not gold: http://ieeexplore.ieee.org/document/6512846/
+    return !!runRegexOnDoc(/"(isOpenAccess":true,)/, "ieeexplore.ieee.org")
+
+}
+
+
+// used by sources that need to check to make sure a link to a PDF
+// really gets you a legit pdf.
+function downloadPdf(pdfUrl){
+    return new Promise(function(resolve, reject){
+        var xhr = new XMLHttpRequest()
+        xhr.open("GET", pdfUrl, true)
+        xhr.onprogress = function () {
+            var contentType = xhr.getResponseHeader("Content-Type")
+            //devLog("HEADERS:", xhr.getAllResponseHeaders())
+
+            if (contentType){
+                xhr.abort()
+                if (contentType.indexOf("pdf") > -1){
+                    resolve()  // it's a PDF
+                }
+                else {
+                    reject()  // not a PDF
+                }
+            }
+        }
+        // so it's important to mark this done even if something goes wrong,
+        // or we'll never make a decision to show the Green OA tab even if we find green. Eg:
+        // https://link.springer.com/article/10.1023%2FB%3AMACH.0000011805.60520.fe
+        // redirects to http download server, which throws error (needs to be https).
+        xhr.onerror = function(){
+            reject()  // it's not a pdf
+        }
+        xhr.send()
+
+    })
+}
 
 
 

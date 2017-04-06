@@ -21,12 +21,10 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"why-did-you-make-it\"><i class=\"fa fa-chevron-right\"></i>Why did you make it?</dt>\n" +
     "                <dd>\n" +
-    "                    We loathe paywalls. Now more than ever, humanity needs to <i>access</i> our collective knowledge,\n" +
-    "                    not hoard it. Lots of scholars feel the same; that's why they\n" +
-    "                    upload their papers to free, legal servers online. We realized that the missing link is in getting\n" +
-    "                    these free resources to the people who want them, at the right time. By using a browser extension,\n" +
-    "                    we can do that, leveraging the toll-access distribution system to bring\n" +
-    "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a>\n" +
+    "                    Now more than ever, humanity needs to <i>access</i> our collective knowledge,\n" +
+    "                    not hoard it behind paywalls. Lots of researchers feel the same; that's why they\n" +
+    "                    upload their papers to free, legal servers online. We want to help bring that\n" +
+    "                    <a href=\"https://en.wikipedia.org/wiki/Open_access\">open access</a> content\n" +
     "                    to the masses.\n" +
     "\n" +
     "                </dd>\n" +
@@ -34,18 +32,33 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
-    "                    We find fulltext for 84% of articles in <a href=\"https://www.altmetric.com/top100/2016/\">a sample</a> of 2016 research papers that were highly\n" +
-    "                    discussed in the media and online.\n" +
-    "                    This percentage will vary, depending on the kinds of articles your're looking at.\n" +
-    "                    But we generally get fulltext more than half the time. This is improving\n" +
-    "                    quickly as we tweak our algorithm and discovery techniques. And over the longer term, we'll keep\n" +
+    "                    We find fulltext for 65-85% of articles, depending on their topic and year of publication.\n" +
+    "                    We think that's a game-changer for\n" +
+    "                    the publishing industry....who will keep subscribing when most articles are free anyway?\n" +
+    "\n" +
+    "                    Over the longer term, we'll keep\n" +
     "                    get even better as\n" +
     "                    mandatory open access requirements begin to take effect in the\n" +
     "                    <a href=\"http://scholcomm.columbia.edu/open-access/public-access-mandates-for-federally-funded-research/\">US,</a>\n" +
     "                    <a href=\"http://www.rcuk.ac.uk/research/openaccess/\">UK,</a>\n" +
     "                    <a href=\"http://www.sciencemag.org/news/2016/05/dramatic-statement-european-leaders-call-immediate-open-access-all-scientific-papers/\">Europe,</a>\n" +
-    "                    and elsewhere. Soon Unpaywall users will essentially have a free subscription to all new research.\n" +
-    "                    We think that's a game-changer for open access, and for scholarship as a whole.\n" +
+    "                    and elsewhere.\n" +
+    "                </dd>\n" +
+    "\n" +
+    "                <dt id=\"how-do-you-find-articles\"><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
+    "                <dd>\n" +
+    "                    We gather content from thousands of open-access repositories worldwide.\n" +
+    "                    To help us, we rely on a number of data sources, including\n" +
+    "                    <a href=\"https://www.ncbi.nlm.nih.gov/pmc/\">PubMed Central</a>,\n" +
+    "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
+    "                    <a href=\"https://www.crossref.org/\">Crossref</a> (particulary their license info),\n" +
+    "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
+    "                    <a href=\"http://scholar.google.com\">Google Scholar,</a>\n" +
+    "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
+    "\n" +
+    "                    After we put all this data together, we in turn make it open for reuse via the\n" +
+    "                    <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
+    "                    way to leverage our data and infrastructure to support your own projects.\n" +
     "                </dd>\n" +
     "\n" +
     "                <dt id=\"different-from-sci-hub\"><i class=\"fa fa-chevron-right\"></i>How's this different from Sci-Hub?</dt>\n" +
@@ -74,21 +87,6 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    and make your own better extension!\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt id=\"how-do-you-find-articles\"><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
-    "                <dd>\n" +
-    "                    We gather content from thousands of open-access repositories worldwide.\n" +
-    "                    To help us, we rely on a number of data sources, including\n" +
-    "                    <a href=\"https://www.ncbi.nlm.nih.gov/pmc/\">PubMed Central</a>,\n" +
-    "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
-    "                    <a href=\"https://www.crossref.org/\">Crossref</a> (particulary their license info),\n" +
-    "                    <a href=\"https://www.datacite.org/\">DataCite,</a>\n" +
-    "                    <a href=\"http://scholar.google.com\">Google Scholar,</a>\n" +
-    "                    and <a href=\"https://www.base-search.net/\">BASE.</a>\n" +
-    "\n" +
-    "                    After we put all this data together, we in turn make it open for reuse via the\n" +
-    "                    <a href=\"http://oadoi.org/about\">oaDOI</a> API: a free, fast, and very scalable\n" +
-    "                    way to leverage our data and infrastructure to support your own projects.\n" +
-    "                </dd>\n" +
     "\n" +
     "                <dt id=\"privacy-policy\"><i class=\"fa fa-chevron-right\"></i>What's your privacy policy?</dt>\n" +
     "                <dd>\n" +

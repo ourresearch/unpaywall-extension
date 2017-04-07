@@ -449,10 +449,10 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                <dd>\n" +
     "                    We find fulltext for 65-85% of articles, depending on their topic and year of publication.\n" +
     "                    We think that's a game-changer for\n" +
-    "                    the publishing industry....who will keep subscribing when most articles are free anyway?\n" +
+    "                    the publishing industry. Now that most articles are free, why subscribe?\n" +
     "\n" +
     "                    Over the longer term, we'll keep\n" +
-    "                    get even better as\n" +
+    "                    getting even better as\n" +
     "                    mandatory open access requirements begin to take effect in the\n" +
     "                    <a href=\"http://scholcomm.columbia.edu/open-access/public-access-mandates-for-federally-funded-research/\">US,</a>\n" +
     "                    <a href=\"http://www.rcuk.ac.uk/research/openaccess/\">UK,</a>\n" +

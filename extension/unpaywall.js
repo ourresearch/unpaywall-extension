@@ -524,6 +524,11 @@ function findDoiFromIeee(){
     return runRegexOnDoc(/"doi":"([^"]+)"/, "ieeexplore.ieee.org")
 }
 
+function findDoiFromNber(){
+    // green:   http://www.nber.org/papers/w23298.pdf
+    return runRegexOnDoc(/Document Object Identifier \(DOI\): (10.*?)<\/p>/, "www.nber.org")
+}
+
 function findDoiFromPsycnet(){
     if (myHost == "psycnet.apa.org") {
         var re = /&doi=(.+)/
@@ -543,6 +548,7 @@ function findDoi(){
         findDoiFromDataDoiAttributes,
         findDoiFromScienceDirect,
         findDoiFromIeee,
+        findDoiFromNber,
         findDoiFromPsycnet
     ]
 

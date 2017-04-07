@@ -1,7 +1,7 @@
 {
   "name": "Unpaywall",
-  "version": "1.6.2",
-  "version_name": "Unpaywall 1.6.2",
+  "version": "1.6.3",
+  "version_name": "Unpaywall 1.6.3",
   "manifest_version": 2,
   "description": "Find open-access versions of paywalled research papers, instantly.",
   "icons": {

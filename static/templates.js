@@ -378,52 +378,26 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "<div class=\"page welcome\">\n" +
     "    <div class=\"ti-page-header welcome\" ng-include=\"'header.tpl.html'\"></div>\n" +
     "    <div class=\"content\">\n" +
-    "        <div class=\"top-row\">\n" +
-    "            <h1>You've installed Unpaywall!</h1>\n" +
-    "            <div class=\"spacer\"></div>\n" +
-    "            <div class=\"share\">\n" +
-    "                <span class=\"ti-label\">share:</span>\n" +
-    "                <span class=\"share-icons\">\n" +
-    "                    <a target=\"_blank\" class=\"share-icon\" href=\"mailto:?subject=Neat way to bypasses paywalls on research articles, legally.&amp;body=The Unpaywall browser extension finds free, legal versions of paywalled articles as you browse. http%3A%2F%2Funpaywall.org\">\n" +
-    "                        <i class=\"fa fa-envelope-o\"></i>\n" +
-    "                    </a>\n" +
-    "                    <a target=\"_blank\" href=\"https://twitter.com/intent/tweet?url=http://unpaywall.org&text=The%20new%20%40unpaywall%20extension%20unlocks%20free%2C%20legal%20versions%20of%20paywalled%20research%20papers%20as%20you%20browse.%20%23openaccess\">\n" +
-    "                        <i class=\"fa fa-twitter\"></i>\n" +
-    "                    </a>\n" +
-    "                </span>\n" +
-    "            </div>\n" +
-    "            \n" +
-    "        </div>\n" +
     "\n" +
+    "        <img id=\"screenshot\" src=\"static/img/laptop-screenshot.png\" alt=\"\">\n" +
     "        <p>\n" +
-    "            When you view a research article, check the tab on the right of your screen.\n" +
+    "            Welcome to Unpaywall! When you see the green tab on a research article,\n" +
+    "            click it to read for free. Try this example:\n" +
     "        </p>\n" +
-    "        <ul>\n" +
-    "            <li class=\"green\">\n" +
-    "                <span class=\"tab green\"><i class=\"fa fa-unlock-alt\"></i></span>\n" +
-    "                <span class=\"text green\">green tab:</span>\n" +
-    "                we found free, legal full text. Click it to read!\n" +
-    "            </li>\n" +
-    "            <li class=\"gray\">\n" +
-    "                <span class=\"tab gray\"><i class=\"fa fa-lock\"></i></span>\n" +
-    "                <span class=\"text gray\">gray tab:</span>\n" +
-    "                we came up empty.\n" +
-    "            </li>\n" +
-    "        </ul>\n" +
-    "        <h2>Let's try an example!</h2>\n" +
-    "        <p>\n" +
-    "             This article describes a newly-discovered solar system, and\n" +
-    "            it'll cost you $32 to read on Nature.com...except now that you've got Unpaywall, it's free!\n" +
-    "\n" +
-    "        </p>\n" +
-    "\n" +
-    "\n" +
     "        <p class=\"eg\">\n" +
     "            <a class=\"eg\" target=\"_blank\" href=\"http://www.nature.com/nature/journal/v542/n7642/full/nature21360.html\">\n" +
     "                <i class=\"fa fa-file-text-o\"></i>\n" +
-    "                See the example\n" +
+    "                See Unpaywall in action\n" +
     "            </a>\n" +
     "        </p>\n" +
+    "        <p>\n" +
+    "            That example will cost you $32 to read on Nature.com...except now that\n" +
+    "            you've got Unpaywall, it's free! You'll see our green tab on 65-85% of articles\n" +
+    "            (if we can't find fulltext, you'll see a gray tab). Happy reading!\n" +
+    "\n" +
+    "        </p>\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "\n" +
     "        <p class=\"ps\">\n" +

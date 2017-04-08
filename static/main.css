@@ -76,6 +76,15 @@ body .main-view {
   font-size: 130%;
   margin-bottom: 10px;
 }
+.page.welcome span.tab-color {
+  font-weight: bold;
+}
+.page.welcome span.tab-color.green {
+  color: #20e168;
+}
+.page.welcome span.tab-color.gray {
+  color: #999;
+}
 .page.welcome p {
   margin: 0;
 }
@@ -86,11 +95,11 @@ body .main-view {
 .page.welcome p.eg a {
   display: inline-block;
   cursor: pointer;
-  padding: 20px 30px;
+  padding: 20px 40px;
   border-radius: 3px;
   background: #20e168;
   color: #fff;
-  margin-left: 160px;
+  margin-left: 210px;
   transition: all 0.15s ease;
 }
 .page.welcome p.eg a:hover {
@@ -104,32 +113,6 @@ body .main-view {
 .page.welcome .ps {
   margin-top: 50px;
   font-size: 80%;
-}
-.page.welcome ul {
-  margin: 0 0 50px;
-  padding-left: 5px;
-}
-.page.welcome ul li {
-  list-style-type: none;
-  line-height: 1.8;
-}
-.page.welcome ul li .tab {
-  border-radius: 20px 0 0 20px;
-  color: #fff;
-  padding: 3px 6px 3px 9px;
-  font-size: 14px;
-}
-.page.welcome ul li .tab.green {
-  background: #20e168;
-}
-.page.welcome ul li .tab.gray {
-  background: #888;
-}
-.page.welcome ul li .text.green {
-  color: #20e168;
-}
-.page.welcome ul li .text.gray {
-  color: #888;
 }
 div.page.landing .screen {
   backgound: #fff;

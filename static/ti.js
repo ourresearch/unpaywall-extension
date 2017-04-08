@@ -796,19 +796,28 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "        <img id=\"screenshot\" src=\"static/img/laptop-screenshot.png\" alt=\"\">\n" +
     "        <p>\n" +
-    "            Welcome to Unpaywall! When you see the green tab on a research article,\n" +
-    "            click it to read for free. Try this example:\n" +
+    "            Welcome to Unpaywall! When you see the\n" +
+    "            <span class=\"tab-color green\">green tab</span>\n" +
+    "            beside a research article,\n" +
+    "            click it to read the full text. Try this example:\n" +
     "        </p>\n" +
     "        <p class=\"eg\">\n" +
     "            <a class=\"eg\" target=\"_blank\" href=\"http://www.nature.com/nature/journal/v542/n7642/full/nature21360.html\">\n" +
     "                <i class=\"fa fa-file-text-o\"></i>\n" +
-    "                See Unpaywall in action\n" +
+    "                Try it now\n" +
     "            </a>\n" +
     "        </p>\n" +
     "        <p>\n" +
-    "            That example will cost you $32 to read on Nature.com...except now that\n" +
-    "            you've got Unpaywall, it's free! You'll see our green tab on 65-85% of articles\n" +
-    "            (if we can't find fulltext, you'll see a gray tab). Happy reading!\n" +
+    "            <!--\n" +
+    "            That article will cost you $32 to read on Nature.com...except now that\n" +
+    "            you've got Unpaywall, it's free!\n" +
+    "            -->\n" +
+    "\n" +
+    "            You'll see our green tab on 65-85% of articles\n" +
+    "            (if we can't find fulltext, you'll see a\n" +
+    "            <span class=\"tab-color gray\">gray tab</span>\n" +
+    "\n" +
+    "            ). Happy reading!\n" +
     "\n" +
     "        </p>\n" +
     "\n" +

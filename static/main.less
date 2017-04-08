@@ -118,6 +118,15 @@ body {
     font-size: 130%;
     margin-bottom: 10px;
   }
+  span.tab-color {
+    font-weight: bold;
+    &.green {
+      color: @baseColor;
+    }
+    &.gray {
+      color: #999;
+    }
+  }
   p {
     margin: 0;
     &.eg {
@@ -126,11 +135,11 @@ body {
       a {
         display: inline-block;
         cursor: pointer;
-        padding: 20px 30px;
+        padding: 20px 40px;
         border-radius: 3px;
         background: @baseColor;
         color: #fff;
-        margin-left: 160px;
+        margin-left: 210px;
 
         //border: 3px solid #333;
 
@@ -150,27 +159,6 @@ body {
   .ps {
     margin-top: 50px;
     font-size: 80%;
-  }
-  ul {
-    margin: 0 0 50px;
-    padding-left: 5px;
-    li {
-      list-style-type: none;
-      line-height: 1.8;
-      .tab {
-        border-radius: 20px 0 0 20px;
-        color: #fff;
-        padding: 3px 6px 3px 9px;
-        font-size: 14px;
-        &.green {background: @oaGreen;}
-        &.gray {background: #888;}
-      }
-      .text {
-        //font-weight: bold;
-        &.green {color: @oaGreen;}
-        &.gray {color: #888;}
-      }
-    }
   }
 }
 

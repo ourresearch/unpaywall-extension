@@ -32,7 +32,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
-    "                    We find fulltext for 65-85% of articles, depending on their topic and year of publication.\n" +
+    "                    We find fulltext for 50-85% of articles, depending on their topic and year of publication.\n" +
     "                    We think that's a game-changer for\n" +
     "                    the publishing industry. Now that most articles are free, why subscribe?\n" +
     "\n" +

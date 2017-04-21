@@ -285,7 +285,6 @@ function runGoogleScholar(resultObj){
     })
 }
 
-
 function runOadoi(resultObj){
     var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
     devLog("doing oaDOI check", url)

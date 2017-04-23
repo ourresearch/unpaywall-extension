@@ -259,11 +259,12 @@ angular.module('landing', [
         $scope.ctaClick = function(){
             console.log("clicked to install the extension")
 
-
-            // can't install it, so let's tweet it.
+            // can't install it, so let the users email themselves a reminder.
             if (browser == 'unsupported') {
-                var tweetUrl = "https://twitter.com/intent/tweet?url=http://unpaywall.org&text=The free Unpaywall browser extension instantly unlocks free, legal versions of paywalled research papers:"
-                window.location = tweetUrl
+                var emailSubject = "Check out Unpaywall"
+                var emailBody = "Just a small reminder to check out the Unpaywall extension at http://unpaywall.org"
+                var emailUrl = "mailto:?subject=" + encodeURI(emailSubject) + "&body=" + encodeURI(emailBody)
+                window.location = emailUrl
             }
 
 
@@ -676,7 +677,10 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"cta\">\n" +
     "\n" +
     "                <div class=\"button-info\" ng-show=\"browser=='unsupported'\">\n" +
-    "                    Requires Firefox or Chrome for desktop.\n" +
+    "                    Unpaywall works with Firefox or Chrome on\n" +
+    "                    your desktop computer.\n" +
+    "                    Click below to send yourself a reminder to install\n" +
+    "                    Unpaywall later:\n" +
     "                </div>\n" +
     "\n" +
     "                <div class=\"button-info\" ng-show=\"browser != 'unsupported'\">\n" +
@@ -694,8 +698,8 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                        <span class=\"small\">on the Firefox web store</span>\n" +
     "                    </span>\n" +
     "                    <span class=\"fallback\" ng-show=\"browser=='unsupported'\">\n" +
-    "                        <i class=\"fa fa-twitter\"></i>\n" +
-    "                        Tweet it now\n" +
+    "                        <i class=\"fa fa-envelope-o\"></i>\n" +
+    "                        Send myself a reminder\n" +
     "                    </span>\n" +
     "                </div>\n" +
     "            </div>\n" +

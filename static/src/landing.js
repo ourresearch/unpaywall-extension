@@ -110,11 +110,12 @@ angular.module('landing', [
         $scope.ctaClick = function(){
             console.log("clicked to install the extension")
 
-
-            // can't install it, so let's tweet it.
+            // can't install it, so let the users email themselves a reminder.
             if (browser == 'unsupported') {
-                var tweetUrl = "https://twitter.com/intent/tweet?url=http://unpaywall.org&text=The free Unpaywall browser extension instantly unlocks free, legal versions of paywalled research papers:"
-                window.location = tweetUrl
+                var emailSubject = "Check out Unpaywall"
+                var emailBody = "Just a small reminder to check out the Unpaywall extension at http://unpaywall.org"
+                var emailUrl = "mailto:?subject=" + encodeURI(emailSubject) + "&body=" + encodeURI(emailBody)
+                window.location = emailUrl
             }
 
 

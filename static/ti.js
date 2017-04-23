@@ -634,6 +634,10 @@ angular.module("header.tpl.html", []).run(["$templateCache", function($templateC
     "    -->\n" +
     "\n" +
     "    <div class=\"links\">\n" +
+    "        <a href=\"/\" class=\"install\" hide show--gt-xs>\n" +
+    "            <i class=\"fa fa-plus-circle\"></i>\n" +
+    "            Install\n" +
+    "        </a>\n" +
     "        <a href=\"/faq\">\n" +
     "            <i class=\"fa fa-question-circle\"></i>\n" +
     "            FAQ\n" +
@@ -747,36 +751,6 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "\n" +
-    "\n" +
-    "<script type=\"text/ng-template\" id=\"firefox-coming-soon.tpl.html\">\n" +
-    "    <md-dialog>\n" +
-    "        <md-dialog-content>\n" +
-    "            <div class=\"md-dialog-content\">\n" +
-    "                <h2>Coming soon</h2>\n" +
-    "                <p>\n" +
-    "                    The Firefox extension is currently moving through <a\n" +
-    "                        href=\"https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews\">Mozilla's review process,</a><br>\n" +
-    "                    but we can notify you when it's ready to be installed.\n" +
-    "\n" +
-    "                </p>\n" +
-    "\n" +
-    "\n" +
-    "            </div>\n" +
-    "        </md-dialog-content>\n" +
-    "\n" +
-    "        <md-dialog-actions>\n" +
-    "            <a class=\"dialog-button\" href=\"\" ng-click=\"cancel()\">I'm good.</a>\n" +
-    "\n" +
-    "            <a class=\"primary dialog-button\"\n" +
-    "               target=\"_blank\"\n" +
-    "               href=\"https://goo.gl/forms/LanJmpUSn6vw4Ylp2\">\n" +
-    "                Yep, let me know!\n" +
-    "            </a>\n" +
-    "        </md-dialog-actions>\n" +
-    "    </md-dialog>\n" +
-    "\n" +
-    "\n" +
-    "</script>\n" +
     "");
 }]);
 

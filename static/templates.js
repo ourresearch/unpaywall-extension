@@ -283,11 +283,6 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                        Tweet it now\n" +
     "                    </span>\n" +
     "                </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
     "            </div>\n" +
     "\n" +
     "\n" +

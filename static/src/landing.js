@@ -113,7 +113,7 @@ angular.module('landing', [
 
             // can't install it, so let's tweet it.
             if (browser == 'unsupported') {
-                var tweetUrl = "https://twitter.com/intent/tweet?url=http://unpaywall.org&text=Check out the free Unpaywall browser extension%3A it instantly unlocks free, legal versions of paywalled research papers. %23openaccess"
+                var tweetUrl = "https://twitter.com/intent/tweet?url=http://unpaywall.org&text=The free Unpaywall browser extension instantly unlocks free, legal versions of paywalled research papers:"
                 window.location = tweetUrl
             }
 

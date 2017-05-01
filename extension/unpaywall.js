@@ -23,7 +23,9 @@ var doi
 var docAsStr = document.documentElement.innerHTML;
 
 
-
+var gsFailDois = [
+    "10.1016/j.tcb.2014.11.005"
+]
 
 
 
@@ -78,23 +80,6 @@ function makeAllSources(){
     })
 }
 
-function sourcesAreAllComplete(){
-    var numSources = allSources.length
-    if (!numSources){
-        return false
-    }
-    return numSourcesComplete() === numSources
-}
-
-function numSourcesComplete(){
-    var numCompleteSources = 0
-    allSources.forEach(function(source){
-        if (source.results.isComplete){
-            numCompleteSources += 1
-        }
-    })
-    return numCompleteSources
-}
 
 function numSourcesStarted(){
     var ret = 0
@@ -224,6 +209,11 @@ function runGoogleScholar(resultObj){
         resultObj.isComplete = true
         return
     }
+    if (gsFailDois.includes(doi)){
+        resultObj.isComplete = true
+        console.log("GS manual override")
+        return
+    }
 
     var cacheUrlBase = "https://api.oadoi.org/gs/cache"
     var addToCache = function(landingPageUrl, fulltextUrl){
@@ -294,6 +284,7 @@ function runOadoi(resultObj){
         resultObj.isComplete = true
         devLog("oaDOI returned", data)
         var resp = data.results[0]
+        resultObj.reported_noncompliant_copies = resp.reported_noncompliant_copies
         if (resp.oa_color){
             resultObj.color = resp.oa_color  // green or gold
             resultObj.url = resp.free_fulltext_url
@@ -334,16 +325,38 @@ function getBlueUrl(){
 }
 
 function getGreenUrl(){
-    // we prefer oaDOI results, so use that instead of GS if we have 'em.
+
+    var greenUrl
     var oadoiSource = getSource("oadoi")
+    var googleScholarSource = getSource("googleScholar")
+
+    // we prefer oaDOI results, check that first.
     if (oadoiSource.results.color == "green") {
-        return oadoiSource.results.url
+        greenUrl = oadoiSource.results.url
     }
 
-    var googleScholarSource = getSource("googleScholar")
-    if (googleScholarSource.results.color == "green") {
-        return googleScholarSource.results.url
+    // no oaDOI result, let's check GS
+    else if (googleScholarSource.results.color == "green") {
+        greenUrl = googleScholarSource.results.url
     }
+
+
+    if (!greenUrl){
+        return null
+    }
+
+    // oaDOI will also let us know if there is a URL we shouldn't use
+    // because of reported copyright issues. now that we've got the
+    // best URL, let's make sure it's ok to return.
+    oadoiSource.results.reported_noncompliant_copies.forEach(function(badUrl){
+
+        // check for "contains" rather than "equal" because the URL isn't always exact.
+        if (greenUrl.toLowerCase().indexOf(badUrl.toLowerCase()) > -1){
+            greenUrl = null
+        }
+    })
+
+    return greenUrl
 }
 
 

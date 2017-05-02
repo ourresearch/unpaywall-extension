@@ -1,0 +1,1 @@
+zip -d filename.zip __MACOSX/\*

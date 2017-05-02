@@ -17,7 +17,9 @@ $(".button")
             "couldn't find any legal open-access version of this article.");
         }
         else {
-            window.open(url)
+            // send a message to the extension, so it can open this url
+            // in a new tab
+            browser.runtime.sendMessage({"upUrl": url});
         }
     })
 

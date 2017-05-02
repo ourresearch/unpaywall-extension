@@ -1,4 +1,3 @@
-var devMode = true;
 var ignoreCache = false;
 //ignoreCache = true
 
@@ -8,7 +7,7 @@ if (chrome){
 }
 
 var devLog = function(str, obj){
-    if (devMode){
+    if (settings && settings.showOaColor){
         console.log("unpaywall: " + str, obj)
     }
 }
@@ -26,7 +25,6 @@ var docAsStr = document.documentElement.innerHTML;
 var gsFailDois = [
     "10.1016/j.tcb.2014.11.005"
 ]
-
 
 
 

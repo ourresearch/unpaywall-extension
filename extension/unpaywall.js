@@ -23,7 +23,8 @@ var docAsStr = document.documentElement.innerHTML;
 
 
 var gsFailDois = [
-    "10.1016/j.tcb.2014.11.005"
+    "10.1016/j.tcb.2014.11.005",
+    "10.1038/pcan.2016.56"
 ]
 
 

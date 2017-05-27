@@ -313,8 +313,16 @@ function getGoldUrl(){
 
 function getBlueUrl(){
     var source = getSource("pdfLink")
+
+    // first check to see if we've got the PDF from this page
     if (source.results.color == "blue") {
         return source.results.url
+    }
+
+    // then check oaDOI results
+    var oadoiSource = getSource("oadoi")
+    if (oadoiSource.results.color == "blue"){
+        return oadoiSource.results.url
     }
 }
 
@@ -584,7 +592,8 @@ function findPdfUrl(){
         }
     })
 
-    // todo look in <link> tags as well
+    // there are also some links to PDFs in the HTML <head>, in tags
+    // called <link> (not hyperlinks, <link> tags).
 
 
     // look in the markup itself. most of these will be pretty narrowly scoped

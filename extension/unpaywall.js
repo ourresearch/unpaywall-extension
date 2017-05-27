@@ -293,11 +293,6 @@ function runOadoi(resultObj){
 }
 
 
-function resolvesToCurrentHost(url){
-    var currentUrl = new URL(window.location)
-    var oadoiUrl = new URL(url)
-    return currentUrl.hostname === oadoiUrl.hostname
-}
 
 function getSource(sourceName){
     var ret
@@ -575,15 +570,7 @@ function findDoi(){
 
 function findPdfUrl(){
 
-    // todo massively improve PDF link detection.
-    // step one: bring in all the code from
-    // https://github.com/Impactstory/articlepage/blob/master/article_page.py
-    // as this is well tested and gets oodles of instances.
-    //
-    // step two is bring in code from zotero translators
-    //
-    // for now though this will get enough to be interesting, as the <meta>
-    // approach is the most common one from publishers.
+    // later: massively improve PDF link detection.
 
     var pdfUrl;
 
@@ -605,6 +592,8 @@ function findPdfUrl(){
 
     var $links = $("a")
     $links.each(function(i, link){
+        // iterate through all the links. returning False stops the loop.
+
         var $link = $(link)
 
         // http://www.nature.com/nature/journal/v536/n7617/full/nature19106.html
@@ -638,7 +627,7 @@ function findPdfUrl(){
         }
 
         //  The Journal of Clinical Endocrinology & Metabolism
-        if (myHost == "http://press.endocrine.org/") {
+        if (myHost == "http://press.endocrine.org") {
             // not sure if we should handle this one or not. it's on an old version of
             // their website
 
@@ -653,6 +642,15 @@ function findPdfUrl(){
             }
         }
 
+        // ScienceDirect
+        if (myHost == "www.sciencedirect.com"){
+            // open: http://www.sciencedirect.com/science/article/pii/S0360131517300726
+            if (link.getAttribute("pdfurl")){
+                pdfUrl = link.getAttribute("pdfurl")
+                return false
+            }
+
+        }
 
 
     })

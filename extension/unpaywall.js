@@ -505,7 +505,7 @@ function findDoiFromMetaTags(){
 }
 
 
-// sniff DOIs from the altmetric.com widget and CrossMark widget.
+// sniff DOIs from the altmetric.com widget.
 function findDoiFromDataDoiAttributes(){
 
     var dataDoiValues =  $("*[data-doi]").map(function(){
@@ -522,14 +522,30 @@ function findDoiFromDataDoiAttributes(){
     }
 }
 
-// ScienceDirect has their own wacky format where the DOI is only
-// defined in a JS variable. There are lots of ScienceDirect articles,
-// so handle these specially.
-// eg: http://www.sciencedirect.com/science/article/pii/S1751157709000881
+// ScienceDirect
+// eg: http://www.sciencedirect.com/science/article/pii/S1751157709000881 (green)
+// eg: http://www.sciencedirect.com/science/article/pii/S0742051X16306692
 function findDoiFromScienceDirect() {
-    // run on all pages, since there are several sciencedirect hosts, and
-    // the regex is safe against firing other places.
-    return runRegexOnDoc(/SDM.doi\s*=\s*'([^']+)'/)
+    if (myHost.indexOf("sciencedirect") < 0) {
+        return
+    }
+    var doi
+
+    // the old version of ScienceDirect requires a hack to read DOI from js var
+    doi = runRegexOnDoc(/SDM.doi\s*=\s*'([^']+)'/)
+    if (doi) {
+        return doi
+    }
+
+    // the new React-based version of ScienceDirect pages
+    var doiLinkElem = $("a[class='doi']")
+    if (doiLinkElem.length){
+        var m = doiLinkElem[0].innerHTML.match(/doi\.org\/(.+)/)
+        if (m && m.length > 1){
+            return m[1]
+        }
+    }
+
 }
 
 function findDoiFromIeee(){
@@ -538,7 +554,7 @@ function findDoiFromIeee(){
     return runRegexOnDoc(/"doi":"([^"]+)"/, "ieeexplore.ieee.org")
 }
 
-function findDoiFromNber(){
+function findDoiFromNumber(){
     // green:   http://www.nber.org/papers/w23298.pdf
     return runRegexOnDoc(/Document Object Identifier \(DOI\): (10.*?)<\/p>/, "www.nber.org")
 }
@@ -562,7 +578,7 @@ function findDoi(){
         findDoiFromDataDoiAttributes,
         findDoiFromScienceDirect,
         findDoiFromIeee,
-        findDoiFromNber,
+        findDoiFromNumber,
         findDoiFromPsycnet
     ]
 

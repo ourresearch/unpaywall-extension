@@ -155,7 +155,7 @@ function runPdfLink(resultObj){
     checkForPdf(pdfUrl).then(function(){
         resultObj.isComplete = true
         resultObj.url = pdfUrl
-        resultObj.color = "blue"
+        resultObj.color = "bronze"
         devLog("PDF check done. success! PDF link:", pdfUrl)
 
     }, function(err){
@@ -311,17 +311,17 @@ function getGoldUrl(){
     }
 }
 
-function getBlueUrl(){
+function getBronzeUrl(){
     var source = getSource("pdfLink")
 
     // first check to see if we've got the PDF from this page
-    if (source.results.color == "blue") {
+    if (source.results.color == "bronze") {
         return source.results.url
     }
 
     // then check oaDOI results
     var oadoiSource = getSource("oadoi")
-    if (oadoiSource.results.color == "blue"){
+    if (oadoiSource.results.color == "bronze"){
         return oadoiSource.results.url
     }
 }
@@ -371,8 +371,8 @@ function decideTabColor(){
     if (getGoldUrl()){
         color = "gold"
     }
-    else if (getBlueUrl()){
-        color = "blue"
+    else if (getBronzeUrl()){
+        color = "bronze"
     }
     else if (getGreenUrl()){
         color = "green"
@@ -405,9 +405,9 @@ function getFulltextUrl(){
     var newLoc
 
     // this is in a different order than decideTabColor(). that's on
-    // purpose. the blue link on a gold oa article is always the best one.
-    if (getBlueUrl()){
-        newLoc = getBlueUrl()
+    // purpose. the bronze link on a gold oa article is always the best one.
+    if (getBronzeUrl()){
+        newLoc = getBronzeUrl()
     }
     else if (getGoldUrl()){
         newLoc = getGoldUrl()

@@ -112,9 +112,8 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                        <li>\n" +
     "                            <div class=\"text\">\n" +
     "                                <span class=\"color gold\">Gold tab</span> for <a\n" +
-    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA,</a>\n" +
-    "                                articles available from the publisher\n" +
-    "                                under an open license.\n" +
+    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA</a>\n" +
+    "                                articles available from a fully OA journal.\n" +
     "                                <a class=\"eg\" href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
     "                            </div>\n" +
     "                        </li>\n" +
@@ -123,19 +122,22 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                                <span class=\"color green\">Green tab</span> for <a\n" +
     "                                    href=\"https://en.wikipedia.org/wiki/Self-archiving\">Green OA</a> articles on a preprint server or\n" +
     "                                institutional repository.\n" +
-    "                                <a class=\"eg\" href=\"http://jamanetwork.com/journals/jamainternalmedicine/article-abstract/2528290\">(example)</a>\n" +
+    "                                <a class=\"eg\" href=\"https://www.nature.com/nature/journal/v542/n7642/full/nature21360.html\">(example)</a>\n" +
     "                            </div>\n" +
     "                        </li>\n" +
     "                        <li>\n" +
     "                            <div class=\"text\">\n" +
-    "                                <span class=\"color blue\">Blue tab</span> for articles available on the current page, but lacking\n" +
-    "                                license information (often that's because you're browsing from behind the paywall).\n" +
+    "                                <span class=\"color bronze\">Bronze tab</span> for <a\n" +
+    "                                    href=\"https://peerj.com/preprints/3119v1/\">Bronze OA</a> articles free to read on the current page, but\n" +
+    "                                published in a toll-access journal.\n" +
     "                                <a class=\"eg\" href=\"http://www.pnas.org/content/105/31/11014\">(example)</a>\n" +
     "\n" +
     "                            </div>\n" +
     "                        </li>\n" +
     "                    </ul>\n" +
     "                </dd>\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "\n" +
     "\n" +

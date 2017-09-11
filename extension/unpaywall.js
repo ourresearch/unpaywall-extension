@@ -192,7 +192,7 @@ function checkGsApi(myUrl){
             var plainUrlRegex = /url=(.+?)&hl=/
             var m = plainUrlRegex.exec(fulltextLink.u)
 
-            resolve(decodeURI(m[1]))
+            resolve(decodeURIComponent(m[1]))
         }
 
         }).fail(function(){

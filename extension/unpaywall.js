@@ -1,6 +1,3 @@
-var ignoreCache = false;
-//ignoreCache = true
-
 
 if (chrome){
     browser = chrome
@@ -22,10 +19,6 @@ var doi
 var docAsStr = document.documentElement.innerHTML;
 
 
-var gsFailDois = [
-    "10.1016/j.tcb.2014.11.005",
-    "10.1038/pcan.2016.56"
-]
 
 
 
@@ -68,8 +61,7 @@ function makeSourceObj(descr) {
 
 fulltextSourceFns = [
     ["pdfLink", runPdfLink],
-    ["oadoi", runOadoi],
-    ["googleScholar", runGoogleScholar]
+    ["oadoi", runOadoi]
 ]
 
 function makeAllSources(){
@@ -91,19 +83,11 @@ function numSourcesStarted(){
 }
 
 
-function extendResultObj(resultObj, url, color){
-    resultObj.isComplete = true
-    resultObj.url = url
-    resultObj.color = color
-    return resultObj
-}
-
-
 
 
 function getSearchResults(){
 
-    // start search step one
+    // start searches
     if (numSourcesStarted() === 0){
         makeAllSources()
 
@@ -111,29 +95,14 @@ function getSearchResults(){
         getSource("oadoi").run()
     }
 
-    // search step one is done
+    // searches are done.
     if (getSource("pdfLink").isComplete() && getSource("oadoi").isComplete()){
-
-        if (getFulltextUrl()){
-            return {
-                color: decideTabColor(),
-                url: getFulltextUrl()
-            }
-        }
-
-        // start search step two
-        if (!getSource("googleScholar").isStarted()) {
-            getSource("googleScholar").run()
-        }
-    }
-
-    // search step two is done
-    if (getSource("googleScholar").isComplete()){
         return {
             color: decideTabColor(),
             url: getFulltextUrl()
         }
     }
+
 
 }
 
@@ -166,113 +135,9 @@ function runPdfLink(resultObj){
 
 
 
-function checkGsApi(myUrl){
-    var gsUrl = "https://scholar.google.com/scholar?oi=gsb95&q=" + myUrl +  "&output=gsb&hl=en"
-    devLog("Calling GS:", gsUrl)
-
-    return new Promise(function(resolve, reject){
-        //reject("rate-limit")
-
-        $.getJSON(gsUrl, {}).done(function(resp){
-        devLog("got data back from GS:", resp)
-        if (!resp.r || !resp.r.length) {
-            devLog("rate-limited GS.")
-            reject("rate-limit")
-            return false
-        }
-
-        var fulltextLink = resp.r[0].l.g
-        if (!fulltextLink){
-            reject()
-            return false
-        }
-
-        if (fulltextLink.l.indexOf("[PDF]") > -1) {
-
-            var plainUrlRegex = /url=(.+?)&hl=/
-            var m = plainUrlRegex.exec(fulltextLink.u)
-
-            resolve(decodeURIComponent(m[1]))
-        }
-
-        }).fail(function(){
-            reject()
-        })
-    })
-}
 
 
 
-function runGoogleScholar(resultObj){
-    if (settings.bestPracticeReposOnly){
-        resultObj.isComplete = true
-        return
-    }
-    if (gsFailDois.includes(doi)){
-        resultObj.isComplete = true
-        console.log("GS manual override")
-        return
-    }
-
-    var cacheUrlBase = "https://api.oadoi.org/gs/cache"
-    var addToCache = function(landingPageUrl, fulltextUrl){
-        var data = {
-            doi: doi,
-            landing_page_url: landingPageUrl,
-            fulltext_url:fulltextUrl
-        }
-        devLog("posting this to cache", data)
-        $.ajax({
-          url:cacheUrlBase,
-          type:"POST",
-          data: JSON.stringify(data),
-          contentType:"application/json; charset=utf-8",
-          dataType:"json",
-          success: function(){
-              devLog("posted to the cache", data)
-          }
-        })
-    }
-
-    var cacheGetUrl = cacheUrlBase + "/" + doi
-    if (ignoreCache){
-        cacheGetUrl += "thiswillmakethecachecall404"
-    }
-
-    // first we try to get a cached GS result.
-    $.getJSON(cacheGetUrl, {}).done(function(resp){
-        devLog("found a cached GS result!", resp.fulltext_url)
-        if (ignoreCache){ // useful for development.
-            return false
-        }
-        if (resp.fulltext_url){
-            extendResultObj(resultObj, resp.fulltext_url, "green")
-        }
-        else {
-            extendResultObj(resultObj)
-        }
-
-    }).fail(function(){
-        // the cache call returned a 404, so this DOI isn't cached yet.
-        // so, now let's the GS API.
-
-        checkGsApi(window.location.href).then(function(gsFulltextUrl){
-            // success from GS
-
-            extendResultObj(resultObj, gsFulltextUrl, "green")
-            addToCache(window.location.href, gsFulltextUrl)
-
-        }, function(err){
-            // no luck on GS
-
-            extendResultObj(resultObj, null, null)
-            if (err != "rate-limit"){
-                addToCache(window.location.href, null)
-            }
-        })
-
-    })
-}
 
 function runOadoi(resultObj){
     var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
@@ -330,18 +195,9 @@ function getGreenUrl(){
 
     var greenUrl
     var oadoiSource = getSource("oadoi")
-    var googleScholarSource = getSource("googleScholar")
-
-    // we prefer oaDOI results, check that first.
     if (oadoiSource.results.color == "green") {
         greenUrl = oadoiSource.results.url
     }
-
-    // no oaDOI result, let's check GS
-    else if (googleScholarSource.results.color == "green") {
-        greenUrl = googleScholarSource.results.url
-    }
-
 
     if (!greenUrl){
         return null
@@ -812,15 +668,6 @@ function reportInstallation(){
     }
 }
 
-//function loadSettings(){
-//    browser.storage.local.get({
-//        showOaColor: false
-//    }, function(items) {
-//        devLog("retrieved settings", items)
-//        settings.showOaColor = items.showOaColor;
-//        settings.bestPracticeReposOnly = items.bestPracticeReposOnly
-//    });
-//}
 
 
 
@@ -865,7 +712,7 @@ function run() {
 }
 
 function runWithSettings(){
-    browser.storage.local.get(null, function(items){
+    browser.storage.local.get(null, function(items){k
         settings = items
         devLog("got settings", settings)
         run()

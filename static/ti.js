@@ -788,7 +788,7 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "            you've got Unpaywall, it's free!\n" +
     "            -->\n" +
     "\n" +
-    "            You'll see our green tab on 65-85% of articles\n" +
+    "            You'll see our green tab on about half of articles\n" +
     "            (if we can't find fulltext, you'll see a\n" +
     "            <span class=\"tab-color gray\">gray tab</span>\n" +
     "\n" +
@@ -802,6 +802,10 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "        <p class=\"ps\">\n" +
     "            PS for the Open Access nerds: the Unpaywall tab\n" +
     "            can change colors to indicate Green or Gold OA, too. Enable it in settings.\n" +
+    "            You might also enjoy\n" +
+    "            <a href=\"https://peerj.com/preprints/3119v1/\">our recent paper</a>\n" +
+    "            analyzing trends in OA and the coverage\n" +
+    "            of Unpaywall.\n" +
     "        </p>\n" +
     "\n" +
     "\n" +

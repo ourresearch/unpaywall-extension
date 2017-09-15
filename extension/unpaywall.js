@@ -712,7 +712,7 @@ function run() {
 }
 
 function runWithSettings(){
-    browser.storage.local.get(null, function(items){k
+    browser.storage.local.get(null, function(items){
         settings = items
         devLog("got settings", settings)
         run()

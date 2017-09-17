@@ -569,12 +569,31 @@ function checkForPdf(pdfUrl){
 
 
 function pageSaysPdfIsFree(){
-    // check the page markup to see if this PDF looks free to download.
-    // add more checks later...for now just IEEE
-    // gold: http://ieeexplore.ieee.org/document/7169508/
-    // not gold: http://ieeexplore.ieee.org/document/6512846/
-    return !!runRegexOnDoc(/"(isOpenAccess":true,)/, "ieeexplore.ieee.org")
+    // We don't always need to try to download the PDF to make sure it's free.
+    // Sometimes we can infer it from page characteristics.
+    // Here's where we put all those rules.
 
+    var tests = [
+        function(){
+            // gold: http://ieeexplore.ieee.org/document/7169508/
+            // not gold: http://ieeexplore.ieee.org/document/6512846/
+            return !!runRegexOnDoc(/"(isOpenAccess":true,)/, "ieeexplore.ieee.org")
+        },
+        function(){
+            // this whole journal should be gold, but our PDF download tests fails
+            // because of mixed http and https hosting.
+
+            // gold: https://jlsc-pub.org/articles/abstract/10.7710/2162-3309.2190/
+            return !!runRegexOnDoc(/(citation_pdf_url)/, "jlsc-pub.org")
+        }
+    ]
+
+
+    var anyTestsPass = tests.some(function(myTest){
+        return myTest()
+    })
+
+    return anyTestsPass
 }
 
 

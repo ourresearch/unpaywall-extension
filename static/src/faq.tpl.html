@@ -6,6 +6,7 @@
             <h1>Frequently asked questions</h1>
             <dl>
 
+                <!--
                 <dt id="who-is-behind-this"><i class="fa fa-chevron-right"></i>Who's behind Unpaywall?</dt>
                 <dd>
                     We're <a href="http://impactstory.org/about">Impactstory,</a>
@@ -14,27 +15,18 @@
                     the National Science Foundation and the Alfred P. Sloan Foundation
             </span>
                 </dd>
-
-                <dt id="why-did-you-make-it"><i class="fa fa-chevron-right"></i>Why did you make it?</dt>
-                <dd>
-                    Now more than ever, humanity needs to <i>access</i> our collective knowledge,
-                    not hoard it behind paywalls. Lots of researchers feel the same; that's why they
-                    upload their papers to free, legal servers online. We want to help bring that
-                    <a href="https://en.wikipedia.org/wiki/Open_access">open access</a> content
-                    to the masses.
-
-                </dd>
+                -->
 
 
                 <dt id="how-often-finds-fulltext"><i class="fa fa-chevron-right"></i>How often does Unpaywall find full text?</dt>
                 <dd>
-                    We find fulltext for 50-85% of articles, depending on their topic and year of publication.
-                    We think that's a game-changer for
-                    the publishing industry. Now that most articles are free, why subscribe?
+                    Overall, Unpaywall users find fulltext for 47% of articles. You may get different results,
+                    depending on the age and topic of the articles you're reading. There's more information
+                    on how we found these numbers in
+                    <a href="https://peerj.com/preprints/3119v1/">this paper.</a>
 
-                    Over the longer term, we'll keep
-                    getting even better as
-                    mandatory open access requirements begin to take effect in the
+                    This success rate will improve as we tweak our algorithm and as
+                    mandatory open access requirements take effect in the
                     <a href="http://scholcomm.columbia.edu/open-access/public-access-mandates-for-federally-funded-research/">US,</a>
                     <a href="http://www.rcuk.ac.uk/research/openaccess/">UK,</a>
                     <a href="http://www.sciencemag.org/news/2016/05/dramatic-statement-european-leaders-call-immediate-open-access-all-scientific-papers/">Europe,</a>
@@ -43,45 +35,21 @@
 
                 <dt id="how-do-you-find-articles"><i class="fa fa-chevron-right"></i>How do you find all these fulltext articles?</dt>
                 <dd>
-                    We gather content from thousands of open-access repositories worldwide.
-                    To help us, we rely on a number of data sources, including
+                    We harvest content directly from thousands of open-access repositories worldwide.
+                    We also use great open data from
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/">PubMed Central</a>,
                     <a href="https://doaj.org/">the DOAJ,</a>
-                    <a href="https://www.crossref.org/">Crossref</a> (particulary their license info),
-                    <a href="https://www.datacite.org/">DataCite,</a>
-                    <a href="http://scholar.google.com">Google Scholar,</a>
-                    and <a href="https://www.base-search.net/">BASE.</a>
-
-                    After we put all this data together, we in turn make it open for reuse via the
-                    <a href="http://oadoi.org/about">oaDOI</a> API: a free, fast, and very scalable
-                    way to leverage our data and infrastructure to support your own projects.
+                    <a href="https://www.crossref.org/">Crossref</a> (particulary their license info), and
+                    <a href="https://www.datacite.org/">DataCite.</a>
                 </dd>
 
-                <dt id="different-from-sci-hub"><i class="fa fa-chevron-right"></i>How's this different from Sci-Hub?</dt>
+                <dt id="api"><i class="fa fa-chevron-right"></i>Does Unpaywall have an API?</dt>
                 <dd>
-                    Like Unpaywall, Sci-Hub finds fulltext PDFs for paywalled articles. The main difference
-                    is where those PDFs come from: Unpaywall finds PDFs legally uploaded
-                    by the authors themselves, while
-                    Sci-Hub uses PDFs that are obtained by other means, including automated web scraping
-                    of publisher sites. Sci-Hub's method delivers more comprehensive results,
-                    but is not super legal. So while
-                    <a href="http://blog.impactstory.org/comparing-sci-hub-oadoi/">we're not against Sci-Hub,</a>
-                    we think Unpaywall offers a more sustainable approach by working within copyright law
-                    and supporting the growing open access movement.
+                    Yes! We make all of Unpaywall's data available via the <a href="http://oadoi.org/about">oaDOI API.</a>
+                    The oaDOI service is currently used to enrich hundreds of academic libraries, search engines,
+                    indexing services, and other tools; it's also used in many research and evaluation projects.
                 </dd>
 
-                <dt id="different-from-oa-button"><i class="fa fa-chevron-right"></i>How's this different from the Open Access Button?</dt>
-                <dd>
-                    The <a href="https://openaccessbutton.org/">OA Button</a> and Unpaywall are similar. But the
-                    OA Button is a more mature project
-                    (it's been working since 2013), and has a different user interface as well as
-                    extra features including author emailing and
-                    finding open datasets.
-                    Unpaywall is more focused on seamlessly finding free content. The great thing is, both are open-source
-                    and free, so you can install both, or
-                    <a href="https://guides.github.com/activities/forking/">fork 'em</a>
-                    and make your own better extension!
-                </dd>
 
 
                 <dt id="privacy-policy"><i class="fa fa-chevron-right"></i>What's your privacy policy?</dt>
@@ -139,14 +107,8 @@
 
                 <dt id="report-bugs"><i class="fa fa-chevron-right"></i>I found a bug</dt>
                 <dd>
-                    Sorry about that! Unfortunately this is pretty common, especially where publishers
-                    don't follow standard practices for article display (as they often do not).
-                    For instance, we don't work for articles missing
-                    <a href="http://www.apastyle.org/learn/faqs/what-is-doi.aspx">DOIs.</a>
-
-                    The good news is that it's still early days for this project and
-                    it's under very active development. When you find an error,
-                    <a href="mailto:team@impactstory.org">drop us an email</a> and we'll get it fixed for you.
+                    Sorry about that!
+                    <a href="mailto:team@impactstory.org">Drop us an email</a> and we'll get it fixed for you.
                 </dd>
 
             </dl>

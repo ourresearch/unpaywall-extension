@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900,400italic');
 @import "animate.css";
+html {
+  background: #fff;
+}
 body {
   margin: 0;
+  background: #fff;
 }
 body a {
   text-decoration: none;
@@ -19,16 +23,10 @@ body .main-view {
   color: #fff;
   margin: 0;
   padding: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 9;
-  background-image: linear-gradient(135deg, #20e168, #2196F3);
+  background: #fff;
 }
 .ti-page-header.landing-page {
-  background: none;
-  background-image: none;
+  background: transparent;
 }
 .ti-page-header.landing-page a.home {
   display: none;
@@ -40,11 +38,12 @@ body .main-view {
   padding: 10px;
 }
 .ti-page-header .navbar a {
-  color: #fff;
+  color: #999;
   font-size: 16px;
-  padding: 10px 20px;
+  padding: 5px 20px;
 }
 .page {
+  width: 100%;
   flex: 1;
 }
 .page h1 {
@@ -114,73 +113,54 @@ body .main-view {
   margin-top: 50px;
   font-size: 80%;
 }
-div.page.landing .screen {
+div.page.landing {
   backgound: #fff;
-}
-div.page.landing .screen .content {
-  padding-left: 10px;
-  padding-right: 10px;
-  max-width: 900px;
   margin: 0 auto;
-  font-size: 20px;
-  line-height: 1.4;
-}
-div.page.landing .screen .content h2 {
-  font-weight: 300;
-  text-align: center;
-  font-size: 40px;
-  color: #20e168;
 }
 div.page.landing .screen.top-screen {
-  height: 100vh;
-  background-image: linear-gradient(135deg, #20e168, #2196F3);
+  background: #fff;
+}
+div.page.landing .screen.top-screen .top-screen-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  margin-top: 50px;
 }
-div.page.landing .screen.top-screen .main-img {
-  margin-right: 50px;
-}
-@media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen .main-img {
-    display: none;
+@media only screen and (max-width: 992px) {
+  div.page.landing .screen.top-screen .top-screen-content {
+    margin-top: 0;
+    flex-wrap: wrap;
   }
 }
-@media only screen and (min-width: 600px) and (max-width: 959px) {
-  div.page.landing .screen.top-screen .main-img {
-    display: none;
-  }
+div.page.landing .screen.top-screen .top-screen-content img.screenshot {
+  max-width: 670px;
+  width: 100%;
+  height: 100%;
 }
-@media only screen and (min-width: 600px) and (max-width: 959px) {
-  div.page.landing .screen.top-screen .main-img img {
-    width: 400px;
-  }
-}
-div.page.landing .screen.top-screen .main-copy {
-  max-width: 400px;
-  padding: 10px;
-  margin-top: -10px;
+div.page.landing .screen.top-screen .top-screen-content .main-copy {
   font-size: 24px;
+  margin: -10px 80px 0 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen .main-copy {
-    margin-top: 20px;
+  div.page.landing .screen.top-screen .top-screen-content .main-copy {
+    margin: 20px;
     font-size: 18px;
   }
 }
-div.page.landing .screen.top-screen .main-copy div.tagline {
+div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline {
   font-weight: 300;
-  font-size: 200%;
-  color: #fff;
+  font-size: 210%;
+  color: #333;
 }
 @media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen .main-copy div.tagline {
+  div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline {
     font-size: 30px;
     line-height: 1.3;
+    font-weight: bold;
   }
 }
-div.page.landing .screen.top-screen .main-copy div.tagline .above .tab-word {
+div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline .above .tab-word {
   display: inline-block;
   border-radius: 40px 0 0 40px;
   padding: 0 0 0 .35em;
@@ -188,76 +168,102 @@ div.page.landing .screen.top-screen .main-copy div.tagline .above .tab-word {
   vertical-align: 2px;
   border: 2px solid #fff;
 }
-div.page.landing .screen.top-screen .main-copy div.tagline .under {
+div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline .under {
   white-space: nowrap;
 }
-div.page.landing .screen.top-screen .main-copy div.about {
-  color: #fff;
-  margin-top: 30px;
-  margin-bottom: 80px;
+div.page.landing .screen.top-screen .top-screen-content .main-copy div.about {
+  margin: 30px 0;
+  font-size: 80%;
 }
-div.page.landing .screen.top-screen .main-copy .cta {
-  margin-left: -10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+div.page.landing .screen.top-screen .top-screen-content .main-copy div.about .button-info {
+  color: darkred;
+  border-left: 3px solid darkred;
+  padding-left: 20px;
+  max-width: 400px;
 }
-div.page.landing .screen.top-screen .main-copy .cta .button-info {
-  color: #FFEE58;
-  color: #FFF59D;
-  text-align: center;
-  padding-bottom: 10px;
-  font-size: 16px;
-}
-div.page.landing .screen.top-screen .main-copy .cta .install {
+div.page.landing .screen.top-screen .top-screen-content .main-copy .cta .install {
   cursor: pointer;
-  font-size: 20px;
-  padding: 24px 40px;
-  border-radius: 50px;
-  background: #FFEE58;
-  color: #333;
+  display: inline-block;
+  font-size: 18px;
+  padding: 28px 45px;
+  border-radius: 10px;
+  background: #20e168;
+  color: #fff;
+  font-weight: bold;
   transition: all 0.15s ease;
 }
-div.page.landing .screen.top-screen .main-copy .cta .install:hover {
+div.page.landing .screen.top-screen .top-screen-content .main-copy .cta .install:hover {
   transform: scale(1.03125);
 }
-div.page.landing .screen.top-screen .main-copy .cta .install .small {
+div.page.landing .screen.top-screen .top-screen-content .main-copy .cta .install .small {
   font-size: 66%;
-  margin-top: 3px;
   display: block;
   text-align: center;
 }
 @media only screen and (max-width: 600px) {
-  div.page.landing .screen.top-screen .main-copy .cta .install {
+  div.page.landing .screen.top-screen .top-screen-content .main-copy .cta .install {
     padding: 14px 20px;
     font-size: 16px;
   }
 }
-div.page.landing .screen div.more {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 0 10px;
+div.page.landing .screen.top-screen .top-screen-content .main-copy .about-users {
   font-size: 14px;
+  color: #777;
+  margin-top: 50px;
+  padding: 0 0 0 20px;
+  border-left: 3px solid #20e168;
+  line-height: 1.5;
+  font-weight: 300;
 }
-div.page.landing .screen div.more .links a {
-  color: #fff;
-  padding: 10px;
+div.page.landing .screen.top-screen .top-screen-content .main-copy .about-users .rating .stars {
+  font-size: 90%;
+  color: #e5c100;
+  color: gold;
 }
-div.page.landing .screen div.more .spacer {
-  width: 50px;
+div.page.landing .screen.top-screen .top-screen-content .main-copy .about-users .num-users .num {
+  font-weight: bold;
+  color: #333;
 }
-div.page.landing .screen div.more div.by {
-  color: #fff;
-  padding: 10px;
+div.page.landing div.more {
+  display: flex;
+  justify-content: center;
+  color: #20e168;
+  font-size: 22px;
 }
-div.page.landing .screen div.more div.by a {
-  color: #fff;
+div.page.landing div.social-proof {
+  margin-top: 50px;
+  background: #eee;
+  text-align: center;
+}
+div.page.landing div.social-proof .quote {
+  padding: 50px 0 20px;
+}
+div.page.landing div.social-proof .quote .content {
+  font-weight: 300;
+  font-size: 40px;
+}
+div.page.landing div.social-proof .quote .attribution {
+  font-size: 14px;
+  color: #999;
+  margin-top: 10px;
+}
+div.page.landing div.social-proof .logos {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+div.page.landing div.social-proof .logos img {
+  height: 23px;
+  margin: 50px 50px;
+  opacity: .3;
+}
+div.page.landing div.social-proof .logos img.gizmodo {
+  height: 15px;
+}
+div.page.landing div.social-proof .logos img.chronicle {
+  height: 30px;
 }
 #faq {
   padding-top: 50px;
@@ -319,9 +325,8 @@ div.page.landing .screen div.more div.by a {
   font-size: 14px;
 }
 div.footer {
-  background-image: linear-gradient(135deg, #20e168, #2196F3);
+  background: #20e168;
   padding: 50px 20px;
-  margin-top: 150px;
   color: #fff;
 }
 div.footer .content {
@@ -335,12 +340,12 @@ div.footer .content a:hover {
   text-decoration: underline;
 }
 div.footer .content .links {
-  font-size: 18px;
+  font-size: 26px;
   text-align: right;
   margin-bottom: 50px;
 }
 div.footer .content .links a {
-  margin: 0 30px 0 0;
+  margin: 0 20px 0 0;
   display: block;
   float: left;
   padding-bottom: 10px;
@@ -357,7 +362,7 @@ div.footer .content .logo img {
   width: 28px;
 }
 div.footer .content .credit {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
   text-align: right;
 }

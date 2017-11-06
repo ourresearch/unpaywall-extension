@@ -1,86 +1,94 @@
+<div class="ti-page-header landing-page" ng-include="'header.tpl.html'"></div>
 <div class="page landing">
-    <div class="ti-page-header landing-page" ng-include="'header.tpl.html'"></div>
     <div class="top-screen screen">
 
 
-        <div class="main-copy">
-            <div class="tagline">
-                <div class="above">
-                    Read paywalled research papers for free.
+        <div class="top-screen-content">
+            <img class="screenshot" src="static/img/browser-frame.png" alt="">
+
+            <div class="main-copy">
+                <div class="tagline">
+                    <div class="above">
+                        Read paywalled research papers for free.
+                    </div>
                 </div>
+                <div class="about">
+                    <p>
+                        Click the green tab and skip the paywall.
+                        It's fast, free, and legal.
+                    </p>
+                    <p class="button-info" ng-show="browser=='unsupported'">
+                        Unpaywall requires the desktop edition of Firefox or Chrome.
+                    </p>
+                </div>
+
+                <div class="cta">
+                    <div class="install" ng-click="ctaClick()">
+                        <span class="chrome" ng-show="browser=='chrome'">
+                            Add to Chrome - It's free
+                        </span>
+                        <span class="firefox" ng-show="browser=='firefox'">
+                            Add to Firefox - It's free
+                            <span class="small">via the Firefox web store</span>
+                        </span>
+                        <span class="fallback" ng-show="browser=='unsupported'">
+                            <i class="fa fa-envelope-o"></i>
+                            Send myself a reminder to install later
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="about-users">
+                    <div class="rating">
+                        <span class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </span>
+                        <span class="light">five-star rating on Chrome Web Store</span>
+                    </div>
+                    <div class="num-users">
+                        <span class="num">
+                            108,466
+                        </span>
+                        <span class="light">users on Chrome and Firefox have read millions of articles for free.</span>
+                    </div>
+                </div>
+
             </div>
-            <div class="about">
-                Click the green tab and skip the paywall.
-                It's fast, free, and legal, powered by
-                our database of millions of author-uploaded PDFs.
-            </div>
-
-            <div class="cta">
-
-                <div class="button-info" ng-show="browser=='unsupported'">
-                    Unpaywall works with Firefox or Chrome on
-                    your desktop computer.
-                    Click below to send yourself a reminder to install
-                    Unpaywall later:
-                </div>
-
-                <div class="button-info" ng-show="browser != 'unsupported'">
-                    Free for Chrome and Firefox
-                </div>
-
-                <div class="install" ng-click="ctaClick()">
-                    <span class="chrome" ng-show="browser=='chrome'">
-                        <i class="fa fa-plus"></i>
-                        Add Unpaywall to Chrome
-                    </span>
-                    <span class="firefox" ng-show="browser=='firefox'">
-                        <i class="fa fa-plus"></i>
-                        Add Unpaywall to Firefox
-                        <span class="small">on the Firefox web store</span>
-                    </span>
-                    <span class="fallback" ng-show="browser=='unsupported'">
-                        <i class="fa fa-envelope-o"></i>
-                        Send myself a reminder
-                    </span>
-                </div>
-            </div>
-
 
         </div>
-
-        <div class="main-img">
-            <img src="static/img/screenshot.png" alt="">
-        </div>
-
-
-
-
-        <!-- use this special landing-page-only footer -->
         <div class="more">
-            <div class="links">
-                <a href="mailto:team@impactstory.org">
-                    <i class="fa fa-envelope-o"></i>
-                    Email
-                </a>
-                <a href="http://twitter.com/unpaywall">
-                    <i class="fa fa-twitter"></i>
-                    Twitter
-                </a>
-                <a href="https://github.com/Impactstory/unpaywall">
-                    <i class="fa fa-github"></i>
-                    GitHub
-                </a>
-                <a href="/faq">
-                    <i class="fa fa-question-circle"></i>
-                    FAQ
-                </a>
-            </div>
-            <div class="spacer"></div>
-            <div class="by">
-                Made with <i class="fa fa-heart"></i> by
-                <a href="/faq#who-is-behind-this">Impactstory.</a>
+            <div class="content">
+                <i class="fa fa-chevron-down"></i>
             </div>
         </div>
+
+
+    </div> <!-- end top screen -->
+
+
+    <div class="social-proof">
+        <div class="quote">
+            <div class="content">
+                "Stop beating your head against the paywall."
+            </div>
+            <div class="attribution">
+                 &mdash;Adam Ruben, <em>Science</em>
+            </div>
+        </div>
+        
+        <div class="logos">
+            <img src="static/img/nature.png" alt="">
+            <img src="static/img/science.png" alt="">
+            <img src="static/img/techcrunch.png" alt="">
+            <img src="static/img/gizmodo.png" class="gizmodo" alt="">
+            <img src="static/img/chronicle.png" class="chronicle" alt="">
+        </div>
+        
     </div>
 
 
@@ -88,6 +96,6 @@
 
 
 </div>
-
+<div class="footer-container" ng-include="'footer.tpl.html'"></div>
 
 

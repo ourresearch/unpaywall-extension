@@ -149,8 +149,8 @@ div.page.landing .screen.top-screen .top-screen-content .main-copy {
   }
 }
 div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline {
-  font-weight: 300;
-  font-size: 210%;
+  font-weight: bold;
+  font-size: 190%;
   color: #333;
 }
 @media only screen and (max-width: 600px) {
@@ -172,8 +172,8 @@ div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline .
   white-space: nowrap;
 }
 div.page.landing .screen.top-screen .top-screen-content .main-copy div.about {
-  margin: 30px 0;
-  font-size: 80%;
+  margin: 0 0 20px;
+  font-size: 75%;
 }
 div.page.landing .screen.top-screen .top-screen-content .main-copy div.about .button-info {
   color: darkred;

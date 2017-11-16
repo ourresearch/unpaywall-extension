@@ -118,11 +118,13 @@ div.page.landing {
   margin: 0 auto;
 }
 div.page.landing .screen.top-screen {
+  background-image: linear-gradient(135deg, #dafde7, #daf2fd);
   background: #fff;
 }
 div.page.landing .screen.top-screen .top-screen-content {
   display: flex;
   margin-top: 50px;
+  max-width: 1440px;
 }
 @media only screen and (max-width: 992px) {
   div.page.landing .screen.top-screen .top-screen-content {
@@ -141,6 +143,7 @@ div.page.landing .screen.top-screen .top-screen-content .main-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 510px;
 }
 @media only screen and (max-width: 600px) {
   div.page.landing .screen.top-screen .top-screen-content .main-copy {
@@ -173,7 +176,8 @@ div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline .
 }
 div.page.landing .screen.top-screen .top-screen-content .main-copy div.about {
   margin: 0 0 20px;
-  font-size: 75%;
+  font-size: 70%;
+  line-height: 1.5;
 }
 div.page.landing .screen.top-screen .top-screen-content .main-copy div.about .button-info {
   color: darkred;
@@ -185,7 +189,7 @@ div.page.landing .screen.top-screen .top-screen-content .main-copy .cta .install
   cursor: pointer;
   display: inline-block;
   font-size: 18px;
-  padding: 28px 45px;
+  padding: 20px 30px;
   border-radius: 10px;
   background: #20e168;
   color: #fff;
@@ -264,6 +268,80 @@ div.page.landing div.social-proof .logos img.gizmodo {
 }
 div.page.landing div.social-proof .logos img.chronicle {
   height: 30px;
+}
+div.page.landing .benefit {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  justify-content: center;
+  padding: 100px 0;
+}
+div.page.landing .benefit.effective {
+  background: #eee;
+}
+@media only screen and (max-width: 600px) {
+  div.page.landing .benefit {
+    flex-wrap: wrap;
+  }
+}
+div.page.landing .benefit img.illustration {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+}
+@media only screen and (max-width: 600px) {
+  div.page.landing .benefit img.illustration {
+    max-width: 100px;
+  }
+}
+div.page.landing .benefit .copy {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 10%;
+}
+div.page.landing .testimonials-section {
+  padding: 50px 0 100px;
+}
+div.page.landing .testimonials-section .testimonials-header {
+  padding: 50px 0 20px;
+  text-align: center;
+}
+div.page.landing .testimonials-section .testimonials-header h2 {
+  font-weight: 300;
+  font-size: 25px;
+  margin: 0;
+}
+div.page.landing .testimonials-section .testimonials {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+@media only screen and (max-width: 992px) {
+  div.page.landing .testimonials-section .testimonials {
+    flex-wrap: wrap;
+  }
+}
+div.page.landing .testimonials-section .testimonials .testimonial {
+  display: flex;
+  max-width: 350px;
+  margin: 30px;
+}
+div.page.landing .testimonials-section .testimonials .testimonial img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+div.page.landing .testimonials-section .testimonials .testimonial .copy .attribution {
+  margin-top: 5px;
+  font-size: 80%;
+}
+div.page.landing .testimonials-section .testimonials .testimonial .copy .attribution div {
+  display: inline;
+}
+div.page.landing .testimonials-section .testimonials .testimonial .copy .attribution div.name {
+  font-weight: bold;
 }
 #faq {
   padding-top: 50px;

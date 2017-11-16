@@ -23,6 +23,8 @@
 
 @navbarHeight: 120px;
 
+@maxOverallWidth: 1440px;
+
 html {
   background: #fff;
 }
@@ -175,15 +177,16 @@ div.page.landing {
 
   .screen {
     &.top-screen {
-      //background-image: linear-gradient(
-      //  135deg,
-      //  @gradientTop, @gradientBottom
-      //);
+      background-image: linear-gradient(
+        135deg,
+        @gradientTop, @gradientBottom
+      );
       background: #fff;
 
       .top-screen-content {
         display: flex;
         margin-top: 50px;
+        max-width: @maxOverallWidth;
         @media @mobile {
           margin-top: 0;
           flex-wrap: wrap;
@@ -201,12 +204,14 @@ div.page.landing {
           display: flex;
           flex-direction: column;
           justify-content: center;
+          max-width: 510px;
           @media @xs {
             margin: 20px;
             font-size: 18px;
           }
           div.tagline {
             font-weight: bold;
+
             font-size: 190%;
             color: #333;
             @media @xs {
@@ -234,7 +239,8 @@ div.page.landing {
 
           div.about {
             margin: 0 0 20px;
-            font-size: 75%;
+            font-size: 70%;
+            line-height: 1.5;
             .button-info {
               color: darkred;
               border-left: 3px solid darkred;
@@ -248,7 +254,7 @@ div.page.landing {
               cursor: pointer;
               display: inline-block;
               font-size: 18px;
-              padding: 28px 45px;
+              padding: 20px 30px;
               border-radius: 10px;
 
               background: @baseColor;
@@ -342,7 +348,88 @@ div.page.landing {
     }
   }
 
+  .benefit {
+    display: flex;
+    //max-width: @maxOverallWidth;
+    border-bottom: 1px solid #ddd;
+    justify-content: center;
+    padding: 100px 0;
 
+    &.effective {
+      background: #eee;
+    }
+
+    @media @xs {
+      flex-wrap: wrap;
+    }
+
+    img.illustration {
+      width: 100%;
+      @media @xs {
+        max-width: 100px;
+      }
+      height: 100%;
+      max-width: 200px;
+    }
+
+    .copy {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      //margin: 0 auto;
+      margin: 0 10%;
+    }
+
+  }
+
+  .testimonials-section {
+    //background: #eee;
+    padding: 50px 0 100px;
+    .testimonials-header {
+      padding: 50px 0 20px;
+      h2 {
+        font-weight: 300;
+        font-size: 25px;
+        margin: 0;
+      }
+      text-align: center;
+    }
+
+    .testimonials {
+      display:flex;
+      justify-content: center;
+      padding-bottom: 50px;
+      @media @mobile {
+        flex-wrap: wrap;
+
+      }
+      .testimonial {
+        display:flex;
+        max-width: 350px;
+        margin: 30px;
+        img {
+          width: 70px;
+          height: 70px;
+          border-radius: 50px;
+          margin-right: 20px;
+        }
+        .copy {
+          .attribution {
+            //text-align: right;
+            margin-top: 5px;
+            font-size: 80%;
+            div {
+              display: inline;
+              &.name {
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 

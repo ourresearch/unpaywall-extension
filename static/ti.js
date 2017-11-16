@@ -629,12 +629,12 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"main-copy\">\n" +
     "                <div class=\"tagline\">\n" +
     "                    <div class=\"above\">\n" +
-    "                        Read paywalled research papers for free.\n" +
+    "                        Read research papers for free.\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "                <div class=\"about\">\n" +
     "                    <p>\n" +
-    "                        Click the green tab and skip the paywall.\n" +
+    "                        Click the green tab and skip the paywall on millions of peer-reviewed journal articles.\n" +
     "                        It's fast, free, and legal.\n" +
     "                    </p>\n" +
     "                    <p class=\"button-info\" ng-show=\"browser=='unsupported'\">\n" +
@@ -672,7 +672,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    </div>\n" +
     "                    <div class=\"num-users\">\n" +
     "                        <span class=\"num\">\n" +
-    "                            108,466\n" +
+    "                            116,492\n" +
     "                        </span>\n" +
     "                        <span class=\"light\">users on Chrome and Firefox have read millions of articles for free.</span>\n" +
     "                    </div>\n" +
@@ -694,10 +694,10 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "    <div class=\"social-proof\">\n" +
     "        <div class=\"quote\">\n" +
     "            <div class=\"content\">\n" +
-    "                \"Stop beating your head against the paywall.\"\n" +
+    "                \"Must-have for anyone who wants access to the research literature.\"\n" +
     "            </div>\n" +
     "            <div class=\"attribution\">\n" +
-    "                 &mdash;Adam Ruben, <em>Science</em>\n" +
+    "                 &mdash;Andrew Treloar, <em>Australian National Data Service</em>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "        \n" +
@@ -710,6 +710,73 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        </div>\n" +
     "        \n" +
     "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"benefit legal\">\n" +
+    "        <img src=\"static/img/seal-check.png\" class=\"illustration\" alt=\"\">\n" +
+    "        <div class=\"copy\">\n" +
+    "            <h2>Legal, fair, and sustainable</h2>\n" +
+    "            <p>\n" +
+    "                Millions of research papers are available for free on government and university web servers, legally  uploaded by the authors themselves, with the express permission of publishers. Often authors are legally <em>required</em> to make government-funded research freely-accessible. Unpaywall automatically harvests these freely shared papers from thousands of legal institutional repositories, preprint servers, and publishers, making them all availabe to you as you read.\n" +
+    "            </p>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"benefit effective\">\n" +
+    "        <div class=\"copy\">\n" +
+    "            <h2>Access millions of research articles, instantly</h2>\n" +
+    "            <p>\n" +
+    "                Unpaywall users are able to read over <strong>52%</strong> of research papers for free--without having to pay money, fuss with a VPN, or use pirate sites like Sci-Hub. That's because we're built on a database of millions of open-access articles harvested from thousands of servers worldwide.   When you browse to a paywalled paper, we check to see if we have a free copy. If we do, you'll see a green tab...just click, and read.\n" +
+    "            </p>\n" +
+    "\n" +
+    "        </div>\n" +
+    "        <img src=\"static/img/many-articles.png\" class=\"illustration\" alt=\"\">\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "    <div class=\"testimonials-section\">\n" +
+    "        <div class=\"testimonials-header\">\n" +
+    "            <h2>What people are saying about Unpaywall:</h2>\n" +
+    "        </div>\n" +
+    "        <div class=\"testimonials\">\n" +
+    "            <div class=\"testimonial\">\n" +
+    "                <img src=\"static/img/tom.jpg\" alt=\"\">\n" +
+    "                <div class=\"copy\">\n" +
+    "                    Yesterday I found Unpaywall, and my life changed.  I've already gotten 4 publications by clicking on the Mystical Green Padlock...Thank you, from the heart.\n" +
+    "                    <div class=\"attribution\">\n" +
+    "                        <div class=\"name\">&mdash;Tom Mueller,</div>\n" +
+    "                        <div class=\"job\">Freelance Author</div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <div class=\"testimonial\">\n" +
+    "                <img src=\"static/img/jon.jpg\" alt=\"\">\n" +
+    "                <div class=\"copy\">\n" +
+    "                    Way, way, WAY easier than having to be at a place with institutional access, using a VPN, emailing authors, using inter-library loan...\n" +
+    "                    <div class=\"attribution\">\n" +
+    "                        <div class=\"name\">&mdash;Jon Tennant,</div>\n" +
+    "                        <div class=\"job\">Paleontologist</div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <div class=\"testimonial\">\n" +
+    "                <img src=\"static/img/stacy.jpg\" alt=\"\">\n" +
+    "                <div class=\"copy\">\n" +
+    "                    Unpaywall makes it really easy to (legally!) find free versions of journal articles.\n" +
+    "                    <div class=\"attribution\">\n" +
+    "                        <div class=\"name\">&mdash;Stacy Konkiel,</div>\n" +
+    "                        <div class=\"job\">Altmetric</div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
     "\n" +
     "\n" +
     "\n" +

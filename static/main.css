@@ -243,8 +243,8 @@ div.page.landing div.social-proof .quote {
   padding: 50px 0 20px;
 }
 div.page.landing div.social-proof .quote .content {
-  font-weight: 300;
-  font-size: 40px;
+  font-weight: bold;
+  font-size: 26px;
 }
 div.page.landing div.social-proof .quote .attribution {
   font-size: 14px;
@@ -275,6 +275,10 @@ div.page.landing .benefit {
   justify-content: center;
   padding: 100px 0;
 }
+div.page.landing .benefit h2 {
+  font-size: 32px;
+  font-weight: bold;
+}
 div.page.landing .benefit.effective {
   background: #eee;
 }
@@ -294,11 +298,13 @@ div.page.landing .benefit img.illustration {
   }
 }
 div.page.landing .benefit .copy {
-  max-width: 400px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 10%;
+  font-size: 20px;
+  line-height: 1.3;
 }
 div.page.landing .testimonials-section {
   padding: 50px 0 100px;

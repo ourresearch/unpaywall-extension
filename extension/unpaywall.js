@@ -33,17 +33,19 @@ var docAsStr = document.documentElement.innerHTML;
  ************************************************************************************/
 
 
-function makeSourceObj(descr) {
+function makeSourceObj(sourceName, sourceFn) {
     var results = {
         url: undefined,
         isStarted: false,
         isComplete: false,
-        color: undefined
+        color: undefined,
+        isPublisherHosted: undefined,
+        isOaJournal: undefined
     }
 
     return {
         results: results,
-        name: descr[0],
+        name: sourceName,
         isComplete: function(){
           return results.isComplete
         },
@@ -52,23 +54,16 @@ function makeSourceObj(descr) {
         },
         run: function(){
             results.isStarted = true
-            var myFn = descr[1]
-            myFn(results)
+            sourceFn(results)
         }
     }
 }
 
 
-fulltextSourceFns = [
-    ["pdfLink", runPdfLink],
-    ["oadoi", runOadoi]
-]
 
 function makeAllSources(){
-    fulltextSourceFns.forEach(function(sourceDescription){
-        var mySourceObj = makeSourceObj(sourceDescription)
-        allSources.push(mySourceObj)
-    })
+    allSources.push(makeSourceObj("pdfLink", runPdfLink))
+    allSources.push(makeSourceObj("oadoi", runOadoi))
 }
 
 
@@ -83,27 +78,39 @@ function numSourcesStarted(){
 }
 
 
+function startSearches(){
+    makeAllSources()
+    allSources.forEach(function(source){
+        if (!source.isStarted()){
+            source.run()
+        }
+    })
+}
+
+function searchesAreAllDone(){
+    return getSource("pdfLink").isComplete() && getSource("oadoi").isComplete()
+}
 
 
 function getSearchResults(){
+    if (!searchesAreAllDone()){
+        return null
+    }
+    var res = getSource("oadoi").results
 
-    // start searches
-    if (numSourcesStarted() === 0){
-        makeAllSources()
-
-        getSource("pdfLink").run()
-        getSource("oadoi").run()
+    // the local PDF url overwrites the oaDOI URL
+    if (getSource("pdfLink").results.url){
+        res.url = getSource("pdfLink").results.url
     }
 
-    // searches are done.
-    if (getSource("pdfLink").isComplete() && getSource("oadoi").isComplete()){
+    if (searchesAreAllDone()){
         return {
-            color: decideTabColor(),
-            url: getFulltextUrl()
+            color: decideTabColor(res),
+            url: res.url
         }
     }
 
-
+    return null
 }
 
 
@@ -124,9 +131,7 @@ function runPdfLink(resultObj){
     checkForPdf(pdfUrl).then(function(){
         resultObj.isComplete = true
         resultObj.url = pdfUrl
-        resultObj.color = "bronze"
         devLog("PDF check done. success! PDF link:", pdfUrl)
-
     }, function(err){
         devLog("PDF check done. failure. useless link: ", pdfUrl)
         resultObj.isComplete = true
@@ -140,19 +145,22 @@ function runPdfLink(resultObj){
 
 
 function runOadoi(resultObj){
-    var url = "https://api.oadoi.org/" + doi + "?email=unpaywall@impactstory.org"
+    var url = "https://api.oadoi.org/v2/" + doi + "?email=unpaywall@impactstory.org"
     devLog("doing oaDOI check", url)
 
 
-    $.getJSON(url, function(data){
+    $.getJSON(url, function(resp){
         resultObj.isComplete = true
-        devLog("oaDOI returned", data)
-        var resp = data.results[0]
-        resultObj.reported_noncompliant_copies = resp.reported_noncompliant_copies
-        if (resp.oa_color){
-            resultObj.color = resp.oa_color  // green or gold
-            resultObj.url = resp.free_fulltext_url
+        devLog("oaDOI returned", resp)
+
+        // if it's got a best_oa_location it has a URL. cool, we'll return that in the
+        // results object.
+        if (resp.best_oa_location){
+            resultObj.url = resp.best_oa_location.url
+            resultObj.hostType = resp.best_oa_location.host_type
+            resultObj.isOaJournal = resp.journal_is_oa
         }
+
     })
 
 }
@@ -169,74 +177,22 @@ function getSource(sourceName){
     return ret
 }
 
-function getGoldUrl(){
-    var oaDoiSource = getSource("oadoi")
-    if (oaDoiSource.results.color == "gold") {
-        return oaDoiSource.results.url
-    }
-}
-
-function getBronzeUrl(){
-    var source = getSource("pdfLink")
-
-    // first check to see if we've got the PDF from this page
-    if (source.results.color == "bronze") {
-        return source.results.url
-    }
-
-    // then check oaDOI results
-    var oadoiSource = getSource("oadoi")
-    if (oadoiSource.results.color == "bronze"){
-        return oadoiSource.results.url
-    }
-}
-
-function getGreenUrl(){
-
-    var greenUrl
-    var oadoiSource = getSource("oadoi")
-    if (oadoiSource.results.color == "green") {
-        greenUrl = oadoiSource.results.url
-    }
-
-    if (!greenUrl){
-        return null
-    }
-
-    // oaDOI will also let us know if there is a URL we shouldn't use
-    // because of reported copyright issues. now that we've got the
-    // best URL, let's make sure it's ok to return.
-    oadoiSource.results.reported_noncompliant_copies.forEach(function(badUrl){
-
-        // check for "contains" rather than "equal" because the URL isn't always exact.
-        if (greenUrl.toLowerCase().indexOf(badUrl.toLowerCase()) > -1){
-            greenUrl = null
-        }
-    })
-
-    return greenUrl
-}
 
 
+function decideTabColor(myResults){
 
+    var color = "black"
 
-function decideTabColor(){
-    //devLog("checking results....", allSources)
-
-    var color
-    if (getGoldUrl()){
-        color = "gold"
-    }
-    else if (getBronzeUrl()){
+    if (myResults.url){
         color = "bronze"
     }
-    else if (getGreenUrl()){
+
+    if (myResults.hostType == "repository") {
         color = "green"
     }
-    else {
-        color = "black"
+    else if (myResults.isOaJournal){
+        color = "gold"
     }
-
 
     // if the user likes to dive into the nerdy details of what kind of OA is what,
     // great, let's show em what we found.
@@ -255,24 +211,6 @@ function decideTabColor(){
         }
     }
 
-}
-
-function getFulltextUrl(){
-    var newLoc
-
-    // this is in a different order than decideTabColor(). that's on
-    // purpose. the bronze link on a gold oa article is always the best one.
-    if (getBronzeUrl()){
-        newLoc = getBronzeUrl()
-    }
-    else if (getGoldUrl()){
-        newLoc = getGoldUrl()
-    }
-    else if (getGreenUrl()){
-        newLoc = getGreenUrl()
-    }
-
-    return newLoc
 }
 
 
@@ -415,6 +353,21 @@ function findDoiFromNumber(){
     return runRegexOnDoc(/Document Object Identifier \(DOI\): (10.*?)<\/p>/, "www.nber.org")
 }
 
+function findDoiFromPubmed(){
+    // gold:   https://www.ncbi.nlm.nih.gov/pubmed/17375194
+
+    devLog("looking for pubmed doi")
+
+    if (myHost.indexOf("www.ncbi.nlm.nih.gov") < 0) {
+        return
+    }
+
+    var doiLinkElem = $("a[ref='aid_type=doi']")
+    if (doiLinkElem.length){
+        return doiLinkElem[0].innerHTML
+    }
+}
+
 function findDoiFromPsycnet(){
     if (myHost == "psycnet.apa.org") {
         var re = /&doi=(.+)/
@@ -435,7 +388,8 @@ function findDoi(){
         findDoiFromScienceDirect,
         findDoiFromIeee,
         findDoiFromNumber,
-        findDoiFromPsycnet
+        findDoiFromPsycnet,
+        findDoiFromPubmed
     ]
 
     for (var i=0; i < doiFinderFunctions.length; i++){
@@ -717,6 +671,7 @@ function run() {
         return
     }
     devLog("we have a doi!", doi)
+    startSearches()
 
 
     // poll, waiting for all our data to be collected. once it is,

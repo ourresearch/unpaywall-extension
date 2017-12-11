@@ -153,7 +153,7 @@ div.page.landing .screen.top-screen .top-screen-content .main-copy {
 }
 div.page.landing .screen.top-screen .top-screen-content .main-copy div.tagline {
   font-weight: bold;
-  font-size: 190%;
+  font-size: 150%;
   color: #333;
 }
 @media only screen and (max-width: 600px) {

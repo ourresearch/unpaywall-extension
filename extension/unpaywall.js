@@ -149,19 +149,24 @@ function runOadoi(resultObj){
     devLog("doing oaDOI check", url)
 
 
-    $.getJSON(url, function(resp){
-        resultObj.isComplete = true
-        devLog("oaDOI returned", resp)
+    $.getJSON(url)
+        .done(function(resp){
+            devLog("oaDOI returned: ", resp)
 
-        // if it's got a best_oa_location it has a URL. cool, we'll return that in the
-        // results object.
-        if (resp.best_oa_location){
-            resultObj.url = resp.best_oa_location.url
-            resultObj.hostType = resp.best_oa_location.host_type
-            resultObj.isOaJournal = resp.journal_is_oa
-        }
-
-    })
+            // if it's got a best_oa_location it has a URL. cool, we'll return that in the
+            // results object.
+            if (resp.best_oa_location){
+                resultObj.url = resp.best_oa_location.url
+                resultObj.hostType = resp.best_oa_location.host_type
+                resultObj.isOaJournal = resp.journal_is_oa
+            }
+        })
+        .fail(function(resp){
+            devLog("oaDOI call failed", resp)
+        })
+        .always(function(resp){
+            resultObj.isComplete = true
+        })
 
 }
 
@@ -277,6 +282,16 @@ function findDoiFromMetaTags(){
             return true // continue iterating
         }
 
+        // SAGE journals have weird meta tags with scheme="publisher-id"
+        // those DOIs have strange character replacements in them, so ignore.
+        // making universal rule cos i bet will help some other places too.
+        // eg:
+        //      http://journals.sagepub.com/doi/10.1207/s15327957pspr0203_4
+        //      http://journals.sagepub.com/doi/abs/10.1177/00034894991080S423
+        if (myMeta.scheme && myMeta.scheme != "doi") {
+            return true // continue iterating
+        }
+
         // content has to look like a  DOI.
         // much room for improvement here.
         var doiCandidate = myMeta.content.replace("doi:", "").trim()
@@ -289,10 +304,6 @@ function findDoiFromMetaTags(){
         return null
     }
     devLog("found a DOI from a meta tag", doi)
-
-    // some sage DOIs have an underscore where there should be a slash.
-    // eg: http://journals.sagepub.com/doi/10.1207/s15327957pspr0203_4
-    doi = doi.replace("10.1207_", "10.1207/")
 
     // all done.
     return doi
@@ -355,8 +366,6 @@ function findDoiFromNumber(){
 
 function findDoiFromPubmed(){
     // gold:   https://www.ncbi.nlm.nih.gov/pubmed/17375194
-
-    devLog("looking for pubmed doi")
 
     if (myHost.indexOf("www.ncbi.nlm.nih.gov") < 0) {
         return
@@ -685,11 +694,39 @@ function run() {
     }, 250)
 }
 
+
+function runForPubmedSerp(){
+    // unfinished
+
+    devLog("runnning for pubmed serp")
+    if (myHost.indexOf("www.ncbi.nlm.nih.gov") < 0) {
+        return
+    }
+
+    $("div.rprt").each(function(i, searchResult){
+        console.log("pubmed result", searchResult)
+
+        var $res = $(searchResult)
+
+        var details = $res
+
+        var linkStr = "<a href='http://impactstory.org'>free via Unpaywall</a>"
+
+        $(searchResult).find("div.resc").append(linkStr)
+
+        console.log("new pubmed result", this)
+
+
+    })
+
+}
+
 function runWithSettings(){
     browser.storage.local.get(null, function(items){
         settings = items
         devLog("got settings", settings)
         run()
+        //runForPubmedSerp()
     });
 }
 

@@ -52,9 +52,18 @@ def index_endpoint(path="index", page=""):
     )
 
 
-@app.route("/log/install", methods=["POST"])
+def hide_welcome_screen_based_on_ip(ip):
+    return False
+
+@app.route("/log/install", methods=["POST", "GET"])
 def log_install():
-    return jsonify({"installed": True})
+
+    ip = request.remote_addr
+    return jsonify(
+        {
+            "hide_welcome_screen": hide_welcome_screen_based_on_ip(ip)
+        }
+    )
 
 
 if __name__ == "__main__":

@@ -2,6 +2,10 @@ if (typeof chrome !== "undefined" && chrome){
     browser = chrome
 }
 
+var logUrl = "http://unpaywall.org/log/install";
+
+
+
 (function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
   ga.src = 'https://ssl.google-analytics.com/ga.js';
@@ -12,7 +16,9 @@ var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-23384030-6']);
 
 
+
 browser.runtime.onInstalled.addListener(function (object) {
+
     if(object.reason === 'install') {
 
         // send Google Analytics events for installation.

@@ -15,41 +15,54 @@ var logUrl = "http://unpaywall.org/log/install";
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-23384030-6']);
 
-
-
-function registerInstall(){
-    return new Promise(function(resolve, reject) {
-
-        })
+function showWelcomePage(){
+    browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {});
 }
 
-fetch(logUrl, {method:"GET"}).then(function(resp){
-    if (resp.ok){
-        resp.json().then(function(json){
-            console.log("json is", json)
+function registerInstall(){
+    // send Google Analytics events for installation.
+    _gaq.push(['_trackEvent', 'Browser Install', "Fx/Chrome"])
+    if (navigator.userAgent.indexOf("Firefox") > -1) {
+        _gaq.push(['_trackEvent', 'Firefox Install', "Firefox"])
+    }
+    else if (navigator.userAgent.indexOf("Chrome") > -1) {
+        _gaq.push(['_trackEvent', 'Chrome Install', "Chrome"])
+    }
+
+    // check the server to make sure we are good to show the welcome screen
+    fetch(logUrl, {method:"POST", body:{}}).then(function(resp){
+        if (resp.ok){
+            resp.json().then(function(json){
+                console.log("json is", json)
+                if (json.show_welcome_screen) {
+                    showWelcomePage()
+                }
+                else {
+                    // do nothing. this is the only condition
+                    // where we DON'T show the welcome page.
+                }
+            })
+        }
+        else {
+            showWelcomePage()
+        }
+    })
+        .catch(function(){
+            showWelcomePage()
         })
-    }
-    else {
-        console.log("there was a problem registering the installation!")
-    }
-})
+
+
+
+}
+
 
 
 browser.runtime.onInstalled.addListener(function (object) {
 
+    registerInstall()
+
     if(object.reason === 'install') {
 
-        // send Google Analytics events for installation.
-        _gaq.push(['_trackEvent', 'Browser Install', "Fx/Chrome"])
-        if (navigator.userAgent.indexOf("Firefox") > -1) {
-            _gaq.push(['_trackEvent', 'Firefox Install', "Firefox"])
-        }
-        else if (navigator.userAgent.indexOf("Chrome") > -1) {
-            _gaq.push(['_trackEvent', 'Chrome Install', "Chrome"])
-        }
-
-        // send the user to the Welcome page:
-        browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {});
     }
 });
 

@@ -52,22 +52,26 @@ def index_endpoint(path="index", page=""):
     )
 
 
-def hide_welcome_screen_based_on_ip(ip):
+def show_welcome_screen(ip):
     blacklist = [
         "129.107.37.",
         "129.107.73.",
         "129.107.72.",
         "129.107.67.",
         "129.107.76.",
+
+        # for testing
         "10.138.159.",
-        "10.136.150."
+        "10.136.150.",
+        "10.169.226.",
+        "10.179.55."
      ]
 
     for blacklisted_ip in blacklist:
         if ip.startswith(blacklisted_ip):
-            return True
+            return False
 
-    return False
+    return True
 
 @app.route("/log/install", methods=["POST", "GET"])
 def log_install():
@@ -75,9 +79,9 @@ def log_install():
     ip = request.remote_addr
     return jsonify(
         {
-            "hide_welcome_screen": hide_welcome_screen_based_on_ip(ip),
+            "show_welcome_screen": show_welcome_screen(ip),
             "ip": ip,
-            "updated": "11:28"
+            "updated": "11:44"
         }
     )
 

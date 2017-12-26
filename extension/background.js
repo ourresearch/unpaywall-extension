@@ -17,6 +17,24 @@ _gaq.push(['_setAccount', 'UA-23384030-6']);
 
 
 
+function registerInstall(){
+    return new Promise(function(resolve, reject) {
+
+        })
+}
+
+fetch(logUrl, {method:"GET"}).then(function(resp){
+    if (resp.ok){
+        resp.json().then(function(json){
+            console.log("json is", json)
+        })
+    }
+    else {
+        console.log("there was a problem registering the installation!")
+    }
+})
+
+
 browser.runtime.onInstalled.addListener(function (object) {
 
     if(object.reason === 'install') {

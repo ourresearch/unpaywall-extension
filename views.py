@@ -74,8 +74,7 @@ def log_install():
     return jsonify(
         {
             "show_welcome_screen": show_welcome_screen(ip),
-            "ip": ip,
-            "updated": "11:44"
+            "ip": ip
         }
     )
 

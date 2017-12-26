@@ -59,7 +59,8 @@ def hide_welcome_screen_based_on_ip(ip):
         "129.107.72.",
         "129.107.67.",
         "129.107.76.",
-        "10.138.159."
+        "10.138.159.",
+        "10.136.150."
      ]
 
     for blacklisted_ip in blacklist:
@@ -75,7 +76,8 @@ def log_install():
     return jsonify(
         {
             "hide_welcome_screen": hide_welcome_screen_based_on_ip(ip),
-            "ip": ip
+            "ip": ip,
+            "updated": "11:28"
         }
     )
 

@@ -15,6 +15,7 @@ var logUrl = "http://unpaywall.org/log/install";
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-23384030-6']);
 
+
 function showWelcomePage(){
     browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {});
 }
@@ -33,13 +34,14 @@ function registerInstall(){
     fetch(logUrl, {method:"POST", body:{}}).then(function(resp){
         if (resp.ok){
             resp.json().then(function(json){
-                console.log("json is", json)
+                console.log("got back data from /log/install", json)
                 if (json.show_welcome_screen) {
                     showWelcomePage()
                 }
                 else {
                     // do nothing. this is the only condition
                     // where we DON'T show the welcome page.
+                    console.log("the server told us to hide the welcome page, so we are.")
                 }
             })
         }

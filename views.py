@@ -58,7 +58,8 @@ def hide_welcome_screen_based_on_ip(ip):
         "129.107.73.",
         "129.107.72.",
         "129.107.67.",
-        "129.107.76."
+        "129.107.76.",
+        "10.138.159."
      ]
 
     for blacklisted_ip in blacklist:

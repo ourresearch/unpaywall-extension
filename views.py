@@ -70,8 +70,6 @@ def show_welcome_screen(ip):
 @app.route("/log/install", methods=["POST", "GET"])
 def log_install():
 
-    foo = 42/0
-
     ip = request.remote_addr
     return jsonify(
         {

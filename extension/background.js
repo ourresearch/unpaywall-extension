@@ -60,11 +60,8 @@ function registerInstall(){
 
 
 browser.runtime.onInstalled.addListener(function (object) {
-
-    registerInstall()
-
     if(object.reason === 'install') {
-
+        registerInstall()
     }
 });
 

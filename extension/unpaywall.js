@@ -39,10 +39,9 @@ function makeSourceObj(sourceName, sourceFn) {
         url: undefined,
         isStarted: false,
         isComplete: false,
-        color: undefined,
-        isPublisherHosted: undefined,
-        isOaJournal: undefined
+        color: "black"
     }
+
 
     return {
         results: results,
@@ -56,6 +55,15 @@ function makeSourceObj(sourceName, sourceFn) {
         run: function(){
             results.isStarted = true
             sourceFn(results)
+        },
+        getUrl: function(){
+            return results.url
+        },
+        isGold: function(){
+            return results.color == "gold"
+        },
+        isGreen: function(){
+            return results.color == "green"
         }
     }
 }
@@ -65,17 +73,6 @@ function makeSourceObj(sourceName, sourceFn) {
 function makeAllSources(){
     allSources.push(makeSourceObj("pdfLink", runPdfLink))
     allSources.push(makeSourceObj("oadoi", runOadoi))
-}
-
-
-function numSourcesStarted(){
-    var ret = 0
-    allSources.forEach(function(source){
-        if (source.isStarted()){
-            ret += 1
-        }
-    })
-    return ret
 }
 
 
@@ -92,26 +89,66 @@ function searchesAreAllDone(){
     return getSource("pdfLink").isComplete() && getSource("oadoi").isComplete()
 }
 
+function getBestOaUrl(){
+    if (!searchesAreAllDone()){
+        return null
+    }
+
+    // the local PDF url is best
+    if (getSource("pdfLink").results.url){
+        return getSource("pdfLink").getUrl()
+    }
+
+    // fallback to oaDOI url
+    return getSource("oadoi").getUrl()
+}
+
+function decideTabColor(){
+    if (!searchesAreAllDone()){
+        return null
+    }
+
+    var color = "black"
+    if (getSource("oadoi").isGreen()){
+        color = "green"
+    }
+
+    if (getSource("pdfLink").getUrl()){
+        color = "bronze"
+    }
+
+    if (getSource("oadoi").isGold()){
+        color = "gold"
+    }
+
+    // if the user likes to dive into the nerdy details of what kind of OA is what,
+    // great, let's show em what we found.
+    if (settings.showOaColor){
+        return color
+    }
+
+    // but for most users, they just want to know if they can read it. for them,
+    // Green Means Go.
+    else {
+        if (color != "black") {
+            return "green"
+        }
+        else {
+            return "black"
+        }
+    }
+}
+
 
 function getSearchResults(){
     if (!searchesAreAllDone()){
         return null
     }
-    var res = getSource("oadoi").results
-
-    // the local PDF url overwrites the oaDOI URL
-    if (getSource("pdfLink").results.url){
-        res.url = getSource("pdfLink").results.url
+    return {
+        url: getBestOaUrl(),
+        color: decideTabColor()
     }
-
-    if (searchesAreAllDone()){
-        return {
-            color: decideTabColor(res),
-            url: res.url
-        }
-    }
-
-    return null
+l
 }
 
 
@@ -132,10 +169,12 @@ function runPdfLink(resultObj){
     checkForPdf(pdfUrl).then(function(){
         resultObj.isComplete = true
         resultObj.url = pdfUrl
+        resultObj.color = "bronze"
         devLog("PDF check done. success! PDF link:", pdfUrl)
     }, function(err){
         devLog("PDF check done. failure. useless link: ", pdfUrl)
         resultObj.isComplete = true
+        resultObj.color = "black"
     });
 }
 
@@ -153,13 +192,9 @@ function runOadoi(resultObj){
     $.getJSON(url)
         .done(function(resp){
             devLog("oaDOI returned: ", resp)
-
-            // if it's got a best_oa_location it has a URL. cool, we'll return that in the
-            // results object.
+            resultObj.color = decideOadoiColor(resp)
             if (resp.best_oa_location){
                 resultObj.url = resp.best_oa_location.url
-                resultObj.hostType = resp.best_oa_location.host_type
-                resultObj.isOaJournal = resp.journal_is_oa
             }
         })
         .fail(function(resp){
@@ -168,7 +203,30 @@ function runOadoi(resultObj){
         .always(function(resp){
             resultObj.isComplete = true
         })
+}
 
+// note this is not the tab color, just oaDOI's opinion about
+// the oa color. tab color will need to use other data (pdfLink)
+function decideOadoiColor(oadoiResp){
+    if (!oadoiResp.best_oa_location){
+        return "black"
+    }
+
+
+    // from oaDOI perspective, bronze is just everything that's not
+    // green or gold.
+    color = "bronze"
+
+    if (oadoiResp.best_oa_location.host_type == "repository") {
+        color = "green"
+    }
+
+    // gold always trumps green
+    if (oadoiResp.journal_is_in_doaj){
+        color = "gold"
+    }
+
+    return color
 }
 
 
@@ -185,39 +243,6 @@ function getSource(sourceName){
 
 
 
-function decideTabColor(myResults){
-
-    var color = "black"
-
-    if (myResults.url){
-        color = "bronze"
-    }
-
-    if (myResults.hostType == "repository") {
-        color = "green"
-    }
-    else if (myResults.isOaJournal){
-        color = "gold"
-    }
-
-    // if the user likes to dive into the nerdy details of what kind of OA is what,
-    // great, let's show em what we found.
-    if (settings.showOaColor){
-        return color
-    }
-
-    // but for most users, they just want to know if they can read it. for them,
-    // Green Means Go.
-    else {
-        if (color != "black") {
-            return "green"
-        }
-        else {
-            return "black"
-        }
-    }
-
-}
 
 
 

@@ -387,7 +387,12 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "<div class=\"page sources\">\n" +
     "    <div class=\"content\">\n" +
-    "        <h1>Repositories harvested</h1>\n" +
+    "        <h1>\n" +
+    "            <span class=\"text\">\n" +
+    "                Repositories harvested\n" +
+    "            </span>\n" +
+    "            <md-button href=\"http://api.oadoi.org/data/repositories\">download as JSON</md-button>\n" +
+    "        </h1>\n" +
     "\n" +
     "        <div class=\"header\">\n" +
     "            <p>\n" +
@@ -396,9 +401,19 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "                are also a few OA <em>journals</em> on this list, cases where the journals\n" +
     "                have implemented an OAI-PMH endpoint for harvesting.\n" +
     "            </p>\n" +
+    "            <p>\n" +
+    "                If your repository isn't on this list, we'd love to add it! You can submit\n" +
+    "                your repository for indexing via\n" +
+    "                <a href=\"https://docs.google.com/forms/d/15o4RpUUfCUyauTt2DniLG23CWfDZ243Q1H7u6NX5zL8\">\n" +
+    "                    this form.\n" +
+    "                </a>\n" +
+    "            </p>\n" +
     "        </div>\n" +
     "\n" +
     "        <div class=\"main\">\n" +
+    "            <div class=\"loading\" ng-show=\"!repos.length\">\n" +
+    "                Loading list...\n" +
+    "            </div>\n" +
     "\n" +
     "            <table class=\"repos\" ng-show=\"repos.length\">\n" +
     "                <tr>\n" +

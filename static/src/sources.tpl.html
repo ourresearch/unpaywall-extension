@@ -2,7 +2,12 @@
 
 <div class="page sources">
     <div class="content">
-        <h1>Repositories harvested</h1>
+        <h1>
+            <span class="text">
+                Repositories harvested
+            </span>
+            <md-button href="http://api.oadoi.org/data/repositories">download as JSON</md-button>
+        </h1>
 
         <div class="header">
             <p>
@@ -11,9 +16,19 @@
                 are also a few OA <em>journals</em> on this list, cases where the journals
                 have implemented an OAI-PMH endpoint for harvesting.
             </p>
+            <p>
+                If your repository isn't on this list, we'd love to add it! You can submit
+                your repository for indexing via
+                <a href="https://docs.google.com/forms/d/15o4RpUUfCUyauTt2DniLG23CWfDZ243Q1H7u6NX5zL8">
+                    this form.
+                </a>
+            </p>
         </div>
 
         <div class="main">
+            <div class="loading" ng-show="!repos.length">
+                Loading list...
+            </div>
 
             <table class="repos" ng-show="repos.length">
                 <tr>

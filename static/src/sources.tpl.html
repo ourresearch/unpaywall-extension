@@ -1,0 +1,43 @@
+<div class="ti-page-header" ng-include="'header.tpl.html'"></div>
+
+<div class="page sources">
+    <div class="content">
+        <h1>Repositories harvested</h1>
+
+        <div class="header">
+            <p>
+                Repositories are an important source of data for Unpaywall. Here's a list
+                of all the open repositories we harvest. There
+                are also a few OA <em>journals</em> on this list, cases where the journals
+                have implemented an OAI-PMH endpoint for harvesting.
+            </p>
+        </div>
+
+        <div class="main">
+
+            <table class="repos" ng-show="repos.length">
+                <tr>
+                   <th class="inst">Institution</th>
+                   <th class="repo">Repository</th>
+                </tr>
+
+
+
+                <tr class="repo" ng-repeat="repo in repos | orderBy: 'institution_name'">
+                    <td class="inst">{{ repo.institution_name }}</td>
+                    <td class="repo">
+                        <a href="{{repo.home_page}}">{{ repo.repository_name }}</a>
+                    
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+<div class="footer-container" ng-include="'footer.tpl.html'"></div>

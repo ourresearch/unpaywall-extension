@@ -59,6 +59,13 @@ body .main-view {
   line-height: 1.4;
   font-size: 20px;
 }
+.page.sources table.repos tr td {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+}
+.page.sources table.repos tr td.inst {
+  max-width: 300px;
+}
 .page.welcome {
   padding-top: 150px;
   line-height: 1.4;

@@ -1,4 +1,4 @@
-angular.module('templates.app', ['faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'welcome.tpl.html']);
+angular.module('templates.app', ['faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
 
 angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("faq.tpl.html",
@@ -379,6 +379,53 @@ angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($t
     "    <h1>Sorry, we couldn't find that page!</h1>\n" +
     "\n" +
     "</div>");
+}]);
+
+angular.module("sources.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("sources.tpl.html",
+    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "\n" +
+    "<div class=\"page sources\">\n" +
+    "    <div class=\"content\">\n" +
+    "        <h1>Repositories harvested</h1>\n" +
+    "\n" +
+    "        <div class=\"header\">\n" +
+    "            <p>\n" +
+    "                Repositories are an important source of data for Unpaywall. Here's a list\n" +
+    "                of all the open repositories we harvest. There\n" +
+    "                are also a few OA <em>journals</em> on this list, cases where the journals\n" +
+    "                have implemented an OAI-PMH endpoint for harvesting.\n" +
+    "            </p>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"main\">\n" +
+    "\n" +
+    "            <table class=\"repos\" ng-show=\"repos.length\">\n" +
+    "                <tr>\n" +
+    "                   <th class=\"inst\">Institution</th>\n" +
+    "                   <th class=\"repo\">Repository</th>\n" +
+    "                </tr>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "                <tr class=\"repo\" ng-repeat=\"repo in repos | orderBy: 'institution_name'\">\n" +
+    "                    <td class=\"inst\">{{ repo.institution_name }}</td>\n" +
+    "                    <td class=\"repo\">\n" +
+    "                        <a href=\"{{repo.home_page}}\">{{ repo.repository_name }}</a>\n" +
+    "                    \n" +
+    "                    </td>\n" +
+    "                </tr>\n" +
+    "\n" +
+    "            </table>\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
 }]);
 
 angular.module("welcome.tpl.html", []).run(["$templateCache", function($templateCache) {

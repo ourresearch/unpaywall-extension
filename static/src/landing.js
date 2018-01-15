@@ -32,6 +32,12 @@ angular.module('landing', [
     })
 
 
+    .config(function ($routeProvider) {
+        $routeProvider.when('/sources', {
+            templateUrl: "sources.tpl.html",
+            controller: "SourcesPageCtrl"
+        })
+    })
 
 
 
@@ -48,6 +54,15 @@ angular.module('landing', [
     })
     .controller("FaqPageCtrl", function($scope, $anchorScroll){
         console.log("FaqPageCtrl controller is running!")
+    })
+    .controller("SourcesPageCtrl", function($scope, $http, $anchorScroll){
+        console.log("SourcesPageCtrl controller is running!")
+
+        $http.get("http://api.oadoi.org/data/repositories")
+            .success(function(resp){
+                console.log("repositories return", resp)
+                $scope.repos = resp.results
+            })
 
 
     })

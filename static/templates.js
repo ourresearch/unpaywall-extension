@@ -396,11 +396,12 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "\n" +
     "        <div class=\"header\">\n" +
     "            <p>\n" +
-    "                Repositories are an important source of data for Unpaywall. Here's a list\n" +
-    "                of all the open repositories we harvest. There\n" +
-    "                are also a few OA <em>journals</em> on this list, cases where the journals\n" +
-    "                have implemented an OAI-PMH endpoint for harvesting.\n" +
+    "                Here's a list of the open repositories we harvest. Note that\n" +
+    "                it includes <em>only</em> repositories, not OA journals as well\n" +
+    "                (we've harvest several thousand of those,\n" +
+    "                and they'll have a separate list here soon).\n" +
     "            </p>\n" +
+    "\n" +
     "            <p>\n" +
     "                If your repository isn't on this list, we'd love to add it! You can submit\n" +
     "                your repository for indexing via\n" +

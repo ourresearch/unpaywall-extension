@@ -68,18 +68,18 @@ body .main-view {
   display: flex;
   justify-content: space-between;
 }
-.page.sources table.repos {
+.page.sources .main {
   margin-top: 70px;
 }
-.page.sources table.repos th {
+.page.sources .main table.repos th {
   text-align: left;
   padding: 10px;
 }
-.page.sources table.repos tr td {
+.page.sources .main table.repos tr td {
   border-bottom: 1px solid #eee;
   padding: 10px;
 }
-.page.sources table.repos tr td.inst {
+.page.sources .main table.repos tr td.inst {
   max-width: 300px;
 }
 .page.welcome {

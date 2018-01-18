@@ -23,12 +23,23 @@
                     this form.
                 </a>
             </p>
+
         </div>
 
         <div class="main">
             <div class="loading" ng-show="!repos.length">
                 Loading list...
             </div>
+
+            <h2>{{ filteredItems.length }} repositories shown</h2>
+
+            <form class="form-inline" ng-show="repos.length">
+                <md-input-container class="md-block">
+                    <label>Search by institution or repository name</label>
+                    <input ng-model="filterQuery">
+                </md-input-container>
+
+            </form>
 
             <table class="repos" ng-show="repos.length">
                 <tr>
@@ -38,7 +49,7 @@
 
 
 
-                <tr class="repo" ng-repeat="repo in repos | orderBy: 'institution_name'">
+                <tr class="repo" ng-repeat="repo in repos | orderBy: 'institution_name' | filter: filterQuery as filteredItems">
                     <td class="inst">{{ repo.institution_name }}</td>
                     <td class="repo">
                         <a href="{{repo.home_page}}">{{ repo.repository_name }}</a>

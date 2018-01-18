@@ -182,9 +182,9 @@ angular.module('landing', [
 
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/sources', {
-            templateUrl: "sources.tpl.html",
-            controller: "SourcesPageCtrl"
+        $routeProvider.when('/repositories', {
+            templateUrl: "repositories.tpl.html",
+            controller: "RepositoriesPageCtrl"
         })
     })
 
@@ -204,8 +204,8 @@ angular.module('landing', [
     .controller("FaqPageCtrl", function($scope, $anchorScroll){
         console.log("FaqPageCtrl controller is running!")
     })
-    .controller("SourcesPageCtrl", function($scope, $http, $anchorScroll){
-        console.log("SourcesPageCtrl controller is running!")
+    .controller("RepositoriesPageCtrl", function($scope, $http, $anchorScroll){
+        console.log("RepositoriesPageCtrl controller is running!")
 
         $http.get("http://api.oadoi.org/data/repositories")
             .success(function(resp){
@@ -215,6 +215,8 @@ angular.module('landing', [
 
 
     })
+
+
 
 
     .controller("WelcomePageCtrl", function($scope, $timeout){
@@ -429,7 +431,7 @@ angular.module("numFormat", [])
 
         }
     });
-angular.module('templates.app', ['faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
+angular.module('templates.app', ['faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'repositories.tpl.html', 'welcome.tpl.html']);
 
 angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("faq.tpl.html",
@@ -812,8 +814,8 @@ angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($t
     "</div>");
 }]);
 
-angular.module("sources.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("sources.tpl.html",
+angular.module("repositories.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("repositories.tpl.html",
     "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
     "\n" +
     "<div class=\"page sources\">\n" +
@@ -839,12 +841,23 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "                    this form.\n" +
     "                </a>\n" +
     "            </p>\n" +
+    "\n" +
     "        </div>\n" +
     "\n" +
     "        <div class=\"main\">\n" +
     "            <div class=\"loading\" ng-show=\"!repos.length\">\n" +
     "                Loading list...\n" +
     "            </div>\n" +
+    "\n" +
+    "            <h2>{{ filteredItems.length }} repositories shown</h2>\n" +
+    "\n" +
+    "            <form class=\"form-inline\" ng-show=\"repos.length\">\n" +
+    "                <md-input-container class=\"md-block\">\n" +
+    "                    <label>Search by institution or repository name</label>\n" +
+    "                    <input ng-model=\"filterQuery\">\n" +
+    "                </md-input-container>\n" +
+    "\n" +
+    "            </form>\n" +
     "\n" +
     "            <table class=\"repos\" ng-show=\"repos.length\">\n" +
     "                <tr>\n" +
@@ -854,7 +867,7 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "\n" +
     "\n" +
-    "                <tr class=\"repo\" ng-repeat=\"repo in repos | orderBy: 'institution_name'\">\n" +
+    "                <tr class=\"repo\" ng-repeat=\"repo in repos | orderBy: 'institution_name' | filter: filterQuery as filteredItems\">\n" +
     "                    <td class=\"inst\">{{ repo.institution_name }}</td>\n" +
     "                    <td class=\"repo\">\n" +
     "                        <a href=\"{{repo.home_page}}\">{{ repo.repository_name }}</a>\n" +

@@ -33,9 +33,9 @@ angular.module('landing', [
 
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/sources', {
-            templateUrl: "sources.tpl.html",
-            controller: "SourcesPageCtrl"
+        $routeProvider.when('/repositories', {
+            templateUrl: "repositories.tpl.html",
+            controller: "RepositoriesPageCtrl"
         })
     })
 
@@ -55,8 +55,8 @@ angular.module('landing', [
     .controller("FaqPageCtrl", function($scope, $anchorScroll){
         console.log("FaqPageCtrl controller is running!")
     })
-    .controller("SourcesPageCtrl", function($scope, $http, $anchorScroll){
-        console.log("SourcesPageCtrl controller is running!")
+    .controller("RepositoriesPageCtrl", function($scope, $http, $anchorScroll){
+        console.log("RepositoriesPageCtrl controller is running!")
 
         $http.get("http://api.oadoi.org/data/repositories")
             .success(function(resp){
@@ -66,6 +66,8 @@ angular.module('landing', [
 
 
     })
+
+
 
 
     .controller("WelcomePageCtrl", function($scope, $timeout){

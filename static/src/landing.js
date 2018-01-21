@@ -39,6 +39,18 @@ angular.module('landing', [
         })
     })
 
+    .config(function ($routeProvider) {
+        $routeProvider.when('/data', {
+            templateUrl: "data.tpl.html",
+            controller: "DataPageCtrl"
+        })
+    })
+    .config(function ($routeProvider) {
+        $routeProvider.when('/api/v2', {
+            templateUrl: "api-v2.tpl.html"
+        })
+    })
+
 
 
     .config(function ($routeProvider) {
@@ -54,6 +66,9 @@ angular.module('landing', [
     })
     .controller("FaqPageCtrl", function($scope, $anchorScroll){
         console.log("FaqPageCtrl controller is running!")
+    })
+    .controller("DataPageCtrl", function($scope, $anchorScroll){
+        console.log("DataPageCtrl controller is running!")
     })
     .controller("RepositoriesPageCtrl", function($scope, $http, $anchorScroll){
         console.log("RepositoriesPageCtrl controller is running!")

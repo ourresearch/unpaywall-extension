@@ -4,61 +4,90 @@
     <div class="content">
         <h1>
             <span class="text">
-                Repositories harvested
+                Sources
             </span>
             <md-button href="http://api.oadoi.org/data/repositories">download as JSON</md-button>
         </h1>
 
         <div class="header">
             <p>
-                Here's a list of the open repositories we harvest. Note that
-                it includes <em>only</em> repositories, not OA journals as well
-                (we've harvest several thousand of those,
-                and they'll have a separate list here soon).
+                Unpaywall tracks over 50,000 different sources for Open Access content, including
+                Gold OA journals, Hybrid journals, institutional repositories, and disciplinary repositories.
+                You can search below to see if we index a particular source, or
+                <a href="http://api.oadoi.org/data/sources.csv">download the list</a> as a spreadsheet.
+
+                <!--
+                <a href="https://en.wikipedia.org/wiki/Open_access_journal">Gold OA journals,</a>
+                <a href="https://en.wikipedia.org/wiki/Hybrid_open_access_journal">Hybrid OA journals,</a>
+                <a href="https://en.wikipedia.org/wiki/Institutional_repository">institutional repositories,</a> and
+                <a href="https://en.wikipedia.org/wiki/Disciplinary_repository">disciplinary repositories.</a>
+                -->
             </p>
 
             <p>
-                If your repository isn't on this list, we'd love to add it! You can submit
+                If your repository or journal isn't yet on this list, we'd love to add it! You can submit
                 your repository for indexing via
                 <a href="https://docs.google.com/forms/d/15o4RpUUfCUyauTt2DniLG23CWfDZ243Q1H7u6NX5zL8">
-                    this form.
-                </a>
+                    this form,
+                </a> and submit your journal <a href="mailto:team@impactstory.org">via email.</a>
             </p>
 
         </div>
 
         <div class="main">
-            <div class="loading" ng-show="!repos.length">
-                Loading list...
-            </div>
+            <form class="form-inline">
+                <div class="input-row">
+                    <md-input-container class="md-block input">
+                        <label>Search for an OA source</label>
+                        <input ng-model="searchTerm">
+                    </md-input-container>
+                    <md-progress-circular
+                            ng-show="search.waiting"
+                            md-diameter="30"
+                            md-mode="indeterminate"></md-progress-circular>
 
-            <h2>{{ filteredItems.length }} repositories shown</h2>
+                </div>
 
-            <form class="form-inline" ng-show="repos.length">
-                <md-input-container class="md-block">
-                    <label>Search by institution or repository name</label>
-                    <input ng-model="filterQuery">
-                </md-input-container>
 
             </form>
 
-            <table class="repos" ng-show="repos.length">
-                <tr>
-                   <th class="inst">Institution</th>
-                   <th class="repo">Repository</th>
-                </tr>
+            <div class="search-results">
+                <div class="no-results" ng-show="search.results.length == 0 && search.lastTerm">
+                    No results
+                </div>
 
 
 
-                <tr class="repo" ng-repeat="repo in repos | orderBy: 'institution_name' | filter: filterQuery as filteredItems">
-                    <td class="inst">{{ repo.institution_name }}</td>
-                    <td class="repo">
-                        <a href="{{repo.home_page}}">{{ repo.repository_name }}</a>
-                    
-                    </td>
-                </tr>
+                <div class="result" ng-repeat="result in search.results">
+                    <div class="name">
+                        <span class="name">{{result.repository_name}}</span>
+                        <a href="{{result.home_page}}">
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                    </div>
+                    <div class="host">
+                        {{result.institution_name}}
+                    </div>
+                </div>
 
-            </table>
+                <div class="truncated" ng-show="search.numTruncated">
+                    <div class="main">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        Hiding {{ search.numTruncated }} additional results matching
+                        <em class="term">"{{ search.lastTerm }}"</em>
+                    </div>
+                    <div class="smaller">
+                        You may want to try a more restrictive search term.
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
 
         </div>
 

@@ -107,20 +107,52 @@ body {
   }
   .main {
     margin-top: 70px;
-    table.repos {
-      th {
-        text-align: left;
-        padding: 10px;
-      }
-      tr {
-        td {
-          border-bottom: 1px solid #eee;
-          padding: 10px;
-          &.inst {
-            max-width: 300px;
-          }
+    margin-bottom: 70px;
+    form {
+      .input-row {
+        display: flex;
+        md-input-container {
+          width: 100%;
+        }
+        md-progress-circular {
+          margin-top: 20px;
         }
       }
+    }
+
+    .no-results {
+      padding: 20px;
+    }
+    .result {
+      padding: 10px 10px;
+      margin: 10px 0;
+      border-bottom: 1px solid #eee;
+
+      .name {
+        font-size: 18px;
+        a {
+          font-size: 80%;
+          margin-left: 5px;
+          color: #333;
+
+        }
+      }
+      .host {
+        font-size: 14px;
+      }
+    }
+
+    .truncated {
+      margin: 10px 0 50px;
+      padding: 10px 0;
+      .main {
+
+      }
+      .smaller {
+        font-size: 75%;
+      }
+
+
     }
 
   }

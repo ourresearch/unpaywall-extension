@@ -70,17 +70,42 @@ body .main-view {
 }
 .page.sources .main {
   margin-top: 70px;
+  margin-bottom: 70px;
 }
-.page.sources .main table.repos th {
-  text-align: left;
-  padding: 10px;
+.page.sources .main form .input-row {
+  display: flex;
 }
-.page.sources .main table.repos tr td {
+.page.sources .main form .input-row md-input-container {
+  width: 100%;
+}
+.page.sources .main form .input-row md-progress-circular {
+  margin-top: 20px;
+}
+.page.sources .main .no-results {
+  padding: 20px;
+}
+.page.sources .main .result {
+  padding: 10px 10px;
+  margin: 10px 0;
   border-bottom: 1px solid #eee;
-  padding: 10px;
 }
-.page.sources .main table.repos tr td.inst {
-  max-width: 300px;
+.page.sources .main .result .name {
+  font-size: 18px;
+}
+.page.sources .main .result .name a {
+  font-size: 80%;
+  margin-left: 5px;
+  color: #333;
+}
+.page.sources .main .result .host {
+  font-size: 14px;
+}
+.page.sources .main .truncated {
+  margin: 10px 0 50px;
+  padding: 10px 0;
+}
+.page.sources .main .truncated .smaller {
+  font-size: 75%;
 }
 .page.welcome {
   padding-top: 150px;

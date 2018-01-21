@@ -58,11 +58,62 @@ angular.module('landing', [
     .controller("RepositoriesPageCtrl", function($scope, $http, $anchorScroll){
         console.log("RepositoriesPageCtrl controller is running!")
 
-        $http.get("http://api.oadoi.org/data/repositories")
-            .success(function(resp){
-                console.log("repositories return", resp)
-                $scope.repos = resp.results
-            })
+
+        var searchInfo = {
+            lastTerm: "",
+            waiting: false,
+            numTruncated: 0,
+            results: []
+        }
+
+        function search(){
+            var term = $scope.searchTerm
+
+            if (searchInfo.waiting){
+                return
+            }
+            if (term == searchInfo.lastTerm){
+                return
+            }
+            if (!term || term.length < 4){
+                searchInfo.results.length = 0; // clear the results array
+                return
+            }
+
+            // we've got a new term to search, and no search is ongoing. go!
+            console.log("doing repository search:", term)
+            searchInfo.waiting = true
+            var url = "http://api.oadoi.org/data/sources/" + term
+
+            $http.get(url)
+                .success(function(resp){
+                    console.log("repositories search return", resp)
+
+                    searchInfo.lastTerm = term
+                    searchInfo.waiting = false
+                    searchInfo.numTruncated = 0
+                    var results = resp.results
+
+                    if (results.length > 50){
+                        searchInfo.numTruncated = results.length - 25
+                        results.length = 50
+                    }
+                    searchInfo.results = results
+                })
+                .error(function(){
+                    searchInfo.lastTerm = term
+                    searchInfo.waiting = false
+                    searchInfo.numTruncated = 0
+                    $scope.searchResults.length = 0; // clear the results array
+
+                })
+
+        }
+
+        // poll for changing in the search term
+        setInterval(search, 250)
+        $scope.search = searchInfo
+        $scope.ui = {}
 
 
     })

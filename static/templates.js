@@ -389,61 +389,90 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "    <div class=\"content\">\n" +
     "        <h1>\n" +
     "            <span class=\"text\">\n" +
-    "                Repositories harvested\n" +
+    "                Sources\n" +
     "            </span>\n" +
     "            <md-button href=\"http://api.oadoi.org/data/repositories\">download as JSON</md-button>\n" +
     "        </h1>\n" +
     "\n" +
     "        <div class=\"header\">\n" +
     "            <p>\n" +
-    "                Here's a list of the open repositories we harvest. Note that\n" +
-    "                it includes <em>only</em> repositories, not OA journals as well\n" +
-    "                (we've harvest several thousand of those,\n" +
-    "                and they'll have a separate list here soon).\n" +
+    "                Unpaywall tracks over 50,000 different sources for Open Access content, including\n" +
+    "                Gold OA journals, Hybrid journals, institutional repositories, and disciplinary repositories.\n" +
+    "                You can search below to see if we index a particular source, or\n" +
+    "                <a href=\"http://api.oadoi.org/data/sources.csv\">download the list</a> as a spreadsheet.\n" +
+    "\n" +
+    "                <!--\n" +
+    "                <a href=\"https://en.wikipedia.org/wiki/Open_access_journal\">Gold OA journals,</a>\n" +
+    "                <a href=\"https://en.wikipedia.org/wiki/Hybrid_open_access_journal\">Hybrid OA journals,</a>\n" +
+    "                <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories,</a> and\n" +
+    "                <a href=\"https://en.wikipedia.org/wiki/Disciplinary_repository\">disciplinary repositories.</a>\n" +
+    "                -->\n" +
     "            </p>\n" +
     "\n" +
     "            <p>\n" +
-    "                If your repository isn't on this list, we'd love to add it! You can submit\n" +
+    "                If your repository or journal isn't yet on this list, we'd love to add it! You can submit\n" +
     "                your repository for indexing via\n" +
     "                <a href=\"https://docs.google.com/forms/d/15o4RpUUfCUyauTt2DniLG23CWfDZ243Q1H7u6NX5zL8\">\n" +
-    "                    this form.\n" +
-    "                </a>\n" +
+    "                    this form,\n" +
+    "                </a> and submit your journal <a href=\"mailto:team@impactstory.org\">via email.</a>\n" +
     "            </p>\n" +
     "\n" +
     "        </div>\n" +
     "\n" +
     "        <div class=\"main\">\n" +
-    "            <div class=\"loading\" ng-show=\"!repos.length\">\n" +
-    "                Loading list...\n" +
-    "            </div>\n" +
+    "            <form class=\"form-inline\">\n" +
+    "                <div class=\"input-row\">\n" +
+    "                    <md-input-container class=\"md-block input\">\n" +
+    "                        <label>Search for an OA source</label>\n" +
+    "                        <input ng-model=\"searchTerm\">\n" +
+    "                    </md-input-container>\n" +
+    "                    <md-progress-circular\n" +
+    "                            ng-show=\"search.waiting\"\n" +
+    "                            md-diameter=\"30\"\n" +
+    "                            md-mode=\"indeterminate\"></md-progress-circular>\n" +
     "\n" +
-    "            <h2>{{ filteredItems.length }} repositories shown</h2>\n" +
+    "                </div>\n" +
     "\n" +
-    "            <form class=\"form-inline\" ng-show=\"repos.length\">\n" +
-    "                <md-input-container class=\"md-block\">\n" +
-    "                    <label>Search by institution or repository name</label>\n" +
-    "                    <input ng-model=\"filterQuery\">\n" +
-    "                </md-input-container>\n" +
     "\n" +
     "            </form>\n" +
     "\n" +
-    "            <table class=\"repos\" ng-show=\"repos.length\">\n" +
-    "                <tr>\n" +
-    "                   <th class=\"inst\">Institution</th>\n" +
-    "                   <th class=\"repo\">Repository</th>\n" +
-    "                </tr>\n" +
+    "            <div class=\"search-results\">\n" +
+    "                <div class=\"no-results\" ng-show=\"search.results.length == 0 && search.lastTerm\">\n" +
+    "                    No results\n" +
+    "                </div>\n" +
     "\n" +
     "\n" +
     "\n" +
-    "                <tr class=\"repo\" ng-repeat=\"repo in repos | orderBy: 'institution_name' | filter: filterQuery as filteredItems\">\n" +
-    "                    <td class=\"inst\">{{ repo.institution_name }}</td>\n" +
-    "                    <td class=\"repo\">\n" +
-    "                        <a href=\"{{repo.home_page}}\">{{ repo.repository_name }}</a>\n" +
-    "                    \n" +
-    "                    </td>\n" +
-    "                </tr>\n" +
+    "                <div class=\"result\" ng-repeat=\"result in search.results\">\n" +
+    "                    <div class=\"name\">\n" +
+    "                        <span class=\"name\">{{result.repository_name}}</span>\n" +
+    "                        <a href=\"{{result.home_page}}\">\n" +
+    "                            <i class=\"fa fa-external-link\"></i>\n" +
+    "                        </a>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"host\">\n" +
+    "                        {{result.institution_name}}\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
     "\n" +
-    "            </table>\n" +
+    "                <div class=\"truncated\" ng-show=\"search.numTruncated\">\n" +
+    "                    <div class=\"main\">\n" +
+    "                        <i class=\"fa fa-exclamation-triangle\"></i>\n" +
+    "                        Hiding {{ search.numTruncated }} additional results matching\n" +
+    "                        <em class=\"term\">\"{{ search.lastTerm }}\"</em>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"smaller\">\n" +
+    "                        You may want to try a more restrictive search term.\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "\n" +
+    "            </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "        </div>\n" +
     "\n" +

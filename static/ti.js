@@ -1489,22 +1489,12 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "        <div class=\"header\">\n" +
     "            <p>\n" +
-    "                Unpaywall tracks over 50,000 different sources for Open Access content, including\n" +
-    "                Gold OA journals, Hybrid journals, institutional repositories, and disciplinary repositories.\n" +
-    "                You can search below to see if we index a particular source, or\n" +
-    "                <a href=\"http://api.oadoi.org/data/sources.csv\">download the list</a> as a spreadsheet.\n" +
-    "\n" +
-    "                <!--\n" +
-    "                <a href=\"https://en.wikipedia.org/wiki/Open_access_journal\">Gold OA journals,</a>\n" +
-    "                <a href=\"https://en.wikipedia.org/wiki/Hybrid_open_access_journal\">Hybrid OA journals,</a>\n" +
-    "                <a href=\"https://en.wikipedia.org/wiki/Institutional_repository\">institutional repositories,</a> and\n" +
-    "                <a href=\"https://en.wikipedia.org/wiki/Disciplinary_repository\">disciplinary repositories.</a>\n" +
-    "                -->\n" +
+    "                Unpaywall finds OA content in many ways, including using data from open indexes like Crossref and DOAJ where it exists. However, the majority of our OA content comes from independently monitoring over 50,000 unique online content hosting locations, including Gold OA journals, Hybrid journals, institutional repositories, and disciplinary repositories. You can search through our sources below, or\n" +
+    "                <a href=\"http://api.oadoi.org/data/sources.csv\">download the complete sources list.</a>\n" +
     "            </p>\n" +
     "\n" +
     "            <p>\n" +
-    "                If your repository or journal isn't yet on this list, we'd love to add it! You can submit\n" +
-    "                your repository for indexing via\n" +
+    "                If you'd like to add your repository or journal to our list of sources, that's great! You can submit your repository for indexing via\n" +
     "                <a href=\"https://docs.google.com/forms/d/15o4RpUUfCUyauTt2DniLG23CWfDZ243Q1H7u6NX5zL8\">\n" +
     "                    this form,\n" +
     "                </a> and submit your journal <a href=\"mailto:team@impactstory.org\">via email.</a>\n" +

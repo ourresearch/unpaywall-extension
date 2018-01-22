@@ -6,7 +6,6 @@
             <span class="text">
                 Sources
             </span>
-            <md-button href="http://api.oadoi.org/data/repositories">download as JSON</md-button>
         </h1>
 
         <div class="header">
@@ -39,7 +38,7 @@
                 <div class="input-row">
                     <md-input-container class="md-block input">
                         <label>Search for an OA source</label>
-                        <input ng-model="searchTerm">
+                        <input ng-model="searchTerm" id="search-input">
                     </md-input-container>
                     <md-progress-circular
                             ng-show="search.waiting"
@@ -51,10 +50,10 @@
 
             </form>
 
-            <div class="search-results">
-                <div class="no-results" ng-show="search.results.length == 0 && search.lastTerm">
-                    No results
-                </div>
+            <div class="search-results waiting-{{search.waiting}}">
+                <h3 class="num-results" ng-show="search.lastTerm">
+                    {{ search.results.length + search.numTruncated }} results for "{{ search.lastTerm }}"
+                </h3>
 
 
 
@@ -71,13 +70,17 @@
                 </div>
 
                 <div class="truncated" ng-show="search.numTruncated">
-                    <div class="main">
+                    <div class="icon">
                         <i class="fa fa-exclamation-triangle"></i>
-                        Hiding {{ search.numTruncated }} additional results matching
-                        <em class="term">"{{ search.lastTerm }}"</em>
                     </div>
-                    <div class="smaller">
-                        You may want to try a more restrictive search term.
+                    <div class="msg">
+                        <h3>
+                            Hiding {{ search.numTruncated }} additional results matching
+                            <em class="term">"{{ search.lastTerm }}"</em>
+                        </h3>
+                        <div class="extra-msg">
+                            Try a more specific search term to narrow results further.
+                        </div>
                     </div>
                 </div>
 

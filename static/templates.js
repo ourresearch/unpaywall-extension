@@ -1,4 +1,4 @@
-angular.module('templates.app', ['api-v2.tpl.html', 'data.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'repositories.tpl.html', 'welcome.tpl.html']);
+angular.module('templates.app', ['api-v2.tpl.html', 'data.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
 
 angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("api-v2.tpl.html",
@@ -955,8 +955,8 @@ angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($t
     "</div>");
 }]);
 
-angular.module("repositories.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("repositories.tpl.html",
+angular.module("sources.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("sources.tpl.html",
     "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
     "\n" +
     "<div class=\"page sources\">\n" +
@@ -965,7 +965,6 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "            <span class=\"text\">\n" +
     "                Sources\n" +
     "            </span>\n" +
-    "            <md-button href=\"http://api.oadoi.org/data/repositories\">download as JSON</md-button>\n" +
     "        </h1>\n" +
     "\n" +
     "        <div class=\"header\">\n" +
@@ -998,7 +997,7 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "                <div class=\"input-row\">\n" +
     "                    <md-input-container class=\"md-block input\">\n" +
     "                        <label>Search for an OA source</label>\n" +
-    "                        <input ng-model=\"searchTerm\">\n" +
+    "                        <input ng-model=\"searchTerm\" id=\"search-input\">\n" +
     "                    </md-input-container>\n" +
     "                    <md-progress-circular\n" +
     "                            ng-show=\"search.waiting\"\n" +
@@ -1010,10 +1009,10 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "\n" +
     "            </form>\n" +
     "\n" +
-    "            <div class=\"search-results\">\n" +
-    "                <div class=\"no-results\" ng-show=\"search.results.length == 0 && search.lastTerm\">\n" +
-    "                    No results\n" +
-    "                </div>\n" +
+    "            <div class=\"search-results waiting-{{search.waiting}}\">\n" +
+    "                <h3 class=\"num-results\" ng-show=\"search.lastTerm\">\n" +
+    "                    {{ search.results.length + search.numTruncated }} results for \"{{ search.lastTerm }}\"\n" +
+    "                </h3>\n" +
     "\n" +
     "\n" +
     "\n" +
@@ -1030,13 +1029,17 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "                </div>\n" +
     "\n" +
     "                <div class=\"truncated\" ng-show=\"search.numTruncated\">\n" +
-    "                    <div class=\"main\">\n" +
+    "                    <div class=\"icon\">\n" +
     "                        <i class=\"fa fa-exclamation-triangle\"></i>\n" +
-    "                        Hiding {{ search.numTruncated }} additional results matching\n" +
-    "                        <em class=\"term\">\"{{ search.lastTerm }}\"</em>\n" +
     "                    </div>\n" +
-    "                    <div class=\"smaller\">\n" +
-    "                        You may want to try a more restrictive search term.\n" +
+    "                    <div class=\"msg\">\n" +
+    "                        <h3>\n" +
+    "                            Hiding {{ search.numTruncated }} additional results matching\n" +
+    "                            <em class=\"term\">\"{{ search.lastTerm }}\"</em>\n" +
+    "                        </h3>\n" +
+    "                        <div class=\"extra-msg\">\n" +
+    "                            Try a more specific search term to narrow results further.\n" +
+    "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "\n" +

@@ -182,9 +182,9 @@ angular.module('landing', [
 
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/repositories', {
-            templateUrl: "repositories.tpl.html",
-            controller: "RepositoriesPageCtrl"
+        $routeProvider.when('/sources', {
+            templateUrl: "sources.tpl.html",
+            controller: "SourcesPageCtrl"
         })
     })
 
@@ -219,9 +219,22 @@ angular.module('landing', [
     .controller("DataPageCtrl", function($scope, $anchorScroll){
         console.log("DataPageCtrl controller is running!")
     })
-    .controller("RepositoriesPageCtrl", function($scope, $http, $anchorScroll){
-        console.log("RepositoriesPageCtrl controller is running!")
+    .controller("SourcesPageCtrl", function($scope, $http, $timeout, $interval){
+        console.log("SourcesPageCtrl controller is running!")
 
+        var myInput = document.getElementById('search-input')
+        var myTimeout
+        var userIsTyping = false
+        myInput.onkeydown = function(e){
+            console.log("key up")
+            userIsTyping = true
+
+            $timeout.cancel(myTimeout)
+            myTimeout = $timeout(function(){
+                userIsTyping = false
+            }, 300)
+
+        }
 
         var searchInfo = {
             lastTerm: "",
@@ -230,17 +243,28 @@ angular.module('landing', [
             results: []
         }
 
+        function resetSearch(){
+            searchInfo.lastTerm = ""
+            searchInfo.waiting = false
+            searchInfo.numTruncated = 0
+            searchInfo.results.length = 0
+        }
+
+
         function search(){
             var term = $scope.searchTerm
 
             if (searchInfo.waiting){
                 return
             }
+            if (userIsTyping){
+                return
+            }
             if (term == searchInfo.lastTerm){
                 return
             }
             if (!term || term.length < 4){
-                searchInfo.results.length = 0; // clear the results array
+                resetSearch()
                 return
             }
 
@@ -265,17 +289,14 @@ angular.module('landing', [
                     searchInfo.results = results
                 })
                 .error(function(){
+                    resetSearch()
                     searchInfo.lastTerm = term
-                    searchInfo.waiting = false
-                    searchInfo.numTruncated = 0
-                    $scope.searchResults.length = 0; // clear the results array
-
                 })
 
         }
 
-        // poll for changing in the search term
-        setInterval(search, 250)
+        // poll for changes in the search term
+        $interval(search, 100)
         $scope.search = searchInfo
         $scope.ui = {}
 
@@ -497,7 +518,7 @@ angular.module("numFormat", [])
 
         }
     });
-angular.module('templates.app', ['api-v2.tpl.html', 'data.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'repositories.tpl.html', 'welcome.tpl.html']);
+angular.module('templates.app', ['api-v2.tpl.html', 'data.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
 
 angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("api-v2.tpl.html",
@@ -1454,8 +1475,8 @@ angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($t
     "</div>");
 }]);
 
-angular.module("repositories.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("repositories.tpl.html",
+angular.module("sources.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("sources.tpl.html",
     "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
     "\n" +
     "<div class=\"page sources\">\n" +
@@ -1464,7 +1485,6 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "            <span class=\"text\">\n" +
     "                Sources\n" +
     "            </span>\n" +
-    "            <md-button href=\"http://api.oadoi.org/data/repositories\">download as JSON</md-button>\n" +
     "        </h1>\n" +
     "\n" +
     "        <div class=\"header\">\n" +
@@ -1497,7 +1517,7 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "                <div class=\"input-row\">\n" +
     "                    <md-input-container class=\"md-block input\">\n" +
     "                        <label>Search for an OA source</label>\n" +
-    "                        <input ng-model=\"searchTerm\">\n" +
+    "                        <input ng-model=\"searchTerm\" id=\"search-input\">\n" +
     "                    </md-input-container>\n" +
     "                    <md-progress-circular\n" +
     "                            ng-show=\"search.waiting\"\n" +
@@ -1509,10 +1529,10 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "\n" +
     "            </form>\n" +
     "\n" +
-    "            <div class=\"search-results\">\n" +
-    "                <div class=\"no-results\" ng-show=\"search.results.length == 0 && search.lastTerm\">\n" +
-    "                    No results\n" +
-    "                </div>\n" +
+    "            <div class=\"search-results waiting-{{search.waiting}}\">\n" +
+    "                <h3 class=\"num-results\" ng-show=\"search.lastTerm\">\n" +
+    "                    {{ search.results.length + search.numTruncated }} results for \"{{ search.lastTerm }}\"\n" +
+    "                </h3>\n" +
     "\n" +
     "\n" +
     "\n" +
@@ -1529,13 +1549,17 @@ angular.module("repositories.tpl.html", []).run(["$templateCache", function($tem
     "                </div>\n" +
     "\n" +
     "                <div class=\"truncated\" ng-show=\"search.numTruncated\">\n" +
-    "                    <div class=\"main\">\n" +
+    "                    <div class=\"icon\">\n" +
     "                        <i class=\"fa fa-exclamation-triangle\"></i>\n" +
-    "                        Hiding {{ search.numTruncated }} additional results matching\n" +
-    "                        <em class=\"term\">\"{{ search.lastTerm }}\"</em>\n" +
     "                    </div>\n" +
-    "                    <div class=\"smaller\">\n" +
-    "                        You may want to try a more restrictive search term.\n" +
+    "                    <div class=\"msg\">\n" +
+    "                        <h3>\n" +
+    "                            Hiding {{ search.numTruncated }} additional results matching\n" +
+    "                            <em class=\"term\">\"{{ search.lastTerm }}\"</em>\n" +
+    "                        </h3>\n" +
+    "                        <div class=\"extra-msg\">\n" +
+    "                            Try a more specific search term to narrow results further.\n" +
+    "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "\n" +

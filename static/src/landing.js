@@ -33,9 +33,9 @@ angular.module('landing', [
 
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/repositories', {
-            templateUrl: "repositories.tpl.html",
-            controller: "RepositoriesPageCtrl"
+        $routeProvider.when('/sources', {
+            templateUrl: "sources.tpl.html",
+            controller: "SourcesPageCtrl"
         })
     })
 
@@ -70,9 +70,22 @@ angular.module('landing', [
     .controller("DataPageCtrl", function($scope, $anchorScroll){
         console.log("DataPageCtrl controller is running!")
     })
-    .controller("RepositoriesPageCtrl", function($scope, $http, $anchorScroll){
-        console.log("RepositoriesPageCtrl controller is running!")
+    .controller("SourcesPageCtrl", function($scope, $http, $timeout, $interval){
+        console.log("SourcesPageCtrl controller is running!")
 
+        var myInput = document.getElementById('search-input')
+        var myTimeout
+        var userIsTyping = false
+        myInput.onkeydown = function(e){
+            console.log("key up")
+            userIsTyping = true
+
+            $timeout.cancel(myTimeout)
+            myTimeout = $timeout(function(){
+                userIsTyping = false
+            }, 300)
+
+        }
 
         var searchInfo = {
             lastTerm: "",
@@ -81,17 +94,28 @@ angular.module('landing', [
             results: []
         }
 
+        function resetSearch(){
+            searchInfo.lastTerm = ""
+            searchInfo.waiting = false
+            searchInfo.numTruncated = 0
+            searchInfo.results.length = 0
+        }
+
+
         function search(){
             var term = $scope.searchTerm
 
             if (searchInfo.waiting){
                 return
             }
+            if (userIsTyping){
+                return
+            }
             if (term == searchInfo.lastTerm){
                 return
             }
             if (!term || term.length < 4){
-                searchInfo.results.length = 0; // clear the results array
+                resetSearch()
                 return
             }
 
@@ -116,17 +140,14 @@ angular.module('landing', [
                     searchInfo.results = results
                 })
                 .error(function(){
+                    resetSearch()
                     searchInfo.lastTerm = term
-                    searchInfo.waiting = false
-                    searchInfo.numTruncated = 0
-                    $scope.searchResults.length = 0; // clear the results array
-
                 })
 
         }
 
-        // poll for changing in the search term
-        setInterval(search, 250)
+        // poll for changes in the search term
+        $interval(search, 100)
         $scope.search = searchInfo
         $scope.ui = {}
 

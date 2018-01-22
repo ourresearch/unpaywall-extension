@@ -703,37 +703,60 @@ angular.module("footer.tpl.html", []).run(["$templateCache", function($templateC
     "<div class=\"footer\">\n" +
     "    <div class=\"content\" layout=\"row\" layout-xs=\"column\">\n" +
     "\n" +
-    "        <div class=\"links\" flex=\"40\" flex-xs=\"100\">\n" +
-    "            <a href=\"mailto:team@impactstory.org\">\n" +
-    "                <i class=\"fa fa-envelope-o\"></i>\n" +
-    "            </a>\n" +
-    "            <a href=\"http://twitter.com/unpaywall\">\n" +
-    "                <i class=\"fa fa-twitter\"></i>\n" +
-    "            </a>\n" +
-    "            <a href=\"https://github.com/Impactstory/unpaywall\">\n" +
-    "                <i class=\"fa fa-github\"></i>\n" +
-    "            </a>\n" +
+    "\n" +
+    "\n" +
+    "        <div class=\"menu\" flex=\"25\" flex-xs=\"100\">\n" +
+    "            <ul class=\"menu-links\">\n" +
+    "                <li>\n" +
+    "                    <a href=\"/\" class=\"menu-link\">Browser extension</a>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                    <a href=\"data\" class=\"menu-link\">Data + API</a>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                    <a href=\"faq\" class=\"menu-link\">FAQ</a>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                    <a href=\"sources\" class=\"menu-link\">Sources list</a>\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"links\" flex=\"25\" flex-xs=\"100\">\n" +
+    "            <ul class=\"menu-links\">\n" +
+    "                <li>\n" +
+    "                    <a href=\"mailto:team@impactstory.org\">\n" +
+    "                        <i class=\"fa fa-envelope-o\"></i>\n" +
+    "                        Contact\n" +
+    "                    </a>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                    <a href=\"http://twitter.com/unpaywall\">\n" +
+    "                        <i class=\"fa fa-twitter\"></i>\n" +
+    "                        Twitter\n" +
+    "                    </a>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                    <a href=\"https://github.com/Impactstory/unpaywall\">\n" +
+    "                        <i class=\"fa fa-github\"></i>\n" +
+    "                        GitHub\n" +
+    "                    </a>\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
     "        </div>\n" +
     "\n" +
     "\n" +
-    "\n" +
-    "        <div class=\"logo\" flex=\"20\" hide-xs>\n" +
-    "            <!--\n" +
-    "            <a href=\"/\" ng-click=\"scrollToTop()\">\n" +
-    "                <img src=\"static/img/icon-white.png\" alt=\"\">\n" +
-    "            </a>\n" +
-    "            -->\n" +
-    "        </div>\n" +
+    "        <div class=\"spacer\" flex=\"25\" hide-xs></div>\n" +
     "\n" +
     "\n" +
     "\n" +
-    "        <div class=\"credit\" flex=\"60\" flex-xs=\"100\">\n" +
+    "        <div class=\"credit\" flex=\"25\" flex-xs=\"100\">\n" +
     "            <span class=\"built-by\">\n" +
-    "                Built with <i class=\"fa fa-heart-o\"></i> at\n" +
-    "                <a href=\"faq#who-is-behind-this\">Impactstory</a>, with support from\n" +
+    "                Built with <i class=\"fa fa-heart-o\"></i> at <a href=\"http://impactstory.org\">Impactstory</a>\n" +
+    "\n" +
     "            </span>\n" +
     "            <span class=\"funders\">\n" +
-    "                 the National Science Foundation and the Alfred P. Sloan Foundation.\n" +
+    "                 with support from the National Science Foundation and the Alfred P. Sloan Foundation.\n" +
     "            </span>\n" +
     "        </div>\n" +
     "    </div>\n" +
@@ -748,24 +771,21 @@ angular.module("header.tpl.html", []).run(["$templateCache", function($templateC
     "    </a>\n" +
     "    <div class=\"spacer\"></div>\n" +
     "\n" +
-    "    <!--\n" +
-    "    <a class=\"questions\" href=\"\" ng-click=\"scrollToAbout()\">\n" +
-    "    </a>\n" +
-    "    -->\n" +
-    "\n" +
     "    <div class=\"links\">\n" +
-    "        <a href=\"/\" class=\"install\" hide show--gt-xs>\n" +
-    "            <i class=\"fa fa-plus-circle\"></i>\n" +
-    "            Install\n" +
-    "        </a>\n" +
-    "        <a href=\"/faq\">\n" +
-    "            <i class=\"fa fa-question-circle\"></i>\n" +
-    "            FAQ\n" +
-    "        </a>\n" +
-    "        <a href=\"/\" class=\"home\">\n" +
-    "            <i class=\"fa fa-home\"></i>\n" +
-    "            home\n" +
-    "        </a>\n" +
+    "        <ul class=\"menu-links\">\n" +
+    "            <li>\n" +
+    "                <a href=\"/\" class=\"menu-link\" hide show-gt-xs>Install</a>\n" +
+    "            </li>\n" +
+    "            <li>\n" +
+    "                <a href=\"data\" class=\"menu-link\">\n" +
+    "                    Data\n" +
+    "                    <span hide show-gt-xs> + API</span>\n" +
+    "                </a>\n" +
+    "            </li>\n" +
+    "            <li>\n" +
+    "                <a href=\"faq\" class=\"menu-link\">FAQ</a>\n" +
+    "            </li>\n" +
+    "        </ul>\n" +
     "\n" +
     "    </div>\n" +
     "\n" +
@@ -901,7 +921,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "            <div class=\"testimonial\">\n" +
     "                <img src=\"static/img/tom.jpg\" alt=\"\">\n" +
     "                <div class=\"copy\">\n" +
-    "                    Yesterday I found Unpaywall, and my life changed.  I've already gotten 4 publications by clicking on the Mystical Green Padlock...Thank you, from the heart.\n" +
+    "                    Yesterday I found Unpaywall, and my life changed.  I've already gotten four publications by clicking on the Mystical Green Padlock...Thank you, from the heart.\n" +
     "                    <div class=\"attribution\">\n" +
     "                        <div class=\"name\">&mdash;Tom Mueller,</div>\n" +
     "                        <div class=\"job\">Freelance Author</div>\n" +

@@ -45,6 +45,13 @@ angular.module('landing', [
             controller: "DataPageCtrl"
         })
     })
+
+    .config(function ($routeProvider) {
+        $routeProvider.when('/access', {
+            templateUrl: "access.tpl.html"
+        })
+    })
+
     .config(function ($routeProvider) {
         $routeProvider.when('/api/v2', {
             templateUrl: "api-v2.tpl.html"

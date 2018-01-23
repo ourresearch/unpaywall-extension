@@ -194,6 +194,13 @@ angular.module('landing', [
             controller: "DataPageCtrl"
         })
     })
+
+    .config(function ($routeProvider) {
+        $routeProvider.when('/access', {
+            templateUrl: "access.tpl.html"
+        })
+    })
+
     .config(function ($routeProvider) {
         $routeProvider.when('/api/v2', {
             templateUrl: "api-v2.tpl.html"
@@ -518,7 +525,34 @@ angular.module("numFormat", [])
 
         }
     });
-angular.module('templates.app', ['api-v2.tpl.html', 'data.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
+angular.module('templates.app', ['access.tpl.html', 'api-v2.tpl.html', 'data.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
+
+angular.module("access.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("access.tpl.html",
+    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "\n" +
+    "<div class=\"page access\">\n" +
+    "    <div class=\"content\">\n" +
+    "        <h1>\n" +
+    "            Data access page\n" +
+    "        </h1>\n" +
+    "\n" +
+    "        <div>\n" +
+    "            <p>\n" +
+    "               This is the data access page.\n" +
+    "            </p>\n" +
+    "        </div>\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
+}]);
 
 angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("api-v2.tpl.html",
@@ -1068,7 +1102,7 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "<div class=\"page data\">\n" +
     "    <div class=\"content\">\n" +
     "        <h1>\n" +
-    "            Accessing the Unpaywall database\n" +
+    "            About the data\n" +
     "        </h1>\n" +
     "\n" +
     "        <div>\n" +

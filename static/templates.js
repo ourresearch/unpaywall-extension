@@ -590,6 +590,32 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "            </p>\n" +
     "        </div>\n" +
     "\n" +
+    "        <h2 id=\"use\">Using Unpaywall data in your own projects</h2>\n" +
+    "        <p>There are lots of ways you can use the Unpaywall dataset in your own projects, depending on what you're trying to do:</p>\n" +
+    "        <ul>\n" +
+    "            <li>\n" +
+    "                <strong>Librarians:</strong>\n" +
+    "                can integrate Unpaywall into their\n" +
+    "                <a href=\"https://knowledge.exlibrisgroup.com/SFX/Knowledge_Articles/How_to_enable_oaDOI_service_on_SFX\">SFX</a>\n" +
+    "                or\n" +
+    "                <a href=\"https://knowledge.exlibrisgroup.com/360_Services/360_Link/0Product_Documentation/Overview/360_Link_with_IEDL%3A_Open_Access_Lookup_Service_Integration\">360 Link</a>\n" +
+    "                \n" +
+    "                link resolvers, so library users can read OA copies in cases where there's no subscription access. Over 1000 libraries worldwide are now using this now.\n" +
+    "            </li>\n" +
+    "\n" +
+    "            <li>\n" +
+    "                <strong>Institutional Repository managers</strong>\n" +
+    "                can use Unpaywall data to find OA resources that faculty have posted online, without depositing in their IR. These can be automatically ingested, significantly increasing IR coverage without needing to convince faculty to deposit. Repositories of all sizes have used Unpaywall data in this way.  SwePub (national repository of Sweden) added ***x million*** records.  **tiny canadian one**, a small Canadian university, added *** records, a 50% increase in fulltext coverage. IR managers can\n" +
+    "                <a href=\"dataset\">download the complete dataset,</a>\n" +
+    "                <a href=\"check-dois\">check lists of records by DOI,</a> or\n" +
+    "                take advantage of Unpaywall's integration into the \n" +
+    "                <a href=\"https://app.dimensions.ai/discover/publication?and_facet_open_access=True\">Dimensions</a>\n" +
+    "\n" +
+    "            </li>\n" +
+    "\n" +
+    "        </ul>\n" +
+    "\n" +
+    "\n" +
     "    </div>\n" +
     "\n" +
     "\n" +
@@ -738,13 +764,13 @@ angular.module("footer.tpl.html", []).run(["$templateCache", function($templateC
     "                    <a href=\"/\" class=\"menu-link\">Browser extension</a>\n" +
     "                </li>\n" +
     "                <li>\n" +
-    "                    <a href=\"data\" class=\"menu-link\">Data + API</a>\n" +
+    "                    <a href=\"data\" class=\"menu-link\">Our data</a>\n" +
     "                </li>\n" +
     "                <li>\n" +
     "                    <a href=\"faq\" class=\"menu-link\">FAQ</a>\n" +
     "                </li>\n" +
     "                <li>\n" +
-    "                    <a href=\"sources\" class=\"menu-link\">Sources list</a>\n" +
+    "                    <a href=\"sources\" class=\"menu-link\">Our data sources</a>\n" +
     "                </li>\n" +
     "            </ul>\n" +
     "        </div>\n" +
@@ -806,7 +832,6 @@ angular.module("header.tpl.html", []).run(["$templateCache", function($templateC
     "            <li>\n" +
     "                <a href=\"data\" class=\"menu-link\">\n" +
     "                    Data\n" +
-    "                    <span hide show-gt-xs> + API</span>\n" +
     "                </a>\n" +
     "            </li>\n" +
     "            <li>\n" +
@@ -877,7 +902,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "                    </div>\n" +
     "                    <div class=\"num-users\">\n" +
     "                        <span class=\"num\">\n" +
-    "                            116,492\n" +
+    "                            124,492\n" +
     "                        </span>\n" +
     "                        <span class=\"light\">users on Chrome and Firefox have read millions of articles for free.</span>\n" +
     "                    </div>\n" +

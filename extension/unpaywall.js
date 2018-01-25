@@ -64,6 +64,9 @@ function makeSourceObj(sourceName, sourceFn) {
         },
         isGreen: function(){
             return results.color == "green"
+        },
+        isBronze: function(){
+            return results.color == "bronze"
         }
     }
 }
@@ -116,6 +119,9 @@ function decideTabColor(){
     if (getSource("pdfLink").getUrl()){
         color = "bronze"
     }
+    if (getSource("oadoi").isBronze()){
+        color = "bronze"
+    }
 
     if (getSource("oadoi").isGold()){
         color = "gold"
@@ -144,10 +150,13 @@ function getSearchResults(){
     if (!searchesAreAllDone()){
         return null
     }
-    return {
+    var ret = {
         url: getBestOaUrl(),
         color: decideTabColor()
     }
+    console.log("unpaywall decision:", ret)
+    return ret
+
 l
 }
 
@@ -212,6 +221,7 @@ function decideOadoiColor(oadoiResp){
         return "black"
     }
 
+    var color
 
     // from oaDOI perspective, bronze is just everything that's not
     // green or gold.

@@ -51,6 +51,8 @@ body .main-view {
 }
 .page {
   width: 100%;
+  font-size: 18px;
+  line-height: 1.4;
   flex: 1;
 }
 .page h1 {
@@ -63,13 +65,9 @@ body .main-view {
 }
 .page.faq {
   padding-top: 100px;
-  line-height: 1.4;
-  font-size: 20px;
 }
 .page.sources {
   padding-top: 100px;
-  line-height: 1.4;
-  font-size: 20px;
 }
 .page.sources h1 {
   display: flex;

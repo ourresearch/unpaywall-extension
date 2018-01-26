@@ -47,8 +47,8 @@ angular.module('landing', [
     })
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/access', {
-            templateUrl: "access.tpl.html"
+        $routeProvider.when('/dataset', {
+            templateUrl: "dataset.tpl.html"
         })
     })
 

@@ -196,8 +196,8 @@ angular.module('landing', [
     })
 
     .config(function ($routeProvider) {
-        $routeProvider.when('/access', {
-            templateUrl: "access.tpl.html"
+        $routeProvider.when('/dataset', {
+            templateUrl: "dataset.tpl.html"
         })
     })
 
@@ -525,34 +525,7 @@ angular.module("numFormat", [])
 
         }
     });
-angular.module('templates.app', ['access.tpl.html', 'api-v2.tpl.html', 'data.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
-
-angular.module("access.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("access.tpl.html",
-    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
-    "\n" +
-    "<div class=\"page access\">\n" +
-    "    <div class=\"content\">\n" +
-    "        <h1>\n" +
-    "            Data access page\n" +
-    "        </h1>\n" +
-    "\n" +
-    "        <div>\n" +
-    "            <p>\n" +
-    "               This is the data access page.\n" +
-    "            </p>\n" +
-    "        </div>\n" +
-    "\n" +
-    "    </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "\n" +
-    "</div>\n" +
-    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
-}]);
+angular.module('templates.app', ['api-v2.tpl.html', 'data.tpl.html', 'dataset.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
 
 angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("api-v2.tpl.html",
@@ -1105,17 +1078,17 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "            About the data\n" +
     "        </h1>\n" +
     "\n" +
-    "        <div>\n" +
-    "            <p>\n" +
-    "                We're finishing up this page. It will be available\n" +
-    "                on Monday, Jan 22.\n" +
-    "            </p>\n" +
-    "            <p>\n" +
-    "                Here's the\n" +
-    "                <a href=\"api/v2\">API Version 2 docs.</a>\n" +
     "\n" +
-    "            </p>\n" +
-    "        </div>\n" +
+    "        <h2 id=\"about\">About the dataset</h2>\n" +
+    "        <p>\n" +
+    "            Unpaywall is powered by a database of 100 million scholarly papers. Of these, about 13 million have links to fulltext open access, making it the largest open database of\n" +
+    "            <a href=\"faq#legal\">legal</a>\n" +
+    "            Open Access (by summer of 2018, we'll have around 18 million). It's also the most accurate: all records are keyed by DOI, and precision (98%) and recall (75%) of OA detection lead the industry (see\n" +
+    "            <a href=\"https://peerj.com/preprints/3119v1/\">our PeerJ paper</a> for more on these numbers). We harvest OA content from over\n" +
+    "            <a href=\"sources\">50,000 unique sources</a> including open repositories, OA journals, Hybrid journals, and services like DOAJ and Crossref.\n" +
+    "        </p>\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "        <h2 id=\"use\">Using Unpaywall data in your own projects</h2>\n" +
     "        <p>There are lots of ways you can use the Unpaywall dataset in your own projects, depending on what you're trying to do:</p>\n" +
@@ -1132,16 +1105,69 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "\n" +
     "            <li>\n" +
     "                <strong>Institutional Repository managers</strong>\n" +
-    "                can use Unpaywall data to find OA resources that faculty have posted online, without depositing in their IR. These can be automatically ingested, significantly increasing IR coverage without needing to convince faculty to deposit. Repositories of all sizes have used Unpaywall data in this way.  SwePub (national repository of Sweden) added ***x million*** records.  **tiny canadian one**, a small Canadian university, added *** records, a 50% increase in fulltext coverage. IR managers can\n" +
-    "                <a href=\"dataset\">download the complete dataset,</a>\n" +
+    "                can use Unpaywall data to find OA resources that faculty have posted online, without depositing in their IR. These can be automatically ingested, significantly increasing IR coverage without needing to convince faculty to deposit. Repositories of all sizes have used Unpaywall data in this way.  SwePub (national repository of Sweden) added 75,000 new OA records, increasing number of OA records by over 30%, while the smaller\n" +
+    "                <a href=\"https://ir.library.carleton.ca/\">the Carlton University IR</a> added 1000 OA records, doubling their fulltext coverage. There are a few good ways to access our data for this use case:\n" +
+    "                <a href=\"dataset\">downloading the complete dataset,</a>\n" +
     "                <a href=\"check-dois\">check lists of records by DOI,</a> or\n" +
-    "                take advantage of Unpaywall's integration into the \n" +
-    "                <a href=\"https://app.dimensions.ai/discover/publication?and_facet_open_access=True\">Dimensions</a>\n" +
+    "                taking advantage of Unpaywall's integration into the\n" +
+    "                <a href=\"https://app.dimensions.ai/discover/publication?and_facet_open_access=True\">Dimensions</a> and\n" +
+    "                <a href=\"https://clarivate.com/wp-content/uploads/2017/10/Clarivate-OA-Impact-Story_Intro-sheet.pdf?elqTrackId=c5abee7048934a3da317e296a3e2a9c8&elqaid=5350&elqat=2\">Web of Science.</a>\n" +
+    "            </li>\n" +
     "\n" +
+    "            <li>\n" +
+    "                <strong>OA researchers</strong> can use Unpaywall to answer research questions about the current and historical state of open access. There are several ways to access the data for research: you can use the\n" +
+    "                <a href=\"api/v2\">open API,</a>\n" +
+    "                <a href=\"https://cran.r-project.org/web/packages/roadoi/vignettes/intro.html\">or the R API wrapper,</a>\n" +
+    "                <a href=\"check-dois\">check a list of DOIs,</a>\n" +
+    "                or\n" +
+    "                <a href=\"dataset\">download the complete dataset.</a> A particularly easy way to get started with research is to use <a href=\"https://app.dimensions.ai/discover/publication?and_facet_open_access=True\">Dimensions</a> or\n" +
+    "                <a href=\"https://clarivate.com/wp-content/uploads/2017/10/Clarivate-OA-Impact-Story_Intro-sheet.pdf?elqTrackId=c5abee7048934a3da317e296a3e2a9c8&elqaid=5350&elqat=2\">Web of Science, </a> which both have Unpaywall data integrated into their databases. That's the approach used by\n" +
+    "                <a href=\"https://peerj.com/preprints/3520/\">this recent paper.</a> You might also check out the\n" +
+    "                <a href=\"https://peerj.com/preprints/3119v1/\">the canonical reference paper</a> for the dataset, which gives a good overview of the data as a whole.\n" +
+    "            </li>\n" +
+    "\n" +
+    "\n" +
+    "            <li>\n" +
+    "                <strong>Enterprise users</strong> should check out our <a href=\"sla\">SLA</a> in order to download and use the Unpaywall\n" +
+    "                <a href=\"dataset\">dataset</a> for commercial projects. Once you've done that, we can help you set up a mirror database that allows you to keep an always-current version of Unpaywall's data hosted on your own servers. You can also use the\n" +
+    "                <a href=\"api/v2\">API</a> for any use (commercial or otherwise) for free.\n" +
     "            </li>\n" +
     "\n" +
     "        </ul>\n" +
     "\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
+}]);
+
+angular.module("dataset.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("dataset.tpl.html",
+    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "\n" +
+    "<div class=\"page dataset\">\n" +
+    "    <div class=\"content\">\n" +
+    "        <h1>\n" +
+    "            The Unpaywall dataset\n" +
+    "        </h1>\n" +
+    "\n" +
+    "        <p>\n" +
+    "            You can download the entire dataset behind Unpaywall; it's free for noncommercial use. It's pretty unwieldy at 100M rows, so unless you legit need the whole thing for your use case, you'll probably be better served by one of the\n" +
+    "            <a href=\"data#use\">lightweight alternatives.</a> If you want to use the dataset for commercial purposes, check out our\n" +
+    "            <a href=\"sla\">SLA program.</a> As part of that, we can help you set up a mirror database that allows you to keep an always-current version of Unpaywall's data hosted on your own servers.\n" +
+    "        </p>\n" +
+    "        <p>\n" +
+    "            To download the dataset, please fill out\n" +
+    "            <a href=\"https://docs.google.com/forms/d/12UGb9D10ct1xmgOwKsHywON6nWj-9uWSURO7-Su2MJo\">this form</a> and we'll send you a URL where you can get the data. You can read the,\n" +
+    "            <a href=\"https://docs.google.com/document/d/1Whfe26oyjTedeW1GGWkq3NADgDbL2R2eXqrJCWS8vcc/edit\">dataset release notes here.</a> You can\n" +
+    "            <a href=\"data\">learn more about Unpaywall's data here.</a>\n" +
+    "        </p>\n" +
     "\n" +
     "    </div>\n" +
     "\n" +
@@ -1206,6 +1232,13 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    Yes! We make all of Unpaywall's data available via the <a href=\"http://oadoi.org/about\">oaDOI API.</a>\n" +
     "                    The oaDOI service is currently used to enrich hundreds of academic libraries, search engines,\n" +
     "                    indexing services, and other tools; it's also used in many research and evaluation projects.\n" +
+    "                </dd>\n" +
+    "                \n" +
+    "                <dt id=\"legal\"><i class=\"fa fa-chevron-right\"></i>Is Unpaywall legal?</dt>\n" +
+    "                <dd>\n" +
+    "                    Yes! We harvest content from <strong>legal</strong> sources including repositories run by universities, governments, and scholarly societies, as well as open content hosted by publishers themselves. We do <em>not</em> harvest from sources of dubious legality like\n" +
+    "                    <a href=\"https://link.springer.com/article/10.1007/s11192-017-2291-4\">ResearchGate</a>\n" +
+    "                    or <a href=\"https://answers.library.curtin.edu.au/faq/204046\">Sci-Hub.</a> If you ever encounter content indexed by Unpaywall that is posted in violation of copyright, let us know and we'll remove it immediately.\n" +
     "                </dd>\n" +
     "\n" +
     "\n" +

@@ -1,4 +1,4 @@
-angular.module('templates.app', ['api-v2.tpl.html', 'data.tpl.html', 'dataset.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
+angular.module('templates.app', ['api-v2.tpl.html', 'api.tpl.html', 'check-dois.tpl.html', 'data.tpl.html', 'dataset.tpl.html', 'faq.tpl.html', 'footer.tpl.html', 'header.tpl.html', 'landing.tpl.html', 'page-not-found.tpl.html', 'sla.tpl.html', 'sources.tpl.html', 'welcome.tpl.html']);
 
 angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("api-v2.tpl.html",
@@ -7,9 +7,6 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "<div class=\"page api-v2\">\n" +
     "    <div class=\"content\">\n" +
     "    <h1>API Version 2</h1>\n" +
-    "    <div class=\"version-good\">\n" +
-    "        Version 2 will become the default version on October 1, 2017, and we recommend that new users build on this version. Use it now by prepending <code>/v2</code> to each endpoint.\n" +
-    "    </div>\n" +
     "\n" +
     "    <ul class=\"toc\">\n" +
     "        <li><a href=\"#limits\">Limits and authentication</a></li>\n" +
@@ -35,9 +32,10 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "\n" +
     "    <h2 class=\"anchor\"  id=\"limits\">Limits and authentication</h2>\n" +
     "    <p>\n" +
-    "        The REST API gives anyone free, programmatic access to all of oaDOI's data.\n" +
-    "        There's no rate limit, but if you need more than 100k calls/day you\n" +
-    "        may want to download the datasets instead.\n" +
+    "        The REST API gives anyone free, programmatic access to all of Unpaywall's data.\n" +
+    "            There's no rate limit, but if you need more than 100k calls/day you\n" +
+    "            may want to\n" +
+    "            <a href=\"dataset\">download the dataset</a> instead.\n" +
     "    </p>\n" +
     "    <p>\n" +
     "        Requests must include your email, so that we can\n" +
@@ -541,6 +539,81 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
 }]);
 
+angular.module("api.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("api.tpl.html",
+    "\n" +
+    "<!--\n" +
+    "\n" +
+    "CURRENTLY NOT USING THIS FILE, SINCE WE'RE JUST REDIRECTING /API TO /API/V2\n" +
+    "\n" +
+    "-->\n" +
+    "\n" +
+    "\n" +
+    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "\n" +
+    "<div class=\"page api\">\n" +
+    "    <div class=\"content\">\n" +
+    "        <h1>\n" +
+    "            API\n" +
+    "        </h1>\n" +
+    "\n" +
+    "        <p>\n" +
+    "            The REST API gives anyone free, programmatic access to all of Unpaywalls's data.\n" +
+    "        </p>\n" +
+    "\n" +
+    "        <p>\n" +
+    "            If you're using the API, we recommend you subscribe to the\n" +
+    "            <a href=\"https://groups.google.com/forum/#!forum/oadoi-users\">mailing list</a> in order\n" +
+    "            to stay up-to-date when there are changes or new features.\n" +
+    "        </p>\n" +
+    "\n" +
+    "\n" +
+    "        <h2 class=\"anchor\"  id=\"version\">Versions</h2>\n" +
+    "        <p>\n" +
+    "            The only supported version is currently Version 2.\n" +
+    "            See the <a href=\"api/v2\">the v2 documentation</a> for details.\n" +
+    "        </p>\n" +
+    "\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
+}]);
+
+angular.module("check-dois.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("check-dois.tpl.html",
+    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "\n" +
+    "<div class=\"page check-dataset\">\n" +
+    "    <div class=\"content\">\n" +
+    "        <h1>\n" +
+    "            Check DOIs\n" +
+    "        </h1>\n" +
+    "\n" +
+    "        <p>\n" +
+    "            This service is coming soon. When it's up, you'll be able to\n" +
+    "            upload a list of DOIs, get OA status for each of them emailed to you\n" +
+    "            as a dataset.\n" +
+    "        </p>\n" +
+    "\n" +
+    "\n" +
+    "    </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
+}]);
+
 angular.module("data.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("data.tpl.html",
     "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
@@ -589,7 +662,7 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "\n" +
     "            <li>\n" +
     "                <strong>OA researchers</strong> can use Unpaywall to answer research questions about the current and historical state of open access. There are several ways to access the data for research: you can use the\n" +
-    "                <a href=\"api/v2\">open API,</a>\n" +
+    "                <a href=\"api\">open API,</a>\n" +
     "                <a href=\"https://cran.r-project.org/web/packages/roadoi/vignettes/intro.html\">or the R API wrapper,</a>\n" +
     "                <a href=\"check-dois\">check a list of DOIs,</a>\n" +
     "                or\n" +
@@ -603,7 +676,7 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "            <li>\n" +
     "                <strong>Enterprise users</strong> should check out our <a href=\"sla\">SLA</a> in order to download and use the Unpaywall\n" +
     "                <a href=\"dataset\">dataset</a> for commercial projects. Once you've done that, we can help you set up a mirror database that allows you to keep an always-current version of Unpaywall's data hosted on your own servers. You can also use the\n" +
-    "                <a href=\"api/v2\">API</a> for any use (commercial or otherwise) for free.\n" +
+    "                <a href=\"api\">API</a> for any use (commercial or otherwise) for free.\n" +
     "            </li>\n" +
     "\n" +
     "        </ul>\n" +
@@ -1058,6 +1131,63 @@ angular.module("page-not-found.tpl.html", []).run(["$templateCache", function($t
     "    <h1>Sorry, we couldn't find that page!</h1>\n" +
     "\n" +
     "</div>");
+}]);
+
+angular.module("sla.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("sla.tpl.html",
+    "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
+    "\n" +
+    "<div class=\"page data\">\n" +
+    "    <div class=\"content\">\n" +
+    "        <h1>\n" +
+    "            Commercial use of Unpaywall data\n" +
+    "        </h1>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "    <p>\n" +
+    "        The Unpaywall <a href=\"dataset\">dataset</a> is free for noncommercial use. However, for commercial use you'll need to sign up for the Service-Level Agreement (SLA). This lets you:\n" +
+    "    </p>\n" +
+    "    <ul>\n" +
+    "        <li>\n" +
+    "            Use the downloaded <a href=\"dataset\">dataset</a> for\n" +
+    "            commercial purposes.\n" +
+    "        </li>\n" +
+    "        <li>\n" +
+    "            Get weekly updates on what changed in the Unpaywall database. So, if you start\n" +
+    "            with the download file, then subscribe to the weekly updates, you'll be able to\n" +
+    "            maintain an exact copy of the Unpaywall database, on your own local servers.\n" +
+    "        </li>\n" +
+    "        <li>\n" +
+    "            Get enterprise-level service and support established and guaranteed in writing.\n" +
+    "        </li>\n" +
+    "        <li>\n" +
+    "            Help support oaDOI and keep it sustainable over the long term.\n" +
+    "        </li>\n" +
+    "    </ul>\n" +
+    "\n" +
+    "    <p>\n" +
+    "        Of course, if you don't need  these features,\n" +
+    "        you can always just use the\n" +
+    "        <a href=\"api\">API;</a> it's free to everyone for\n" +
+    "        any use.\n" +
+    "    </p>\n" +
+    "\n" +
+    "    <p>\n" +
+    "        Our pricing on the SLA is flexible, depending on your revenue and use-case.\n" +
+    "        So if you're interested, please <a href=\"mailto:team@impactstory.org\">contact us;</a>\n" +
+    "        we'd love to hear from you!\n" +
+    "\n" +
+    "\n" +
+    "    </p>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
 }]);
 
 angular.module("sources.tpl.html", []).run(["$templateCache", function($templateCache) {

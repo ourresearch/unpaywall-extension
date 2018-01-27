@@ -53,6 +53,23 @@ angular.module('landing', [
     })
 
     .config(function ($routeProvider) {
+        $routeProvider.when('/sla', {
+            templateUrl: "sla.tpl.html"
+        })
+    })
+
+    .config(function ($routeProvider) {
+        $routeProvider.when('/check-dois', {
+            templateUrl: "check-dois.tpl.html"
+        })
+    })
+
+    .config(function ($routeProvider) {
+        $routeProvider.when('/api', {
+            redirectTo: "/api/v2"
+        })
+    })
+    .config(function ($routeProvider) {
         $routeProvider.when('/api/v2', {
             templateUrl: "api-v2.tpl.html"
         })

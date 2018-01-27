@@ -623,7 +623,7 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "                    Example\n" +
     "                </td>\n" +
     "                <td class=\"v\">\n" +
-    "                    <a href=\"https://api.oadoi.org/v2?email=test@example.com\">https://api.oadoi.org/v2?email=test@example.com</a>\n" +
+    "                    <a href=\"https://api.unpaywall.org/v2?email=test@example.com\">https://api.oadoi.org/v2?email=test@example.com</a>\n" +
     "                </td>\n" +
     "            </tr>\n" +
     "        </table>\n" +
@@ -670,7 +670,7 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "                    Example\n" +
     "                </td>\n" +
     "                <td class=\"v\">\n" +
-    "                    <a href=\"https://api.oadoi.org/v2/10.1038/nature12373?email=test@example.com\">https://api.oadoi.org/v2/10.1038/nature12373?email=test@example.com</a>\n" +
+    "                    <a href=\"https://api.unpaywall.org/v2/10.1038/nature12373?email=test@example.com\">https://api.oadoi.org/v2/10.1038/nature12373?email=test@example.com</a>\n" +
     "                </td>\n" +
     "            </tr>\n" +
     "        </table>\n" +
@@ -946,7 +946,7 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "                    <li>\n" +
     "                        <span class=\"value\"><code>2</code></span>\n" +
     "                        <span class=\"notes\">\n" +
-    "                            Second-generation hybrid detection. Uses additional sources, checks all publishers for hybrid. Gets about 10x as much hybrid. <code>data_standard==2</code> is the version used in the paper we wrote about oaDOI.\n" +
+    "                            Second-generation hybrid detection. Uses additional sources, checks all publishers for hybrid. Gets about 10x as much hybrid. <code>data_standard==2</code> is the version used in the paper we wrote about the dataset.\n" +
     "                        </span>\n" +
     "                    </li>\n" +
     "                </ul>\n" +
@@ -1280,17 +1280,6 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "            <h1>Frequently asked questions</h1>\n" +
     "            <dl>\n" +
     "\n" +
-    "                <!--\n" +
-    "                <dt id=\"who-is-behind-this\"><i class=\"fa fa-chevron-right\"></i>Who's behind Unpaywall?</dt>\n" +
-    "                <dd>\n" +
-    "                    We're <a href=\"http://impactstory.org/about\">Impactstory,</a>\n" +
-    "                    a nonprofit working to make science more open and reusable online.\n" +
-    "                    We're supported by grants from <span class=\"funders\">\n" +
-    "                    the National Science Foundation and the Alfred P. Sloan Foundation\n" +
-    "            </span>\n" +
-    "                </dd>\n" +
-    "                -->\n" +
-    "\n" +
     "\n" +
     "                <dt id=\"how-often-finds-fulltext\"><i class=\"fa fa-chevron-right\"></i>How often does Unpaywall find full text?</dt>\n" +
     "                <dd>\n" +
@@ -1309,26 +1298,33 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                <dt id=\"how-do-you-find-articles\"><i class=\"fa fa-chevron-right\"></i>How do you find all these fulltext articles?</dt>\n" +
     "                <dd>\n" +
-    "                    We harvest content directly from thousands of open-access repositories worldwide.\n" +
+    "                    We harvest content directly from\n" +
+    "                    <a href=\"sources\">\n" +
+    "                        over 50,000 journals open-access repositories\n" +
+    "                    </a>\n" +
+    "                    from all over the world.\n" +
+    "\n" +
     "                    We also use great open data from\n" +
     "                    <a href=\"https://www.ncbi.nlm.nih.gov/pmc/\">PubMed Central</a>,\n" +
     "                    <a href=\"https://doaj.org/\">the DOAJ,</a>\n" +
     "                    <a href=\"https://www.crossref.org/\">Crossref</a> (particulary their license info), and\n" +
     "                    <a href=\"https://www.datacite.org/\">DataCite.</a>\n" +
+    "                    You can learn more about our data on\n" +
+    "                    <a href=\"data\">this page.</a>\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt id=\"api\"><i class=\"fa fa-chevron-right\"></i>Does Unpaywall have an API?</dt>\n" +
-    "                <dd>\n" +
-    "                    Yes! We make all of Unpaywall's data available via the <a href=\"http://oadoi.org/about\">oaDOI API.</a>\n" +
-    "                    The oaDOI service is currently used to enrich hundreds of academic libraries, search engines,\n" +
-    "                    indexing services, and other tools; it's also used in many research and evaluation projects.\n" +
-    "                </dd>\n" +
-    "                \n" +
+    "\n" +
     "                <dt id=\"legal\"><i class=\"fa fa-chevron-right\"></i>Is Unpaywall legal?</dt>\n" +
     "                <dd>\n" +
     "                    Yes! We harvest content from <strong>legal</strong> sources including repositories run by universities, governments, and scholarly societies, as well as open content hosted by publishers themselves. We do <em>not</em> harvest from sources of dubious legality like\n" +
     "                    <a href=\"https://link.springer.com/article/10.1007/s11192-017-2291-4\">ResearchGate</a>\n" +
     "                    or <a href=\"https://answers.library.curtin.edu.au/faq/204046\">Sci-Hub.</a> If you ever encounter content indexed by Unpaywall that is posted in violation of copyright, let us know and we'll remove it immediately.\n" +
+    "                </dd>\n" +
+    "\n" +
+    "                <dt id=\"oadoi\"><i class=\"fa fa-chevron-right\"></i>How is this related to the oaDOI service?</dt>\n" +
+    "                <dd>\n" +
+    "                    We used to call the browser extension \"Unpaywall,\" and the data source behind it \"oaDOI.\" That got confusing, so now the whole project is just called Unpaywall, including the database, the API, the extension, and everything else. The services previously offered under the oaDOI name still work (and are still handling millions of daily users), but the name itself has been retired.\n" +
+    "\n" +
     "                </dd>\n" +
     "\n" +
     "\n" +
@@ -1708,7 +1704,7 @@ angular.module("sla.tpl.html", []).run(["$templateCache", function($templateCach
     "            Get enterprise-level service and support established and guaranteed in writing.\n" +
     "        </li>\n" +
     "        <li>\n" +
-    "            Help support oaDOI and keep it sustainable over the long term.\n" +
+    "            Help support Unpaywall and keep it sustainable over the long term.\n" +
     "        </li>\n" +
     "    </ul>\n" +
     "\n" +

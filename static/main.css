@@ -66,6 +66,9 @@ body .main-view {
 .page.faq {
   padding-top: 100px;
 }
+.page.data ul li {
+  margin: 20px 0;
+}
 .page.sources {
   padding-top: 100px;
 }

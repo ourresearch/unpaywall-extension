@@ -624,10 +624,8 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "            About the data\n" +
     "        </h1>\n" +
     "\n" +
-    "\n" +
-    "        <h2 id=\"about\">About the dataset</h2>\n" +
     "        <p>\n" +
-    "            Unpaywall is powered by a database of 100 million scholarly papers. Of these, about 13 million have links to fulltext open access, making it the largest open database of\n" +
+    "            Unpaywall is powered by a database of 100 million scholarly papers. Of these, about 16 million have links to fulltext open access, making it the largest open database of\n" +
     "            <a href=\"faq#legal\">legal</a>\n" +
     "            Open Access (by summer of 2018, we'll have around 18 million). It's also the most accurate: all records are keyed by DOI, and precision (98%) and recall (75%) of OA detection lead the industry (see\n" +
     "            <a href=\"https://peerj.com/preprints/3119v1/\">our PeerJ paper</a> for more on these numbers). We harvest OA content from over\n" +
@@ -635,9 +633,9 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "        </p>\n" +
     "\n" +
     "\n" +
-    "\n" +
-    "        <h2 id=\"use\">Using Unpaywall data in your own projects</h2>\n" +
     "        <p>There are lots of ways you can use the Unpaywall dataset in your own projects, depending on what you're trying to do:</p>\n" +
+    "\n" +
+    "\n" +
     "        <ul>\n" +
     "            <li>\n" +
     "                <strong>Librarians:</strong>\n" +

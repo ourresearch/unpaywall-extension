@@ -66,6 +66,30 @@ body .main-view {
 .page.faq {
   padding-top: 100px;
 }
+.page.check-dois .about {
+  margin-bottom: 50px;
+}
+.page.check-dois .input .form-row {
+  margin: 30px;
+}
+.page.check-dois .input .form-row.email {
+  margin-top: 40px;
+}
+.page.check-dois .input label {
+  color: #999;
+  font-size: 18px;
+}
+.page.check-dois .input textarea {
+  width: 100%;
+  font-family: 'Monaco', monospace;
+  font-size: 12px;
+  border: 1px solid #ccc;
+}
+.page.check-dois .input #submit {
+  float: right;
+  font-size: 20px;
+  padding: 10px 20px;
+}
 .page.data ul li {
   margin: 20px 0;
 }

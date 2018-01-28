@@ -590,17 +590,62 @@ angular.module("check-dois.tpl.html", []).run(["$templateCache", function($templ
   $templateCache.put("check-dois.tpl.html",
     "<div class=\"ti-page-header\" ng-include=\"'header.tpl.html'\"></div>\n" +
     "\n" +
-    "<div class=\"page check-dataset\">\n" +
+    "<div class=\"page check-dois\">\n" +
     "    <div class=\"content\">\n" +
     "        <h1>\n" +
     "            Check DOIs\n" +
     "        </h1>\n" +
     "\n" +
-    "        <p>\n" +
-    "            This service is coming soon. When it's up, you'll be able to\n" +
-    "            upload a list of DOIs, get OA status for each of them emailed to you\n" +
-    "            as a dataset.\n" +
-    "        </p>\n" +
+    "\n" +
+    "        <div class=\"about\">\n" +
+    "            <p>\n" +
+    "                Upload a list of DOIs, and we'll access the Unpaywall database to find OA information for each one. You'll get results as a spreadsheet emailed to you in a few minutes. You can check up to 10,000 DOIs at a time this way.\n" +
+    "            </p>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"input\" ng-submit=\"submit()\">\n" +
+    "\n" +
+    "            <form>\n" +
+    "\n" +
+    "                <div class=\"form-row\">\n" +
+    "                    <label for=\"dois-textarea\">1. Paste DOIs here, one per line</label>\n" +
+    "                    <textarea\n" +
+    "                            ng-model=\"input.dois\"\n" +
+    "                            name=\"dois\"\n" +
+    "                            id=\"dois-textarea\"\n" +
+    "                            rows=\"10\"></textarea>\n" +
+    "                </div>\n" +
+    "\n" +
+    "                <div class=\"form-row email\">\n" +
+    "                    <md-input-container class=\"md-block email\">\n" +
+    "                        <label>2. Enter your email</label>\n" +
+    "                        <input ng-model=\"input.email\">\n" +
+    "                    </md-input-container>\n" +
+    "                </div>\n" +
+    "\n" +
+    "                <div class=\"form-row\">\n" +
+    "                    <md-button type=\"submit\"\n" +
+    "                               ng-disabled=\"!(input.dois && input.email)\"\n" +
+    "                               id=\"submit\"\n" +
+    "                               ng-click=\"submit()\"\n" +
+    "                               class=\"md-primary md-raised\">\n" +
+    "                        3. Submit your\n" +
+    "                            <span class=\"num\" ng-show=\"{{ getDois() }}\">\n" +
+    "                                {{ getDois().length }}\n" +
+    "                            </span>\n" +
+    "                        DOIs\n" +
+    "                    </md-button>\n" +
+    "                </div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "            </form>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "        </div>\n" +
+    "\n" +
     "\n" +
     "\n" +
     "    </div>\n" +
@@ -610,8 +655,15 @@ angular.module("check-dois.tpl.html", []).run(["$templateCache", function($templ
     "\n" +
     "\n" +
     "\n" +
+    "\n" +
     "</div>\n" +
-    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>");
+    "<div class=\"footer-container\" ng-include=\"'footer.tpl.html'\"></div>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "");
 }]);
 
 angular.module("data.tpl.html", []).run(["$templateCache", function($templateCache) {

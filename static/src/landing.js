@@ -26,8 +26,7 @@ angular.module('landing', [
 
     .config(function ($routeProvider) {
         $routeProvider.when('/faq', {
-            templateUrl: "faq.tpl.html",
-            controller: "FaqPageCtrl"
+            templateUrl: "faq.tpl.html"
         })
     })
 
@@ -38,6 +37,7 @@ angular.module('landing', [
             controller: "SourcesPageCtrl"
         })
     })
+
 
     .config(function ($routeProvider) {
         $routeProvider.when('/data', {
@@ -60,7 +60,8 @@ angular.module('landing', [
 
     .config(function ($routeProvider) {
         $routeProvider.when('/check-dois', {
-            templateUrl: "check-dois.tpl.html"
+            templateUrl: "check-dois.tpl.html",
+            controller: "CheckDoisCtrl"
         })
     })
 
@@ -88,9 +89,30 @@ angular.module('landing', [
         console.log("PageNotFound controller is running!")
 
     })
-    .controller("FaqPageCtrl", function($scope, $anchorScroll){
-        console.log("FaqPageCtrl controller is running!")
+
+    .controller("CheckDoisCtrl", function($scope, $anchorScroll){
+        console.log("CheckDoisCtrl controller is running!")
+
+        $scope.input = {}
+        $scope.submit = function(){
+            console.log("submit!", $scope.input)
+        }
+
+        $scope.getDois = function(){
+            var inputStr = ""
+            if ($scope.input.dois){
+                inputStr = $scope.input.dois
+            }
+            var dois = inputStr.split(/\r?\n/)
+            var sliced = dois.slice(0, 10000) // first 10k
+            return sliced
+
+        }
+
+
+
     })
+
     .controller("DataPageCtrl", function($scope, $anchorScroll){
         console.log("DataPageCtrl controller is running!")
     })

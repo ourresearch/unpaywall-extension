@@ -703,14 +703,19 @@ angular.module("dataset.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "        <p>\n" +
     "            You can download the entire dataset behind Unpaywall; it's free for noncommercial use. It's pretty unwieldy at 100M rows, so unless you legit need the whole thing for your use case, you'll probably be better served by one of the\n" +
-    "            <a href=\"data#use\">lightweight alternatives.</a> If you want to use the dataset for commercial purposes, check out our\n" +
-    "            <a href=\"sla\">SLA program.</a> As part of that, we can help you set up a mirror database that allows you to keep an always-current version of Unpaywall's data hosted on your own servers.\n" +
+    "            <a href=\"data#use\">lightweight alternatives.</a>\n" +
     "        </p>\n" +
     "        <p>\n" +
     "            To download the dataset, please fill out\n" +
     "            <a href=\"https://docs.google.com/forms/d/12UGb9D10ct1xmgOwKsHywON6nWj-9uWSURO7-Su2MJo\">this form</a> and we'll send you a URL where you can get the data. You can read the,\n" +
     "            <a href=\"https://docs.google.com/document/d/1Whfe26oyjTedeW1GGWkq3NADgDbL2R2eXqrJCWS8vcc/edit\">dataset release notes here.</a> You can\n" +
     "            <a href=\"data\">learn more about Unpaywall's data here.</a>\n" +
+    "        </p>\n" +
+    "\n" +
+    "        <p>\n" +
+    "            If you want to use the dataset for commercial purposes, check out our\n" +
+    "            <a href=\"sla\">SLA program.</a> As part of that, we can help you set up a mirror database that allows you to keep an always-current version of Unpaywall's data hosted on your own servers.\n" +
+    "\n" +
     "        </p>\n" +
     "\n" +
     "    </div>\n" +

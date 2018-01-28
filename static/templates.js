@@ -603,7 +603,28 @@ angular.module("check-dois.tpl.html", []).run(["$templateCache", function($templ
     "            </p>\n" +
     "        </div>\n" +
     "\n" +
-    "        <div class=\"input\" ng-submit=\"submit()\">\n" +
+    "        <div class=\"io success\" ng-show=\"input.state=='success'\">\n" +
+    "            <h2>Success!</h2>\n" +
+    "            <p>\n" +
+    "                Your DOIs have been submitted. In a few minutes, you'll get an email\n" +
+    "                from us with an attached spreadsheet showing the results. Keep an eye on your spam folder, since automated emails can often be flagged as spam.\n" +
+    "            </p>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"io error\" ng-show=\"input.state=='error'\">\n" +
+    "            <h2>Sorry, there was a problem!</h2>\n" +
+    "            <p>\n" +
+    "                Looks like we're having trouble processing your request. There may have been a problem with either the DOIs or the email you entered. Please email us at\n" +
+    "                <a href=\"mailto:team@impactstory.org\">team@impactstory.org</a> and we'll work to get the problem fixed.\n" +
+    "            </p>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"io working\" ng-show=\"input.state=='working'\">\n" +
+    "            <h2>Submitting your DOIs now...</h2>\n" +
+    "              <md-progress-linear md-mode=\"indeterminate\"></md-progress-linear>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <div class=\"io input\" ng-show=\"input.state=='ready'\">\n" +
     "\n" +
     "            <form>\n" +
     "\n" +
@@ -629,13 +650,7 @@ angular.module("check-dois.tpl.html", []).run(["$templateCache", function($templ
     "                               id=\"submit\"\n" +
     "                               ng-click=\"submit()\"\n" +
     "                               class=\"md-primary md-raised\">\n" +
-    "                        3. Submit your\n" +
-    "                            <span class=\"num\" ng-show=\"getDois().length\">\n" +
-    "                                {{ getDois().length }}\n" +
-    "                            </span>\n" +
-    "                        DOI<span\n" +
-    "                            class=\"plural\"\n" +
-    "                            ng-hide=\"getDois().length == 1 \">s</span>\n" +
+    "                        3. Submit your DOIs\n" +
     "                    </md-button>\n" +
     "                </div>\n" +
     "\n" +

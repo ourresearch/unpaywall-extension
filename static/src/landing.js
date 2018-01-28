@@ -90,12 +90,38 @@ angular.module('landing', [
 
     })
 
-    .controller("CheckDoisCtrl", function($scope, $anchorScroll){
+    .controller("CheckDoisCtrl", function($scope, $http, $timeout, $anchorScroll){
         console.log("CheckDoisCtrl controller is running!")
 
         $scope.input = {}
+        $scope.input.state = "ready"
+
+
         $scope.submit = function(){
-            console.log("submit!", $scope.input)
+            $scope.input.state = "working"
+            var url = "https://api.unpaywall.org/v2/dois"
+            var data = {
+                dois: getDois(),
+                email: $scope.input.email
+            }
+            console.log("submit!", data)
+            $http.post(url, data)
+                .then(
+                function(resp){
+                    console.log("success response", resp)
+                    $scope.input.state = "success"
+                },
+                function(resp){
+                    console.log("fail response", resp)
+                    $scope.input.state = "error"
+                }
+            )
+
+
+
+
+
+
         }
         $scope.getDois = getDois
 

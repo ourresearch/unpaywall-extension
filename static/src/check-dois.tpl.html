@@ -13,7 +13,28 @@
             </p>
         </div>
 
-        <div class="input" ng-submit="submit()">
+        <div class="io success" ng-show="input.state=='success'">
+            <h2>Success!</h2>
+            <p>
+                Your DOIs have been submitted. In a few minutes, you'll get an email
+                from us with an attached spreadsheet showing the results. Keep an eye on your spam folder, since automated emails can often be flagged as spam.
+            </p>
+        </div>
+
+        <div class="io error" ng-show="input.state=='error'">
+            <h2>Sorry, there was a problem!</h2>
+            <p>
+                Looks like we're having trouble processing your request. There may have been a problem with either the DOIs or the email you entered. Please email us at
+                <a href="mailto:team@impactstory.org">team@impactstory.org</a> and we'll work to get the problem fixed.
+            </p>
+        </div>
+
+        <div class="io working" ng-show="input.state=='working'">
+            <h2>Submitting your DOIs now...</h2>
+              <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+        </div>
+
+        <div class="io input" ng-show="input.state=='ready'">
 
             <form>
 
@@ -39,13 +60,7 @@
                                id="submit"
                                ng-click="submit()"
                                class="md-primary md-raised">
-                        3. Submit your
-                            <span class="num" ng-show="getDois().length">
-                                {{ getDois().length }}
-                            </span>
-                        DOI<span
-                            class="plural"
-                            ng-hide="getDois().length == 1 ">s</span>
+                        3. Submit your DOIs
                     </md-button>
                 </div>
 

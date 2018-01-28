@@ -40,10 +40,12 @@
                                ng-click="submit()"
                                class="md-primary md-raised">
                         3. Submit your
-                            <span class="num" ng-show="{{ getDois() }}">
+                            <span class="num" ng-show="getDois().length">
                                 {{ getDois().length }}
                             </span>
-                        DOIs
+                        DOI<span
+                            class="plural"
+                            ng-hide="getDois().length == 1 ">s</span>
                     </md-button>
                 </div>
 

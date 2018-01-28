@@ -246,16 +246,17 @@ angular.module('landing', [
         $scope.submit = function(){
             console.log("submit!", $scope.input)
         }
+        $scope.getDois = getDois
 
-        $scope.getDois = function(){
+        function getDois(){
             var inputStr = ""
             if ($scope.input.dois){
                 inputStr = $scope.input.dois
             }
             var dois = inputStr.split(/\r?\n/)
             var sliced = dois.slice(0, 10000) // first 10k
-            return sliced
-
+            var noEmptyStrings = sliced.filter(function(n){return n})
+            return noEmptyStrings
         }
 
 
@@ -1196,10 +1197,12 @@ angular.module("check-dois.tpl.html", []).run(["$templateCache", function($templ
     "                               ng-click=\"submit()\"\n" +
     "                               class=\"md-primary md-raised\">\n" +
     "                        3. Submit your\n" +
-    "                            <span class=\"num\" ng-show=\"{{ getDois() }}\">\n" +
+    "                            <span class=\"num\" ng-show=\"getDois().length\">\n" +
     "                                {{ getDois().length }}\n" +
     "                            </span>\n" +
-    "                        DOIs\n" +
+    "                        DOI<span\n" +
+    "                            class=\"plural\"\n" +
+    "                            ng-hide=\"getDois().length == 1 \">s</span>\n" +
     "                    </md-button>\n" +
     "                </div>\n" +
     "\n" +

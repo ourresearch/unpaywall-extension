@@ -630,10 +630,12 @@ angular.module("check-dois.tpl.html", []).run(["$templateCache", function($templ
     "                               ng-click=\"submit()\"\n" +
     "                               class=\"md-primary md-raised\">\n" +
     "                        3. Submit your\n" +
-    "                            <span class=\"num\" ng-show=\"{{ getDois() }}\">\n" +
+    "                            <span class=\"num\" ng-show=\"getDois().length\">\n" +
     "                                {{ getDois().length }}\n" +
     "                            </span>\n" +
-    "                        DOIs\n" +
+    "                        DOI<span\n" +
+    "                            class=\"plural\"\n" +
+    "                            ng-hide=\"getDois().length == 1 \">s</span>\n" +
     "                    </md-button>\n" +
     "                </div>\n" +
     "\n" +

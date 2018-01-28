@@ -97,16 +97,17 @@ angular.module('landing', [
         $scope.submit = function(){
             console.log("submit!", $scope.input)
         }
+        $scope.getDois = getDois
 
-        $scope.getDois = function(){
+        function getDois(){
             var inputStr = ""
             if ($scope.input.dois){
                 inputStr = $scope.input.dois
             }
             var dois = inputStr.split(/\r?\n/)
             var sliced = dois.slice(0, 10000) // first 10k
-            return sliced
-
+            var noEmptyStrings = sliced.filter(function(n){return n})
+            return noEmptyStrings
         }
 
 

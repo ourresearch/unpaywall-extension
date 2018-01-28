@@ -1330,6 +1330,11 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "\n" +
     "                </dd>\n" +
     "\n" +
+    "                <dt id=\"get-indexed\">How can I make sure content from my open repository appears in Unpaywall?</dt>\n" +
+    "                <dd>\n" +
+    "                    Since we index over 50,000 sources of OA content, there's a pretty good chance your repository is already in our database. You can make sure by\n" +
+    "                    <a href=\"sources\">searching our sources list.</a>\n" +
+    "                </dd>\n" +
     "\n" +
     "\n" +
     "                <dt id=\"privacy-policy\"><i class=\"fa fa-chevron-right\"></i>What's your privacy policy?</dt>\n" +
@@ -1346,6 +1351,11 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    any kind of browser fingerprinting technology to identify your computer.\n" +
     "                </dd>\n" +
     "\n" +
+    "\n" +
+    "                <dt id=\"different-results-from-unpaywall\">Why does the Unpaywall extension sometimes give different results from the API or dataset?</dt>\n" +
+    "                <dd>\n" +
+    "                    The extension occasionally reports \"open\" when the API doesn't because the extension, in addition to checking our API, also checks the source code of publisher pages themselves as you visit them. \n" +
+    "                </dd>\n" +
     "\n" +
     "\n" +
     "                <dt id=\"identify-green-or-gold\"><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +

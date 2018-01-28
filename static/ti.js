@@ -1324,11 +1324,6 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    or <a href=\"https://answers.library.curtin.edu.au/faq/204046\">Sci-Hub.</a> If you ever encounter content indexed by Unpaywall that is posted in violation of copyright, let us know and we'll remove it immediately.\n" +
     "                </dd>\n" +
     "\n" +
-    "                <dt id=\"oadoi\"><i class=\"fa fa-chevron-right\"></i>How is this related to the oaDOI service?</dt>\n" +
-    "                <dd>\n" +
-    "                    We used to call the browser extension \"Unpaywall,\" and the data source behind it \"oaDOI.\" That got confusing, so now the whole project is just called Unpaywall, including the database, the API, the extension, and everything else. The services previously offered under the oaDOI name still work (and are still handling millions of daily users), but the name itself has been retired.\n" +
-    "\n" +
-    "                </dd>\n" +
     "\n" +
     "                <dt id=\"get-indexed\">How can I make sure content from my open repository appears in Unpaywall?</dt>\n" +
     "                <dd>\n" +
@@ -1352,10 +1347,6 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                </dd>\n" +
     "\n" +
     "\n" +
-    "                <dt id=\"different-results-from-unpaywall\">Why does the Unpaywall extension sometimes give different results from the API or dataset?</dt>\n" +
-    "                <dd>\n" +
-    "                    The extension occasionally reports \"open\" when the API doesn't because the extension, in addition to checking our API, also checks the source code of publisher pages themselves as you visit them. \n" +
-    "                </dd>\n" +
     "\n" +
     "\n" +
     "                <dt id=\"identify-green-or-gold\"><i class=\"fa fa-chevron-right\"></i>Can Unpaywall tell me whether an article is \"Green\" or \"Gold\" OA?</dt>\n" +
@@ -1392,7 +1383,16 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                </dd>\n" +
     "\n" +
     "\n" +
+    "                <dt id=\"oadoi\"><i class=\"fa fa-chevron-right\"></i>How is this related to the oaDOI service?</dt>\n" +
+    "                <dd>\n" +
+    "                    We used to call the browser extension \"Unpaywall,\" and the data source behind it \"oaDOI.\" That got confusing, so now the whole project is just called Unpaywall, including the database, the API, the extension, and everything else. The services previously offered under the oaDOI name still work (and are still handling millions of daily users), but the name itself has been retired.\n" +
     "\n" +
+    "                </dd>\n" +
+    "\n" +
+    "                <dt id=\"different-results-from-unpaywall\">Why does the Unpaywall extension sometimes give different results from the API or dataset?</dt>\n" +
+    "                <dd>\n" +
+    "                    The extension occasionally reports \"open\" when the API doesn't because the extension, in addition to checking our API, also checks the source code of publisher pages themselves as you visit them.\n" +
+    "                </dd>\n" +
     "\n" +
     "\n" +
     "                <dt id=\"report-bugs\"><i class=\"fa fa-chevron-right\"></i>I found a bug</dt>\n" +

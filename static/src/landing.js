@@ -92,6 +92,7 @@ angular.module('landing', [
 
     .controller("CheckDoisCtrl", function($scope, $http, $timeout, $anchorScroll){
         console.log("CheckDoisCtrl controller is running!")
+        window.scrollTo(0,0)
 
         $scope.input = {}
         $scope.input.state = "ready"

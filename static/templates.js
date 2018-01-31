@@ -773,7 +773,7 @@ angular.module("dataset.tpl.html", []).run(["$templateCache", function($template
     "        </p>\n" +
     "        <p>\n" +
     "            To download the dataset, please fill out\n" +
-    "            <a href=\"https://docs.google.com/forms/d/12UGb9D10ct1xmgOwKsHywON6nWj-9uWSURO7-Su2MJo\">this form</a> and we'll send you a URL where you can get the data. You can read the,\n" +
+    "            <a href=\"https://goo.gl/forms/AZqaqKEzMcjLGdTT2\">this form</a> and we'll send you a URL where you can get the data. You can read the,\n" +
     "            <a href=\"https://docs.google.com/document/d/1Whfe26oyjTedeW1GGWkq3NADgDbL2R2eXqrJCWS8vcc/edit\">dataset release notes here.</a> You can\n" +
     "            <a href=\"data\">learn more about Unpaywall's data here.</a>\n" +
     "        </p>\n" +
@@ -1285,7 +1285,7 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "            <p>\n" +
     "                If you'd like to add your repository or journal to our list of sources, that's great! You can submit your repository for indexing via\n" +
-    "                <a href=\"https://docs.google.com/forms/d/15o4RpUUfCUyauTt2DniLG23CWfDZ243Q1H7u6NX5zL8\">\n" +
+    "                <a href=\"https://goo.gl/forms/AZqaqKEzMcjLGdTT2\">\n" +
     "                    this form,\n" +
     "                </a> and submit your journal <a href=\"mailto:team@impactstory.org\">via email.</a>\n" +
     "            </p>\n" +

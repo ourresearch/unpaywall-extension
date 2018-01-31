@@ -241,7 +241,7 @@ angular.module('landing', [
 
     .controller("CheckDoisCtrl", function($scope, $http, $timeout, $anchorScroll){
         console.log("CheckDoisCtrl controller is running!")
-        window.scrollTo(0,0) 
+        window.scrollTo(0,0)
 
         $scope.input = {}
         $scope.input.state = "ready"
@@ -640,7 +640,7 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "\n" +
     "    <p>\n" +
     "        If you're using the API, we recommend you subscribe to the\n" +
-    "        <a href=\"https://groups.google.com/forum/#!forum/oadoi-users\">mailing list</a> in order\n" +
+    "        <a href=\"https://groups.google.com/forum/#!forum/unpaywall\">mailing list</a> in order\n" +
     "        to stay up-to-date when there are changes or new features.\n" +
     "    </p>\n" +
     "\n" +
@@ -673,15 +673,12 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "                    Example\n" +
     "                </td>\n" +
     "                <td class=\"v\">\n" +
-    "                    <a href=\"https://api.unpaywall.org/v2?email=test@example.com\">https://api.oadoi.org/v2?email=test@example.com</a>\n" +
+    "                    <a href=\"https://api.unpaywall.org/v2?email=test@example.com\">https://api.unpaywall.org/v2?email=test@example.com</a>\n" +
     "                </td>\n" +
     "            </tr>\n" +
     "        </table>\n" +
     "\n" +
     "    </div>\n" +
-    "\n" +
-    "\n" +
-    "\n" +
     "\n" +
     "\n" +
     "\n" +
@@ -720,7 +717,7 @@ angular.module("api-v2.tpl.html", []).run(["$templateCache", function($templateC
     "                    Example\n" +
     "                </td>\n" +
     "                <td class=\"v\">\n" +
-    "                    <a href=\"https://api.unpaywall.org/v2/10.1038/nature12373?email=test@example.com\">https://api.oadoi.org/v2/10.1038/nature12373?email=test@example.com</a>\n" +
+    "                    <a href=\"https://api.unpaywall.org/v2/10.1038/nature12373?email=test@example.com\">https://api.unpaywall.org/v2/10.1038/nature12373?email=test@example.com</a>\n" +
     "                </td>\n" +
     "            </tr>\n" +
     "        </table>\n" +

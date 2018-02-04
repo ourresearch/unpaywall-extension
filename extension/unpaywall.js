@@ -154,7 +154,7 @@ function getSearchResults(){
         url: getBestOaUrl(),
         color: decideTabColor()
     }
-    console.log("unpaywall decision:", ret)
+    devLog("unpaywall decision:", ret)
     return ret
 
 l
@@ -740,7 +740,7 @@ function runForPubmedSerp(){
     }
 
     $("div.rprt").each(function(i, searchResult){
-        console.log("pubmed result", searchResult)
+        devLog("pubmed result", searchResult)
 
         var $res = $(searchResult)
 
@@ -750,7 +750,7 @@ function runForPubmedSerp(){
 
         $(searchResult).find("div.resc").append(linkStr)
 
-        console.log("new pubmed result", this)
+        devLog("new pubmed result", this)
 
 
     })

@@ -4,6 +4,10 @@ if (chrome){
 }
 
 var devLog = function(str, obj){
+
+    // turn logging off
+    return false
+
     if (settings && settings.showOaColor){
         console.log("unpaywall: " + str, obj)
     }

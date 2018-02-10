@@ -1879,7 +1879,7 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "\n" +
     "            <p>\n" +
     "                If you'd like to add your repository or journal to our list of sources, that's great! You can submit your repository for indexing via\n" +
-    "                <a href=\"https://goo.gl/forms/AZqaqKEzMcjLGdTT2\">\n" +
+    "                <a href=\"https://goo.gl/forms/HBOMqdSFOHEeFOwj1\">\n" +
     "                    this form,\n" +
     "                </a> and submit your journal <a href=\"mailto:team@impactstory.org\">via email.</a>\n" +
     "            </p>\n" +

@@ -103,7 +103,9 @@ function getBestOaUrl(){
 
     // the local PDF url is best
     if (getSource("pdfLink").results.url){
-        return getSource("pdfLink").getUrl()
+        let pdfUrl = getSource("pdfLink").getUrl()
+        let absolutePdfUrl = getAbsoluteUrl(pdfUrl)
+        return absolutePdfUrl
     }
 
     // fallback to oaDOI url
@@ -690,6 +692,17 @@ function reportInstallation(){
     }
 }
 
+// from https://davidwalsh.name/get-absolute-url
+var getAbsoluteUrl = (function() {
+	var a;
+
+	return function(url) {
+		if(!a) a = document.createElement('a');
+		a.href = url;
+
+		return a.href;
+	};
+})();
 
 
 

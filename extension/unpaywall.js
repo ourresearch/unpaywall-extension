@@ -3,6 +3,7 @@ if (chrome){
     browser = chrome
 }
 
+
 var devLog = function(str, obj){
 
     // turn logging off
@@ -103,9 +104,7 @@ function getBestOaUrl(){
 
     // the local PDF url is best
     if (getSource("pdfLink").results.url){
-        let pdfUrl = getSource("pdfLink").getUrl()
-        let absolutePdfUrl = getAbsoluteUrl(pdfUrl)
-        return absolutePdfUrl
+        return getSource("pdfLink").getUrl()
     }
 
     // fallback to oaDOI url
@@ -551,7 +550,9 @@ function findPdfUrl(){
         pdfUrl = "http://ieeexplore.ieee.org" + ieeePdf + ".pdf"
     }
 
-    return pdfUrl
+    let absolutePdfUrl = getAbsoluteUrl(pdfUrl)
+    return absolutePdfUrl
+
 }
 
 

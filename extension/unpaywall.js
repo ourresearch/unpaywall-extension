@@ -5,11 +5,8 @@ if (chrome){
 
 
 var devLog = function(str, obj){
-
-    // turn logging off
-    //return false
-
-    if (settings && settings.showOaColor){
+    // only log to console if we're in Chrome with Nerd Mode enabled.
+    if (settings && settings.showOaColor && navigator.userAgent.indexOf("Chrome") > -1){
         console.log("unpaywall: " + str, obj)
     }
 }

@@ -10,7 +10,7 @@ var devLog = function(str, obj){
         console.log("unpaywall: " + str, obj)
     }
 }
-devLog("unpaywall is running")
+// devLog("unpaywall is running")
 
 // global variables:
 var iframeIsInserted = false
@@ -775,7 +775,7 @@ function runForPubmedSerp(){
 function runWithSettings(){
     browser.storage.local.get(null, function(items){
         settings = items
-        devLog("got settings", settings)
+        // devLog("got settings", settings)
         run()
         //runForPubmedSerp()
     });
@@ -785,20 +785,3 @@ function runWithSettings(){
 // on firefox, jquery sometimes loads after this script. give it
 // some time to load before we run anything on this page.
 setTimeout(runWithSettings, 200)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

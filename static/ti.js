@@ -1329,7 +1329,7 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "\n" +
     "\n" +
     "\n" +
-    "            \n" +
+    "\n" +
     "            <li>\n" +
     "                <strong>OA researchers</strong> can use Unpaywall to answer research questions about the current and historical state of open access. There are several ways to access the data for research: you can use the\n" +
     "                <a href=\"api\">open API,</a>\n" +

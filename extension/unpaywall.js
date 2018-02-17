@@ -746,38 +746,11 @@ function run() {
 }
 
 
-function runForPubmedSerp(){
-    // unfinished
-
-    devLog("runnning for pubmed serp")
-    if (myHost.indexOf("www.ncbi.nlm.nih.gov") < 0) {
-        return
-    }
-
-    $("div.rprt").each(function(i, searchResult){
-        devLog("pubmed result", searchResult)
-
-        var $res = $(searchResult)
-
-        var details = $res
-
-        var linkStr = "<a href='http://impactstory.org'>free via Unpaywall</a>"
-
-        $(searchResult).find("div.resc").append(linkStr)
-
-        devLog("new pubmed result", this)
-
-
-    })
-
-}
-
 function runWithSettings(){
     browser.storage.local.get(null, function(items){
         settings = items
         devLog("got settings", settings)
         run()
-        //runForPubmedSerp()
     });
 }
 

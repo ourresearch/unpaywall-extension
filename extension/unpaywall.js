@@ -18,7 +18,7 @@ var settings = {}
 var myHost = window.location.hostname
 var allSources = []
 var doi
-var docAsStr = document.documentElement.innerHTML;
+var docAsStr;
 
 
 
@@ -416,14 +416,9 @@ function findDoiFromPubmed(){
 }
 
 function findDoiFromPsycnet(){
-    if (myHost == "psycnet.apa.org") {
-        var re = /&doi=(.+)/
-        var m = re.exec(window.location.href)
-        if (m && m.length > 1){
-            return m[1]
-        }
-    }
-    return false
+    // black: http://psycnet.apa.org/record/2000-13328-008
+    var re = /href="\/doi\/10\.(.+)/
+    return runRegexOnDoc(re, "psycnet.apa.org")
 }
 
 
@@ -724,6 +719,10 @@ var getAbsoluteUrl = (function() {
 
 function run() {
     reportInstallation()
+
+    // Setting globally. Used when we search the doc with regex for DOI.
+    docAsStr = document.documentElement.innerHTML;
+
     doi = findDoi() // setting this globally.
 
     // the meat of the extension does not run unless we find a DOI
@@ -745,7 +744,6 @@ function run() {
     }, 250)
 }
 
-
 function runWithSettings(){
     browser.storage.local.get(null, function(items){
         settings = items
@@ -754,10 +752,27 @@ function runWithSettings(){
     });
 }
 
+function runWithDelay(){
+    var delay = 200  // milliseconds
 
-// on firefox, jquery sometimes loads after this script. give it
-// some time to load before we run anything on this page.
-setTimeout(runWithSettings, 200)
+    // Single-page apps take a while to fully load all the HTML,
+    // and until they do we can't find the DOI
+    var longDelayHosts = [
+        "psycnet.apa.org"
+    ]
+
+    // it would be better to poll, but that is more complicated and we don't
+    // have many reports of SPAs like this yet.
+    if (longDelayHosts.includes(myHost)) {
+        console.log("Adding an extra delay to let the page load.")
+        delay = 3000
+    }
+
+    setTimeout(runWithSettings, delay)
+}
+
+runWithDelay()
+
 
 
 

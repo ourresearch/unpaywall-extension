@@ -1292,7 +1292,7 @@ angular.module("sources.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"header\">\n" +
     "            <p>\n" +
     "                Unpaywall finds OA content in many ways, including using data from open indexes like Crossref and DOAJ where it exists. However, the majority of our OA content comes from independently monitoring over 50,000 unique online content hosting locations, including Gold OA journals, Hybrid journals, institutional repositories, and disciplinary repositories. You can search through our sources below, or\n" +
-    "                <a href=\"http://api.oadoi.org/data/sources.csv\">download the complete sources list.</a>\n" +
+    "                <a href=\"https://api.oadoi.org/data/sources.csv\">download the complete sources list.</a>\n" +
     "            </p>\n" +
     "\n" +
     "            <p>\n" +

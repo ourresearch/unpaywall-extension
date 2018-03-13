@@ -416,7 +416,7 @@ function findDoiFromPubmed(){
 }
 
 function findDoiFromPsycnet(){
-    // black: http://psycnet.apa.org/record/2000-13328-008
+    // gray: http://psycnet.apa.org/record/2000-13328-008
     var re = /href="\/doi\/10\.(.+)/
     return runRegexOnDoc(re, "psycnet.apa.org")
 }
@@ -764,7 +764,6 @@ function runWithDelay(){
     // it would be better to poll, but that is more complicated and we don't
     // have many reports of SPAs like this yet.
     if (longDelayHosts.includes(myHost)) {
-        console.log("Adding an extra delay to let the page load.")
         delay = 3000
     }
 

@@ -196,7 +196,8 @@ angular.module('landing', [
             // we've got a new term to search, and no search is ongoing. go!
             console.log("doing repository search:", term)
             searchInfo.waiting = true
-            var url = "http://api.oadoi.org/data/sources/" + term
+            var url = "https://api.oadoi.org/data/sources/" + term
+
 
             $http.get(url)
                 .success(function(resp){

@@ -161,6 +161,7 @@ angular.module('landing', [
 
         }
 
+
         var searchInfo = {
             lastTerm: "",
             waiting: false,

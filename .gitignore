@@ -70,3 +70,4 @@ venv/
 # env setup (added by heather)
 tng-env.sh
 
+node_modules

@@ -1736,7 +1736,7 @@ angular.module("landing.tpl.html", []).run(["$templateCache", function($template
     "        <div class=\"copy\">\n" +
     "            <h2>Legal, fair, and sustainable</h2>\n" +
     "            <p>\n" +
-    "                Millions of research papers are available for free on government and university web servers, legally  uploaded by the authors themselves, with the express permission of publishers. Unpaywall automatically harvests these freely shared papers from thousands of legal institutional repositories, preprint servers, and publishers, making them all availabe to you as you read.\n" +
+    "                Millions of research papers are available for free on government and university web servers, legally uploaded by the authors themselves, with the express permission of publishers. Unpaywall automatically harvests these freely shared papers from thousands of legal institutional repositories, preprint servers, and publishers, making them all available to you as you read.\n" +
     "            </p>\n" +
     "        </div>\n" +
     "    </div>\n" +

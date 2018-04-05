@@ -1302,9 +1302,13 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "            <li>\n" +
     "                <strong>Librarians:</strong>\n" +
     "                can integrate Unpaywall into their\n" +
-    "                <a href=\"https://knowledge.exlibrisgroup.com/SFX/Knowledge_Articles/How_to_enable_oaDOI_service_on_SFX\">SFX</a>\n" +
+    "                <a href=\"https://knowledge.exlibrisgroup.com/SFX/Knowledge_Articles/How_to_enable_oaDOI_service_on_SFX\">SFX,</a>\n" +
+    "\n" +
+    "                <a href=\"https://knowledge.exlibrisgroup.com/360_Services/360_Link/0Product_Documentation/Overview/360_Link_with_IEDL%3A_Open_Access_Lookup_Service_Integration\">360 Link,</a>\n" +
+    "\n" +
     "                or\n" +
-    "                <a href=\"https://knowledge.exlibrisgroup.com/360_Services/360_Link/0Product_Documentation/Overview/360_Link_with_IEDL%3A_Open_Access_Lookup_Service_Integration\">360 Link</a>\n" +
+    "\n" +
+    "                <a href=\"https://developers.exlibrisgroup.com/blog/Adding-an-oadoi-dot-org-GES-link-to-Primo\">Primo</a>\n" +
     "                \n" +
     "                link resolvers, so library users can read OA copies in cases where there's no subscription access. Over 1000 libraries worldwide are now using this now.\n" +
     "            </li>\n" +

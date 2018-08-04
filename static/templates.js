@@ -694,7 +694,7 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "            Unpaywall is powered by a database of 100 million scholarly papers. Of these, about 16 million have links to fulltext open access, making it the largest open database of\n" +
     "            <a href=\"faq#legal\">legal</a>\n" +
     "            Open Access (by summer of 2018, we'll have around 18 million). It's also the most accurate: all records are keyed by DOI, and precision (98%) and recall (75%) of OA detection lead the industry (see\n" +
-    "            <a href=\"https://peerj.com/preprints/3119v1/\">our PeerJ paper</a> for more on these numbers). We harvest OA content from over\n" +
+    "            <a href=\"https://peerj.com/articles/4375/\">our PeerJ paper</a> for more on these numbers). We harvest OA content from over\n" +
     "            <a href=\"sources\">50,000 unique sources</a> including open repositories, OA journals, Hybrid journals, and services like DOAJ and Crossref.\n" +
     "        </p>\n" +
     "\n" +
@@ -749,7 +749,7 @@ angular.module("data.tpl.html", []).run(["$templateCache", function($templateCac
     "                <a href=\"dataset\">download the complete dataset.</a> A particularly easy way to get started with research is to use <a href=\"https://app.dimensions.ai/discover/publication?and_facet_open_access=True\">Dimensions</a> or\n" +
     "                <a href=\"https://clarivate.com/wp-content/uploads/2017/10/Clarivate-OA-Impact-Story_Intro-sheet.pdf?elqTrackId=c5abee7048934a3da317e296a3e2a9c8&elqaid=5350&elqat=2\">Web of Science, </a> which both have Unpaywall data integrated into their databases. That's the approach used by\n" +
     "                <a href=\"https://peerj.com/preprints/3520/\">this recent paper.</a> You might also check out the\n" +
-    "                <a href=\"https://peerj.com/preprints/3119v1/\">the canonical reference paper</a> for the dataset, which gives a good overview of the data as a whole.\n" +
+    "                <a href=\"https://peerj.com/articles/4375/\">the canonical reference paper</a> for the dataset, which gives a good overview of the data as a whole.\n" +
     "            </li>\n" +
     "\n" +
     "\n" +
@@ -827,7 +827,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                    Overall, Unpaywall users find fulltext for 47% of articles. You may get different results,\n" +
     "                    depending on the age and topic of the articles you're reading. There's more information\n" +
     "                    on how we found these numbers in\n" +
-    "                    <a href=\"https://peerj.com/preprints/3119v1/\">this paper.</a>\n" +
+    "                    <a href=\"https://peerj.com/articles/4375/\">this paper.</a>\n" +
     "\n" +
     "                    This success rate will improve as we tweak our algorithm and as\n" +
     "                    mandatory open access requirements take effect in the\n" +
@@ -911,7 +911,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                        <li>\n" +
     "                            <div class=\"text\">\n" +
     "                                <span class=\"color bronze\">Bronze tab</span> for <a\n" +
-    "                                    href=\"https://peerj.com/preprints/3119v1/\">Bronze OA</a> articles free to read on the current page, but\n" +
+    "                                    href=\"https://peerj.com/articles/4375/\">Bronze OA</a> articles free to read on the current page, but\n" +
     "                                published in a toll-access journal.\n" +
     "                                <a class=\"eg\" href=\"http://www.pnas.org/content/105/31/11014\">(example)</a>\n" +
     "\n" +
@@ -1417,7 +1417,7 @@ angular.module("welcome.tpl.html", []).run(["$templateCache", function($template
     "            PS for the Open Access nerds: the Unpaywall tab\n" +
     "            can change colors to indicate Green or Gold OA, too. Enable it in settings.\n" +
     "            You might also enjoy\n" +
-    "            <a href=\"https://peerj.com/preprints/3119v1/\">our recent paper</a>\n" +
+    "            <a href=\"https://peerj.com/articles/4375/\">our recent paper</a>\n" +
     "            analyzing trends in OA and the coverage\n" +
     "            of Unpaywall.\n" +
     "        </p>\n" +

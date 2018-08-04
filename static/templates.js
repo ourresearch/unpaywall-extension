@@ -895,7 +895,7 @@ angular.module("faq.tpl.html", []).run(["$templateCache", function($templateCach
     "                        <li>\n" +
     "                            <div class=\"text\">\n" +
     "                                <span class=\"color gold\">Gold tab</span> for <a\n" +
-    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Journals:_gold_open_access\">Gold OA</a>\n" +
+    "                                    href=\"https://en.wikipedia.org/wiki/Open_access#Open_access_publishing\">Gold OA</a>\n" +
     "                                articles available from a fully OA journal.\n" +
     "                                <a class=\"eg\" href=\"http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308\">(example)</a>\n" +
     "                            </div>\n" +

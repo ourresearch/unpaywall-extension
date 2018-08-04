@@ -442,7 +442,7 @@ angular.module('landing', [
             // can't install it, so let the users email themselves a reminder.
             if (browser == 'unsupported') {
                 var emailSubject = "Check out Unpaywall"
-                var emailBody = "Just a small reminder to check out the Unpaywall extension at http://unpaywall.org"
+                var emailBody = "Just a small reminder to check out the Unpaywall extension at https://unpaywall.org"
                 var emailUrl = "mailto:?subject=" + encodeURI(emailSubject) + "&body=" + encodeURI(emailBody)
                 window.location = emailUrl
             }

@@ -159,7 +159,6 @@ function getSearchResults(){
     devLog("unpaywall decision:", ret)
     return ret
 
-l
 }
 
 

@@ -12,13 +12,13 @@ document.getElementById("options").addEventListener("click",
 
 document.getElementById("homepage").addEventListener("click",
     function(){
-        browser.tabs.create({url: "http://unpaywall.org/faq"})
+        browser.tabs.create({url: "https://unpaywall.org/faq"})
     }
 )
 
 document.getElementById("example").addEventListener("click",
     function(){
-        browser.tabs.create({url: "http://unpaywall.org/welcome"})
+        browser.tabs.create({url: "https://unpaywall.org/welcome"})
     }
 )
 

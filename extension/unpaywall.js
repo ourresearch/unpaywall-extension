@@ -225,6 +225,8 @@ function decideOadoiColor(oadoiResp){
 
     // from oaDOI perspective, bronze is just everything that's not
     // green or gold.
+    // interestingly that does mean hybrid gets counted as bronze,
+    // which is probabaly not ideal.
     color = "bronze"
 
     if (oadoiResp.best_oa_location.host_type == "repository") {

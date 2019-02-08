@@ -167,7 +167,6 @@ function getSearchResults(){
 
 
 
-
 function runPdfLink(resultObj){
     var pdfUrl = findPdfUrl()
     if (!pdfUrl){

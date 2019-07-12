@@ -4,7 +4,7 @@ if (typeof chrome !== "undefined"){
 
 var parts = window.name.split("#")
 var color = parts[0]
-var url = decodeURI(parts[1])
+var url = decodeURI(parts.slice(1).join('#'))
 
 $(".button")
     .fadeIn()

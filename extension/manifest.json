@@ -1,7 +1,7 @@
 {
   "name": "Unpaywall",
-  "version": "3.78",
-  "version_name":"Unpaywall 3.87",
+  "version": "3.88",
+  "version_name":"Unpaywall 3.88",
   "manifest_version": 2,
   "description": "Legally get full text of scholarly articles as you browse.",
   "icons": {

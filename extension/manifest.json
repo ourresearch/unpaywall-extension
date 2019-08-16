@@ -1,7 +1,6 @@
 {
   "name": "Unpaywall",
   "version": "3.89",
-  "version_name":"Unpaywall 3.89",
   "manifest_version": 2,
   "description": "Legally get full text of scholarly articles as you browse.",
   "icons": {
@@ -25,9 +24,9 @@
     "scripts": [
       "background.js"
     ],
-    "persistent": false
+    "persistent": true
   },
-  "content_security_policy": "script-src 'self' object-src 'self'",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
 
   "content_scripts": [
     {

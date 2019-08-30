@@ -422,6 +422,21 @@ function findDoiFromPsycnet(){
 }
 
 
+function findDoiFromInderScienceOnline() {
+    if (/(www)?inderscienceonline\.com/.exec(myHost)) {
+        var pbContextContent = $("meta[name='pbContext']").attr("content")
+        if (pbContextContent) {
+            var m = /article:article:(10\.\d+[^;]*)/.exec(pbContextContent)
+            if (m && m.length > 1) {
+                return m[1]
+            }
+        }
+    }
+
+    return
+}
+
+
 function findDoi(){
     // we try each of these functions, in order, to get a DOI from the page.
     var doiFinderFunctions = [
@@ -431,7 +446,8 @@ function findDoi(){
         findDoiFromIeee,
         findDoiFromNumber,
         findDoiFromPsycnet,
-        findDoiFromPubmed
+        findDoiFromPubmed,
+        findDoiFromInderScienceOnline
     ]
 
     for (var i=0; i < doiFinderFunctions.length; i++){

@@ -769,6 +769,10 @@ function runWithSettings(){
 }
 
 function runWithDelay(){
+    if (document.contentType && document.contentType.toLowerCase() == "text/xml") {
+      return;
+    }
+
     var delay = 200  // milliseconds
 
     // Single-page apps take a while to fully load all the HTML,

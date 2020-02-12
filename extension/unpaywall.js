@@ -706,6 +706,7 @@ var getAbsoluteUrl = (function() {
 	var a;
 
 	return function(url) {
+		if(!url) return;
 		if(!a) a = document.createElement('a');
 		a.href = url;
 

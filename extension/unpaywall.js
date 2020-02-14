@@ -424,7 +424,7 @@ function findDoiFromPsycnet(){
 
 
 function findDoiFromInderScienceOnline() {
-    if (/(www)?inderscienceonline\.com/.exec(myHost)) {
+    if (/(www\.)?inderscienceonline\.com/.exec(myHost)) {
         var pbContextContent = $("meta[name='pbContext']").attr("content")
         if (pbContextContent) {
             var m = /article:article:(10\.\d+[^;]*)/.exec(pbContextContent)
@@ -432,6 +432,20 @@ function findDoiFromInderScienceOnline() {
                 return m[1]
             }
         }
+    }
+
+    return
+}
+
+function findDoiFromCairn() {
+    if (/(www\.)?cairn\.info/.exec(myHost)) {
+      var linkUrls = $('div#article-details').find('a').map(function(){ return this.href }).get()
+      for (var i = 0; i < linkUrls.length; i++) {
+        var m = /https?:\/\/doi.org\/(10\.\d+\/.*)/.exec(linkUrls[i])
+        if (m && m.length > 1) {
+              return m[1]
+        }
+      }
     }
 
     return
@@ -448,7 +462,8 @@ function findDoi(){
         findDoiFromNumber,
         findDoiFromPsycnet,
         findDoiFromPubmed,
-        findDoiFromInderScienceOnline
+        findDoiFromInderScienceOnline,
+        findDoiFromCairn
     ]
 
     for (var i=0; i < doiFinderFunctions.length; i++){

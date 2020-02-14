@@ -326,7 +326,7 @@ function findDoiFromMetaTags(){
         // eg:
         //      http://journals.sagepub.com/doi/10.1207/s15327957pspr0203_4
         //      http://journals.sagepub.com/doi/abs/10.1177/00034894991080S423
-        if (myMeta.scheme && myMeta.scheme != "doi") {
+        if (myMeta.scheme && myMeta.scheme.toLowerCase() != "doi") {
             return true // continue iterating
         }
 

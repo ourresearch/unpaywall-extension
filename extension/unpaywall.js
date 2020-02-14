@@ -416,8 +416,9 @@ function findDoiFromPubmed(){
 }
 
 function findDoiFromPsycnet(){
+    // green: https://psycnet.apa.org/doiLanding?doi=10.1037%2Fstl0000104
     // gray: http://psycnet.apa.org/record/2000-13328-008
-    var re = /href="\/doi\/10\.(.+)/
+    var re = /href="\/doi\/(10\..+?)"/
     return runRegexOnDoc(re, "psycnet.apa.org")
 }
 

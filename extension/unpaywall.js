@@ -332,7 +332,10 @@ function findDoiFromMetaTags(){
 
         // content has to look like a  DOI.
         // much room for improvement here.
-        var doiCandidate = myMeta.content.replace("doi:", "").trim()
+        var doiCandidate = myMeta.content.replace("doi:", "")
+        doiCandidate = doiCandidate.replace(/https?:\/\/(www\.)?doi\.org\//i, "")
+        doiCandidate = doiCandidate.trim()
+
         if (doiCandidate.indexOf("10.") === 0) {
             doi = doiCandidate
         }

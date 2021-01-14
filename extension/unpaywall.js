@@ -457,6 +457,11 @@ function findDoiFromCairn() {
 
 function findDoi(){
     // we try each of these functions, in order, to get a DOI from the page.
+
+    if (myHost == "facultyopinions.com") {
+        return
+    }
+
     var doiFinderFunctions = [
         findDoiFromMetaTags,
         findDoiFromDataDoiAttributes,

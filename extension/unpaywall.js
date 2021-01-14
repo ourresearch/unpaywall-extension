@@ -618,6 +618,12 @@ function pageSaysPdfIsFree(){
 
             // gold: https://jlsc-pub.org/articles/abstract/10.7710/2162-3309.2190/
             return !!runRegexOnDoc(/(citation_pdf_url)/, "jlsc-pub.org")
+        },
+        function(){
+            // hybrid: https://onlinelibrary.wiley.com/doi/full/10.1111/mmi.13722
+            // bronze: https://onlinelibrary.wiley.com/doi/10.1002/jcp.10483
+            // closed: https://onlinelibrary.wiley.com/doi/10.1002/jcp.10444
+            return !!runRegexOnDoc(/(<div[^>]*class="doi-access"[^>]*>(?:Free|Open) Access<\/div>)/, "onlinelibrary.wiley.com")
         }
     ]
 

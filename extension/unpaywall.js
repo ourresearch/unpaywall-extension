@@ -650,6 +650,8 @@ function downloadPdf(pdfUrl){
                 }
             }
         }
+        xhr.onload = xhr.onprogress
+
         // so it's important to mark this done even if something goes wrong,
         // or we'll never make a decision to show the Green OA tab even if we find green. Eg:
         // https://link.springer.com/article/10.1023%2FB%3AMACH.0000011805.60520.fe
@@ -657,6 +659,7 @@ function downloadPdf(pdfUrl){
         xhr.onerror = function(){
             reject()  // it's not a pdf
         }
+        xhr.ontimeout = xhr.onerror
         xhr.send()
 
     })

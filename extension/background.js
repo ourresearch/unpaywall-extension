@@ -39,13 +39,3 @@ browser.runtime.onInstalled.addListener(function (object) {
         checkToShowWelcomePage()
     }
 });
-
-// when the user clicks on the tab, the contentScript will send up
-// a message. when we get that, open the link in a new tab.
-browser.runtime.onMessage.addListener(function(msg){
-    if (msg.upUrl) {
-        browser.tabs.create({
-            url: msg.upUrl
-        });
-    }
-});

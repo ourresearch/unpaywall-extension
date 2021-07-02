@@ -405,6 +405,22 @@ function findDoiFromNumber(){
     return runRegexOnDoc(/Document Object Identifier \(DOI\): (10.*?)<\/p>/, "www.nber.org")
 }
 
+function findDoiFromEpistemonikos(){
+    // gold: https://www.epistemonikos.org/en/documents/7342deed74b20db32345d92a3e1acff5e8139e22
+
+    if (myHost.indexOf("epistemonikos.org") < 0) {
+        return
+    }
+
+    var doiLinkElem = $("a").filter(function() {
+      return $(this).text() == 'DOI';
+    })
+
+    if (doiLinkElem.length){
+        return doiLinkElem[0].href
+    }
+}
+
 function findDoiFromPubmed(){
     // gold:   https://www.ncbi.nlm.nih.gov/pubmed/17375194
 
@@ -417,6 +433,7 @@ function findDoiFromPubmed(){
         return doiLinkElem[0].innerHTML
     }
 }
+
 
 function findDoiFromPsycnet(){
     // green: https://psycnet.apa.org/doiLanding?doi=10.1037%2Fstl0000104
@@ -471,7 +488,8 @@ function findDoi(){
         findDoiFromPsycnet,
         findDoiFromPubmed,
         findDoiFromInderScienceOnline,
-        findDoiFromCairn
+        findDoiFromCairn,
+        findDoiFromEpistemonikos,
     ]
 
     for (var i=0; i < doiFinderFunctions.length; i++){

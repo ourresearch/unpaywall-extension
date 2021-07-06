@@ -720,7 +720,7 @@ function insertIframe(name, url){
         return false
     }
 
-    iframe.src = browser.extension.getURL('unpaywall.html');
+    iframe.src = browser.runtime.getURL('unpaywall.html');
 
     iframe.style.height = "50px";
     iframe.style.width = '50px';

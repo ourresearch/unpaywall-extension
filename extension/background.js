@@ -2,11 +2,11 @@ if (typeof chrome !== "undefined" && chrome){
     browser = chrome
 }
 
-var logUrl = "http://unpaywall.org/log/install";
+var logUrl = "https://unpaywall.org/log/install";
 
 
 function showWelcomePage(){
-    browser.tabs.create({url: "http://unpaywall.org/welcome"}, function (tab) {});
+    browser.tabs.create({url: "https://unpaywall.org/welcome"}, function (tab) {});
 }
 
 function checkToShowWelcomePage(){

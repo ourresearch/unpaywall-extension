@@ -324,8 +324,8 @@ function findDoiFromMetaTags(){
         // those DOIs have strange character replacements in them, so ignore.
         // making universal rule cos i bet will help some other places too.
         // eg:
-        //      http://journals.sagepub.com/doi/10.1207/s15327957pspr0203_4
-        //      http://journals.sagepub.com/doi/abs/10.1177/00034894991080S423
+        //      https://journals.sagepub.com/doi/10.1207/s15327957pspr0203_4
+        //      https://journals.sagepub.com/doi/abs/10.1177/00034894991080S423
         if (myMeta.scheme && myMeta.scheme.toLowerCase() != "doi") {
             return true // continue iterating
         }
@@ -369,8 +369,8 @@ function findDoiFromDataDoiAttributes(){
 }
 
 // ScienceDirect
-// eg: http://www.sciencedirect.com/science/article/pii/S1751157709000881 (green)
-// eg: http://www.sciencedirect.com/science/article/pii/S0742051X16306692
+// eg: https://www.sciencedirect.com/science/article/pii/S1751157709000881 (green)
+// eg: https://www.sciencedirect.com/science/article/pii/S0742051X16306692
 function findDoiFromScienceDirect() {
     if (myHost.indexOf("sciencedirect") < 0) {
         return
@@ -395,13 +395,13 @@ function findDoiFromScienceDirect() {
 }
 
 function findDoiFromIeee(){
-    // green:   http://ieeexplore.ieee.org/document/6512846/
+    // green:   https://ieeexplore.ieee.org/document/6512846/
     // thanks to @zuphilip for a PR to get this started.
     return runRegexOnDoc(/"doi":"([^"]+)"/, "ieeexplore.ieee.org")
 }
 
 function findDoiFromNumber(){
-    // green:   http://www.nber.org/papers/w23298.pdf
+    // green:   https://www.nber.org/papers/w23298.pdf
     return runRegexOnDoc(/Document Object Identifier \(DOI\): (10.*?)<\/p>/, "www.nber.org")
 }
 
@@ -437,7 +437,7 @@ function findDoiFromPubmed(){
 
 function findDoiFromPsycnet(){
     // green: https://psycnet.apa.org/doiLanding?doi=10.1037%2Fstl0000104
-    // gray: http://psycnet.apa.org/record/2000-13328-008
+    // gray: https://psycnet.apa.org/record/2000-13328-008
     var re = /href="\/doi\/(10\..+?)"/
     return runRegexOnDoc(re, "psycnet.apa.org")
 }
@@ -531,21 +531,21 @@ function findPdfUrl(){
 
         var $link = $(link)
 
-        // http://www.nature.com/nature/journal/v536/n7617/full/nature19106.html
+        // https://www.nature.com/nature/journal/v536/n7617/full/nature19106.html
         if (/\/nature\/journal(.+?)\/pdf\/(.+?)\.pdf$/.test(link.href)) {
             pdfUrl = link.href
             return false
         }
 
-        // http://www.nature.com/articles/nmicrobiol201648
+        // https://www.nature.com/articles/nmicrobiol201648
         if (/\/articles\/nmicrobiol\d+\.pdf$/.test(link.href)) {
             pdfUrl = link.href
             return false
         }
 
         // NEJM
-        // open: http://www.nejm.org/doi/10.1056/NEJMc1514294
-        // closed: http://www.nejm.org/doi/full/10.1056/NEJMoa1608368
+        // open: https://www.nejm.org/doi/10.1056/NEJMc1514294
+        // closed: https://www.nejm.org/doi/full/10.1056/NEJMoa1608368
         if (link.getAttribute("data-download-content") == "Article") {
             pdfUrl = link.href
             return false
@@ -553,19 +553,12 @@ function findPdfUrl(){
 
         // Taylor & Francis Online
         if (myHost == "www.tandfonline.com") {
-            // open: http://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108
-            // closed: http://www.tandfonline.com/doi/abs/10.1198/tas.2011.11160
+            // open: https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108
+            // closed: https://www.tandfonline.com/doi/abs/10.1198/tas.2011.11160
             if (/\/doi\/pdf\/10(.+?)needAccess=true$/i.test(link.href)){
                 pdfUrl = link.href
                 return false
             }
-        }
-
-        //  The Journal of Clinical Endocrinology & Metabolism
-        if (myHost == "http://press.endocrine.org") {
-            // not sure if we should handle this one or not. it's on an old version of
-            // their website
-
         }
 
         // Centers for Disease Control
@@ -579,7 +572,7 @@ function findPdfUrl(){
 
         // ScienceDirect
         if (myHost == "www.sciencedirect.com"){
-            // open: http://www.sciencedirect.com/science/article/pii/S0360131517300726
+            // open: https://www.sciencedirect.com/science/article/pii/S0360131517300726
             if (link.getAttribute("pdfurl")){
                 pdfUrl = link.getAttribute("pdfurl")
                 return false
@@ -594,10 +587,10 @@ function findPdfUrl(){
     // look in the actual text of the page. has to be done when publishers
     // hide metadata in JS vars
     // IEEE Explore. always has a pdf link, whether closed or not.
-    // finds a pdf: http://ieeexplore.ieee.org/document/7169508/
+    // finds a pdf: https://ieeexplore.ieee.org/document/7169508/
     var ieeePdf = runRegexOnDoc(/"pdfPath":"(.+?)\.pdf",/, "ieeexplore.ieee.org")
     if (ieeePdf){
-        pdfUrl = "http://ieeexplore.ieee.org" + ieeePdf + ".pdf"
+        pdfUrl = "https://ieeexplore.ieee.org" + ieeePdf + ".pdf"
     }
 
     let absolutePdfUrl = getAbsoluteUrl(pdfUrl)
@@ -631,8 +624,8 @@ function pageSaysPdfIsFree(){
 
     var tests = [
         function(){
-            // gold: http://ieeexplore.ieee.org/document/7169508/
-            // not gold: http://ieeexplore.ieee.org/document/6512846/
+            // gold: https://ieeexplore.ieee.org/document/7169508/
+            // not gold: https://ieeexplore.ieee.org/document/6512846/
             return !!runRegexOnDoc(/"(isOpenAccess":true,)/, "ieeexplore.ieee.org")
         },
         function(){

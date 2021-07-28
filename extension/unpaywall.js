@@ -825,6 +825,7 @@ function runWithDelay(){
     var longDelayHosts = [
         "psycnet.apa.org",
         "doi.apa.org",
+        "psyarxiv.com",
     ]
 
     // it would be better to poll, but that is more complicated and we don't

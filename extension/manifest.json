@@ -1,7 +1,7 @@
 {
   "name": "Unpaywall",
   "version": "3.98",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Legally get full text of scholarly articles as you browse.",
   "icons": {
     "16": "img/icon-16.png",
@@ -15,18 +15,14 @@
       "strict_min_version": "53.0"
     }
   },
-  "browser_action": {
+  "action": {
     "default_icon": "img/icon.png",
     "default_title": "Unpaywall",
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": true
+    "service_worker": "background.js"
   },
-  "content_security_policy": "script-src 'self'; object-src 'self'",
 
   "content_scripts": [
     {
@@ -40,14 +36,22 @@
     }
   ],
   "permissions": [
-    "*://*.oadoi.org/*",
     "storage"
   ],
+  "host_permissions": [
+    "*://*.oadoi.org/*"
+  ],
   "web_accessible_resources": [
-      "unpaywall.html"
+    {
+      "resources": [
+        "unpaywall.html"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
   ],
   "options_ui": {
-    "page": "options.html",
-    "chrome_style": true
+    "page": "options.html"
   }
 }
